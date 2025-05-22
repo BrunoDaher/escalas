@@ -1,0 +1,123 @@
+
+.flex{
+    display: flex;
+    gap: 1vh;
+}
+
+main{
+    height: auto;
+    border-color: var(--main-bg-color);
+   
+    display: grid;
+    gap:2vh;
+    position: relative;
+}
+
+menu{
+    padding: 0;
+    margin: 0;
+}
+
+.mini{
+    width: 32px;
+    height: 32px;
+}
+
+.justCenter{
+    justify-self: center;
+    justify-content: center;
+}
+
+.micro{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.micro:hover{
+    filter: drop-shadow(2px 4px 6px var(--fundoE));
+}
+
+.itemCenter{
+    align-items: center;
+}
+
+.flexCenter{
+    display:flex;    
+    text-align: center;
+  /*  align-content: center; */
+  
+    gap: 1vh;
+}
+
+.grid{
+    display: grid;
+}
+
+.gridCenter{
+    display:grid;    
+    text-align: center;
+   /* align-content: center;*/
+    gap: 1vh;
+}
+
+.top {
+    top: 1vh;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(45, 255, 3, 0.5),
+      rgb(255, 49, 49)
+    );
+  }
+  
+  
+
+.col1{
+   column-count: 1;
+   
+}
+
+.col2{
+   column-count: 2;
+   grid-template-columns:repeat(2, 1fr)
+}
+
+.col3{
+    column-count:3;
+    grid-template-columns:repeat(3, 1fr)
+}
+
+.gap2{
+    gap: 2vh;
+}
+
+.my-2{
+    margin: 2vh 0;
+}
+
+.mb-2{
+    margin-bottom: 2vh;
+}
+
+.mb-1{
+    margin-bottom: 1vh;
+}
+
+input{
+    cursor: pointer;
+    color: var(--fundoE);
+}
+
+.w-100{
+    width: 100%;
+}
+
+.flexList{
+    display: flex;
+    gap: 2.7vh;
+}
+

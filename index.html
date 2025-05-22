@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalas</title>    
+    <link rel="stylesheet" href='css/style.css'>    
+</head>
+<body>    
+
+<header>
+    <menu  id="hMenu">
+        <div  id="wellcome" class="grid"> 
+            <a class="t1">Acordes e Escalas</a> 
+            <a class="t2">Bruno Coelho</a>
+          
+            
+        </div>
+    </menu> 
+
+</header>
+
+<main> 
+
+    <div id="container" class="container">
+        <div id='braco'></div>
+        <div id="controls" class="flex justCenter">
+            <input hidden="" id="playChord" type="button" class="btn1 " value="Chord">            
+            <input id="cleanMode" type="button" class="btn1 bordaA" value="Notas">
+            <input id="playSeq" type="button" class="btn1 bordaA" value="Sequencia">
+            <input id="reset" type="button" class="btn1 bordaA" value="Reset">
+        </div>
+    </div>  
+
+    <menu id="paineis" class="flexCenter justCenter">
+        
+         <div id="painelDois" class="painel">
+            <div id="daoBtns" class="flexCenter">
+                <img class="btn1 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
+                <img class="btn1 bordaA inv mini" src="img/icoDown.png" id="export">                
+                <img class="btn1 bordaA inv mini" src="img/icoUp.png" id="load" target="dataLoad"> 
+            </div>
+            <div id="currentItem" class="flex itemCenter justCenter filterB">
+                <label class="" id="arquivo"> Arquivo </label>
+                <img id="favorite" src="https://www.pngrepo.com/download/51018/favorite.png" class="micro inv">
+            </div>
+            
+            <div hidden> <input type="text" id="nomeSlot"></div>
+            
+            <div id="arquivos" class="memoria"></div>
+
+            <div class="flex">
+                <input hidden="" id="playChord" type="button" class="btn1 bordaA" value="Chord">            
+            </div>
+        </div> 
+
+        <div id="painelTres" class="painel flex">
+            <div id="listaArq">
+                <label class="legenda"> Lista </label>
+                <ul id="salvos" class="flex">
+                
+                </ul>
+            </div>
+            <div id="arquivos" class="memoria"></div>
+        </div>  
+        
+        <div id="painel" class="gridCenter painel"> 
+            <div id="editPanel" class="comp flex ">
+                   
+               
+                <a class="gridCenter" id="labelNomeSlot"></a>    
+                <label for="velo"><i class="bi bi-play-fill">Velo</i>  </label>
+                <input  type="range" id="velo" max="300" value="10" class="btn1 w-100 " step="10"> 
+                <div class="dao flex"> 
+                    <input hidden="" id="dataLoad" type="file">
+                </div>
+            </div>
+
+            <div class="flexList comp">
+                <div class=" gridCenter fit">
+                    <label>Edit Mode
+                    <label class="switch">
+                        <input id="editMode" type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    
+                </div>
+        
+                <div class="" >
+                    <label class="legenda">Add Acorde</label>
+                        <button id="addMem" class="btn bi bi-plus filter"></button>
+                        <button id="removeMem" class="btn bi bi-dash filter"></button> 
+                </div>
+             </div>
+     
+            <div id="memoria" class="memoria">                         
+            </div>
+            
+        </div>
+            
+        
+
+        <!--Metronomo-->
+        <div id="painelTres" class="painel grid col-2 gap2">
+         
+              <div class='cardMaster flexcenter font-center bg-dark'>            
+                
+                <div class="card bpm bg-dark  p-2">
+                      <div class='p-2 flexCenter mb-2'>
+                        <label class="switch">
+                            <input type="checkbox" class="" id="metroToggle" checked >
+                            <span class="slider round "></span>
+                        </label>
+                        <label for="metroToggle" style="margin-left:8px;">Metrônomo</label>
+                    </div>
+                
+                    <div class="card-header comp my-2 p-2">
+                    <div class='card-header bg-dark mb-1' id='lbpm' for='bpm'>120 BPM</div>                     
+                    <input class="w-100 bpm " type="range" min="1" max="240" value="120" id="bpm"> 
+                    </div>
+                </div>               
+                
+  
+  
+                
+            <div id="compasso" class="grid compasso" style="grid-template-columns: 1fr 1fr;">
+                <button id='p1' value="1" class="pulse">1</button>
+                <button id='p2' value="2" class="pulse">2</button>
+                <button id='p3' value="3" class="pulse">3</button>
+                <button id='p4' value="4" class="pulse">4</button>
+            </div>
+                
+            </div>  
+        </div>
+          
+            
+        </div>  
+    
+    
+      
+    </menu> 
+   
+    
+  
+     
+</main>
+
+<footer>
+</footer>
+
+    <script src="js/inicio.js"></script>  
+    <script src="js/painel.js"></script>  
+    <script src="js/keyboard.js"></script>  
+    <script src="js/metronomo.js"></script>  
+    <script src="js/tocador.js"></script>  
+    <script src="js/dao.js"></script> 
+    <script src="js/violao.js"></script>  
+    <script src="js/aux.js"></script>  
+
+</body>
+</html>
+
+

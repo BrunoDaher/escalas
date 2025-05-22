@@ -1,0 +1,100 @@
+  .white-key {
+    width: 50px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid #999;
+    margin-right: 0px;
+    cursor: pointer;
+    border-radius: 1vh;
+  }
+
+  .white-key > a {
+    margin-left: 2vh;
+    margin-top: 10em;
+    position: fixed;
+    margin-right: 0px;
+    cursor: pointer;
+  }
+
+  .noteLabel{
+    position: fixed;
+    /* border-width: thin; */
+    /* border-style: ridge; */
+    padding: 0.5vh;
+  }
+  
+  .black-key {
+    width: 30px;
+    height: 120px;
+    background-color: black;
+    position: relative;
+    margin-right: -15px;
+    margin-left: -15px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 1vh;
+  }
+
+  .black-key > a {
+    position: fixed;
+    margin-left: 1vh;
+    margin-top: 1em;
+    color: white;
+    font-size: x-small;
+  }
+
+  .black-key:hover, .white-key:hover, .on{
+    filter:drop-shadow(2px 4px 6px black);
+    background-image: linear-gradient(white, #03bcf4, transparent);
+    transition: all 0.3s;
+}
+
+
+  .d-flex{
+    display: flex;
+  }
+
+.justCenter{
+  justify-content: center;
+}
+
+  .knob-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .knob {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #7a0707, #ff0000ab);
+    /* box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.7); */
+    position: relative;
+    cursor: pointer;
+}
+  
+
+  .knob:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 25px;
+    background: #fdfdfd;
+    border-radius: 4px;
+
+  }
+
+  .volume-display {
+    top:0px;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
