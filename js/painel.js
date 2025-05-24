@@ -4,12 +4,12 @@ let label = null;
 function favBuild(nome){
   
     let div = document.createElement('div');
-        div.className = 'flexCenter comp';          
+        div.className = 'flexCenter itemCenter textCap placeContBetween';          
         
     let elemento = document.createElement('li');
         elemento.innerText = nome;
         elemento.id = "vg_" + nome;
-        elemento.onclick = arquivo;
+        elemento.onclick = clicaMusica;
         
         //o tipo da chamada interfere no "This"
         // precisa passar o evento pra poder usar o this
@@ -42,8 +42,25 @@ function salva(elemento){
 //PAINEL
 function favorite(){
     let nome =  document.getElementById('arquivo').innerText;  
-    let el = favBuild(nome);
-    salva(el);
+
+    let data = getLocalDataJSON('vg_' +  nome);
+    
+    console.log(data)
+
+  //  if(data == null){
+        let el = favBuild(nome);
+        salva(el);
+   // }
+   // else{
+        
+        //temporariamente pisca
+      //  document.getElementById('vg_' + nome).parentNode.classList.toggle('active');
+
+      //  setTimeout(()=>{
+      //      document.getElementById('vg_' + nome).parentNode.classList.toggle('active');
+     //   },400)
+   // }
+    
 }
 
 //PAINEL

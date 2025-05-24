@@ -48,6 +48,19 @@ body{
     filter: var(--filterB);
 }
 
+.placeContBetween{
+        place-content: space-between;
+
+}
+
+.textStart{
+    text-align: start;
+}
+
+.textCap{
+    text-transform: capitalize;
+}   
+
 .comp{
     background-color: var(--fundoC);
     padding: 0 6px;
@@ -73,15 +86,18 @@ body{
 
 #salvos{
     list-style-type: none;
-    margin: 0;
-    padding: 1vh;
+    margin: 1vh;
+    padding: 0vh;
     display: grid;
-    gap:1vh;
+    gap:2vh;
+    max-height: 60vh;
+    overflow-y: scroll;
 }
 
 #salvos > li , div>li   {
     cursor: pointer;
     color: white;
+    gap: 2vh;
     filter:drop-shadow(2px 4px 6px black);
 }
 

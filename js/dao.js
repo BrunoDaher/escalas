@@ -15,13 +15,16 @@ function storageRead(){
 
 //DAO 
 //abre o json e distribui em variaveis no sessionStorage
-function arquivo(){
+function clicaMusica(){
+
+
 
     let chave = this.id; // chamado por link texto <- this ja possui o id como chave
     let lista = JSON.parse(localStorage.getItem(chave));
 
     document.getElementById('arquivo').innerText = this.innerText;
  
+
     Object.keys(lista).forEach(chave => {
          sessionStorage.setItem(chave,lista[chave]);    
       });
@@ -200,8 +203,14 @@ function upload() {
       reader.readAsText(file);      
       
       let legenda = file.name.split('.')
-      document.getElementById('arquivo').innerText = legenda[0];
+
+      let elem = document.getElementById('arquivo')
+
+      elem.innerText = legenda[0];
       nome = legenda[0];
+
+
+
       //console.log(nome)
       
     }
@@ -218,9 +227,13 @@ function upload() {
       });
 
     }, false);
+
+    console.log("arquivo carregado");
+
+
     
     // document.getElementById('arquivo').innerText(chave);
-      //document.getElementById('favorite').click();
+      document.getElementById('favorite').click();
     //setTimeout(location.reload(),1000);
 
 }

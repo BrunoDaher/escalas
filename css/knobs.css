@@ -57,6 +57,10 @@
 .justCenter{
   justify-content: center;
 }
+.justStart{
+  justify-content: start;
+}
+
 
   .knob-container {
     position: relative;

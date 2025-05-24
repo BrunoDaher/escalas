@@ -115,6 +115,9 @@ input{
 .w-100{
     width: 100%;
 }
+.w-75{
+    width: 75%;
+}
 
 .flexList{
     display: flex;

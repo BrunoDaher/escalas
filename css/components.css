@@ -30,6 +30,7 @@ header{
     &.active{
 
         background-color: var(--fundoA);
+        
       
         color: white;
         border: 0;
