@@ -11,9 +11,17 @@
     height: 0;
   }
 
+  input[type="range"] {
+    accent-color: var(--colorA);
+        border-radius: 5vh;
+  }
 
   #velo{
-      background: var(--fundoC) !important;
+    background: var(--fundoD);
+    padding: 2px;
+    color: beige;
+    appearance: unset;
+
   }
   .bpm{
         cursor: pointer;

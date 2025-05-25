@@ -17,19 +17,24 @@ function storageRead(){
 //abre o json e distribui em variaveis no sessionStorage
 function clicaMusica(){
 
-
-
     let chave = this.id; // chamado por link texto <- this ja possui o id como chave
     let lista = JSON.parse(localStorage.getItem(chave));
 
     document.getElementById('arquivo').innerText = this.innerText;
  
-
     Object.keys(lista).forEach(chave => {
          sessionStorage.setItem(chave,lista[chave]);    
       });
     
    loadSlot();
+
+   //ativa
+ 
+  document.querySelectorAll('.clicaMus').forEach(el => {
+    el.classList.remove('active');
+  });
+  this.classList.add('active');
+
 }
 
 //DAO

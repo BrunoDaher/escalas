@@ -103,8 +103,14 @@ body{
 #salvos > li , div>li   {
     cursor: pointer;
     color: white;
+        opacity: 0.5;
     gap: 2vh;
     filter:drop-shadow(2px 4px 6px black);
+
+    &:hover, &.active{
+        color: var(--fundoE);
+        opacity: 1 !important;
+    }
 }
 
 #hMenu{
@@ -157,7 +163,7 @@ body{
 }
 
 .active {
-    background-color: coral;
+    
     color: white;
 }
 

@@ -9,6 +9,7 @@ function favBuild(nome){
     let elemento = document.createElement('li');
         elemento.innerText = nome;
         elemento.id = "vg_" + nome;
+        elemento.classList.add("clicaMus");
         elemento.onclick = clicaMusica;
         
         //o tipo da chamada interfere no "This"
@@ -50,8 +51,6 @@ function favorite(){
     
     setTimeout(()=>{
         
-
-  
     if(data == null){
       let el = favBuild(nome);
       salva(el);
@@ -60,8 +59,6 @@ function favorite(){
     else{
         console.log('ja existe')
     }
-        
-        
         
     },
     500);
