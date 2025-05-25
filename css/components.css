@@ -61,7 +61,7 @@ header{
 
 .painel{
     border-radius: 7px;
-    color: white;
+    color: var(--colorC);
     background:var(--fundoD);
     padding: 2vh;
     display: grid;
@@ -104,7 +104,7 @@ header{
 
         .btn2{
              cursor: pointer;
-            font-size: 20px;
+            font-size: 15px;
             font-family: 'Gill Sans';
             padding: 1vh;
                 background: var(--fundoD);

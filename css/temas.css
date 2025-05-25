@@ -32,11 +32,12 @@ input:focus, button:focus {
 
 
 .legenda{
-    height: 19px;
-    color: white;
-    width: auto;
-    border-radius: 4px;
-    padding: 2px;
+     /* height: 19px; */
+    /* color: white; */
+     width: fit-content; 
+    outline: none;
+    border: none;
+    /* padding: 2px; */
     text-align: -webkit-center;
 }
 
