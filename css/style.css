@@ -15,7 +15,7 @@
     --top: calc(12vh + 3vw);
     --topSides: calc(var(--top) + 8vw);
     --topInfo: calc(var(--top) + var(--topSides));
-    --fundoA: #4d7a8d;
+    --fundoA: #e48b56;
     --fundoB: black;
     --fundoC: #3c3d3e;
     --fundoD: #4a4c50;
