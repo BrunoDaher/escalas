@@ -23,9 +23,37 @@ menu{
     height: 32px;
 }
 
+.scroll25{
+        max-height: 25%;
+    overflow-y: scroll;
+    position: relative;
+
+
+}
+
+.scroll75{
+        max-height: 75%;
+    overflow-y: scroll;
+    position: relative;
+    
+
+}
+
+
+.scroll50{
+        max-height: 50%;
+    overflow-y: scroll;
+    position: relative;
+}
+
 .justCenter{
     justify-self: center;
     justify-content: center;
+}
+
+.justContAround{
+    
+    justify-content: space-around;
 }
 
 .micro{
@@ -117,6 +145,22 @@ input{
 }
 .w-75{
     width: 75%;
+}
+
+.p-2{
+    padding: 2vh;
+}
+
+.p-1{
+    padding: 1vh;
+}
+.p-0{
+    padding: 0;
+}
+
+.px-2{
+    padding: 0% 2vh;
+
 }
 
 .flexList{

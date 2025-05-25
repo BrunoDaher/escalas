@@ -131,6 +131,7 @@ function salvaLocal(){
       });
     objetos = sortedObjetos;
 
+    console.log(objetos)
   
     //atualiza
     setLocalDataJSON('vg_' + nome,objetos);
@@ -207,9 +208,7 @@ function upload() {
       let elem = document.getElementById('arquivo')
 
       elem.innerText = legenda[0];
-      nome = legenda[0];
-
-
+      nome = legenda[0].toLowerCase();
 
       //console.log(nome)
       
@@ -234,6 +233,14 @@ function upload() {
     
     // document.getElementById('arquivo').innerText(chave);
       document.getElementById('favorite').click();
+let el =   document.getElementById('vg_'+nome);
+
+if(el){
+  console.log(el)
+   el.click();  
+}
+   
+
     //setTimeout(location.reload(),1000);
 
 }

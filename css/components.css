@@ -90,6 +90,7 @@ header{
             font-size: 14px;
             font-family: 'Gill Sans';
             padding: 1vh;
+                background: var(--fundoC);
          
             transition: all 0.3s;
         }

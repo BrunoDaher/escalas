@@ -38,16 +38,11 @@
         
             <section id="paineis" class="flexCenter justCenter">
 
-                <div id="painelDois" class="painel">
-                    <small class="flexList mb-2">Arquivos</small>  
-                    <div id="daoBtns" class="flexCenter">
-                        <img class="btn1 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
-                        <img class="btn1 bordaA inv mini" src="img/icoDown.png" id="export">                
-                        <img class="btn1 bordaA inv mini" src="img/icoUp.png" id="load" target="dataLoad"> 
-                    </div>
+                <div id="painelDois" class="off painel">
+                  
                      
                  
-                    <div id="currentItem" class="flexCenter itemCenter justCenter my-2 filterB">
+                    <div id="currentItem" class="off flexCenter itemCenter justCenter my-2 filterB">
                      
                         <label class="" id="arquivo"> Arquivo </label>
                         <i id="favorite"  class="bi bi-arrow-right-circle inv"></i>
@@ -56,7 +51,7 @@
                     
                     <div hidden> <input type="text" id="nomeSlot"></div>
                     
-                    <div id="arquivos" class="memoria"></div>
+                    <div id="" class="memoria"></div>
 
                     <div class="flex">
                         <input hidden="" id="playChord" type="button" class="btn1 bordaA" value="Chord">            
@@ -64,12 +59,22 @@
                 </div> 
 
                 <div id="painelTres" class="painel ">
-                    <label class="flex"> Lista </label>
-                    <div id="listaArq" class="my-2">
+                    <label class="flex bi bi-music-note comp p-1"> Lista </label>
+                    <div id="listaArq" class="my-2 scroll25">
                         <ul id="salvos" class="flex">
                         </ul>
                     </div>
-                    <div id="arquivos" class="memoria"></div>
+
+
+                    <div class="comp p-2">
+                    <a class="flexList mb-2">Upload/Download</a>  
+                    <div id="daoBtns" class="flexCenter">
+                        <img class="btn1 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
+                        <img class="btn1 bordaA inv mini" src="img/icoDown.png" id="export">                
+                        <img class="btn1 bordaA inv mini" src="img/icoUp.png" id="load" target="dataLoad"> 
+                    </div>  
+                    </div>
+                    
                 </div>  
                 
                 <div id="painel" class="gridCenter painel"> 
@@ -84,20 +89,21 @@
                         </div>
                     </div>
 
-                    <div class="flexList comp">
-                        <div class=" gridCenter fit">
-                            <label>Edit Mode
-                            <label class="switch">
-                                <input id="editMode" type="checkbox" checked>
-                                <span class="slider round"></span>
+                    <div class="flexList comp justContAround">
+
+                            <label class="gridCenter ">Edit Mode
+                                <label class="switch">
+                                    <input id="editMode" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
                             </label>
-                            
-                        </div>
                 
-                        <div class="" >
+                        <div class="gridCenter" >
                             <label class="legenda">Add Acorde</label>
-                                <button id="addMem" class="btn bi bi-plus filter"></button>
-                                <button id="removeMem" class="btn bi bi-dash filter"></button> 
+                            <div class="flexList">
+                            <button id="addMem" class="btn1 bi bi-plus filter"></button>
+                            <button id="removeMem" class="btn1 bi bi-dash filter"></button> 
+                            </div>
                         </div>
                     </div>
             

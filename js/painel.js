@@ -45,11 +45,28 @@ function favorite(){
 
     let data = getLocalDataJSON('vg_' +  nome);
     
-    console.log(data)
+    setTimeout(()=>{
+        
+
+  
+    if(data == null){
+      let el = favBuild(nome);
+      salva(el);
+      console.log('salvando novo')
+    }
+    else{
+        console.log('ja existe')
+    }
+        
+        
+        
+    },
+    500);
+    
+
 
   //  if(data == null){
-        let el = favBuild(nome);
-        salva(el);
+      
    // }
    // else{
         
