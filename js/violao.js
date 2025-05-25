@@ -98,6 +98,8 @@ let braco = function (ncorda){
     //bolinhas de harmonico
     let marcas = [3,5,7,9,15,17,19];    
     let dupla = ['13:A','13:B']         
+
+    
     
     if(modus=='bass'){
         dupla = ['13:A','13:G'];

@@ -72,12 +72,14 @@ header{
   
     .memoria{
 
+
+
         grid-template-columns: 1fr 1fr 1fr 1fr;
         
     }
     
         .memoria > .btn1{
-            margin: 0.5vh;
+            margin: 0.2vh;
         }
 
     #ritmo > img{        
