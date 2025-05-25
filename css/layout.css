@@ -73,7 +73,7 @@ menu{
 .flexCenter{
     display:flex;    
     text-align: center;
-  /*  align-content: center; */
+  align-content: center; 
   
     gap: 1vh;
 }
@@ -166,5 +166,7 @@ input{
 .flexList{
     display: flex;
     gap: 2.7vh;
+    display: flex;
+    
 }
 

@@ -19,12 +19,14 @@
     --fundoB:black;
    --fundoC: #3c3d3e;
    --fundoD:#4a4c50;
-   --fundoE:#2196f3;
+   --fundoE:#3ed734e1;
     --fundoF:#f32121;
+       --fundoG:#905c15;
    --chroma:#00ff00;
-   --shadowA:#71aac381;
+   --shadowA:#d0bc5981;
    --colorA:var(--fundoA);
    --colorB:white;
+   --colorE:var(--fundoE);
    --width:90%;
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5)
@@ -61,9 +63,13 @@ body{
     text-transform: capitalize;
 }   
 
+.transp{
+    background-color: transparent;
+}
+
 .comp{
     background-color: var(--fundoC);
-    
+    height: fit-content;
     border-radius: 4px;
     align-items: center;
 

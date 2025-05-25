@@ -60,53 +60,70 @@
 
                 <div id="painelTres" class="painel ">
                     <label class="flex bi bi-music-note comp p-1"> Lista </label>
-                    <div id="listaArq" class="my-2 scroll25">
+                    <div id="listaArq" class="my-2 scroll75">
                         <ul id="salvos" class="flex">
                         </ul>
                     </div>
 
 
-                    <div class="comp p-2">
-                    <a class="flexList mb-2">Upload/Download</a>  
+                    <div class="comp grid p-2">
+                    <a class="p-2 m-2 bi bi-cloud-download-fill"> Up / Down</a>  
                     <div id="daoBtns" class="flexCenter">
-                        <img class="btn1 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
-                        <img class="btn1 bordaA inv mini" src="img/icoDown.png" id="export">                
-                        <img class="btn1 bordaA inv mini" src="img/icoUp.png" id="load" target="dataLoad"> 
+                        <img class="btn2 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
+                        
+                        
+                         <span class="bordaA mini btn2 bi bi-cloud-download-fill" id="export"></span>
+                        
+                        <!--<img class="btn1 bordaA inv mini" src="img/icoDown.png" id="export">      
+                        <img class="btn1 bordaA inv mini" src="img/icoUp.png" id="load" target="dataLoad">  
+                            -->
+                        
+                         <span class="bi bordaA mini  btn2 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
+                        
+                       
                     </div>  
                     </div>
                     
                 </div>  
                 
-                <div id="painel" class="gridCenter painel"> 
-                    <div id="editPanel" class="comp flex ">
-                        
-                    
+                <div id="painel" class="painel" style="grid-template-rows: 0fr 3fr 3fr;"> 
+
+                    <label class="flex bi bi-command comp p-1"> Controles </label>
+                   
+                    <!--Duracao-->
+                    <div id="editPanel" class="comp  p-2 ">
                         <a class="gridCenter" id="labelNomeSlot"></a>    
-                        <label for="velo"><i class="bi bi-play-fill">Velo</i>  </label>
-                        <input  type="range" id="velo" max="300" value="10" class="btn1 w-100 " step="10"> 
+                        <label for="velo"><i class="bi bi-play-fill">Duracao</i>  </label>
+                        <input  type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"> 
                         <div class="dao flex"> 
                             <input hidden="" id="dataLoad" type="file">
                         </div>
-                    </div>
+                             <div class="flexCenter justContAround comp p-1" >
+                        
+                        
+                            <div class="grid itemCenter">
+                                <label class="legenda">Add Acorde</label>
+                                <div class="flexCenter justCenter">
+                                    <span id="addMem" class="btn2 bi bi-plus filter"></span>
+                                    <span id="removeMem" class="btn2 bi bi-dash filter"></span> 
+                                </div>
+                            </div>
 
-                    <div class="flexList comp justContAround">
-
-                            <label class="gridCenter ">Edit Mode
+                            <label class="flexCenter">
+                                Edit Mode
                                 <label class="switch">
                                     <input id="editMode" type="checkbox" checked>
                                     <span class="slider round"></span>
                                 </label>
-                            </label>
+                          </label>
                 
-                        <div class="gridCenter" >
-                            <label class="legenda">Add Acorde</label>
-                            <div class="flexList">
-                            <button id="addMem" class="btn1 bi bi-plus filter"></button>
-                            <button id="removeMem" class="btn1 bi bi-dash filter"></button> 
-                            </div>
-                        </div>
                     </div>
-            
+                           <!--Velocidade-->
+                 
+                    </div>
+
+                 
+               
                     <div id="memoria" class="memoria">                         
                     </div>
                     
@@ -151,7 +168,7 @@
                 <div id="sequencia" class="painel flex">
                     <div id="tela" class="tela">
                         <span class="btn" id="deleteBtn" title="Excluir">
-                            <i class="bi bi-trash my-2"></i>
+                            <i class="bi bi-trash my-2 colorE"></i>
                         </span>
                     </div>
                 

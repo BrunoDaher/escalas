@@ -10,6 +10,11 @@ header{
     align-items: center;
 }
 
+.itemCenter{
+    align-items: center;
+    justify-content: center;
+}
+
 #controls{
     left: 7vw;
 }
@@ -59,18 +64,19 @@ header{
     color: white;
     background:var(--fundoD);
     padding: 2vh;
-   
+    display: grid;
+        align-items: normal;
     width: fit-content;
 }
   
     .memoria{
-        display: grid;    
+
         grid-template-columns: 1fr 1fr 1fr 1fr;
         
     }
     
         .memoria > .btn1{
-            margin: 1vh;
+            margin: 0.5vh;
         }
 
     #ritmo > img{        
@@ -93,6 +99,20 @@ header{
                 background: var(--fundoC);
          
             transition: all 0.3s;
+        }
+
+        .btn2{
+             cursor: pointer;
+            font-size: 20px;
+            font-family: 'Gill Sans';
+            padding: 1vh;
+                background: var(--fundoD);
+                align-content: center;
+
+                &:hover{
+                    background-color: var(--fundoA);
+                    color: white;
+                }
         }
     
 

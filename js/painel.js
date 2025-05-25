@@ -19,6 +19,9 @@ function favBuild(nome){
         btnDel.type = 'button'
       
         btnDel.classList.add('trash');
+        btnDel.classList.add('bi');
+        btnDel.classList.add('bi-eraser-fill');
+        btnDel.classList.add('colorE');
 
         div.append(elemento)   
         div.append(btnDel)    
