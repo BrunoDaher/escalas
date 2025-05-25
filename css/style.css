@@ -21,13 +21,14 @@
     --fundoD: #4a4c50;
     --fundoE: #f9ac47fa;
     --fundoF: #f32121;
-    --fundoG: #905c15;
+    --fundoG: #4f4040;
     --chroma: #8aad8a;
     --shadowA: #d0bc5981;
     --colorA: var(--fundoA);
     --colorB: white;
     --colorC: #d7a734;
     --colorE: #438ac5e1;
+
    --width:90%;
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5)
@@ -78,7 +79,7 @@ body{
 
 
 .lista{
-    display: flex;
+    
     grid-template-columns: 1fr 1fr;
     place-items: center;
     background-color: #00000038;

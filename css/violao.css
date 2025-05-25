@@ -86,7 +86,7 @@ p {
 
 
 .braco , .corda > div{
-    background-color:#795548;                        
+    background-color: var(--fundoG);                        
 }
 
 .corda > div.capo{

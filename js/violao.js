@@ -73,6 +73,7 @@ function getChord(){
 
 }
 
+
 //BRACO
 function montaBraco(){
     document.querySelector('#braco').innerHTML ='';    
@@ -224,4 +225,12 @@ function chordEdit(){
     chordEditStatus = !chordEditStatus;
    // console.log(chordEditStatus);
     
+}
+
+function tema(){
+
+ 
+    const corEscala = document.getElementById('corEscala').value;
+    document.documentElement.style.setProperty('--fundoG', corEscala);
+    //document.getElementById('nomeSlot').value = name;
 }

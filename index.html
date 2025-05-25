@@ -26,23 +26,42 @@
 
     <div id="container" class="container">
         <div id='braco'></div>
-        <div id="controls" class="flex justCenter">
-            <input hidden="" id="playChord" type="button" class="btn1 " value="Chord">            
-            <input id="cleanMode" type="button" class="btn1 bordaA" value="Notas">
-            <input id="playSeq" type="button" class="btn1 bordaA" value="Sequencia">
-            <input id="reset" type="button" class="btn1 bordaA" value="Reset">
-        </div>
+      
     </div>  
 
     <menu class="">
         
-            <section id="paineis" class="flexCenter justCenter">
+            <section id="paineis" class="flexCenter gap2 justCenter">
 
-                <div id="painelDois" class="off painel">
-                  
-                     
+                <div id="painelDois" class="painel">
+                
+                
+                <div class="flex justContBetween comp">
+                    <label class=" p-1" >
+                        <i class="bi bi-wrench-adjustable"></i> 
+                        <a>Opções</a>
+                        
+                    </label>     
+                </div>
+                
+                
                  
-                    <div id="currentItem" class="off flexCenter itemCenter justCenter my-2 filterB">
+
+                 <div id="controls" class="flex justCenter" style="height: fit-content;">
+                    <input hidden="" id="playChord" type="button" class="btn1 " value="Chord">            
+                    <input id="cleanMode" type="button" class="btn1 bordaA" value="Braço">
+                    <input id="playSeq" type="button" class="btn1 bordaA" value="Sequencia">
+                    <input id="reset" type="button" class="btn1 bordaA" value="Reset">
+                      
+                 </div>
+                 
+                 <div class="flex itemCenter">
+                   <label for="corEscala">Cor escala</label>
+                    <input onchange="tema()" id="corEscala" type="color" class="bordaA" value="white">
+                 </div>
+
+              
+                    <div id="currentItem" class="off flexCenter gap2 itemCenter justCenter my-2 filterB">
                      
                         <label class="" id="arquivo"> Arquivo </label>
                         <i id="favorite"  class="bi bi-arrow-right-circle inv"></i>
@@ -59,7 +78,11 @@
                 </div> 
 
                 <div id="painelTres" class="painel ">
-                    <label class="flex bi bi-music-note comp p-1">Lista </label>
+                    <div class="comp p-1 flex">
+                       <i class="bi bi-music-note"></i>
+                      <label class="">Lista </label>
+                    </div>
+                 
                     <div id="listaArq" class="my-2 scroll75">
                         <ul id="salvos" class="flex">
                         </ul>
@@ -68,7 +91,7 @@
 
                     <div class="comp grid p-2">
                     <a class="p-2 m-2 bi bi-cloud-download-fill"> Up / Down</a>  
-                    <div id="daoBtns" class="flexCenter">
+                    <div id="daoBtns" class="flexCenter gap1">
                         <img class="btn2 bordaA inv mini  " src="img/noAr.svg" id="chroma">    
                         
                         
@@ -99,14 +122,14 @@
 
                         <div class="flexCenter gap2 justContAround" style="zoom: 0.8;">  
                              <label class="flexCenter cordaSolta">
-                                Edit Mode
+                                <a>Edit Mode</a>
                                 <label class="switch">
                                     <input id="editMode" type="checkbox" checked>
                                     <span class="slider round"></span>
                                 </label>
                           </label>
                            
-                          <label class="flexCenter cordaSolta">
+                          <label class="flexCenter gap1 cordaSolta">
                             <a>Add/Rem</a>
                              <label class="">
                              
