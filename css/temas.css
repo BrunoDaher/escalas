@@ -1,0 +1,117 @@
+.vinheta{
+    background-color: var(--main-bg-color);
+    filter: blur(12vh);
+    backdrop-filter: brightness(0.5);
+}
+
+.bgClean{
+    background-color:white;
+    color:black
+}
+
+label{
+    cursor: unset;
+}
+
+
+.paint-bucket {
+  /* O 'auto' é o cursor de fallback (reserva) que será usado caso a imagem personalizada não carregue
+     16 16 são as coordenadas x,y do ponto de clique do cursor (hotspot) */
+  cursor: pointer;
+}
+
+
+
+.figritm{
+    font-family: 'Hymnus FG';
+}
+
+.curs{
+    font-family: cursive;
+}
+
+.bgDark2{
+    background-color:var(--fundoE);
+    color:var(--colorB);
+
+
+}
+
+.bgDark{
+    background-color:var(--fundoC);
+    color:var(--fundoA);
+
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--fundoA) !important;
+}
+
+input:focus, button:focus {
+    outline-width: 0;
+}
+input[type="color"] {
+     border-radius: 1vh; 
+    /* appearance: none; */
+        filter: drop-shadow(1px 1px 1px var(--fundoB) );
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    backdrop-filter: opacity(0);
+    color: transparent;
+    /* background-color: transparent; */
+    border-color: unset;
+    border-width: 12px;
+    border-style: dashed;
+    background: unset;
+    height: 0px;
+    width: 40px;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+      border: none;
+  }
+.bordaA{
+    border-style:solid;
+    border-color: var(--fundoD);
+    border-radius: 4px;
+    
+}
+
+.rad1{
+    border-radius: 1vh;
+}
+
+
+.legenda{
+     /* height: 19px; */
+    /* color: white; */
+     width: fit-content; 
+    outline: none;
+    border: none;
+    /* padding: 2px; */
+    text-align: -webkit-center;
+}
+
+
+
+
+.filtro{
+    filter: brightness(95%) hue-rotate(80deg) saturate(354%);
+    -webkit-filter: brightness(95%) hue-rotate(80deg) saturate(354%);
+    -moz-filter: brightness(95%) hue-rotate(80deg) saturate(354%);
+}
+
+
+
+.croma{
+    padding: 2em;
+    background: rgb(0, 255, 0);
+}
+
+/*violao*/

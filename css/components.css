@@ -1,0 +1,322 @@
+
+.itemCenter{
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#controls{
+    left: 7vw;
+}
+
+#compasso > button{
+    
+    border-color:var(--fundoC);   
+    background-color: var(--fundoD);
+    color: var(--colorB);
+    font-size: 3vh;
+    border-radius: 1vh;
+    text-align: left;
+    justify-items: start;
+    text-anchor: start;
+
+
+    &:hover{
+        background-color: var(--fundoA);
+        cursor: pointer;
+        filter: drop-shadow(2px 4px 6px var(--fundoA));
+        border: none;
+    }
+
+    &.active{
+
+        background-color: var(--fundoA);
+        
+        border: 0;
+    }
+
+
+  }
+
+  .pulse{
+       display: flex;
+    gap: 2px;
+    width: 100%;
+    padding: 4px;
+    background-color: var(--fundoD);
+    filter: drop-shadow(1px 1px 1px black);
+    
+
+     &.active{
+           background-color: var(--fundoA);
+            color: unset;
+            
+     }
+     
+
+  }
+
+
+@media (max-width: 768px) {
+    .pulse {
+        width: 100% !important; /* Ocupa toda a largura em telas pequenas */
+    }
+}
+
+.subdivision{
+    background-color: var(--colorB);
+    height: unset;
+    font-size: 22px !important;
+
+}
+
+#messenger{
+   position: absolute;
+    
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    backdrop-filter: brightness(0.2) blur(1px);
+    
+}
+      #messenger > section{
+        z-index: 11;
+        filter: drop-shadow(2px 4px 6px black);
+        margin: 1em;
+        position: absolute;
+        width: 40vh;
+        background-color: var(--fundoD);
+        backdrop-filter: blur(4em);
+        border-radius: 1vh;
+        right: 2em;
+        margin: 2em;
+        top: 3em;
+    }
+
+    
+    
+
+  #receiving{
+            background-color: var(--fundoC);
+     max-height: 30vh;
+        overflow-y: scroll;
+    }
+
+
+
+.logCont{
+    margin-left: 1vh;
+    background-color: var(--fundoE);
+    border-radius: 2vh 1px;
+    padding: 1vh;
+    gap: 1vh;
+    width: fit-content;
+}
+
+#paineis{
+     display: grid; 
+    grid-template-columns: repeat(3, auto) 35%
+}
+
+
+           @media (max-width: 400px) {
+                #paineis {
+                       grid-template-columns: repeat(5, 45vw);
+        }
+    }
+
+.painel{
+    border-radius: 7px;
+    color: var(--colorC);
+    background: var(--fundoD);
+    padding: 1vh;
+    gap: 1vh;
+
+}
+
+@media (max-width:500px){
+    #memoria {
+        
+    }
+}
+  
+    .memoria{
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        height: 120px;
+    align-content: baseline;
+    }
+    
+    
+
+    #ritmo > img{        
+        border-radius: 100px;
+        width: 6%;
+        filter: grayscale(100%) sepia(100%) hue-rotate(1deg);
+    }    
+    
+    #ritmo > img.on{            
+        filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+        transition: all 0.1s;
+
+    }    
+
+    .recOn 
+    {
+        background-color: var(--fundoA) !important;
+        color:  white;
+        transition: all 0.3s;
+        filter: var(--filterB);
+    }
+
+
+    .btn1{
+        cursor: pointer;
+        font-size: 14px;
+        font-family: 'Gill Sans';
+        padding: 1vh;
+        color: var(--colorA);
+        background: var(--fundoC);
+        transition: all 0.3s;
+
+        &.active, &:hover, &:focus{
+            background-color: var(--fundoA);
+            color: white;
+        }
+        
+    }
+
+    .btn2{
+       cursor: pointer;
+    font-size: 16px;
+    font-family: 'Gill Sans';
+    padding: 5px;
+    /* margin: 2px; */
+    background: var(--fundoE);
+    align-content: center;
+    
+
+            &:hover, &.active{
+                background-color: var(--fundoA);
+                
+            }
+    }
+
+    .btn3{
+        cursor: pointer;
+        border-radius: 0.5vh;
+        font-size:0.7rem;
+        font-family: 'Gill Sans';
+        padding: 1vh;
+            margin: 2px;
+            background: var(--fundoC);
+            align-content: center;
+            color: white;
+        
+            &:hover, &.active{
+                background-color: var(--fundoD);
+            }
+    }
+
+
+    .btn4 {
+        background-color: var(--fundoC);
+        padding: 1vh;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+/* No desktop, hover e focus mudam o fundo */
+@media (hover: hover) {
+  .btn4:hover,
+  .btn4:focus {
+    background-color: var(--fundoA);
+  }
+}
+
+/* A classe active sempre muda o fundo */
+.btn4.active {
+  background-color: var(--fundoA);
+}
+
+        .clicaMus{
+            text-transform: capitalize;
+        }
+
+    #wellcome{
+        
+        
+        
+        
+    }
+    
+
+
+    .container{
+        display: grid;
+        gap: 2vh;
+    }
+  
+    #pesquisa{
+            position: absolute;
+            background-color: #191616f0;
+            z-index: 0;
+            height: 100%;
+            width: 100%;
+
+            &.selected{
+                z-index: 2;
+            }
+        }
+
+
+   
+    .listas , legend{
+        border-style: ridge;
+        border-color: var(--box-bg-color);
+        padding: 1vw;
+        display: grid;
+        gap: 4px;
+        margin: 1vh;
+    }
+            /*pode dar problema */
+
+
+            .camera{
+                
+                border-radius: 8px; 
+                display: flex;
+                align-items: center;
+                position: relative;
+                 
+                height:30vh;
+                justify-content: center; 
+                flex-direction: column;
+
+                &>label{
+                    position: absolute;
+                    top: 0;
+                        align-self: baseline;
+                        align-items: center;
+                            
+
+                }
+
+
+            }
+
+footer{
+    position: fixed;
+    padding: 1vh;
+    bottom: 0;
+    place-content: center;
+}
+
+
+
+
+
+ 

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Hymnus FG';
+    src: url('HymnusFG.woff2') format('woff2'),
+        url('HymnusFG.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.f1em{
+    font-size: 1em;
+}
+
+.f2em{
+  font-size: 2em;
+}
+
+.f2vh{
+    font-size: 2vh;
+}
+
+.f3vh{
+    font-size: 3vh;
+}
+
+
+
+.f3em{
+    font-size: 3em;
+}
+
+.f1rem{
+    font-size: 1rem;
+}
+
+
+.t1{
+    font-size: 4vh;
+   
+    filter: drop-shadow(2px 4px 6px var(--fundoB));
+    color: var(--fundoA);
+    /*font-family: 'bootstrap-icons'; /*fantasy*/
+   }
+   
+
+.t2{
+    width: fit-content;
+    position: relative;
+    
+    filter: drop-shadow(2px 4px 6px var(--fundoB)) brightness(7.5);
+    color: var(--colorB);
+    /*font-family: 'bootstrap-icons';/*fantasy*/
+
+}
+
+.t3{
+    cursor: pointer;
+    color: white;
+    font-size: 2.3vh;
+    
+}
+

@@ -1,0 +1,58 @@
+.dragContainer {
+
+}
+
+input.btnChord{
+       
+    font-size: 1.8vh;
+ transition: all 0.3s;
+ align-content: flex-start;
+ 
+        
+}
+
+
+.btnChord.edit{
+
+     
+      font-style: italic;
+      filter: brightness(0.9) hue-rotate(160deg) saturate(124%);
+      transition: all 0.3s;
+     
+}
+
+.item {
+    
+     font-size: 2vh; 
+   width: 3em;
+    height: 2em;
+    align-content: center;
+    text-align: center;
+    /* margin: 2px; */
+    background: var(--fundoC);
+    color: white;
+  cursor: pointer;
+
+  &:hover{
+    background-color: var(--fundoA);
+  }
+
+}
+.voando {
+  background-color: var(--colorE) !important;
+  animation: bgPulse 0.2s infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% {
+    background-color: var(--colorE);
+  }
+  100% {
+    background-color: var(--fundoA);
+  }
+}
+
+
+  .gu-transit{
+   
+  }

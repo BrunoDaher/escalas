@@ -1,0 +1,97 @@
+
+import {Fire}  from './firebase.js';
+import {Aux} from '../util/aux.js'
+
+const aux = new Aux();
+
+export class Acesso {
+
+    constructor() {
+        this.fire = new Fire();
+
+    }
+    
+    async userOn() {
+        const isLogged = await this.fire.estaLogado();
+        if (isLogged) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+    getFire()
+    {
+        return this.fire;
+    }
+
+    renderLogon() {
+        return `
+          
+            <div id="acesso" class=" p-2 flexCenter gap1">
+                <input type="text" id="login" placeholder="Login" class="bordaA btn2">
+                <input type="password" id="senha" placeholder="Senha" class="bordaA btn2">
+                <button id="btnSignIn" class="btn1 bordaA m1">Entrar</button>
+            </div>
+        `;
+    }
+
+    renderUser() {
+
+        let userInfo = this.fire.getAuth().currentUser.email || '';
+
+        return `
+            <div id="divUser" class=" flex itemCenter">
+                <span id='btnMsgr'  
+                            class="f1rem btn3 bi-chat flex gap1" 
+                            data-target="messenger">
+                    Mensagens
+                </span>
+                <i id='userInfo' class="f1rem bi bi-person-circle filterA flex itemCenter">
+                ${userInfo}</i>
+                <span id='btnSignOut' class="f1rem btn1">Sair</span>
+            </div>
+        `;
+    }
+
+    showSignIn() {
+
+        aux.getById('hMenu').innerHTML = this.renderLogon();
+
+         let btnSignin = aux.getById('btnSignIn');
+
+        //trigger botao logon
+        btnSignin.onclick = async () => {
+            const login = aux.getById('login').value;
+            const senha = aux.getById('senha').value;
+            try {
+                await this.fire.signIn(login, senha);
+                this.renderUser();
+                this.showUser();
+            } catch (error) {
+                alert('Erro ao entrar no app: ' + error.message);
+            }
+        }
+    }
+
+    showUser() {
+        aux.getById('hMenu').innerHTML = this.renderUser();
+        let btnSignOut = aux.getById('btnSignOut');
+
+        //trigger botao logoff
+        btnSignOut.onclick = async () => {
+            try {
+                await this.fire.signOut();
+                this.showSignIn();
+            } catch (error) {
+                console.log('Erro ao sair da app: ' + error.message);
+            }
+        }
+    }
+}
+
+// Exemplo de uso:
+// Exemplo de uso:
+// const acesso = new Acesso();
+// acesso.init();
