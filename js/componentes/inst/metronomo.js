@@ -50,9 +50,21 @@ export class Metronomo {
             `;
         
       
+            let classe = '';
 
         for (const fig of figuras) {
-            figurasHtml += `<span class="figura-btn btn3 f2em figritm" data-value="${fig.value}" title="${fig.title}">${fig.text}</span>`;
+
+            classe = fig.value === 1 ? 'active' : '';
+
+            figurasHtml += 
+            
+            `<span class="figura-btn btn3 ${classe}  f2em figritm" 
+                data-value="${fig.value}" 
+                title="${fig.title}">
+                ${fig.text}
+            </span>`;
+
+            
         }
 
         figurasHtml += `</div>`;
@@ -69,15 +81,28 @@ export class Metronomo {
             `; 
         
         painelClock.innerHTML += `
-            <div class="card bpm bg-dark">${wrap}
-                    <div class="comp p-1">
-                        <div class='card-header bg-dark mb-1' id='lbpm' for='bpm'>120 BPM</div>
-                        <input class="w-100 bpm" type="range" min="1" max="240" value="120" id="bpm">
+            <div class="card bpm bgDark">${wrap}
+                    <div class="comp p-1 flex justContAround">
+                        <div class='flex w-75'>
+                            <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
+                            <input class="w-100 bpm" type="range" min="1" max="240" value="120" id="bpm">
+                        </div>
+
+                          <div class="comp flex ">
+                            <a class='card-header flex' id='lbpm' for='bpm'>Compassos</a>
+                             ${[1, 2, 3, 4].map(i => `
+                                    <span count="${i}" class="compCount btn3 f1rem bordaA p-1 ${i === 4 ? 'active' : ''}">
+                                    ${i}
+                                </span>
+                        `).join('')}
+                         </div>
                     </div>
                     
+                  
+
                     <div id="compasso" class="compasso  w-100 flex m-1 justCenter">
                         ${[1, 2, 3, 4].map(i => `
-                            <div id='p${i}' value="${i}" class="pulse w-100 drag-container  ">
+                            <div id='p${i}' value="${i}" class="pulse w-100   ">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
                                     `<div class="subdivision w-100 btn4">
                                     ${j + 1}</div>`).join('')}
@@ -96,6 +121,7 @@ export class Metronomo {
     }
 
     setPulses(n) {
+        
         this.pulsos = n;
         [2, 3, 4].forEach(p => {
             document.getElementById(`p${p}`).classList.toggle('none', this.pulsos < p);
@@ -103,7 +129,13 @@ export class Metronomo {
     }
 
     onPulseClick = (e) => {
-        this.setPulses(e.target.value);
+        
+        document.querySelectorAll('.compCount').forEach(
+            b => b.classList.remove('active')
+        );
+        e.target.classList.add('active');
+
+        this.setPulses(e.srcElement.getAttribute('count') );
     }
 
     stop() {
@@ -210,7 +242,7 @@ export class Metronomo {
     addListeners() {
         this.bpmInput.addEventListener("change", this.onBpmChange);
 
-        document.querySelectorAll(".pulse").forEach(pulse =>
+        document.querySelectorAll(".compCount").forEach(pulse =>
             pulse.addEventListener("click", this.onPulseClick)
         );
     document.getElementById('wrap').addEventListener('change', this.onWrapChange);             

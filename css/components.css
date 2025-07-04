@@ -39,6 +39,20 @@
 
   }
 
+  .compCount{
+    border-radius: unset;
+    
+         
+    transition: all 0.3s;
+
+    &.active{
+        border-color: var(--fundoC) !important;
+                border-style: inset !important;
+                transition: all 0.3s;
+    }
+    
+  }
+
   .pulse{
        display: flex;
     gap: 2px;
