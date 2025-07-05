@@ -93,7 +93,8 @@ export class Arquivos {
         const exportBtn = document.getElementById('export');
         if (exportBtn) {
             exportBtn.addEventListener('click', () => {
-                alert('Exportar arquivo');
+               // alert('Exportar arquivo');
+                this.dao.exportData();
                 // Lógica para exportar
             });
         }

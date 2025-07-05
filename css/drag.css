@@ -53,6 +53,6 @@ input.btnChord{
 }
 
 
-  .gu-transit{
-   
+  .gu-transit, .voando{
+    background-color: var(--colorE) !important;
   }

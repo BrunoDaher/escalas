@@ -74,7 +74,7 @@ function triggers(){
   acordes.renderAll();
   arquivos.renderAll();
   metronomo.init();  
-  dragula.eventos();
+  dragula.init();
 
 };    
 

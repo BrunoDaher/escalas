@@ -70,11 +70,7 @@ export class Acordes extends Aux{
                                     <span class="slider round"></span>
                                 </label>
                             </label>
-                        <!-- Bloco: Velocidade -->
-                            <label for="velo" class="flex p-1 itemCenter gap2">
-                                <i class="bi bi-clock flex"> Velocidade</i>  
-                                <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
-                            </label>
+                   
                         
                         <!-- Controle: Adicionar/Remover -->
                         <div class="flex itemCenter gap2">
@@ -94,6 +90,11 @@ export class Acordes extends Aux{
                     <div class="comp justContBetween p-1 flex textStart"> 
                         <a class="bi-music-note-list"> Acordes & Escalas</a>
                         <!-- Controle: Renomear -->
+                             <!-- Bloco: Velocidade -->
+                            <label for="velo" class="flex p-1 itemCenter gap2">
+                                <i class="bi bi-clock flex"> Velocidade</i>  
+                                <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
+                            </label>
                         <label class="gap1 flex itemCenter">
                             <a>Renomear</a>
                             <label class="switch">
@@ -308,7 +309,7 @@ export class Acordes extends Aux{
                     velo="${velo}" 
                     value='${btnLabel}'
                     style="user-select: none;"
-                >${btnLabel}<span>
+                >${btnLabel}</span>
             `);
 
 

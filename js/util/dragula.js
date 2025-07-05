@@ -2,67 +2,127 @@ export class Dragula {
   
   constructor() {
     
-
- 
    // this.initEvents();
     //this.toggleDragula(); // Inicializa o estado
   }
 
   init(){
-   const dragId = 'drag';
+    const dragId = 'drag';
     const containerSelector = '.dragContainer'
 
     this.drag = document.getElementById(dragId);
-    
+ 
     this.containers = Array.from(document.querySelectorAll(containerSelector));
-    this.drake = dragula(this.containers);
-
     this.toggleDragula = this.toggleDragula.bind(this);
+
+    this.drag.addEventListener('click', this.toggleDragula);
+
+    console.log(this.drag)
   }
 
   toggleDragula() {
-    if (this.drag.checked) {
+
+    let copy = false;
+    this.drakeInit(copy);
+    this.eventos();
+
+    if (!this.drag.checked) {
       this.drake.containers.forEach(c => c.setAttribute('data-drag-enabled', 'true'));
     } else {
       this.drake.containers.forEach(c => c.setAttribute('data-drag-enabled', 'false'));
     }
+     
   }
 
-  eventos() {
-
-
-    this.init();
-    this.drag.addEventListener('click', this.toggleDragula);
+  drakeInit(_copy) {
     
+    if(this.drake){
+      this.drake.destroy();
+    }
+ 
+    this.drake = dragula(this.containers, {
+     // copy: _copy,
+      revertOnSpill: true,
+      moves: (el, source, handle, sibling) => {
+        return true;
+      },
+      accepts: (el, target, source, sibling) => {
+        return true // bloqueia soltar nesse container
+      },
+      copy: (el, source) => {
+        let interno = source.id === el.parentElement.id;
 
-    this.drake
-      .on('drag', (el) => {
-        if (this.drag.checked == "true") {
-          el.classList.add('voando');
-          this.drake.cancel(true);
+        console.log(source.id, el.parentElement.id)
+          return true// clona só se estiver vindo do container de origem
         }
-      })
-      .on('drop', (el, target, source) => {
-        el.setAttribute('seq', target.id);
-        if (this.drag.checked) this.drake.cancel(true);
-      })
-      .on('over', (el, container) => {
-        if (this.drag.checked) this.drake.cancel(true);
-      })
-      .on('out', (el, container) => {
-        if (this.drag.checked) this.drake.cancel(true);
-        else container.style.backgroundColor = '';
-      })
-      .on('cloned', (clone, original, type) => {
-        if (this.drag.checked) this.drake.cancel(true);
-      });
-
-
-        this.toggleDragula();
-  }
-
+      });   
 
 }
 
-// Para usar:
-// const dragulaManager = new DragulaManager();
+  eventos() {
+
+    this.drake
+      .on('drag', (el) => {
+      
+        if(el.draggable){
+          el.classList.add('voando'); 
+        }
+        else{
+           el.classList.remove('voando'); 
+        }
+
+       
+      })
+      .on('drop', (el, target, source) => {
+        el.setAttribute('seq', target.id);
+        if (this.drag.checked) 
+          {
+            this.drake.cancel(true);
+          }
+      })
+      .on('over', (el, container) => {
+         if(el.classList.contains('gu-transit')){
+          el.classList.add('voando');
+         }
+          
+        if (this.drag.checked) 
+        {
+          this.drake.cancel(true);
+           
+        }
+      })
+      .on('out', (el, container) => {
+         console.log('deixou o elemento')
+        if (this.drag.checked) 
+          {
+            this.drake.cancel(true);
+          }
+        else {
+            container.style.backgroundColor = '';
+        }
+        el.classList.remove('voando');
+      })
+      .on('cloned', (clone, original, type) => {
+        
+        
+        clone.onclick = ()=>{
+          original.click();
+        }
+
+        setTimeout(()=>{  
+          
+            clone.id = original.innerText + '_' + clone.parentNode.id + '_'+ original.id;
+          }
+          ,
+        
+        400)
+      
+      
+        if (this.drag.checked) {
+          this.drake.cancel(true);
+        }
+         
+      });
+  }
+}
+
