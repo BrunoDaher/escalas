@@ -259,10 +259,14 @@ export class Acordes extends Aux{
         // Usa prompt nativo para editar o nome
         let novoNome = prompt('Editar nome:', elemento.innerText);
 
+        let elemTarget = elemento.getAttribute('data-target');
+
         if (novoNome !== null && novoNome.trim() !== '') {
+            console.log('Novo nome:', novoNome);
             // Remove o item antigo do localStorage e sessionStorage
             const oldId = elemento.id;
             const newId = 'vg_' + novoNome.trim();
+
 
             // Remove o antigo
             localStorage.removeItem(oldId);
@@ -273,9 +277,15 @@ export class Acordes extends Aux{
             elemento.id = newId;
 
             // Atualiza o texto e salva com o novo id
-            elemento.innerText = novoNome;
+
+            let target = (this.getById(elemTarget));
+
+            target.innerText = novoNome;
             this.dao.setLocalDataJSON(novoNome,elemento);
 
+        }
+        else{
+            console.log('Nome inválido ou vazio');
         }
 
     
