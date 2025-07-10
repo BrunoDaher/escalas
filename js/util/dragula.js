@@ -16,13 +16,11 @@ export class Dragula {
     this.toggleDragula = this.toggleDragula.bind(this);
 
     this.drag.addEventListener('click', this.toggleDragula);
-
-    console.log(this.drag)
   }
 
   toggleDragula() {
 
-    let copy = false;
+    let copy = true;
     this.drakeInit(copy);
     this.eventos();
 
@@ -63,22 +61,40 @@ export class Dragula {
 
     this.drake
       .on('drag', (el) => {
-      
         if(el.draggable){
           el.classList.add('voando'); 
         }
         else{
            el.classList.remove('voando'); 
         }
-
-       
       })
       .on('drop', (el, target, source) => {
         el.setAttribute('seq', target.id);
-        if (this.drag.checked) 
-          {
-            this.drake.cancel(true);
-          }
+        //trocar id
+        
+        console.log(target)
+        if(target.id == 'trash'){
+          document.getElementById(el.id).remove();
+          
+          document.getElementById('trash').innerHTML = ''        }
+       
+          el.id = el.innerText + '_' + target.id + '_'+ el.id; 
+          
+          if (this.drag.checked) 
+            {
+              this.drake.cancel(true);
+            }
+    
+       })
+      .on('cloned', (clone, original, type) => {
+
+        console.log(clone.getAttribute('seq'))
+         clone.onclick = ()=>{
+             original.click();
+        }
+        if (this.drag.checked) {
+          this.drake.cancel(true);
+        }
       })
       .on('over', (el, container) => {
          if(el.classList.contains('gu-transit')){
@@ -92,7 +108,9 @@ export class Dragula {
         }
       })
       .on('out', (el, container) => {
-         console.log('deixou o elemento')
+         //deve conter isso, nao há t ry catch pra tal
+         let nota = {id:el.id, velo:el.getAttribute('velo'), value:el.innerText.trim(), seq:el.getAttribute('seq')}
+         // salvar na memoria, dentro da musica
         if (this.drag.checked) 
           {
             this.drake.cancel(true);
@@ -102,27 +120,7 @@ export class Dragula {
         }
         el.classList.remove('voando');
       })
-      .on('cloned', (clone, original, type) => {
-        
-        
-        clone.onclick = ()=>{
-          original.click();
-        }
-
-        setTimeout(()=>{  
-          
-            clone.id = original.innerText + '_' + clone.parentNode.id + '_'+ original.id;
-          }
-          ,
-        
-        400)
-      
-      
-        if (this.drag.checked) {
-          this.drake.cancel(true);
-        }
-         
-      });
+   
   }
 }
 

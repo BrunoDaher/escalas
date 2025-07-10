@@ -14,8 +14,9 @@ export class Acordes extends Aux{
             { id: "refrao", label: "Refrao", off: true },
             { id: "ponte", label: "Ponte", off: true }
         ];
+        
 
-         
+       
     constructor() {
         super(); // Chama o construtor da classe pai
 
@@ -41,6 +42,18 @@ export class Acordes extends Aux{
         ).join('');
     }
 
+    chordShortcut(){
+        return `<span 
+            id="${id}" 
+            class="btnChord bordaA painelBtn slot item" 
+            draggable="false" 
+            velo="${velo}" 
+            value="${value}" 
+            style="user-select: none;" 
+            seq="${seq}"
+        >${value}</span>`  
+    }
+
     renderEstruturaAreas() {
 
         return this.sections.map(
@@ -62,39 +75,27 @@ export class Acordes extends Aux{
                         <a class="bi-command"> Controles</a>
                     </label>
                      <div class="bgDark2 flexCenter gap2 justContAround px-2" style="zoom:0.9">  
-                        <!-- Controle: Arrastar -->
-                            <label class="gap1 flex itemCenter">
-                                <a>Arrastar acordes</a>
-                                <label class="switch">
-                                    <input id="drag" type="checkbox" checked="false"/>
-                                    <span class="slider round"></span>
-                                </label>
-                            </label>
+                  
                    
-                        
-                        <!-- Controle: Adicionar/Remover -->
-                        <div class="flex itemCenter gap2">
-                            <a>Add/Rem</a>
-                            <div class="flex itemCenter gap1 f2vh">
-                                <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
-                                <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
-                            </div>
-                        </div>
+                      
                     </div>`
     }
 
     renderPainelChords() {
         return `
-                <!-- Bloco: Memória de Acordes & Escalas -->
-                <div class="grid">
-                    <div class="comp justContBetween p-1 flex textStart"> 
-                        <a class="bi-music-note-list"> Acordes & Escalas</a>
-                        <!-- Controle: Renomear -->
-                             <!-- Bloco: Velocidade -->
-                            <label for="velo" class="flex p-1 itemCenter gap2">
-                                <i class="bi bi-clock flex"> Velocidade</i>  
-                                <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
-                            </label>
+            <!-- Bloco: Memória de Acordes & Escalas -->
+            <div class="grid rel">
+                <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
+                    
+                <div class="comp justContBetween p-1 flex textStart"> 
+                       
+                        <!-- Bloco: Velocidade -->
+                        <label for="velo" class="flex p-1 itemCenter gap2">
+                            <i class="bi bi-clock flex"> Velocidade</i>  
+                            <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
+                        </label>
+
+                         <!-- Controle: Renomear -->
                         <label class="gap1 flex itemCenter">
                             <a>Renomear</a>
                             <label class="switch">
@@ -102,13 +103,33 @@ export class Acordes extends Aux{
                                 <span class="slider round"></span>
                             </label>
                         </label>
+
+                        <!-- Controle: Arrastar -->
+                        <label class="gap1 flex itemCenter">
+                            <a>Arrastar acordes</a>
+                            <label class="switch">
+                                <input id="drag" type="checkbox" checked="false"/>
+                                <span class="slider round"></span>
+                            </label>
+                        </label>
+
                     </div>
                     
-                    <div style="height: 12vh;" id="memoria" class="memoria bgDark2 textCenter gap1 p-1 dragContainer"></div>
-                </div>
-                    <div class="grid rad2 my-1">
-                    ${this.controles()}
+                    <--Memoria-->
+                    <div id="memoria"  style="height: 12vh;"class="memoria bgDark2 textCenter gap1 p-1 dragContainer">
                     </div>
+
+                    <!-- Controle: Adicionar/Remover -->
+                    <div class="flex abs addRem itemCenter gap2">
+                        
+                        <div class="flex itemCenter gap1 f2vh">
+                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
+                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
+                        </div>
+                    </div>
+                 
+                </div>
+                    
 
 
                 <!-- Bloco: Estrutura Musical -->
@@ -126,7 +147,11 @@ export class Acordes extends Aux{
                     <div id="div-estrutura" class="bgDark p-1 textStart" style="height: 9em">
                         ${this.renderEstruturaAreas()}
                     </div>
-                </div>
+                    <div id='trash' 
+                    class="bi-trash dragContainer bgDark2 flexCenter gap1 p-1" style="height: 3em; 
+                         border-radius: 0.5em; color:red; background:var(--fundoG);">
+                    </div>
+            </div>
       
         `;
     }

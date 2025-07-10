@@ -4,6 +4,16 @@
     justify-content: center;
 }
 
+.addRem{
+        bottom: 0;
+    right: 0;
+    padding: 1vh;
+    
+}
+
+.rel{
+    position: relative;
+}
 
 
 #controls{
