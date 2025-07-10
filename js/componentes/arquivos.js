@@ -127,9 +127,12 @@ export class Arquivos {
         });
 
         this.restore();
+        this.triggersFav();
     }
 
     favBuild(nome){
+        
+        console.log('favBuild', nome);
         // Cria o template HTML usando template literals
         let template = `
             <div class="flex justContBetween itemCenter textCap ">
@@ -142,7 +145,8 @@ export class Arquivos {
         `;
 
         document.getElementById('salvos').innerHTML += template;
-        this.triggersFav();
+        
+
 
     }
 
@@ -155,16 +159,9 @@ export class Arquivos {
 
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
-                   
                     this.acordes.clearMemoria();
-
-                    try {
                         this.dao.clicaMusica(item);
-                    this.acordes.loadSlot(); 
-                    } catch (error) {
-                        console.log('musica nao encontrada')
-                    }
-                   
+                        this.acordes.loadSlot(item); 
                 })
             });
         

@@ -1,5 +1,8 @@
 export class Dao {
-  constructor() {}
+  constructor() {
+
+
+  }
 
   storageReadByTag(tag) {
 
@@ -18,7 +21,8 @@ export class Dao {
    preload(target) {
       document.getElementById(target).click();
   }
-  
+
+
   clicaMusica(mus) {
 
     

@@ -49,8 +49,6 @@ export class Dragula {
       },
       copy: (el, source) => {
         let interno = source.id === el.parentElement.id;
-
-        console.log(source.id, el.parentElement.id)
           return true// clona só se estiver vindo do container de origem
         }
       });   
@@ -69,17 +67,34 @@ export class Dragula {
         }
       })
       .on('drop', (el, target, source) => {
+
         el.setAttribute('seq', target.id);
         //trocar id
         
-        console.log(target)
+        let add = true;
+
+        let nota = {
+          id:el.innerText + '_' + target.id, 
+          idMemoria : el.id,
+          velo:el.getAttribute('velo'), 
+          value:el.innerText.trim(), 
+          seq:el.getAttribute('seq'), 
+          add:true
+        };
+
         if(target.id == 'trash'){
-          document.getElementById(el.id).remove();
-          
-          document.getElementById('trash').innerHTML = ''        }
+          //elimina objeto (o clonado)
+          //funcao de view
+              document.getElementById(el.id).remove();
+              //limpa lixeira dom
+              document.getElementById('trash').innerHTML = '';
+          ///
+          nota.add=false;
+          nota.seq = source.id;
+        }
+          const event = new CustomEvent('estrutura', { detail: nota });
+          document.dispatchEvent(event);   
        
-          el.id = el.innerText + '_' + target.id + '_'+ el.id; 
-          
           if (this.drag.checked) 
             {
               this.drake.cancel(true);
@@ -87,8 +102,6 @@ export class Dragula {
     
        })
       .on('cloned', (clone, original, type) => {
-
-        console.log(clone.getAttribute('seq'))
          clone.onclick = ()=>{
              original.click();
         }

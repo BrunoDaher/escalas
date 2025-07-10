@@ -15,7 +15,6 @@ export class Acordes extends Aux{
             { id: "ponte", label: "Ponte", off: true }
         ];
         
-
        
     constructor() {
         super(); // Chama o construtor da classe pai
@@ -42,30 +41,34 @@ export class Acordes extends Aux{
         ).join('');
     }
 
-    chordShortcut(){
-        return `<span 
-            id="${id}" 
-            class="btnChord bordaA painelBtn slot item" 
-            draggable="false" 
-            velo="${velo}" 
-            value="${value}" 
-            style="user-select: none;" 
-            seq="${seq}"
-        >${value}</span>`  
-    }
+     renderEstruturaAreas() {
 
-    renderEstruturaAreas() {
+      //  document.getElementById('div-estrutura').innerHTML = '';
 
         return this.sections.map(
             s => `
             <div class="sectionPanel bg-Dark${s.off ? " off" : ""}" id="div-${s.id}">
-                
                 <div id="${s.id}" class="p-1 gap1 flex dragContainer" 
                     style="line-height: normal;">
                 </div>  
             </div>`
         ).join('');
     }
+
+    chordShortcut(data){
+        return `<span 
+            id="${data.id}" 
+            slot="${data.idMemoria}"
+            class="btnChord bordaA painelBtn shortcut item" 
+            draggable="false" 
+            velo="${data.velo}" 
+            value="${data.value}" 
+            style="user-select: none;" 
+            seq="${data.seq}"
+        >${data.value}</span>`  
+    }
+
+   
 
     controles(){
         return `
@@ -131,7 +134,6 @@ export class Acordes extends Aux{
                 </div>
                     
 
-
                 <!-- Bloco: Estrutura Musical -->
                 <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
@@ -158,18 +160,22 @@ export class Acordes extends Aux{
 
     renderAll() {
 
-
         this.violao.init();
 
         const painelChords = document.getElementById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
         this.triggers();
+          document.addEventListener('estrutura', (e) => {
+            console.log('estrutura');
+            this.salvaEstrutura(e.detail);
+        });   
     }
 
     triggers(){
     
         //criar label
+
 
         let toggleEditMode = this.getById('editMode');
             toggleEditMode.onclick = ()=>{
@@ -218,7 +224,7 @@ export class Acordes extends Aux{
 
         let velo = this.dao.getDataJSON('velo');
 
-        console.log(this.violao.getSlotId())
+        
        
         console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
        // this.violao.slotId = btn.value;
@@ -376,7 +382,6 @@ export class Acordes extends Aux{
             btn.oncancel = function () {};
 // Pequeno delay para resetar UI
             setTimeout(() => {
-               
                 this.violao.reset();
             }, 700);
 
@@ -386,7 +391,9 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
     }
 
-    loadSlot() {
+    loadSlot(item) {
+        
+        console.log('loadSlot', item.innerText);
         
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
@@ -396,10 +403,122 @@ export class Acordes extends Aux{
             Object.entries(dataLabel).forEach(label => {
                 this.addSlot(label[1], label[0]);
             });
+
+            //zerar estrutura
+
+            
+
+            this.loadEstrutura(item);
         }
         else{
             //cosole.log('sem dados ')
         }
+
+       
+ 
+    }
+  
+    salvaEstrutura(e) {
+
+
+        let estrutura = this.dao.getDataJSON('estrutura') || {};
+
+        console.log(estrutura)
+
+        if (estrutura[e.seq]) {
+            if (e.add) {
+                // Somar: adiciona o valor ao array existente
+                estrutura[e.seq] = [...estrutura[e.seq], {'tone':e.value, 'slot':e.idMemoria}];
+            } else {
+                if (Array.isArray(estrutura[e.seq])) {
+                    estrutura[e.seq] = estrutura[e.seq].filter(item => item.tone !== e.tone);
+                } else {
+                    console.warn(`estrutura[${e.seq}] não é um array. Valor atual:`, estrutura[e.seq]);
+                }
+            }
+        } else {
+            // Se for adição, cria como array com o valor. Caso contrário, cria array vazio.
+            if(e.add){
+                
+                estrutura[e.seq] = [{'tone':e.value, 'slot':e.idMemoria}];
+            }
+   
+    }
+
+    this.dao.setDataJSON('estrutura', estrutura);
+    }
+
+
+    cleanSection(){
+          let sections = [
+            { id: "seq", label: "Sequencia", off: false },
+            { id: "intro", label: "Intro", off: true },
+            { id: "verso", label: "Verso", off: true }, 
+            { id: "refrao", label: "Refrao", off: true },
+            { id: "ponte", label: "Ponte", off: true }
+        ];
+        
+        sections.forEach(section => {
+            document.getElementById(section.id).innerHTML = '';
+        });
+        
+    }
+
+    loadEstrutura(item){
+
+
+    //this.renderPainelChords() 
+        this.cleanSection();
+        console.log('carregando estrutura', item.innerText)
+        let estrutura = this.dao.getDataJSON('estrutura') || {};
+
+        if(estrutura){
+        
+            Object.entries(estrutura).forEach(([chave,valor]) => {
+
+                if(valor.length > 0){
+                 
+                    let div = this.getById(chave);
+
+                 //   div.innerHTML = ''; // Limpa o conteúdo da div antes de adicionar novos botões
+                  
+                    if(div){
+                      
+                    valor.forEach(element => {
+                         let btn = this.chordShortcut({
+                            id: chave+element.tone,
+                            idMemoria: element.slot,
+                            value: element.tone,
+                            velo: 0,
+                            seq: chave
+                        });
+
+                   
+                       div.innerHTML += btn;
+                    }); 
+                          
+                    }
+                }
+            });
+        }
+        
+        setTimeout(() => {
+            //trigger q atribui evendo de click ao idOriginal 
+            // de cada botao clonado durante o drag and drop
+
+           let btns = document.querySelectorAll('.shortcut');
+            btns.forEach(btn => {
+                btn.onclick = (e) => {
+                   let id = this.getById(btn.getAttribute('slot'));
+                   id.click()
+                };
+            });
+            
+            
+        }, 300);
+        //falta rodar os triggers
+        // Preenche as áreas de estrutura com os dados
+    
     }
 
 }
