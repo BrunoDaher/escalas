@@ -83,11 +83,12 @@ export class Acordes extends Aux{
 
     renderPainelChords() {
         return `
+
             <!-- Bloco: Memória de Acordes & Escalas -->
             <div class="grid rel">
                 <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
                     
-                <div class="comp justContBetween p-1 flex textStart"> 
+                <div class="bgDark2 justContBetween p-1 flex textStart"> 
                        
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
@@ -108,20 +109,19 @@ export class Acordes extends Aux{
                         <label class="gap1 flex itemCenter">
                             <a>Arrastar acordes</a>
                             <label class="switch">
-                                <input id="drag" type="checkbox" checked="false"/>
+                                <input id="drag" type="checkbox" checked="false">
                                 <span class="slider round"></span>
                             </label>
                         </label>
 
                     </div>
                     
-                    <--Memoria-->
+                    
                     <div id="memoria"  style="height: 12vh;"class="memoria bgDark2 textCenter gap1 p-1 dragContainer">
                     </div>
 
                     <!-- Controle: Adicionar/Remover -->
                     <div class="flex abs addRem itemCenter gap2">
-                        
                         <div class="flex itemCenter gap1 f2vh">
                             <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
                             <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
@@ -133,7 +133,7 @@ export class Acordes extends Aux{
 
 
                 <!-- Bloco: Estrutura Musical -->
-                <div class="gap2" style="justify-content: normal;text-align: start;">
+                <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
                     <input hidden id="dataLoad" type="file"/>
                     <div class="comp">
@@ -149,7 +149,7 @@ export class Acordes extends Aux{
                     </div>
                     <div id='trash' 
                     class="bi-trash dragContainer bgDark2 flexCenter gap1 p-1" style="height: 3em; 
-                         border-radius: 0.5em; color:red; background:var(--fundoG);">
+                         border-radius: 0.5em; color:red;">
                     </div>
             </div>
       
