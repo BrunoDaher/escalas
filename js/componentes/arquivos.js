@@ -64,10 +64,11 @@ export class Arquivos {
                 //console.log('uplad de arquivo')
                 await this.dao.upload();
                 if(this.dao.upload){
-                    this.acordes.loadSlot();
+                   
                     const elem = document.getElementById('arquivo');
                     this.favBuild(elem.innerText);
                     let btn = document.getElementById('vg_' + elem.innerText);
+                     this.acordes.loadSlot(elem);
                     btn.click();
                 }
              }) 

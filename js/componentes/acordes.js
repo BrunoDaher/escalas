@@ -393,6 +393,7 @@ export class Acordes extends Aux{
 
     loadSlot(item) {
         
+        console.log(item)
         console.log('loadSlot', item.innerText);
         
         this.getById('memoria').innerHTML = '';
