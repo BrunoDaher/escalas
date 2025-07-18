@@ -52,7 +52,9 @@ export class Messenger extends Aux{
 
     // Referência ao banco de dados no Firebase
     //const mensagensRef = this.firebase.database().ref('/mensagens');
-     const mensagensRef = this.firebase.getRef('mensagens')  
+     const mensagensRef = this.firebase.getRef('mensagens');
+     
+     console.log(this.destinatario)
 
     // Criação do objeto da nova mensagem
     const novaMensagem = {
@@ -143,7 +145,7 @@ export class Messenger extends Aux{
 
                     let html = `
                         <div class='grid' style="margin-bottom: 10px;${pos}">
-                            <div onclick='setDestino(event)' style=" font-size: 0.8em; color: ${cor};">
+                            <div class='contact'  style=" font-size: 0.8em; color: ${cor};">
                                 ${mensagem.autor ? mensagem.autor : ''}
                             </div>
                             <span class='colorA'>${mensagem.conteudo}</span>
@@ -163,13 +165,32 @@ export class Messenger extends Aux{
 
 }
 
-setDestino(event){
-    let _dest = event.srcElement.innerText.trim();
+setDestino(_dest){
+    
+    //let _dest = event.srcElement.innerText.trim();
     //valida mais uma vez
-    if(contatos.includes(_dest)){
+    
+    if(this.contatos.includes(_dest)){
         this.destinatario = _dest;
     }
 
+    console.log('destinatario',this.destinatario)
+
+}
+
+
+setContacts(){
+
+    console.log(this)
+ // trigger destino
+        let contacts = this.getAllClass('contact');
+        
+        for(let contact of contacts) {
+            contact.onclick = (event) => {
+                
+                this.setDestino(contact.innerText.trim());
+            }
+        }
 }
 
   triggers(){
@@ -202,7 +223,12 @@ setDestino(event){
             }
 
         this.escutarMinhasMensagens();
-  }
+
+        setTimeout(()=>{
+            this.setContacts();
+        },1000);
+        
+    }
 
 }
 

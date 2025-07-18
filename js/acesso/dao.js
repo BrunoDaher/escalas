@@ -25,7 +25,7 @@ export class Dao {
 
   clicaMusica(mus) {
 
-    
+    console.log(mus)
     sessionStorage.clear();
 
     let chave = mus.id;
