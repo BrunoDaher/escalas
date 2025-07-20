@@ -32,19 +32,17 @@ const main = new Main();
       }
 
       if(!checkMobile()){
-        init();
+        init()
       }else{
        
-        console.log('mobile detected');
-        document.getElementById('main').remove();
-        document.getElementById('hMenu').remove();
-        document.getElementById('footer').remove();
+        document.getElementById('main')?.remove();
+        document.getElementById('hMenu')?.remove();
+        document.getElementById('footer')?.remove();
 
-        let welcome = document.getElementById('wellcome');
-            welcome.className = 'off';
+        
         //alert('Acesso somente via computador');
         let platforms = document.getElementById('platforms');
-            platforms.classList.remove('off');      
+          platforms.classList.remove('off');      
       
       
       }
@@ -52,7 +50,7 @@ const main = new Main();
    
   function checkMobile() {
     let agent = navigator.userAgent.toLowerCase();
-    console.log('checkMobile',  /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent));
+    console.log('checkMobile', agent);
     return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
 }    
   
