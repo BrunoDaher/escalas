@@ -29,12 +29,34 @@ const main = new Main();
       }
       else{
         acesso.showUser();
-        
       }
 
-  init();
+      if(!checkMobile()){
+        init()
+      }else{
+       
+        document.getElementById('main')?.remove();
+        document.getElementById('hMenu')?.remove();
+        document.getElementById('footer')?.remove();
+
+        let welcome = document.getElementById('wellcome');
+          welcome.className = 'off';
+        //alert('Acesso somente via computador');
+        let platforms = document.getElementById('platforms');
+        platforms.classList.remove('off');      
+      
+      
+      }
+ 
+   
+  function checkMobile() {
+    let agent = navigator.userAgent.toLowerCase();
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
+}    
+  
      
  function init() {
+
       acesso.fire.auth.onAuthStateChanged((user) => {
           if (user) {
             console.log('user on')

@@ -11,6 +11,10 @@
     
 }
 
+.contact:hover{
+    cursor: pointer;
+}
+
 .rel{
     position: relative;
 }
