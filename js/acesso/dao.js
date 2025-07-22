@@ -23,6 +23,78 @@ export class Dao {
   }
 
 
+  async uploadVideo() {
+      const videoInput = document.querySelector('input[type=file]');
+      const file = videoInput && videoInput.files[0];
+
+      if (!file) {
+        return false;
+      }
+
+      // Check if file is video
+      if (!file.type.startsWith('video/')) {
+        console.error('Please select a video file');
+        return false;
+      }
+
+      const reader = new FileReader();
+      const fileName = file.name.split('.')[0];
+
+      return new Promise((resolve) => {
+        reader.onload = () => {
+          try {
+            // Create video element
+            const video = document.createElement('video');
+            video.src = reader.result;
+            video.controls = true;
+            
+            // Add video to page
+            document.getElementById('videoContainer').appendChild(video);
+            
+            resolve(true);
+          } catch (e) {
+            console.error('Error loading video:', e);
+            resolve(false);
+          }
+        };
+
+        reader.readAsDataURL(file);
+      });
+}
+
+async checkUrl(url) {
+  try {
+    const res = await fetch(url, { method: 'HEAD' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+  async validateUrl(url) {
+    const isValid = await checkUrl(url);
+    if(isValid) {
+      console.log('Image URL is valid');
+    } else {
+      console.log('Image URL is invalid');
+    }
+  }
+
+
+preloadImage(imagePath) {
+  // Create new image element
+  const img = new Image();
+  
+  // Set source to trigger preload
+  img.src = `img/${imagePath}`;
+  
+  // Return promise that resolves when image loads
+  return new Promise((resolve, reject) => {
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error('Failed to load image'));
+  });
+}  
+
   clicaMusica(mus) {
 
     console.log(mus)

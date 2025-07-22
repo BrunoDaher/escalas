@@ -8,6 +8,7 @@ export class Arquivos {
         this.containerId ='painelFiles';
     }
 
+
     renderPainelFiles() {
         return `
             <div class="comp p-1 flex justContBetween textStart mb-2">
@@ -39,8 +40,43 @@ export class Arquivos {
                 <span class="efeito btn4" id="delay" value="false">Delay</span>
             </div>
 
+            <div id='video'class=' grid my-2' >
+                <label class="bi-play-circle comp p-1"> Video</label>
+                <video id='currentVideo' 
+                    style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
+                        width="340" 
+                        height="160" 
+                        controls
+                        autoplay
+                        >
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+
+
        
         `;
+    }
+
+   async renderVideo(song){
+        let video = document.getElementById('currentVideo');
+        
+        if(video){
+
+            let url = `./data/${song}.mp4`;
+
+             const isValid =  await this.dao.checkUrl(url);
+                if(isValid) {
+                   video.src = url
+                } else {
+                      video.src = `./data/logo.mp4`
+                    console.log('Image URL is invalid');
+                }
+            
+        }
+
+
     }
 
     renderAll() {
@@ -79,8 +115,24 @@ export class Arquivos {
     }
 
     triggers(){
-        
 
+        // Add event listener for custom video-play event
+        document.addEventListener('video-play', (event) => {
+
+            console.log(event.detail)
+            if(sessionStorage.getItem('currentSong')){
+
+                let trecho = sessionStorage.getItem('currentSong').toLowerCase() + '_'+ event.detail;
+
+                let video = document.getElementById('currentVideo');
+                        if (video) {
+                            this.renderVideo(trecho);
+                        }
+            }
+       
+        });  
+            
+            
         this.novoArquivo();
 
         // Botões de ação (chroma, export, load)
@@ -163,6 +215,7 @@ export class Arquivos {
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
+                       // this.renderVideo(item)
                 })
             });
         
@@ -218,6 +271,7 @@ export class Arquivos {
          
     }
 
+   
     fx(event) {
         let el = event.srcElement;
         if (el.getAttribute('value') == 'true') {

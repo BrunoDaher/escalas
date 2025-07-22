@@ -68,8 +68,6 @@ export class Acordes extends Aux{
         >${data.value}</span>`  
     }
 
-   
-
     controles(){
         return `
            <!-- Bloco: Controles Gerais -->
@@ -95,7 +93,7 @@ export class Acordes extends Aux{
                        
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
-                            <i class="bi bi-clock flex"> Velocidade</i>  
+                            <i class="bi bi-clock flex"> Duração</i>  
                             <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
                         </label>
 
@@ -202,6 +200,15 @@ export class Acordes extends Aux{
              sectionBtns.forEach(btn => {
                
                 btn.onclick = ()=>{
+                    
+                    
+                    let trecho = btn.innerText.trim().toLowerCase();
+
+                    const event = new CustomEvent('video-play', {
+                         detail: trecho, // Dados para o método clean
+                    });
+
+                    document.dispatchEvent(event)
 
                     //remove on
                     this.removeAll('section-btn','active')
@@ -396,6 +403,7 @@ export class Acordes extends Aux{
         
         //console.log('loadSlot', item.innerText);
         
+        
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
@@ -456,7 +464,7 @@ export class Acordes extends Aux{
             { id: "intro", label: "Intro", off: true },
             { id: "verso", label: "Verso", off: true }, 
             { id: "refrao", label: "Refrao", off: true },
-            { id: "ponte", label: "Ponte", off: true }
+            { id: "ponte", label: "Ponte", off: true },
         ];
         
         sections.forEach(section => {
@@ -470,7 +478,7 @@ export class Acordes extends Aux{
 
     //this.renderPainelChords() 
         this.cleanSection();
-        console.log('carregando estrutura', item.innerText)
+       // console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
         if(estrutura){
