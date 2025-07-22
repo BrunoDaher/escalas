@@ -23,22 +23,7 @@ export class Arquivos {
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-            <div class="comp grid">
-                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
-                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
-                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
-                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
-                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
-                </div>
-            </div>
-            
-            <div class="textStart grid my-2">
-                <label class="bi-radioactive comp p-1"> Efeitos</label>
-                <div class="bgDark2 flexCenter gap1 p-1">
-                <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
-                <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
-                <span class="efeito btn4" id="delay" value="false">Delay</span>
-            </div>
+         
 
             <div id='video'class=' grid my-2' >
                 <label class="bi-play-circle comp p-1"> Video</label>
@@ -54,6 +39,24 @@ export class Arquivos {
                 </video>
             </div>
 
+            <div class="textStart grid my-2">
+                <label class="bi-radioactive comp p-1"> Efeitos</label>
+                <div class="bgDark2 flexCenter gap1 p-1">
+                <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
+                <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
+                <span class="efeito btn4" id="delay" value="false">Delay</span>
+            </div>
+
+               <div class="comp grid">
+                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
+                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
+                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
+                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
+                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
+                </div>
+            </div>
+            
+        
 
        
         `;
