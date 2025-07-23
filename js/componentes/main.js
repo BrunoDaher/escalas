@@ -1,4 +1,5 @@
   export class Main {
+    
     constructor() {
         this.element = document.createElement('main');
         //this.element.className = 'off';
@@ -23,8 +24,8 @@
 
         const sections = [
             {id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
-            {id: 'painelFiles', className: 'painel f2vh'},
             {id: 'painelChords', className: 'painel f2vh'},
+            {id: 'painelFiles', className: 'painel f2vh'},
             {id: 'painelClock', className: 'painel f2vh'},
             {id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];

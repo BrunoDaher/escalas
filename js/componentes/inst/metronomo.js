@@ -83,7 +83,7 @@ export class Metronomo {
         painelClock.innerHTML += `
             <div class="card bpm bgDark">${wrap}
                     <div class="comp p-1 flex justContAround">
-                        <div class='flex w-75'>
+                        <div class='flex w-50'>
                             <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
                             <input class="w-100 bpm" type="range" min="1" max="240" value="120" id="bpm">
                         </div>
@@ -98,9 +98,7 @@ export class Metronomo {
                          </div>
                     </div>
                     
-                  
-
-                    <div id="compasso" class="compasso  w-100 flex m-1 justCenter">
+                    <div id="compasso" class="compasso  w-100  m-1 justCenter">
                         ${[1, 2, 3, 4].map(i => `
                             <div id='p${i}' value="${i}" class="pulse w-100   ">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
@@ -236,7 +234,7 @@ export class Metronomo {
 
     onWrapChange = () => {
             const compasso = document.getElementById('compasso');
-            compasso.classList.toggle('flexWrap');
+            compasso.classList.toggle('flex');
     }
 
     addListeners() {

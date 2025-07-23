@@ -35,9 +35,18 @@ const main = new Main();
         init()
       }else{
        
-        document.getElementById('main')?.remove();
-        document.getElementById('hMenu')?.remove();
-        document.getElementById('footer')?.remove();
+
+        aux.getById('main')?.remove();
+
+        ['main','hMenu','footer'].forEach(elem => {
+          
+          let el = aux.getById(elem);
+              el.remove();
+
+        });
+
+        //document.getElementById('hMenu')?.remove();
+        //document.getElementById('footer')?.remove();
 
         
         //alert('Acesso somente via computador');

@@ -97,9 +97,9 @@ export class Acordes extends Aux{
                             <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
                         </label>
 
-                         <!-- Controle: Renomear -->
+                         <!-- Controle: Edit -->
                         <label class="gap1 flex itemCenter">
-                            <a>Renomear</a>
+                            <a>Edit</a>
                             <label class="switch">
                                 <input id="editMode" type="checkbox" checked/>
                                 <span class="slider round"></span>
@@ -108,7 +108,7 @@ export class Acordes extends Aux{
 
                         <!-- Controle: Arrastar -->
                         <label class="gap1 flex itemCenter">
-                            <a>Arrastar acordes</a>
+                            <a>Drag</a>
                             <label class="switch">
                                 <input id="drag" type="checkbox" checked="false">
                                 <span class="slider round"></span>

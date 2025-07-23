@@ -141,7 +141,7 @@
     width: fit-content;
 }
 
-#paineis{
+#gridflex3{
      display: grid; 
     grid-template-columns: repeat(3, auto) 35%
 }

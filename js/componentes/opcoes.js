@@ -116,10 +116,7 @@ export class Opcoes extends Aux{
                     });
                 document.dispatchEvent(event);
             }
-        }
-
-
-
+    }
 
     tema(event) {
         const elem = event.target;
