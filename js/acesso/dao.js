@@ -1,7 +1,9 @@
+import { Supa } from './supa.js';
+import { Persiste } from './persiste.js';
+
 export class Dao {
   constructor() {
-
-
+ 
   }
 
   storageReadByTag(tag) {
@@ -23,44 +25,37 @@ export class Dao {
   }
 
 
-  async uploadVideo() {
-      const videoInput = document.querySelector('input[type=file]');
-      const file = videoInput && videoInput.files[0];
+startSupa(){
+      this.supa = new Supa();
+      this.supa.start();
 
-      if (!file) {
-        return false;
-      }
-
-      // Check if file is video
-      if (!file.type.startsWith('video/')) {
-        console.error('Please select a video file');
-        return false;
-      }
-
-      const reader = new FileReader();
-      const fileName = file.name.split('.')[0];
-
-      return new Promise((resolve) => {
-        reader.onload = () => {
-          try {
-            // Create video element
-            const video = document.createElement('video');
-            video.src = reader.result;
-            video.controls = true;
-            
-            // Add video to page
-            document.getElementById('videoContainer').appendChild(video);
-            
-            resolve(true);
-          } catch (e) {
-            console.error('Error loading video:', e);
-            resolve(false);
-          }
-        };
-
-        reader.readAsDataURL(file);
-      });
+     
+      this.persiste = new Persiste();
+       this.persiste.init();
 }
+
+
+
+
+ async getVideoUrl(song) {
+
+  
+  let url = await this.supa.getUrlVideo(song);
+
+  if(url) {
+    
+   // await  this.persiste.saveVideo(url, song);
+      console.log('video salvo')
+  }
+  else{
+     console.log('erro')
+  }
+    
+
+    return this.supa.getUrlVideo(song)
+      
+  }
+
 
 async checkUrl(url) {
   try {

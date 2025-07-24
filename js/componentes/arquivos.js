@@ -69,12 +69,19 @@ export class Arquivos {
 
             let url = `./data/${song}.mp4`;
 
-             const isValid =  await this.dao.checkUrl(url);
+            const isValid =  await this.dao.getVideoUrl(song) //api
+                               //  this.dao.checkUrl(url); /// local
+
+
+            // this.dao.getVideoUrl(song)
+
+          //  const supaUrl = await this.dao.getVideoUrl(song);
+
                 if(isValid) {
                    video.src = url
                 } else {
-                      video.src = `./data/logo.mp4`
-                    console.log('Image URL is invalid');
+                    video.src = `./data/logo.mp4`
+                    
                 }
             
         }
@@ -83,6 +90,10 @@ export class Arquivos {
     }
 
     renderAll() {
+
+        //iniciando supabase
+        this.dao.startSupa();
+
          this.container = document.getElementById(this.containerId);
         if (this.container) {
             //console.log('Renderizando painel de arquivos');
@@ -122,14 +133,14 @@ export class Arquivos {
         // Add event listener for custom video-play event
         document.addEventListener('video-play', (event) => {
 
-            console.log(event.detail)
+      
             if(sessionStorage.getItem('currentSong')){
 
-                let trecho = sessionStorage.getItem('currentSong').toLowerCase() + '_'+ event.detail;
+                let song = sessionStorage.getItem('currentSong').toLowerCase() + '_'+ event.detail;
 
                 let video = document.getElementById('currentVideo');
                         if (video) {
-                            this.renderVideo(trecho);
+                            this.renderVideo(song);
                         }
             }
        
@@ -186,26 +197,6 @@ export class Arquivos {
         this.triggersFav();
     }
 
-    favBuild(nome){
-        
-        console.log('favBuild', nome);
-        // Cria o template HTML usando template literals
-        let template = `
-            <div class="flex justContBetween itemCenter textCap ">
-                <li id="vg_${nome}" class="clicaMus">${nome}</li>
-                <div class="flex ">
-                    <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
-                    <span data-target='vg_${nome}' role="button" class="btn2 bi-pencil colorE"></span>
-                </div>
-            </div>
-        `;
-
-        document.getElementById('salvos').innerHTML += template;
-        
-
-
-    }
-
     triggersFav() {
         
         let btnsClicaMus = document.querySelectorAll('.clicaMus');
@@ -234,6 +225,26 @@ export class Arquivos {
                 })
             });
         
+    }
+
+    favBuild(nome){
+        
+        console.log('favBuild', nome);
+        // Cria o template HTML usando template literals
+        let template = `
+            <div class="flex justContBetween itemCenter textCap ">
+                <li id="vg_${nome}" class="clicaMus">${nome}</li>
+                <div class="flex ">
+                    <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
+                    <span data-target='vg_${nome}' role="button" class="btn2 bi-pencil colorE"></span>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('salvos').innerHTML += template;
+        
+
+
     }
 
     addSong(){

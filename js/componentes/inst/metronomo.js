@@ -72,7 +72,7 @@ export class Metronomo {
         painelClock.innerHTML += `<div class="comp my-2 gridCenter p-1">${figurasHtml}</div>`;
   
         let wrap =   `  <label class="itemCenter my-1 flexList">
-                <a><i class="bi bi-grid"></i> Grade </a>
+                <a><i class="bi bi-grid"></i> Layout </a>
                 <label class="switch">
                     <input type="checkbox" id="wrap" checked>
                     <span class="slider round"></span>

@@ -9,8 +9,14 @@ const firebaseConfig = {
   measurementId: "G-SJTCVCVY75"
 };
 
+
 export class Fire {
   
+
+  getConfig(){
+    return firebaseConfig;
+  }
+
   constructor() {
 
     if (!firebase.apps.length) {
@@ -23,6 +29,10 @@ export class Fire {
 
   getRole(){
     return this.role;
+  }
+
+  getIdToken(){
+    return this.auth.currentUser.getIdToken();
   }
 
   setRole(_role){

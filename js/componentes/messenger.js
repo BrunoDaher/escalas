@@ -53,7 +53,7 @@ export class Messenger extends Aux{
         //const mensagensRef = this.firebase.database().ref('/mensagens');
         const mensagensRef = this.firebase.getRef('mensagens');
         
-        console.log(this.destinatario)
+       // console.log(this.destinatario)
 
         // Criação do objeto da nova mensagem
         const novaMensagem = {
@@ -173,13 +173,13 @@ export class Messenger extends Aux{
             this.destinatario = _dest;
         }
 
-        console.log('destinatario',this.destinatario)
+       // console.log('destinatario',this.destinatario)
 
     }
 
     setContacts(){
 
-        console.log(this)
+      //  console.log(this)
     // trigger destino
             let contacts = this.getAllClass('contact');
             

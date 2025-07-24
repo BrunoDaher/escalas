@@ -1,19 +1,50 @@
 
 import {Fire}  from './firebase.js';
 import {Aux} from '../util/aux.js'
-
+import { Supa } from './supa.js';
+import {Persiste} from './persiste.js'
+ 
 const aux = new Aux();
 
 export class Acesso {
 
     constructor() {
         this.fire = new Fire();
+        this.persiste = new Persiste();
 
     }
-    
+
+    async authFireSupa(){
+    // Assume user is already authenticated with Firebase
+        const user =  await this.fire.estaLogado();
+   
+        if (user) {
+            let idToken = await this.fire.getIdToken();
+
+            const response = await fetch('https://pqixqvfjfzgcxbkllqfx.supabase.co/functions/v1/verify-firebase-token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ idToken })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(' Usuário verificado:', data);
+                    } else {
+                        console.log(response)
+       //               console.error(' Falha na verificação do token Firebase');
+                    }
+        }
+  }
+
     async userOn() {
         const isLogged = await this.fire.estaLogado();
+      
+      
         if (isLogged) {
+          //  await this.authFireSupa();
             return true
         } else {
             return false

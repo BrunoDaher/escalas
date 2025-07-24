@@ -1,7 +1,7 @@
 
 
 import { Acesso} from './acesso/acesso.js';
-import { Dao } from './acesso/dao.js';
+
 import { Dragula } from './util/dragula.js';
 import { Acordes } from './componentes/acordes.js';
 import { Opcoes } from './componentes/opcoes.js';
@@ -11,7 +11,7 @@ import { Metronomo } from './componentes/inst/metronomo.js'
 import { Aux} from './util/aux.js'
 import { Main } from './componentes/main.js'
 
-const dao = new Dao();
+             
 const acordes = new Acordes();
 const arquivos = new Arquivos(acordes);
 const dragula = new Dragula();
@@ -45,11 +45,7 @@ const main = new Main();
 
         });
 
-        //document.getElementById('hMenu')?.remove();
-        //document.getElementById('footer')?.remove();
-
-        
-        //alert('Acesso somente via computador');
+     
         let platforms = document.getElementById('platforms');
           platforms.classList.remove('off');      
       
@@ -69,14 +65,9 @@ const main = new Main();
       acesso.fire.auth.onAuthStateChanged((user) => {
           if (user) {
             console.log('user on')
-              
-              
-
+       
               acesso.showUser();
-
-
               main.build();
-
               triggers();
                //aux.getById('main').classList.remove('off');
               //aux.getById('braco').classList.remove('off');
