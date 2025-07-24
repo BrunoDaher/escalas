@@ -81,7 +81,7 @@ export class Acesso {
                 </span>
                 <i id='userInfo' class="f1rem bi bi-person-circle filterA flex itemCenter">
                 ${userInfo}</i>
-                <span id='btnSignOut' class="f1rem btn1">Sair</span>
+                <span id='btnSignOut' class="bi bi-person-walking btn3 f1rem    ">Sair</span>
             </div>
         `;
     }

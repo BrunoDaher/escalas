@@ -67,21 +67,22 @@ export class Arquivos {
         
         if(video){
 
-          // let url = `./data/${song}.mp4`;
+          let localVideo = await this.dao.getLocalVideo(song);
 
-            const url =  await this.dao.getVideoUrl(song) //api
-                               //  this.dao.checkUrl(url); /// local
-
-            // this.dao.getVideoUrl(song)
-
-            const supaUrl = await this.dao.getVideoUrl(song);
-
+          if(localVideo){
+            console.log('video local')
+            video.src = localVideo;
+          }
+          else{
+            console.log('buscando video na rede')
+              const url =  await this.dao.getVideoUrl(song) //api
+               
                 if(url) {
-                   video.src = supaUrl
+                   video.src = url
                 } else {
                     video.src = `./data/logo.mp4`
-                    
                 }
+          }
             
         }
 

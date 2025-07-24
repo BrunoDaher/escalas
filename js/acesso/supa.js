@@ -23,11 +23,10 @@ export class Supa {
     .from(bucket)
     .createSignedUrl(path, 60)
   if (error || !data?.signedUrl) {
-    console.error('Erro ao gerar URL assinada:', error)
-    return null
+    return false
   }
 
-  console.log('URL gerada:', data.signedUrl)
+ // console.log('URL gerada:', data.signedUrl)
   return data.signedUrl
 }
 

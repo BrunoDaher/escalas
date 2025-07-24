@@ -20,32 +20,64 @@ export class Dao {
     return obj
   }
 
-   preload(target) {
+  preload(target) {
       document.getElementById(target).click();
   }
 
+  startSupa(){
+        this.supa = new Supa();
+        this.supa.start();
 
-startSupa(){
-      this.supa = new Supa();
-      this.supa.start();
+      
+        this.persiste = new Persiste();
+        this.persiste.init();
+  }
 
-     
-      this.persiste = new Persiste();
-       this.persiste.init();
-}
+  async getLocalVideo(key) {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open("virtuaguitar");
 
+      request.onerror = (event) => {
+        console.error("Erro ao abrir o banco IndexedDB:", event.target.error);
+        reject(event.target.error);
+      };
 
+      request.onsuccess = (event) => {
+        const db = event.target.result;
+        const transaction = db.transaction(['videos'], 'readonly');
+        const objectStore = transaction.objectStore('videos');
 
+        objectStore.openCursor().onsuccess = (event) => {
+          const cursor = event.target.result;
+          if (!cursor) {
+            // Fim dos registros
+            resolve(null);
+            return;
+          }
 
- async getVideoUrl(song) {
+          if (cursor.key === key) {
+            const blob = cursor.value;
+            const url = URL.createObjectURL(blob);
+            resolve(url); // ✅ retorna a URL
+          } else {
+            cursor.continue();
+          }
+        };
 
+        objectStore.openCursor().onerror = (event) => {
+          console.error("Erro ao iterar o object store:", event.target.error);
+          reject(event.target.error);
+        };
+      };
+    });
+  }
+
+  async getVideoUrl(song) {
   
   let url = await this.supa.getUrlVideo(song);
 
       if(url) {
-        
-      // await  this.persiste.saveVideo(url, song);
-          console.log('video salvo')
+       await  this.persiste.saveVideo(url, song);
       }
       else{
         console.log('erro')
@@ -56,15 +88,14 @@ startSupa(){
       
   }
 
-
-async checkUrl(url) {
-  try {
-    const res = await fetch(url, { method: 'HEAD' });
-    return res.ok;
-  } catch {
-    return false;
+  async checkUrl(url) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      return res.ok;
+    } catch {
+      return false;
+    }
   }
-}
 
   async validateUrl(url) {
     const isValid = await checkUrl(url);
@@ -75,20 +106,19 @@ async checkUrl(url) {
     }
   }
 
-
-preloadImage(imagePath) {
-  // Create new image element
-  const img = new Image();
-  
-  // Set source to trigger preload
-  img.src = `img/${imagePath}`;
-  
-  // Return promise that resolves when image loads
-  return new Promise((resolve, reject) => {
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error('Failed to load image'));
-  });
-}  
+  preloadImage(imagePath) {
+    // Create new image element
+    const img = new Image();
+    
+    // Set source to trigger preload
+    img.src = `img/${imagePath}`;
+    
+    // Return promise that resolves when image loads
+    return new Promise((resolve, reject) => {
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('Failed to load image'));
+    });
+  }  
 
   clicaMusica(mus) {
 
