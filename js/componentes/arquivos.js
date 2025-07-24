@@ -39,13 +39,6 @@ export class Arquivos {
                 </video>
             </div>
 
-            <div class="textStart grid my-2">
-                <label class="bi-radioactive comp p-1"> Efeitos</label>
-                <div class="bgDark2 flexCenter gap1 p-1">
-                <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
-                <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
-                <span class="efeito btn4" id="delay" value="false">Delay</span>
-            </div>
 
                <div class="comp grid">
                 <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
@@ -182,16 +175,7 @@ export class Arquivos {
             });
         }
 
-        // Botões de efeitos
-        const btnsEfeito = document.querySelectorAll('.efeito')
-        btnsEfeito.forEach(btn => {
-            const efeitoBtn = document.getElementById(btn.id);
-            if (efeitoBtn) {
-                efeitoBtn.addEventListener('click', (event) => {
-                    this.fx(event); 
-                });
-            }
-        });
+    
 
         this.restore();
         this.triggersFav();
@@ -286,14 +270,6 @@ export class Arquivos {
     }
 
    
-    fx(event) {
-        let el = event.srcElement;
-        if (el.getAttribute('value') == 'true') {
-            el.setAttribute('value', false);
-        } else {
-            el.setAttribute('value', true);
-        }
-        el.classList.toggle('active');
-    }
+  
 
 }

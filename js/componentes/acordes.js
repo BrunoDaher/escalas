@@ -86,6 +86,8 @@ export class Acordes extends Aux{
         return `
 
             <!-- Bloco: Memória de Acordes & Escalas -->
+
+            
             <div class="grid rel">
                 <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
                     
@@ -118,6 +120,7 @@ export class Acordes extends Aux{
                     </div>
                     
                     
+                    
                     <div id="memoria"  style="height: 12vh;"class="memoria bgDark2 textCenter gap1 p-1 dragContainer">
                     </div>
 
@@ -130,7 +133,14 @@ export class Acordes extends Aux{
                     </div>
                  
                 </div>
-                    
+
+                <div class="textStart grid my-2">
+                    <label class="bi-radioactive comp p-1"> Efeitos</label>
+                    <div class="bgDark2 flexCenter gap1 p-1">
+                    <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
+                    <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
+                    <span class="efeito btn4" id="delay" value="false">Delay</span>
+                 </div>
 
                 <!-- Bloco: Estrutura Musical -->
                 <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
@@ -170,10 +180,30 @@ export class Acordes extends Aux{
         });   
     }
 
+      fx(event) {
+        let el = event.srcElement;
+        if (el.getAttribute('value') == 'true') {
+            el.setAttribute('value', false);
+        } else {
+            el.setAttribute('value', true);
+        }
+        el.classList.toggle('active');
+    }
+
     triggers(){
     
         //criar label
 
+            // Botões de efeitos
+        const btnsEfeito = document.querySelectorAll('.efeito')
+        btnsEfeito.forEach(btn => {
+            const efeitoBtn = document.getElementById(btn.id);
+            if (efeitoBtn) {
+                efeitoBtn.addEventListener('click', (event) => {
+                    this.fx(event); 
+                });
+            }
+        });
 
         let toggleEditMode = this.getById('editMode');
             toggleEditMode.onclick = ()=>{
