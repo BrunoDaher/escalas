@@ -41,7 +41,7 @@ export class Persiste {
             const tx = this.db.transaction(this.storeName, 'readwrite')
             const store = tx.objectStore(this.storeName);
 
-            console.log(store)
+            //console.log(store)
 
         console.log("[saveVideo] Executando store.put...", key);
         const request = store.put(blob, key)

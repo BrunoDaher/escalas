@@ -67,18 +67,17 @@ export class Arquivos {
         
         if(video){
 
-            let url = `./data/${song}.mp4`;
+          // let url = `./data/${song}.mp4`;
 
-            const isValid =  await this.dao.getVideoUrl(song) //api
+            const url =  await this.dao.getVideoUrl(song) //api
                                //  this.dao.checkUrl(url); /// local
-
 
             // this.dao.getVideoUrl(song)
 
-          //  const supaUrl = await this.dao.getVideoUrl(song);
+            const supaUrl = await this.dao.getVideoUrl(song);
 
-                if(isValid) {
-                   video.src = url
+                if(url) {
+                   video.src = supaUrl
                 } else {
                     video.src = `./data/logo.mp4`
                     

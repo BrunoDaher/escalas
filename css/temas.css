@@ -13,6 +13,10 @@ label{
     cursor: unset;
 }
 
+body{
+        width: fit-content;
+}
+
 
 .paint-bucket {
   /* O 'auto' é o cursor de fallback (reserva) que será usado caso a imagem personalizada não carregue

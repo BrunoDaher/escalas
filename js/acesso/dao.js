@@ -42,17 +42,17 @@ startSupa(){
   
   let url = await this.supa.getUrlVideo(song);
 
-  if(url) {
-    
-   // await  this.persiste.saveVideo(url, song);
-      console.log('video salvo')
-  }
-  else{
-     console.log('erro')
-  }
-    
+      if(url) {
+        
+      // await  this.persiste.saveVideo(url, song);
+          console.log('video salvo')
+      }
+      else{
+        console.log('erro')
+      }
+        
 
-    return this.supa.getUrlVideo(song)
+    return url
       
   }
 

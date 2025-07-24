@@ -31,17 +31,18 @@ const main = new Main();
         acesso.showUser();
       }
 
-      if(!checkMobile()){
+      let tester = false;
+
+      if(!checkMobile() || tester){
         init()
       }else{
        
-
-        aux.getById('main')?.remove();
+       aux.getById('main')?.remove();
 
         ['main','hMenu','footer'].forEach(elem => {
           
           let el = aux.getById(elem);
-              el.remove();
+             el?.remove();
 
         });
 

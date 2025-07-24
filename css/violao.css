@@ -107,7 +107,9 @@ p {
     transition: all 0.3s;
 }
 
+
 .corda > div{
+    position: relative;
     padding: 10px 20px 10px;            
     border-right-color: #a3a7ab;
     width: 100%;
@@ -118,6 +120,13 @@ p {
 
 .braco , .corda > div{
     background-color: var(--fundoG);                        
+}
+
+#braco{
+  
+    max-width: 100vw;
+    overflow-x: scroll;
+    padding: 2vh;
 }
 
 .corda > div.capo{

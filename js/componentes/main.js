@@ -9,8 +9,9 @@
     addBraco() {
         const braco = document.createElement('div');
         braco.id = 'braco';
-        braco.style.maxWidth = '100vw';
-        braco.style.overflowX = 'scroll';
+        
+        //braco.style.maxWidth = '100vw';
+        //braco.style.overflowX = 'scroll';
         this.element.appendChild(braco);
         return this;
     }
@@ -19,8 +20,8 @@
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
         paineis.className = 'flexCenter gap1 my-1';
-        paineis.style.maxWidth = '100vw';
-        paineis.style.overflowX = 'scroll';
+        paineis.style.maxWidth = '';
+        paineis.style.overflowX = '';
 
         const sections = [
             {id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
