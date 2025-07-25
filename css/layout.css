@@ -52,14 +52,22 @@ menu{
 
 }
 
-body{
+body, html{
 
-      @media screen and (max-width: 500px) {
-        overflow-y: hidden;
-      }
+      margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* trava rolagem */
+  touch-action: none; /* previne gestos nativos, como scroll em alguns casos */
     
 }
 
+  @media (max-width: 500px) {
+    body {
+               overflow-y: hidden !important;
+        max-height: 100vh !important;
+      }
+    }
 
 .scroll50{
         max-height: 50%;

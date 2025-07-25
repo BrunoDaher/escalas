@@ -73,16 +73,19 @@ export class Acesso {
         let userInfo = this.fire.getAuth().currentUser.email || '';
 
         return `
-            <div id="divUser" class=" flex itemCenter">
-                <span id='btnMsgr'  
-                            class="f1rem btn3 bi-chat flex gap1" 
-                            data-target="messenger">
-                    Mensagens
-                </span>
-                <i id='userInfo' class="f1rem bi bi-person-circle filterA flex itemCenter">
-                ${userInfo}</i>
-                <span id='btnSignOut' class="bi bi-person-walking btn3 f1rem    ">Sair</span>
-            </div>
+            <section id="divUser" class=" grid gap1 itemCenter m-1 ">
+               
+                <div class='flex itemCenter '>
+                    <span id='btnMsgr'  
+                        class="btn3 bi-chat flex gap1" 
+                        data-target="messenger"> Mensagens
+                    </span>
+                    <span id='btnSignOut' class="flex btn3 bi bi-person-walking "> Sair</span>
+                </div>
+                 <i id='userInfo' class="filterA bi bi-person-circle flex itemCenter">
+                 ${userInfo}
+                </i>
+            </section>
         `;
     }
 

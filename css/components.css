@@ -147,11 +147,11 @@
 }
 
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
             #paineis {
-                grid-template-rows: repeat(5, 60vh);
+                
                 display: grid;
-                background: black;
+                filter: var(--filterB);
                 margin: 1vh;
                 padding: 1vh;
              }
@@ -165,7 +165,6 @@
 
     .navBtn{
         background-color: var(--fundoA);
-        height: 32px;
         width: fit-content
     }
 
@@ -173,21 +172,15 @@
 
 
         @media (max-width:500px){
-                zoom: 0.5;
-                display: grid;
                 justify-items: end;
-                width: 32vh;
-                margin: 2vh;
-
             }
 }
 
 .painel{
-    border-radius: 7px;
+    
     color: var(--colorC);
     background: var(--fundoD);
     padding: 1vh;
-    gap: 1vh;
 
 }
 
@@ -198,7 +191,7 @@
 
     .painel{
        height: fit-content;
-        max-height: 85%;
+        max-height: 45vh;
         overflow-y: scroll;
     }
  
@@ -277,8 +270,8 @@
             color: white;
         
             &:hover, &.active{
-                color:white;
-                background-color: var(--fundoB);
+                color:var(--colorD);
+                background-color: var(--colorC);
             }
     }
 

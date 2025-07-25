@@ -158,7 +158,7 @@ export class Acordes extends Aux{
                     </div>
                     <div id='trash' 
                     class="bi-trash dragContainer bgDark2 flexCenter gap1 p-1" style="height: 3em; 
-                         border-radius: 0.5em; color:red;">
+                         color:red;">
                     </div>
             </div>
       

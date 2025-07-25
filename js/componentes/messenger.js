@@ -24,7 +24,7 @@ export class Messenger extends Aux{
                 <section>
                     <div class="flex itemCenter justContBetween" style="color: white;">
                         <a id='msgr'class="p-2 bi-chat"> Mensagens </a>
-                    </div>
+                    </div>  
                     <div id="receiving" class="p-2"></div>
                     <div id="sending" class="">
                         <input type="text"

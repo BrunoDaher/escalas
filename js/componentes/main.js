@@ -11,10 +11,10 @@ export class Main extends Aux{
         this.element.id = 'main';
 
         this.sections = [
-            {name:'opcoes', id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
-            {name:'acordes', id: 'painelChords', className: 'painel f2vh'},
-            {name:'arquivos', id: 'painelFiles', className: 'painel f2vh'},
-            {name:'metronomo', id: 'painelClock', className: 'painel f2vh'},
+            {name:'opcoes', icon:'bi bi-music-note',  id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
+            {name:'acordes', icon:'bi bi-music-note', id: 'painelChords', className: 'painel f2vh'},
+            {name:'arquivos', icon:'bi bi-music-note', id: 'painelFiles', className: 'painel f2vh'},
+            {name:'metronomo', icon:'bi bi-music-note', id: 'painelClock', className: 'painel f2vh'},
          //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
     }
