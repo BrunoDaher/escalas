@@ -91,12 +91,12 @@ export class Acordes extends Aux{
             <div class="grid rel">
                 <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
                     
-                <div class="bgDark2 justContBetween p-1 flex textStart"> 
+                <div id='blocoVelocidade' class="bgDark2 justContBetween p-1 flex textStart"> 
                        
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
                             <i class="bi bi-clock flex"> Duração</i>  
-                            <input type="range" id="velo" max="300" value="10" class="w-50 transp" step="10"/> 
+                            <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
                         </label>
 
                          <!-- Controle: Edit -->
@@ -118,7 +118,6 @@ export class Acordes extends Aux{
                         </label>
 
                     </div>
-                    
                     
                     
                     <div id="memoria"  style="height: 12vh;"class="memoria bgDark2 textCenter gap1 p-1 dragContainer">

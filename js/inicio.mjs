@@ -33,34 +33,31 @@ const main = new Main();
 
       let tester = false;
 
-      if(!checkMobile() || tester){
-        init()
-      }else{
-       
-       aux.getById('main')?.remove();
+     // if(!checkMobile() || tester){
+        init();
+     // }
+     // else{
+        
+        /*
+        aux.getById('main')?.remove();
 
         ['main','hMenu','footer'].forEach(elem => {
-          
           let el = aux.getById(elem);
              el?.remove();
-
         });
-
      
         let platforms = document.getElementById('platforms');
           platforms.classList.remove('off');      
-      
-      
-      }
+          */
+    //  }
  
    
-  function checkMobile() {
+function checkMobile() {
     let agent = navigator.userAgent.toLowerCase();
-    console.log('checkMobile', agent);
+    //console.log('checkMobile', agent);
     return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
-}    
-  
-     
+ }    
+   
  function init() {
 
       acesso.fire.auth.onAuthStateChanged((user) => {
@@ -87,17 +84,25 @@ const main = new Main();
       });
  }
 
-function triggers(){
+ function triggers(){
 
-  console.log('triggers')
-  //carregamentos
-  msg.setFirebase(acesso.getFire())
-  msg.renderMessenger();  
-  opcoes.init();
-  acordes.renderAll();
-  arquivos.renderAll();
-  metronomo.init();  
-  dragula.init();
+    console.log('triggers')
+    //carregamentos
+    msg.setFirebase(acesso.getFire())
+    msg.renderMessenger();  
+    opcoes.init();
+    acordes.renderAll();
+    arquivos.renderAll();
+    metronomo.init();  
+    dragula.init();
 
-};    
+    
+
+    if(checkMobile()){
+      main.addFooter();
+
+      console.log(this)
+      aux.getById('acordes').click();
+    }
+ };    
 

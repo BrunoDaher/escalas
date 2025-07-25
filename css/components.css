@@ -147,11 +147,40 @@
 }
 
 
-           @media (max-width: 400px) {
-                #paineis {
-                       grid-template-columns: repeat(5, 45vw);
-        }
+    @media (max-width: 400px) {
+            #paineis {
+                grid-template-rows: repeat(5, 60vh);
+                display: grid;
+                background: black;
+                margin: 1vh;
+                padding: 1vh;
+             }
     }
+
+    #navegacao{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 4vh;
+    }
+
+    .navBtn{
+        background-color: var(--fundoA);
+        height: 32px;
+        width: fit-content
+    }
+
+    #divUser  {
+
+
+        @media (max-width:500px){
+                zoom: 0.5;
+                display: grid;
+                justify-items: end;
+                width: 32vh;
+                margin: 2vh;
+
+            }
+}
 
 .painel{
     border-radius: 7px;
@@ -166,8 +195,14 @@
     #memoria {
         
     }
+
+    .painel{
+       height: fit-content;
+        max-height: 85%;
+        overflow-y: scroll;
+    }
+ 
 }
-  
     .memoria{
         display: flex;
         flex-wrap: wrap;
@@ -175,7 +210,6 @@
         height: 120px;
     align-content: baseline;
     }
-    
     
 
     #ritmo > img{        
@@ -243,7 +277,8 @@
             color: white;
         
             &:hover, &.active{
-                background-color: var(--fundoD);
+                color:white;
+                background-color: var(--fundoB);
             }
     }
 
@@ -274,13 +309,11 @@
         }
 
     #wellcome{
-        
-        
-        
-        
+        @media (max-width: 500px) {
+            gap: 0;
+            zoom: 0.6;
+        }
     }
-    
-
 
     .container{
         display: grid;
@@ -337,9 +370,13 @@
 
 footer{
     position: fixed;
-    padding: 1vh;
+    justify-self: center;
+    text-align: center;
+    padding: 1vh 0;
+    width: 100%;
+    background-color: var(--fundoD);
     bottom: 0;
-    place-content: center;
+    
 }
 
 

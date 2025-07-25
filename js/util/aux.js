@@ -64,6 +64,13 @@ export class Aux {
         });
     }
 
+    deactivePainel(id){
+        this.getById(id).classList.add('off');
+    }
+
+    activePainel(id){
+        this.getById(id).classList.remove('off');
+    }
     // Alterna a classe 'off' no elemento com o id fornecido
     togglePainel(id) {
         this.getById(id).classList.toggle('off');
@@ -79,9 +86,9 @@ export class Aux {
     }
 
     addAll(grupo, classe){
-        let btns = this.getAllClass(`${grupo}`);
-           btns.forEach(btn => {
-            btn.classList.add(classe);
+        let elems = this.getAllClass(`${grupo}`);
+           elems.forEach(elem => {
+            elem.classList.add(classe);
         }); 
     }
 }

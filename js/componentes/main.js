@@ -1,14 +1,29 @@
-  export class Main {
+
+import {Aux} from '../util/aux.js'
+
+export class Main extends Aux{
     
     constructor() {
+        
+        super();
         this.element = document.createElement('main');
         //this.element.className = 'off';
         this.element.id = 'main';
+
+        this.sections = [
+            {name:'opcoes', id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
+            {name:'acordes', id: 'painelChords', className: 'painel f2vh'},
+            {name:'arquivos', id: 'painelFiles', className: 'painel f2vh'},
+            {name:'metronomo', id: 'painelClock', className: 'painel f2vh'},
+         //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
+        ];
     }
+
 
     addBraco() {
         const braco = document.createElement('div');
         braco.id = 'braco';
+
         
         //braco.style.maxWidth = '100vw';
         //braco.style.overflowX = 'scroll';
@@ -23,15 +38,7 @@
         paineis.style.maxWidth = '';
         paineis.style.overflowX = '';
 
-        const sections = [
-            {id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
-            {id: 'painelChords', className: 'painel f2vh'},
-            {id: 'painelFiles', className: 'painel f2vh'},
-            {id: 'painelClock', className: 'painel f2vh'},
-            {id: 'painelMeet', className: 'painel f2vh', hidden: true}
-        ];
-
-        sections.forEach(sectionData => {
+        this.sections.forEach(sectionData => {
             const section = document.createElement('section');
             section.id = sectionData.id;
             section.className = sectionData.className;
@@ -55,8 +62,45 @@
         this.addPaineis();
             
          header.insertAdjacentElement('afterend', this.element);
-        
+
+         this.triggers();
                     
+    }
+
+    addFooter(){
+
+        let buttons = this.sections.map(btn => `
+                <span id=${btn.name}  class="navBtn btn3" data-panel="${btn.id}">
+                    <i class="${btn.icon}"></i>
+                    <a style='text-transform:capitalize'>${btn.name}</a>
+                </span>`).join('');    
+
+       this.getById('navegacao').innerHTML = buttons; 
+
+        this.painelNav();
+        
+    }
+
+    painelNav(){
+        const navBtns = this.getAllClass('navBtn');
+
+        navBtns.forEach((btn) => {
+            btn.onclick = () => {
+                //estetica do botao
+                this.removeAll(`navBtn`,'active');
+                btn.classList.add('active');
+
+                this.addAll(`painel`,'off');
+                this.activePainel(btn.getAttribute('data-panel'));
+                
+            };
+        });
+    }
+
+    triggers(){
+
+     
+
     }
 }
    //return this;

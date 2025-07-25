@@ -123,6 +123,11 @@ p {
 }
 
 #braco{
+
+
+    @media (max-width: 500px) {
+        max-width: 90vw !important;
+    }
   
     max-width: 100vw;
     overflow-x: scroll;
