@@ -36,7 +36,7 @@
 
 
 .t1{
-    font-size: 4vh;
+    font-size: 3vh;
    
     filter: drop-shadow(2px 4px 6px var(--fundoB));
     color: var(--fundoA);
@@ -57,7 +57,7 @@
 .t3{
     cursor: pointer;
     color: white;
-    font-size: 2.3vh;
+    font-size: 2vh;
     
 }
 

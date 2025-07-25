@@ -11,15 +11,27 @@ export class Arquivos {
 
     renderPainelFiles() {
         return `
-            <div class="comp p-1 flex justContBetween textStart mb-2">
+
+
+           <div class="comp grid my-1">
+                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
+                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
+                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
+                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
+                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
+                </div>
+            </div>
+            
+            <div class="comp p-1 flex justContBetween textStart ">
                 <div>
                     <i class="bi bi-list"></i>
                     <label class="">Lista </label>
                 </div>
                 <label class="btn1" id="addSong"><i class="bi bi-plus"></i>Add</label>
+                
             </div>
           
-            <div id="listaArq" class="scroll50 mb-1">
+            <div id="listaArq" class="bgDark2 scroll50 ">
                 <ul id="salvos" class="flex"></ul>
             </div>
            
@@ -40,15 +52,7 @@ export class Arquivos {
             </div>
 
 
-               <div class="comp grid">
-                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
-                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
-                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
-                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
-                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
-                </div>
-            </div>
-            
+         
         
 
        

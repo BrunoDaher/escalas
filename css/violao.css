@@ -109,6 +109,7 @@ p {
 
 
 .corda > div{
+    
     position: relative;
     padding: 10px 20px 10px;            
     border-right-color: #a3a7ab;
@@ -189,6 +190,7 @@ p {
 }
 
 .corda{
+    width: 100%;
     display: flex;
     border-top: #c59206;
     border-top-style: ridge;

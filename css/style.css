@@ -13,9 +13,6 @@
 /*   braco  */
 
 
-
-
-
 :root{
     --top: calc(12vh + 3vw);
     --topSides: calc(var(--top) + 8vw);
@@ -23,7 +20,7 @@
     --fundoA: #f9ac47;
     --fundoB: black;
     --fundoC: #3c3d3e;
-    --fundoD: #4a4c50;
+    --fundoD: #272626;
     --fundoE: #1916168c;
     --fundoF: #f32121;
     --fundoG: #4f4040;
@@ -45,10 +42,12 @@
 
 
 header{
-    position: relative;
+      position: sticky;
+    top: 0vh;
     display: grid;
-    height: 10vh;
+    height: 8vh;
     align-items: center;
+    z-index: 10;
 }
 
 header.on{
@@ -59,7 +58,7 @@ header.on{
 
 body{
 
-    font-size: 0.7em;
+    
     background-color:var(--fundoC);
     
     margin: 0;

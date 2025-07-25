@@ -1,5 +1,13 @@
 
 
+  .coelho{
+        bottom: 0px;
+    width: 8vh;
+    height: 8vh;
+    rotate: -15deg;
+    position: absolute;
+  }
+
 
   .trash{
     /*background-image: url(https://www.pngrepo.com/download/38906/eraser.png);

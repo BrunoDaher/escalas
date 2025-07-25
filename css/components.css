@@ -149,7 +149,6 @@
 
     @media (max-width: 500px) {
             #paineis {
-                
                 display: grid;
                 filter: var(--filterB);
                 margin: 1vh;
@@ -170,9 +169,10 @@
 
     #divUser  {
 
-
+ font-size: 2vh;
         @media (max-width:500px){
                 justify-items: end;
+               
             }
 }
 
@@ -302,11 +302,16 @@
         }
 
     #wellcome{
+        top: 1vh;
+font-size: 2vh;
+        position: relative;
         @media (max-width: 500px) {
             gap: 0;
-            zoom: 0.6;
+            
         }
     }
+
+
 
     .container{
         display: grid;

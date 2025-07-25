@@ -38,20 +38,23 @@ export class Opcoes extends Aux{
         `).join('');
 
         return `
-                <div class="flex justContBetween comp">
+                <div class="flex justContBetween comp p-1 my-2">
                     <label class="p-1">
                         <i class="bi bi-wrench-adjustable"></i>
                         <a>Opções</a>
                     </label>
+                    <div class='flex itemCenter'>
+                    Revelar notas
+                    <label class="switch flex itemCenter">
+                        <input class='active' id="cleanMode" type="checkbox" checked >
+                        <span class="slider round"></span>
+                    </label>    
+                    </div>
                 </div>
 
-                <div id="controls" class="flex gap2 justCenter" style="height: fit-content;">
+                <div id="controls" class="flex itemCenter gap2 justCenter" style="height: fit-content;">
                     <input hidden id="playChord" type="button" class="btn1" value="Chord">
-                     <a>Mostrar Notas<a>  
-                        <label class="switch flex itemCenter">
-                            <input id="cleanMode" type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>                    
+                              
                     <input hidden id="reset" type="button" class="btn1 bordaA" value="Reset">
                 </div>
 

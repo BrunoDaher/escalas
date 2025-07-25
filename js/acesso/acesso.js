@@ -78,10 +78,10 @@ export class Acesso {
                
                 <div class='flex itemCenter '>
                     <span id='btnMsgr'  
-                        class="btn3 bi-chat flex gap1" 
+                        class="btn bi-chat flex gap1" 
                         data-target="messenger"> Mensagens
                     </span>
-                    <span id='btnSignOut' class="flex btn3 bi bi-person-walking "> Sair</span>
+                    <span id='btnSignOut' class="flex btn bi bi-person-walking "> Sair</span>
                 </div>
                  <i id='userInfo' class=" bi bi-person-circle flex itemCenter">
                  ${userInfo}

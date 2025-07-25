@@ -55,10 +55,10 @@ menu{
 body, html{
 
       margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden; /* trava rolagem */
-  touch-action: none; /* previne gestos nativos, como scroll em alguns casos */
+        padding: 0;
+        height: 100vh;
+       
+        touch-action: none; /* previne gestos nativos, como scroll em alguns casos */
     
 }
 
