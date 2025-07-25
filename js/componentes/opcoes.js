@@ -38,7 +38,7 @@ export class Opcoes extends Aux{
         `).join('');
 
         return `
-                <div class="flex justContBetween comp p-1 my-2">
+                <div class="flex justContBetween comp p-1 mb-1">
                     <label class="p-1">
                         <i class="bi bi-wrench-adjustable"></i>
                         <a>Opções</a>

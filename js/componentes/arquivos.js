@@ -39,7 +39,7 @@ export class Arquivos {
 
             
           
-            <div id="listaArq" class="bgDark2 scroll50 ">
+            <div id="listaArq" class=" scroll50 ">
                 <ul id="salvos" class="flex"></ul>
             </div>
            
@@ -50,7 +50,7 @@ export class Arquivos {
          
            <div class="comp grid my-1">
                 <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
-                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
+                <div id="daoBtns" class="flexCenter justContAround gap1  p-1">
                     <span class="btn1 bi-mouse3-fill" id="chroma"></span>
                     <span class="btn1 bi-cloud-download-fill" id="export"></span>
                     <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>

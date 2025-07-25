@@ -102,5 +102,6 @@ function checkMobile() {
       main.addFooter();
       aux.getById('acordes').click();
     }
+    
  };    
 

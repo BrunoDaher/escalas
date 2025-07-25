@@ -144,9 +144,15 @@ p {
 }
 
 .capo{
+
     padding-left: 2px !important;
     width: 1px !important;
     background-color: rgb(252, 230, 134) !important;
+}
+
+.capo > .nota{
+    /*corrigindo offset*/
+        margin-top: -24px;
 }
 
 .cordaSolta:hover{
@@ -160,8 +166,8 @@ p {
     
     background-color: #6d5858;
     position: absolute;
-    margin-top: -22px;
-    margin-left: -1.9vh;
+    margin-top: -20px;
+    margin-left: -5px;
     width: 3em;
     color: wheat;
     line-height: 14px;
@@ -201,8 +207,9 @@ p {
 }
 
 #braco{
-     margin: 2vh 0;
-     transition: all 1s;      
+        margin: 1vh 0;
+    transition: all 1s;
+    padding: 1vh;  
 }
 
 #braco.chroma{    

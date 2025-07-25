@@ -75,7 +75,7 @@ export class Acordes extends Aux{
                      <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
                         <a class="bi-command"> Controles</a>
                     </label>
-                     <div class="bgDark2 flexCenter gap2 justContAround px-2" style="zoom:0.9">  
+                     <div class=" flexCenter gap2 justContAround px-2" style="zoom:0.9">  
                   
                    
                       
@@ -85,13 +85,13 @@ export class Acordes extends Aux{
     renderPainelChords() {
         return `
 
-            <!-- Bloco: Memória de Acordes & Escalas -->
+            <!-- Bloco: Memória de Acordes & Escalas -->    
 
             
             <div class="grid rel" >
                 <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
                     
-                <div id='blocoVelocidade' class="bgDark2 justContBetween p-1 flex textStart"> 
+                <div id='blocoVelocidade' class=" justContBetween p-1 flex textStart"> 
                        
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
@@ -120,7 +120,7 @@ export class Acordes extends Aux{
                     </div>
                     
                     
-                    <div id="memoria"  style="height: 12vh;"class="memoria bgDark2 textCenter gap1 p-1 dragContainer">
+                    <div id="memoria"  style="height: 12vh;"class="memoria  textCenter gap1 p-1 dragContainer">
                     </div>
 
                     <!-- Controle: Adicionar/Remover -->
@@ -135,7 +135,7 @@ export class Acordes extends Aux{
 
                 <div class="textStart grid my-2">
                     <label class="bi-radioactive comp p-1"> Efeitos</label>
-                    <div class="bgDark2 flexCenter gap1 p-1">
+                    <div class=" flexCenter gap1 p-1">
                     <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
                     <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
                     <span class="efeito btn4" id="delay" value="false">Delay</span>
@@ -145,10 +145,10 @@ export class Acordes extends Aux{
                 <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
                     <input hidden id="dataLoad" type="file"/>
-                    <div class="comp">
+                    <div class="">
                         <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
                         <!-- Botões de Seção -->
-                        <div class="bgDark2 flex gap1 p-1" id="sectionButtons" style="flex-wrap: wrap;">
+                        <div class=" flex gap1 p-1" id="sectionButtons" style="flex-wrap: wrap;">
                             ${this.renderSectionButtons()}
                         </div>
                     </div>
@@ -157,7 +157,7 @@ export class Acordes extends Aux{
                         ${this.renderEstruturaAreas()}
                     </div>
                     <div id='trash' 
-                    class="bi-trash dragContainer bgDark2 flexCenter gap1 p-1" style="height: 3em; 
+                    class="bi-trash dragContainer  flexCenter gap1 p-1" style="height: 3em; 
                          color:red;">
                     </div>
             </div>

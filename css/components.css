@@ -179,6 +179,7 @@
 
 .painel{
     
+    border-radius: 4px;
     color: var(--colorC);
     background: var(--fundoD);
     padding: 1vh;
@@ -271,7 +272,7 @@
             color: white;
         
             &:hover, &.active{
-                color:var(--colorD);
+                color:black;
                 background-color: var(--colorC);
             }
     }
@@ -280,7 +281,7 @@
     .btn4 {
         background-color: var(--fundoC);
         padding: 1vh;
-        border-radius: 3px;
+        
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
@@ -296,6 +297,7 @@
 /* A classe active sempre muda o fundo */
 .btn4.active {
   background-color: var(--fundoA);
+  color: black;
 }
 
         .clicaMus{
