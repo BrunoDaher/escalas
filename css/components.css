@@ -149,6 +149,7 @@
 
     @media (max-width: 500px) {
             #paineis {
+
                 display: grid;
                 filter: var(--filterB);
                 margin: 1vh;
@@ -367,13 +368,15 @@ font-size: 2vh;
             }
 
 footer{
-    position: fixed;
+position: fixed;
+    height: 7vh;
     justify-self: center;
     text-align: center;
     padding: 1vh 0;
     width: 100%;
     background-color: var(--fundoD);
     bottom: 0;
+    align-content: center;
     
 }
 

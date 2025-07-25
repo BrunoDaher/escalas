@@ -88,7 +88,7 @@ export class Acordes extends Aux{
             <!-- Bloco: Memória de Acordes & Escalas -->
 
             
-            <div class="grid rel" style='width:50vw'>
+            <div class="grid rel" >
                 <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
                     
                 <div id='blocoVelocidade' class="bgDark2 justContBetween p-1 flex textStart"> 

@@ -34,7 +34,7 @@ export class Main extends Aux{
     addPaineis() {
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
-        paineis.className = 'flexCenter justCenter gap1 my-1';
+        paineis.className = 'flexCenter gap1 my-1';
         paineis.style.maxWidth = '';
         paineis.style.overflowX = '';
 
@@ -70,6 +70,8 @@ export class Main extends Aux{
 
     addFooter(){
 
+        this.getById('footer').classList.remove('off');
+
         let buttons = this.sections.map(btn => `
                 <span id=${btn.name}  class="navBtn btn3" data-panel="${btn.id}">
                     <i class="${btn.icon}"></i>
@@ -78,7 +80,7 @@ export class Main extends Aux{
 
        this.getById('navegacao').innerHTML = buttons; 
 
-        this.painelNav();
+       this.painelNav();
         
     }
 

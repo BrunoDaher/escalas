@@ -100,8 +100,6 @@ function checkMobile() {
 
     if(checkMobile()){
       main.addFooter();
-
-      console.log(this)
       aux.getById('acordes').click();
     }
  };    
