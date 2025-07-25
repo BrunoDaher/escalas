@@ -63,6 +63,7 @@ export class Main extends Aux{
             
          header.insertAdjacentElement('afterend', this.element);
 
+         header.classList.add('on');
          this.triggers();
                     
     }

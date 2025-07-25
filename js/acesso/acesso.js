@@ -60,11 +60,12 @@ export class Acesso {
     renderLogon() {
         return `
           
-            <div id="acesso" class=" p-2 flexCenter gap1">
+            <div id="acesso" class="grid p-2  gap1">
                 <input type="text" id="login" placeholder="Login" class="bordaA btn2">
                 <input type="password" id="senha" placeholder="Senha" class="bordaA btn2">
-                <button id="btnSignIn" class="btn1 bordaA m1">Entrar</button>
+                
             </div>
+            <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
         `;
     }
 
@@ -73,7 +74,7 @@ export class Acesso {
         let userInfo = this.fire.getAuth().currentUser.email || '';
 
         return `
-            <section id="divUser" class=" grid gap1 itemCenter m-1 ">
+            <section id="divUser" class="grid gap1 itemCenter m-1 ">
                
                 <div class='flex itemCenter '>
                     <span id='btnMsgr'  
@@ -82,7 +83,7 @@ export class Acesso {
                     </span>
                     <span id='btnSignOut' class="flex btn3 bi bi-person-walking "> Sair</span>
                 </div>
-                 <i id='userInfo' class="filterA bi bi-person-circle flex itemCenter">
+                 <i id='userInfo' class=" bi bi-person-circle flex itemCenter">
                  ${userInfo}
                 </i>
             </section>

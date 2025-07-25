@@ -153,7 +153,7 @@ export class Acordes extends Aux{
                         </div>
                     </div>
                     <!-- Áreas das Seções -->
-                    <div id="div-estrutura" class="bgDark p-1 textStart" style="height: 9em">
+                    <div id="div-estrutura" class="bgDark p-1 textStart" style="height: 9vh">
                         ${this.renderEstruturaAreas()}
                     </div>
                     <div id='trash' 

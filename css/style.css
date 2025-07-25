@@ -51,6 +51,10 @@ header{
     align-items: center;
 }
 
+header.on{
+    justify-content: space-between;
+    display: flex;
+}
 
 
 body{
