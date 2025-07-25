@@ -123,17 +123,21 @@ p {
     background-color: var(--fundoG);                        
 }
 
-#braco{
-
 
     @media (max-width: 500px) {
-        max-width: 90vw !important;
-    }
-  
-    max-width: 100vw;
-    overflow-x: scroll;
-    padding: 2vh;
+        #braco{
+            
+            overflow-x: scroll;
+        padding: 2vh;
+
+        }
+
+    
 }
+  
+  
+ 
+
 
 .corda > div.capo{
     border: none !important;
@@ -197,6 +201,7 @@ p {
 }
 
 #braco{
+     margin: 2vh 0;
      transition: all 1s;      
 }
 

@@ -13,13 +13,19 @@ export class Arquivos {
         return `
 
 
-           <div class="comp grid my-1">
-                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
-                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
-                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
-                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
-                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
-                </div>
+        <div id='video'class=' grid mb-1' >
+                <label class="bi-play-circle comp p-1"> Video</label>
+                <video id='currentVideo' 
+                    style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
+                        width="340" 
+                        height="160" 
+                        controls
+                        playsinline
+                        autoplay
+                        >
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
             </div>
             
             <div class="comp p-1 flex justContBetween textStart ">
@@ -30,29 +36,26 @@ export class Arquivos {
                 <label class="btn1" id="addSong"><i class="bi bi-plus"></i>Add</label>
                 
             </div>
+
+            
           
             <div id="listaArq" class="bgDark2 scroll50 ">
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-         
 
-            <div id='video'class=' grid my-2' >
-                <label class="bi-play-circle comp p-1"> Video</label>
-                <video id='currentVideo' 
-                    style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
-                        width="340" 
-                        height="160" 
-                        controls
-                        autoplay
-                        >
-                    <source src="" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
+            
+
+
+         
+           <div class="comp grid my-1">
+                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
+                <div id="daoBtns" class="flexCenter justContAround gap1 bgDark2 p-1">
+                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
+                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
+                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
+                </div>
             </div>
-
-
-         
         
 
        
