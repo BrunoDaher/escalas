@@ -48,8 +48,8 @@ export class Arquivos {
 
 
          
-           <div class="comp grid my-1">
-                <a class="bi p-1 bi-file-earmark-music"> Up / Down</a>
+           <div class=" grid my-1">
+                <a class="bi p-1 comp bi-file-earmark-music"> Up / Down</a>
                 <div id="daoBtns" class="flexCenter justContAround gap1  p-1">
                     <span class="btn1 bi-mouse3-fill" id="chroma"></span>
                     <span class="btn1 bi-cloud-download-fill" id="export"></span>

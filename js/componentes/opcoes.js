@@ -39,16 +39,13 @@ export class Opcoes extends Aux{
 
         return `
                 <div class="flex justContBetween comp p-1 mb-1">
-                    <label class="p-1">
-                        <i class="bi bi-wrench-adjustable"></i>
-                        <a>Opções</a>
-                    </label>
+                 
                     <div class='flex itemCenter'>
-                    Revelar notas
-                    <label class="switch flex itemCenter">
-                        <input class='active' id="cleanMode" type="checkbox" checked >
-                        <span class="slider round"></span>
-                    </label>    
+                        <i class='comp bi bi-music-note'>Notas</i>
+                        <label class="switch flex itemCenter">
+                            <input class='active' id="cleanMode" type="checkbox" checked >
+                            <span class="slider round"></span>
+                        </label>    
                     </div>
                 </div>
 

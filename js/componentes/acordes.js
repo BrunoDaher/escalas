@@ -133,13 +133,7 @@ export class Acordes extends Aux{
                  
                 </div>
 
-                <div class="textStart grid my-2">
-                    <label class="bi-radioactive comp p-1"> Efeitos</label>
-                    <div class=" flexCenter gap1 p-1">
-                    <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
-                    <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
-                    <span class="efeito btn4" id="delay" value="false">Delay</span>
-                 </div>
+             
 
                 <!-- Bloco: Estrutura Musical -->
                 <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
@@ -161,6 +155,14 @@ export class Acordes extends Aux{
                          color:red;">
                     </div>
             </div>
+
+               <div class="textStart grid my-2">
+                    <label class="bi-radioactive comp p-1"> Efeitos</label>
+                    <div class=" flexCenter gap1 p-1">
+                    <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
+                    <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
+                    <span class="efeito btn4" id="delay" value="false">Delay</span>
+                 </div>
       
         `;
     }

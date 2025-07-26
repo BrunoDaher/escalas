@@ -160,7 +160,7 @@
     #navegacao{
         display: flex;
         justify-content: space-between;
-        padding: 0 4vh;
+        padding: 0 1vh;
     }
 
     .navBtn{
@@ -263,7 +263,7 @@
     .btn3{
         cursor: pointer;
         border-radius: 0.5vh;
-        font-size:0.7rem;
+        font-size:1rem;
         font-family: 'Gill Sans';
         padding: 1vh;
             margin: 2px;
