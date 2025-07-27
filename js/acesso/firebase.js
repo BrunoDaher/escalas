@@ -13,9 +13,6 @@ const firebaseConfig = {
 export class Fire {
   
 
-  getConfig(){
-    return firebaseConfig;
-  }
 
   constructor() {
 
@@ -25,6 +22,11 @@ export class Fire {
     this.auth = firebase.auth();
     this.database = firebase.database();
     this.role = 'user';
+  }
+
+
+  getConfig(){
+    return firebaseConfig;
   }
 
   getRole(){

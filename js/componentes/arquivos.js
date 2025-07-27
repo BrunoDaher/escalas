@@ -12,7 +12,6 @@ export class Arquivos {
     renderPainelFiles() {
         return `
 
-
         <div id='video'class=' grid mb-1' >
                 <label class="bi-play-circle comp p-1"> Video</label>
                 <video id='currentVideo' 
@@ -37,32 +36,23 @@ export class Arquivos {
                 
             </div>
 
-            
-          
             <div id="listaArq" class=" scroll50 ">
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-
-            
-
-
-         
            <div class=" grid my-1">
                 <a class="bi p-1 comp bi-file-earmark-music"> Up / Down</a>
                 <div id="daoBtns" class="flexCenter justContAround gap1  p-1">
-                    <span class="btn1 bi-mouse3-fill" id="chroma"></span>
-                    <span class="btn1 bi-cloud-download-fill" id="export"></span>
-                    <span class="btn1 bi-cloud-upload-fill" id="load" target="dataLoad"></span>
+                    <span class="btn3 f2em bi-arrow-down" id="export"></span>
+                    <span class="btn3 f2em bi-arrow-up" id="load" target="dataLoad"></span>
+                    <span class="btn3 f2em bi-cloud-check-fill" id="cloudLoad" ></span>
                 </div>
             </div>
         
-
-       
         `;
     }
 
-   async renderVideo(song){
+    async renderVideo(song){
         let video = document.getElementById('currentVideo');
         
         if(video){
@@ -112,14 +102,12 @@ export class Arquivos {
         if(dataLoad){
             dataLoad.addEventListener('change', async ()=>{
                 //console.log('uplad de arquivo')
+
+                //aguarda a persistencia (sessionStorage)
                 await this.dao.upload();
                 if(this.dao.upload){
-                   
                     const elem = document.getElementById('arquivo');
-                    this.favBuild(elem.innerText);
-                    let btn = document.getElementById('vg_' + elem.innerText);
-                     this.acordes.loadSlot(elem);
-                    btn.click();
+                     this.favBuild(elem.innerText);
                 }
              }) 
         }
@@ -127,6 +115,13 @@ export class Arquivos {
             console.log('no upload')
         }
     }
+
+    dataSong(nomeMusica){
+    
+            let btn = document.getElementById('vg_' + nomeMusica);
+            this.acordes.loadSlot(elem);
+            btn.click();
+   }
 
     triggers(){
 
@@ -145,7 +140,6 @@ export class Arquivos {
             }
        
         });  
-            
             
         this.novoArquivo();
 
@@ -166,6 +160,7 @@ export class Arquivos {
             });
         }
 
+        //load
         const loadBtn = document.getElementById('load')
         let target = loadBtn.getAttribute('target')
         if (loadBtn) {
@@ -175,14 +170,44 @@ export class Arquivos {
             });
         }
 
-         const addSongBtn = document.getElementById('addSong');
-        if (addSongBtn) {
-            addSongBtn.addEventListener('click', () => {
-             this.addSong();
-            });
-        }
+        //cloudLoad
+        const cloudLoadBtn = document.getElementById('cloudLoad')
+           
+        if (cloudLoadBtn) {
 
-    
+            cloudLoadBtn.addEventListener('click', async () => {
+                    let cloudFiles = await this.dao.cloudSync();
+
+
+                
+                    if(cloudFiles){
+
+                        localStorage.clear();
+
+                        document.getElementById('salvos').innerHTML = '';
+                        cloudFiles.forEach(async song => {
+                            let songName = song.replace('.json','');
+
+                            let json = await this.dao.getJsonFile(song);
+                            this.dao.setLocalDataJSON('vg_' + songName, json);
+                            //this.dataSong(songName);
+                            this.favBuild(songName);
+                    });
+                   
+                    setTimeout(()=>{
+                        this.triggersFav();
+                    }, 1000);
+                }
+           })
+        }   
+
+         const addSongBtn = document.getElementById('addSong');
+            if (addSongBtn) {
+                addSongBtn.addEventListener('click', () => {
+
+                this.addSong();
+                });
+            }
 
         this.restore();
         this.triggersFav();
@@ -215,6 +240,8 @@ export class Arquivos {
                     this.acordes.editaArquivo(item)
                 })
             });
+
+            console.log('triggers ')
         
     }
 
@@ -235,22 +262,18 @@ export class Arquivos {
         document.getElementById('salvos').innerHTML += template;
         
 
-
     }
 
     addSong(){
 
-       
-
         //jogar pro dao
         sessionStorage.clear();
         const elem = document.getElementById('arquivo');
-        elem.innerText = 'newSong';
+              elem.innerText = 'newSong';
         this.favBuild(elem.innerText)
-        const div = document.getElementById('salvos');
-        salvos.append(elem)
+        const salvos = document.getElementById('salvos');
+              salvos.append(elem)
       
-        
     //const nome = fileName.toLowerCase();
     }
 
@@ -268,15 +291,11 @@ export class Arquivos {
          
          //criar o arquivo 
          str.forEach(mus => {
-
-             this.favBuild(mus);
-                    let btn = document.getElementById('vg_' + mus);
-                    btn.click();
+                this.favBuild(mus);
+                let btn = document.getElementById('vg_' + mus);
+                btn.click();
          });
          
     }
-
-   
-  
 
 }

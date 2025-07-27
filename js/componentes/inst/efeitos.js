@@ -4,6 +4,7 @@ export class Efeitos {
     }
 
     equalizer() {
+    
         const low = this.audioContext.createBiquadFilter();
         low.type = 'lowshelf';
         low.frequency.value = 120;
@@ -26,6 +27,7 @@ export class Efeitos {
     }
 
     conectChorus(type, frequency, now, eq) {
+      
         const chorusOsc = this.audioContext.createOscillator();
         chorusOsc.type = type;
         chorusOsc.frequency.value = frequency * 0.99;
@@ -44,6 +46,7 @@ export class Efeitos {
     }
 
     conectComp(type, frequency, now, eq) {
+     
         const compressor = this.audioContext.createDynamicsCompressor();
         compressor.threshold.setValueAtTime(-30, now);
         compressor.knee.setValueAtTime(20, now);
@@ -69,7 +72,6 @@ export class Efeitos {
     }
 
     conectReverb(type, frequency, now, eq) {
-
 
         const convolver = this.audioContext.createConvolver();
         const rate = this.audioContext.sampleRate;
@@ -102,6 +104,7 @@ export class Efeitos {
     }
 
     conectDelay(type, frequency, now, eq) {
+      
         const delayNode = this.audioContext.createDelay();
         delayNode.delayTime.setValueAtTime(0.85, now);
 

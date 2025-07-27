@@ -249,13 +249,14 @@
     font-size: 16px;
     font-family: 'Gill Sans';
     padding: 5px;
+    color: var(--fundoA);
     /* margin: 2px; */
-    background: var(--fundoE);
+    background: var(--fundoB);
     align-content: center;
     
 
             &:hover, &.active{
-                background-color: var(--fundoA);
+                outline: var(--colorA)
                 
             }
     }
@@ -272,8 +273,11 @@
             color: white;
         
             &:hover, &.active{
-                color:black;
-                background-color: var(--colorC);
+                     color: black;
+                    background-color: var(--colorC);
+                    
+                    border-color: var(--fundoB);
+                    filter: var(--filterB);
             }
     }
 

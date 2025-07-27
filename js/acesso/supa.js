@@ -13,6 +13,22 @@ export class Supa {
   }
 
 
+async getFile(song){
+ const { data: fileData, error: fileError } = await this.client.storage.from('virtuaguitar').download(`chords/${song}`);
+
+    if (fileData) {
+      const text = await fileData.text();
+      return JSON.parse(text);
+    }
+}
+
+async cloudSync() {
+  // Download the file from Supabase storage
+  const { data, error } = await this.client.storage.from('virtuaguitar').list('chords/');
+  return data? data.map((file) => file.name) : []
+  
+}
+
  
  async getUrlVideo(fileName) {
   const bucket = 'virtuaguitar'

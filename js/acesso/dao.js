@@ -88,6 +88,34 @@ export class Dao {
       
   }
 
+
+  async getJsonFile(song){
+    return this.supa.getFile(song)
+  }
+
+  async cloudSync(){
+    
+   return await this.supa.cloudSync();
+  }
+
+  async getJsonUrl(song){
+
+
+     let url = await this.supa.getJsonUrl(song);
+
+      if(url) {
+       //await // this.persiste.saveVideo(url, song);
+       return url
+      }
+      else{
+        // //console.log('erro')
+        return false
+      }
+
+      return url
+        
+  }
+
   async checkUrl(url) {
     try {
       const res = await fetch(url, { method: 'HEAD' });
@@ -269,6 +297,8 @@ export class Dao {
     document.getElementById('salvos').innerHTML = '';
   }
 
+  
+
   async upload() {
     const fileInput = document.querySelector('input[type=file]');
     const file = fileInput && fileInput.files[0];
@@ -289,12 +319,12 @@ export class Dao {
         try {
           const lista = JSON.parse(reader.result);
 
+          //persiste na sessao session
           Object.entries(lista).forEach(([chave, valor]) => {
             sessionStorage.setItem(chave, valor);
           });
 
           this.salvaLocal();
-
 
           resolve(true);
         } catch (e) {

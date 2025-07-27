@@ -23,13 +23,17 @@ export class Persiste {
     })
   }
 
-    async saveVideo(url, key) {
+  async saveFile(){
+
+  }
+
+  async saveVideo(url, key) {
     console.log(`[saveVideo] Iniciando para url=${url} e key=${key}`);
 
     const response = await fetch(url)
     if (!response.ok) {
         const msg = `Erro ao baixar o vídeo: ${response.status} ${response.statusText}`
-         console.error(`[saveVideo] ${msg}`);
+        console.error(`[saveVideo] ${msg}`);
         throw new Error(msg)
     }
 
@@ -65,9 +69,7 @@ export class Persiste {
         reject(event.target.error)
         }
     })
-    }
-
-
+  }
 
   async getVideoUrl(key) {
     return new Promise((resolve, reject) => {

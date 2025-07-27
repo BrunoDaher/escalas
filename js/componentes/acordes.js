@@ -41,7 +41,7 @@ export class Acordes extends Aux{
         ).join('');
     }
 
-     renderEstruturaAreas() {
+    renderEstruturaAreas() {
 
       //  document.getElementById('div-estrutura').innerHTML = '';
 
@@ -181,7 +181,7 @@ export class Acordes extends Aux{
         });   
     }
 
-      fx(event) {
+    fx(event) {
         let el = event.srcElement;
         if (el.getAttribute('value') == 'true') {
             el.setAttribute('value', false);
@@ -429,12 +429,8 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
     }
 
-    loadSlot(item) {
-        
-        
-        //console.log('loadSlot', item.innerText);
-        
-        
+    loadSlot() {
+        //console.log('loadSlot', item.innerText);x
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
@@ -443,19 +439,12 @@ export class Acordes extends Aux{
             Object.entries(dataLabel).forEach(label => {
                 this.addSlot(label[1], label[0]);
             });
-
             //zerar estrutura
-
-            
-
-            this.loadEstrutura(item);
+            this.loadEstrutura();
         }
         else{
             //cosole.log('sem dados ')
         }
-
-       
- 
     }
   
     salvaEstrutura(e) {
@@ -488,7 +477,6 @@ export class Acordes extends Aux{
     this.dao.setDataJSON('estrutura', estrutura);
     }
 
-
     cleanSection(){
           let sections = [
             { id: "seq", label: "Sequencia", off: false },
@@ -504,10 +492,8 @@ export class Acordes extends Aux{
         
     }
 
-    loadEstrutura(item){
+    loadEstrutura(){
 
-
-    //this.renderPainelChords() 
         this.cleanSection();
        // console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
@@ -524,14 +510,14 @@ export class Acordes extends Aux{
                   
                     if(div){
                       
-                    valor.forEach(element => {
-                         let btn = this.chordShortcut({
-                            id: chave+element.tone,
-                            idMemoria: element.slot,
-                            value: element.tone,
-                            velo: 0,
-                            seq: chave
-                        });
+                        valor.forEach(element => {
+                            let btn = this.chordShortcut({
+                                id: chave+element.tone,
+                                idMemoria: element.slot,
+                                value: element.tone,
+                                velo: 0,
+                                seq: chave
+                            });
 
                    
                        div.innerHTML += btn;
@@ -547,7 +533,7 @@ export class Acordes extends Aux{
             // de cada botao clonado durante o drag and drop
 
            let btns = document.querySelectorAll('.shortcut');
-            btns.forEach(btn => {
+                btns.forEach(btn => {
                 btn.onclick = (e) => {
                    let id = this.getById(btn.getAttribute('slot'));
                    id.click()
