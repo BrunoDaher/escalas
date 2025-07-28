@@ -34,7 +34,7 @@ export class Main extends Aux{
     addPaineis() {
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
-        paineis.className = 'flexCenter gap1 my-1';
+        paineis.className = 'flexCenter gap1 my-1 filterC justCenter';
         paineis.style.maxWidth = '';
         paineis.style.overflowX = '';
 

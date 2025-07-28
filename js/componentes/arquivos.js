@@ -45,7 +45,7 @@ export class Arquivos {
                 <div id="daoBtns" class="flexCenter justContAround gap1  p-1">
                     <span class="btn3 f2em bi-arrow-down" id="export"></span>
                     <span class="btn3 f2em bi-arrow-up" id="load" target="dataLoad"></span>
-                    <span class="btn3 f2em bi-cloud-check-fill" id="cloudLoad" ></span>
+                    <span class="btn3 f2em bi-cloud-download" id="cloudLoad" ></span>
                 </div>
             </div>
         

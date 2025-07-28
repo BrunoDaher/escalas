@@ -77,7 +77,7 @@ export class Acesso {
                
                 <div class='flex itemCenter '>
                     <span id='btnMsgr'  
-                        class="btn bi-chat " 
+                        class="btn1 bi-chat " 
                         data-target="messenger">Mensagens
                     </span>
                     <span id='btnSignOut' class="btn bi bi-person-walking ">Sair</span>

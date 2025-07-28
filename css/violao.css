@@ -167,7 +167,7 @@ p {
     background-color: #6d5858;
     position: absolute;
     margin-top: -20px;
-    margin-left: -5px;
+    margin-left: calc(-5px - 0.8rem);
     width: 3em;
     color: wheat;
     line-height: 14px;
@@ -179,11 +179,15 @@ p {
 
     &.on{
 
-    background-color: var(--fundoE) ;
-    color: white;
-    filter: var(--filterB);
-    transition: all 0.1s;
+        background-color: var(--fundoE) ;
+        color: white;
+        filter: var(--filterB);
+        transition: all 0.1s;
 
+    }
+
+    @media (min-width:600px) {
+        margin-left: calc(-5px);
     }
 }
 
