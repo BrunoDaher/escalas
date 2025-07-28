@@ -17,7 +17,7 @@
 
 
 main{
-    height: 80vh;
+    height: 82vh;
     border-color: var(--main-bg-color);
     position: relative;
 
@@ -207,11 +207,19 @@ input{
     box-sizing: border-box;
 }
 
+.selfCenter{
+    justify-self: center;
+}
+
 .w-100{
     width: 100%;
 }
 .w-75{
     width: 75%;
+}
+
+.w-50{
+    width: 50%;
 }
 
 .me2{

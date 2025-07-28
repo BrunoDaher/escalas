@@ -88,8 +88,7 @@ export class Dao {
       
   }
 
-
-  async getJsonFile(song){
+  async getFile(song){
     return this.supa.getFile(song)
   }
 
@@ -202,6 +201,7 @@ export class Dao {
   }
 
   setLocalDataJSON(id, data) {
+    console.log('salvando no localstorage')
     localStorage.setItem(id, JSON.stringify(data));
   }
 

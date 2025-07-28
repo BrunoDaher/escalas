@@ -12,8 +12,9 @@ export class Main extends Aux{
 
         this.sections = [
             {name:'opcoes', icon:'bi bi-music-note',  id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
-            {name:'acordes', icon:'bi bi-music-note', id: 'painelChords', className: 'painel f2vh'},
+            
             {name:'arquivos', icon:'bi bi-music-note', id: 'painelFiles', className: 'painel f2vh'},
+            {name:'acordes', icon:'bi bi-music-note', id: 'painelChords', className: 'painel f2vh'},
             {name:'metronomo', icon:'bi bi-music-note', id: 'painelClock', className: 'painel f2vh'},
          //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
@@ -34,7 +35,7 @@ export class Main extends Aux{
     addPaineis() {
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
-        paineis.className = 'flexCenter gap1 my-1 filterC justCenter';
+        paineis.className = 'flexCenter gap1 my-1 filterC';
         paineis.style.maxWidth = '';
         paineis.style.overflowX = '';
 

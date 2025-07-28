@@ -13,13 +13,22 @@ export class Supa {
   }
 
 
-async getFile(song){
- const { data: fileData, error: fileError } = await this.client.storage.from('virtuaguitar').download(`chords/${song}`);
+async getFile(song) {
+  const { data: signedUrlData } = await this.client
+    .storage
+    .from('virtuaguitar')
+    .createSignedUrl(`chords/${song}`, 60);
 
-    if (fileData) {
-      const text = await fileData.text();
-      return JSON.parse(text);
+  const response = await fetch(signedUrlData.signedUrl, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache',
+      'Pragma': 'no-cache',
     }
+  });
+
+  const text = await response.text();
+  return JSON.parse(text);
 }
 
 async cloudSync() {

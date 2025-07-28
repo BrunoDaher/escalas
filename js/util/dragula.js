@@ -85,13 +85,23 @@ export class Dragula {
         if(target.id == 'trash'){
           //elimina objeto (o clonado)
           //funcao de view
+          console.log(el)
               document.getElementById(el.id).remove();
               //limpa lixeira dom
               document.getElementById('trash').innerHTML = '';
           ///
+
           nota.add=false;
           nota.seq = source.id;
+          console.log('lixeira')
+
+          console.log(nota)
         }
+        else{
+          
+        }
+
+        //update estrutura
           const event = new CustomEvent('estrutura', { detail: nota });
           document.dispatchEvent(event);   
        

@@ -16,7 +16,7 @@ export class Arquivos {
                 <label class="bi-play-circle comp p-1"> Video</label>
                 <video id='currentVideo' 
                     style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
-                        width="340" 
+                        width="320" 
                         height="160" 
                         controls
                         playsinline
@@ -32,20 +32,22 @@ export class Arquivos {
                     <i class="bi bi-list"></i>
                     <label class="">Lista </label>
                 </div>
-                <label class="btn1" id="addSong"><i class="bi bi-plus"></i>Add</label>
+                <label class="btn1" id="addSong"><i class="bi bi-plus"></i>Nova Música</label>
                 
             </div>
 
-            <div id="listaArq" class=" scroll50 ">
+            <div id="listaArq" class="scroll50">
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-           <div class=" grid my-1">
-                <a class="bi p-1 comp bi-file-earmark-music"> Up / Down</a>
-                <div id="daoBtns" class="flexCenter justContAround gap1  p-1">
-                    <span class="btn3 f2em bi-arrow-down" id="export"></span>
-                    <span class="btn3 f2em bi-arrow-up" id="load" target="dataLoad"></span>
-                    <span class="btn3 f2em bi-cloud-download" id="cloudLoad" ></span>
+           <div class=" grid me-2 ">
+                <a class="bi p-2 comp bi-reload"> Atualizar Lista
+                 <span class="btn4 my-2 bi-cloud-download" id="cloudLoad" ></span>
+                </a>
+                <divhidden  id="daoBtns" class="flexCenter justContAround gap1 ">
+                    <span hidden class="btn1 my-2 bi-arrow-down" id="export"></span>
+                    <span hidden class="btn1 my-2 bi-arrow-up" id="load" target="dataLoad"></span>
+                   
                 </div>
             </div>
         
@@ -188,15 +190,15 @@ export class Arquivos {
                         cloudFiles.forEach(async song => {
                             let songName = song.replace('.json','');
 
-                            let json = await this.dao.getJsonFile(song);
+                            let json = await this.dao.getFile(song);
                             this.dao.setLocalDataJSON('vg_' + songName, json);
                             //this.dataSong(songName);
                             this.favBuild(songName);
+
+                            this.triggersFav();
                     });
                    
-                    setTimeout(()=>{
-                        this.triggersFav();
-                    }, 1000);
+                    
                 }
            })
         }   

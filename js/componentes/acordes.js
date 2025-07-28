@@ -120,7 +120,7 @@ export class Acordes extends Aux{
                     </div>
                     
                     
-                    <div id="memoria"  style="height: 12vh;"class="memoria  textCenter gap1 p-1 dragContainer">
+                    <div id="memoria" class="memoria scroll75 w-75 textCenter gap1 p-1 dragContainer">
                     </div>
 
                     <!-- Controle: Adicionar/Remover -->
@@ -176,7 +176,6 @@ export class Acordes extends Aux{
 
         this.triggers();
           document.addEventListener('estrutura', (e) => {
-            console.log('estrutura');
             this.salvaEstrutura(e.detail);
         });   
     }
@@ -261,8 +260,6 @@ export class Acordes extends Aux{
     setVelo(btn) {
 
         let velo = this.dao.getDataJSON('velo');
-
-        
        
         console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
        // this.violao.slotId = btn.value;
@@ -379,6 +376,7 @@ export class Acordes extends Aux{
             let btnId = id ? id : curSize + 1;
             let btnLabel = chordLabel ? chordLabel : btnId;
 
+           
             // Cria o elemento usando template e insere no innerHTML
             mem.insertAdjacentHTML('beforeend', `
                 <span
@@ -434,6 +432,8 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
+        console.log(dataLabel)
+
         //preenche memoria
         if (dataLabel) {
             Object.entries(dataLabel).forEach(label => {
@@ -443,7 +443,7 @@ export class Acordes extends Aux{
             this.loadEstrutura();
         }
         else{
-            //cosole.log('sem dados ')
+            cosole.log('sem dados ')
         }
     }
   
@@ -459,8 +459,10 @@ export class Acordes extends Aux{
                 // Somar: adiciona o valor ao array existente
                 estrutura[e.seq] = [...estrutura[e.seq], {'tone':e.value, 'slot':e.idMemoria}];
             } else {
+                console.log('remocao')
                 if (Array.isArray(estrutura[e.seq])) {
-                    estrutura[e.seq] = estrutura[e.seq].filter(item => item.tone !== e.tone);
+                    estrutura[e.seq] = estrutura[e.seq].filter(item => item.tone !== e.value);
+                    
                 } else {
                     console.warn(`estrutura[${e.seq}] não é um array. Valor atual:`, estrutura[e.seq]);
                 }

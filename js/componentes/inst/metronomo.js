@@ -58,7 +58,7 @@ export class Metronomo {
 
             figurasHtml += 
             
-            `<span class="figura-btn btn3 ${classe}  f2em figritm" 
+            `<span class="figura-btn btn3 ${classe}  figritm" 
                 data-value="${fig.value}" 
                 title="${fig.title}">
                 ${fig.text}
@@ -100,9 +100,9 @@ export class Metronomo {
                     
                     <div id="compasso" class="compasso  w-100  m-1 justCenter">
                         ${[1, 2, 3, 4].map(i => `
-                            <div id='p${i}' value="${i}" class="pulse w-100   ">
+                            <div id='p${i}' value="${i}" class="pulse w-75 justCenter">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
-                                    `<div class="subdivision w-100 btn4">
+                                    `<div class="subdivision w-100 btn3">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
@@ -198,9 +198,9 @@ export class Metronomo {
         document.getElementById('compasso').innerHTML = [1, 2, 3, 4].map(i => {
             const isVisible = i <= this.pulsos ? '' : 'none';
             return `
-                <div id='p${i}' value="${i}" class="pulse w-100 drag-container ${isVisible}">
+                <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision w-100 btn4">
+                        `<div class="subdivision w-100 btn3">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;

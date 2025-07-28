@@ -147,15 +147,23 @@
 }
 
 
-    @media (max-width: 500px) {
-            #paineis {
+#paineis{
 
+    justify-content: center;
+    height: 70vh;
+    overflow-y: scroll;
+
+   @media (max-width: 500px) {
+            #paineis {
+                justify-content: normal;
                 display: grid;
                 filter: var(--filterB);
                 margin: 1vh;
+                width: 100%;
                 padding: 1vh;
              }
     }
+}
 
     #navegacao{
         display: flex;
@@ -183,6 +191,9 @@
     color: var(--colorC);
     background: var(--fundoD);
     padding: 1vh;
+        height: 65vh;
+        
+    overflow-y: scroll;
 
 }
 
@@ -193,8 +204,10 @@
 
     .painel{
        height: fit-content;
-        max-height: 45vh;
-        overflow-y: scroll;
+        max-height: 55vh;
+        width: 80%;
+        padding: 2vh;
+        
     }
  
 }

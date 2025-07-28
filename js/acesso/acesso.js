@@ -59,7 +59,7 @@ export class Acesso {
     renderLogon() {
         return `
           
-            <div id="acesso" class="grid p-2  gap1">
+            <div id="acesso" class="grid p-2  gap1 w-50 selfCenter me2">
                 <input type="text" id="login" placeholder="Login" class="bordaA btn2">
                 <input type="password" id="senha" placeholder="Senha" class="bordaA btn2">
                 

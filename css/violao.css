@@ -129,6 +129,7 @@ p {
             
             overflow-x: scroll;
         padding: 2vh;
+           height: 20vh !important;
 
         }
 
@@ -218,6 +219,7 @@ p {
         margin: 1vh 0;
     transition: all 1s;
     padding: 1vh;  
+    height: 18vh;
 }
 
 #braco.chroma{    
