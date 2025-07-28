@@ -204,10 +204,14 @@ p {
 }
 
 .corda{
-    width: 100%;
+    width: fit-content;
     display: flex;
     border-top: #c59206;
     border-top-style: ridge;
+
+     @media (min-width:500px) {
+        margin-left: auto;
+    }
 }
 
 #braco{
