@@ -210,7 +210,7 @@ p {
     border-top-style: ridge;
 
      @media (min-width:500px) {
-        margin-left: auto;
+        width: 100%;
     }
 }
 
