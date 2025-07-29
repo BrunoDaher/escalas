@@ -164,20 +164,68 @@ menu{
 /**/
 
 
+#video{
+    
+ position: absolute;
+ right: 0;
+ top: 110px;
+padding: 1vh 0;
+  object-fit:cover; 
+       
+}
+
+
+.desktop{
+ 
+    height: 12em;
+    z-index: 20;
+    right: 0;
+    border-radius: 5px;
+    background-color: var(--fundoD);
+    padding: 1px;
+        transform: translateY(-9em);
+}
+
+.mobile{
+
+      height: 17em;
+    top: 15vh;
+    width: 100vw;
+    transform: translateY(-13em);
+
+}
+
 .video{
-     object-fit:cover; 
-                        border-radius:0 0 1vh 1vh;
-                        height: 160px
+
+   
+
+
+}
+
+#video.xray{
+        filter: invert(0.6) brightness(1) contrast(4.5);
+}
+
+#video.invertido{
+                rotate: 180deg;
+        
+                .video{
+                        transform: translateY(-30vw);
+                        height: 50vw;
+                    }
+                
 }
 
 #paineis{
 
-    justify-content: center;
+    justify-content: space-between;
     height: 70vh;
     overflow-y: scroll;
+    
 
    @media (max-width: 500px) {
             #paineis {
+                justify-content: center;
                 border-radius: 0 !important;
                 justify-content: normal;
                 display: grid;
@@ -218,13 +266,14 @@ menu{
         height: 65vh;
         
     overflow-y: scroll;
+    width: 100%;
 
 
    @media (max-width:500px){
        height: fit-content;
        border-radius: none !important;
         max-height: 55vh;
-        width: 100%;
+        
         padding: 2vh;
         
     }
@@ -304,7 +353,7 @@ menu{
     .btn3{
         cursor: pointer;
         border-radius: 0.5vh;
-        font-size:1rem;
+        font-size:1em;
         font-family: 'Gill Sans';
         padding: 1vh;
             margin: 2px;

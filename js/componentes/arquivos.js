@@ -27,12 +27,23 @@ export class Arquivos {
            
            <div class=" grid me-2 ">
                 <a class="bi p-2 comp bi-reload"> Atualizar Lista
-                 <span class="btn4 my-2 bi-cloud-download" id="cloudLoad" ></span>
+               
                 </a>
-                <divhidden  id="daoBtns" class="flexCenter justContAround gap1 ">
-                    <span hidden class="btn1 my-2 bi-arrow-down" id="export"></span>
-                    <span hidden class="btn1 my-2 bi-arrow-up" id="load" target="dataLoad"></span>
-                   
+                <div  id="daoBtns" class="flexCenter justContAround gap1" 
+                style='transform:scale(0.8)'
+                >   
+                    <div class="grid rad1 btn1" id="cloudLoad">
+                        <i class='bi-cloud-download f3vh'></i>
+                        <a>Atualizar</a>
+                    </div>
+                    <div class="grid rad1 btn1" id="export">
+                        <i class=' bi-arrow-down'></i>
+                        <a>Exportar</a>
+                    </div>
+                    <div class="grid rad1 btn1" id="load" target="dataLoad">
+                        <i class=' bi-arrow-up'></i>
+                        <a>Importar</a>
+                    </div>
                 </div>
             </div>
         
@@ -40,6 +51,7 @@ export class Arquivos {
     }
 
     async playVideo(song){
+
 
         //Dom
         let currentVideo = document.getElementById('currentVideo');
@@ -50,15 +62,15 @@ export class Arquivos {
 
           if(localVideo){
             console.log('video local')
-            currentVideo.src = localVideo;
+            currentVideo.src = localVideo;               
           }
           else{
             console.log('buscando video na rede')
               const url =  await this.dao.getVideoUrl(song) //api
                 if(url) {
-                   htmlVideo.src = url
+                   currentVideo.src = url
                 } else {
-                    htmlVideo.src = `./data/logo.mp4`
+                    currentVideo.src = `./data/logo.mp4`
                 }
           }
             

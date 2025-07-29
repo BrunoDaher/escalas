@@ -58,14 +58,14 @@ export class Main extends Aux{
 
          this.addBraco();
             
-        setTimeout( ()=>{
-               const braco = document.getElementById('braco');
-     
-                let video = this.renderVideo();
-                 braco.insertAdjacentHTML('afterend', video);
+            setTimeout( ()=>{
+                const braco = document.getElementById('braco');
+        
+                    let video = this.renderVideo();
+                    braco.insertAdjacentHTML('afterend', video);
 
-        },100)
-          
+            },100)
+            
          this.addPaineis();
             
          header.insertAdjacentElement('afterend', this.element);
@@ -92,9 +92,16 @@ export class Main extends Aux{
     }
 
     renderVideo(){
+
+         const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+             
+                let classe = isMobile ? 'mobile' : 'desktop';
+                let controls = isMobile ? 'controls' : '';
+
         return`
              <div id='video'class='off' >
-                <video class='w-100 video' id='currentVideo' ; 
+                <video class='video ${classe}' id='currentVideo' ; 
                         controls
                         playsinline
                         autoplay

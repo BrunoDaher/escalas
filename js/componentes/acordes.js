@@ -37,7 +37,12 @@ export class Acordes extends Aux{
     
     renderSectionButtons() {
       
-        return this.sections.map(s => `<span class="btn3 section-btn${s.active ? " active" : ""}" data-target="div-${s.id}">${s.label}</span>`
+        return this.sections.map(s => 
+            `<span class="btn3 
+                section-btn${s.active ? " active" : ""}" 
+                data-target="div-${s.id}">
+                ${s.label}
+            </span>`
         ).join('');
     }
 
@@ -88,12 +93,15 @@ export class Acordes extends Aux{
             <!-- Bloco: Memória de Acordes & Escalas -->    
 
             
-            <div class="grid rel">
+            <div class="grid rel scroll100">
 
-            <div class='flexCenter gap1 p-1'> 
-             <span id='btnVideo' target='video' class='btn3 bi bi-film btnView'> Video </span>
-             <span id='btnBraco' target='braco' class='btn3 bi bi-music-note btnView'> Braco </span>
-            </div>
+                <div class='flexCenter gap1 p-1'> 
+                    <span id='btnVideo' target='video' 
+                            class='btn3 bi bi-film btnView'> 
+                            Video 
+                    </span>
+                    
+                </div>
 
             <!-- Bloco: Estrutura Musical -->
             <div class="gap2 my-1" 
@@ -125,7 +133,14 @@ export class Acordes extends Aux{
                 
                 <section id='chords'>
                     <div>
-                            <div class="comp p-1 bi-music-note-list"> Acordes & Escalas</div>
+                            <div class="comp flex justContBetween p-1"> 
+                            <span class=' bi-music-note-list'> Acordes & Escalas </span>
+                             <div class="flex itemCenter gap1 f2vh">
+                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
+                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
+                        </div>
+                            </div>
+                            
                             <div id='blocoVelocidade' class="fundoE justContBetween p-1 flex textStart"> 
                         
                                 <!-- Bloco: Velocidade -->
@@ -162,12 +177,9 @@ export class Acordes extends Aux{
                     </section>
 
                     <!-- Controle: Adicionar/Remover -->
-                    <section class="flex abs addRem itemCenter gap2">
-                        <div class="flex itemCenter gap1 f2vh">
-                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
-                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
-                        </div>
-                    </section>
+                    <div class="flex abs addRem itemCenter gap2">
+                       
+                    </div>
              </section>
             
             <div class="textStart grid my-1">
@@ -214,25 +226,11 @@ export class Acordes extends Aux{
     
         //criar label
 
-          const btnViews = this.getAllClass('btnView');
-
-                btnViews.forEach(btn => {
-                    btn.onclick = ()=>{
-                    const irmaos = [...btn.parentNode.children].filter(
-                        (el) => el !== btn
-                        );
-
-                        let targetA = this.getById(irmaos[0].getAttribute('target'));
-                            targetA.classList.add('off');
-                            irmaos[0].classList.remove('active');
-
-                        let targetB = this.getById(btn.getAttribute('target'))
-                            targetB.classList.remove('off');
-                            btn.classList.add('active');
-                        
-                    }
-                });
-
+          const btnVideo = this.getById('btnVideo');
+                btnVideo.onclick = ()=>{
+                    let id = btnVideo.getAttribute('target');
+                    this.togglePainel(id);
+                }
 
             // Botões de efeitos
           const btnsEfeito = document.querySelectorAll('.efeito')
@@ -269,45 +267,52 @@ export class Acordes extends Aux{
              sectionBtns.forEach(btn => {
                
                 btn.onclick = ()=>{
+            
+
+                  
+                        let trecho = btn.innerText.trim().toLowerCase();
+
+                        const event = new CustomEvent('video-play', {
+                            detail: trecho, // Dados para o método clean
+                        });
+
+                        let currentSong = sessionStorage.getItem('currentSong')
+
+                        if(currentSong){
+                       
+                            let id = `vg_${currentSong}`;
+                            let btnLista = this.getById(id);
+
+                            if(btnLista){
+                                btnLista.click();
+                            }
+                            document.dispatchEvent(event);
+                         }
+                         else{
+                            document.dispatchEvent(event);
+                         }
+                        //funcao aux
+                        this.removeAll('section-btn','active')
+                            btn.classList.add('active');
+
+                        let tgt = this.getById(btn.getAttribute('data-target'));
+                        
+                        this.addAll('sectionPanel','off');
+                            tgt.classList.remove('off')
+                        }
+
                     
-                    let trecho = btn.innerText.trim().toLowerCase();
-
-                    const event = new CustomEvent('video-play', {
-                         detail: trecho, // Dados para o método clean
-                    });
-
-                    document.dispatchEvent(event)
-
-                    //remove on
-                    this.removeAll('section-btn','active')
-                    btn.classList.add('active');
-
-                    let tgt = this.getById(btn.getAttribute('data-target'));
-                    
-                    this.addAll('sectionPanel','off');
-                        tgt.classList.remove('off')
-                        //remover de todos irmaos
-
-                    //this.togglePainel(tgt);
-                }
+               
              });
-
-
+            
     }
 
     setVelo(btn) {
 
         let velo = this.dao.getDataJSON('velo');
-       
         console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
-       // this.violao.slotId = btn.value;
-
         let obj = velo ? velo : [];
-
-        
-        obj[this.slotId] = btn.value;
-        
-        console.log(this.violao.slotId)
+            obj[this.slotId] = btn.value;
         this.dao.setDataJSON('velo', obj);
        
     }

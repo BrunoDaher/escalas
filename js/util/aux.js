@@ -6,6 +6,27 @@ export class Aux {
         });
     }
 
+    hideParents(){
+        const btnViews = this.getAllClass('btnView');
+
+            btnViews.forEach(btn => {
+                btn.onclick = ()=>{
+                const irmaos = [...btn.parentNode.children].filter(
+                    (el) => el !== btn );
+
+                    let targetA = this.getById(irmaos[0].getAttribute('target'));
+                        targetA.classList.add('off');
+                        irmaos[0].classList.remove('active');
+
+                    let targetB = this.getById(btn.getAttribute('target'))
+                        targetB.classList.remove('off');
+                        btn.classList.add('active');
+                    
+                }
+        });
+    }
+        
+
     getById(id){
         return document.getElementById(id);
     }
@@ -27,7 +48,6 @@ export class Aux {
         target.value = source.innerText;
         target.innerHTML = source.innerHTML;
     }
-
 
     // Simula um clique no elemento cujo id está no atributo 'target'
     preload(element) {
@@ -73,6 +93,7 @@ export class Aux {
     }
     // Alterna a classe 'off' no elemento com o id fornecido
     togglePainel(id) {
+        console.log(id)
         this.getById(id).classList.toggle('off');
     }
 
