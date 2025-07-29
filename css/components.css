@@ -171,6 +171,7 @@ menu{
 
    @media (max-width: 500px) {
             #paineis {
+                border-radius: 0 !important;
                 justify-content: normal;
                 display: grid;
                 filter: var(--filterB);
@@ -211,22 +212,25 @@ menu{
         
     overflow-y: scroll;
 
-}
 
-@media (max-width:500px){
-    #memoria {
-        
-    }
-
-    .painel{
+   @media (max-width:500px){
        height: fit-content;
+       border-radius: none !important;
         max-height: 55vh;
-        width: 80%;
+        width: 100%;
         padding: 2vh;
         
     }
  
+
 }
+
+
+    #memoria {
+        
+    }
+
+
     .memoria{
         display: flex;
         flex-wrap: wrap;

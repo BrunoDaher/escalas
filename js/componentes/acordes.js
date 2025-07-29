@@ -37,7 +37,7 @@ export class Acordes extends Aux{
     
     renderSectionButtons() {
       
-        return this.sections.map(s => `<span class="btn4 section-btn${s.active ? " active" : ""}" data-target="div-${s.id}">${s.label}</span>`
+        return this.sections.map(s => `<span class="btn3 section-btn${s.active ? " active" : ""}" data-target="div-${s.id}">${s.label}</span>`
         ).join('');
     }
 
@@ -142,29 +142,34 @@ export class Acordes extends Aux{
                     <div class="">
                         <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
                         <!-- Botões de Seção -->
-                        <div class=" flex gap1 p-1" id="sectionButtons" style="flex-wrap: wrap;">
+                        <div class=" flexWrap my-1 justContBetween" id="sectionButtons" style="flex-wrap: wrap; zoom:0.9">
                             ${this.renderSectionButtons()}
                         </div>
                     </div>
                     <!-- Áreas das Seções -->
                     <div id="div-estrutura" class="bgDark p-1 textStart" style="height: 9vh">
-                        ${this.renderEstruturaAreas()}
+                            ${this.renderEstruturaAreas()}
                     </div>
                     <div id='trash' 
                     class="bi-trash dragContainer  flexCenter gap1 p-1" style="height: 3em; 
                          color:red;">
                     </div>
             </div>
-
-               <div class="textStart grid my-2">
-                    <label class="bi-radioactive comp p-1"> Efeitos</label>
-                    <div class=" flexCenter gap1 p-1">
-                    <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
-                    <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
-                    <span class="efeito btn4" id="delay" value="false">Delay</span>
-                 </div>
-      
+            <div class="textStart grid ">
+              ${this.renderFx()}
+            </div>
         `;
+    }
+
+
+    renderFx(){
+        return `
+            <label class="bi-radioactive comp p-1"> Efeitos</label>
+            <div class=" flexCenter gap1 p-1">
+            <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
+            <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
+            <span class="efeito btn4" id="delay" value="false">Delay</span>
+        `
     }
 
     renderAll() {

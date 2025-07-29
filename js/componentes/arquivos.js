@@ -14,9 +14,9 @@ export class Arquivos {
 
         <div id='video'class=' grid mb-1' >
                 <label class="bi-play-circle comp p-1"> Video</label>
-                <video id='currentVideo' 
+                <video class='w-100' id='currentVideo' 
                     style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
-                        width="320" 
+                        
                         height="160" 
                         controls
                         playsinline
@@ -155,11 +155,11 @@ export class Arquivos {
 
         const exportBtn = document.getElementById('export');
         if (exportBtn) {
-            exportBtn.addEventListener('click', () => {
+            exportBtn.onclick = () => {
                // alert('Exportar arquivo');
                 this.dao.exportData();
                 // Lógica para exportar
-            });
+            };
         }
 
         //load
@@ -226,6 +226,7 @@ export class Arquivos {
                 item.addEventListener('click', ()=>{
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
+                       
                         this.acordes.loadSlot(item); 
                        // this.renderVideo(item)
                 })
