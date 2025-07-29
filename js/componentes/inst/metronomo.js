@@ -81,7 +81,7 @@ export class Metronomo {
             `; 
         
         painelClock.innerHTML += `
-            <div class="card bpm bgDark">${wrap}
+            <div class="card bpm bgDark">
                     <div class="comp p-1 flex justContAround">
                         <div class='flex w-50'>
                             <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
@@ -243,7 +243,7 @@ export class Metronomo {
         document.querySelectorAll(".compCount").forEach(pulse =>
             pulse.addEventListener("click", this.onPulseClick)
         );
-    document.getElementById('wrap').addEventListener('change', this.onWrapChange);             
+   // document.getElementById('wrap').addEventListener('change', this.onWrapChange);             
    
 
 // Adicionar ao método addListeners():
