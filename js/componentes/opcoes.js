@@ -159,12 +159,13 @@ export class Opcoes extends Aux{
             '--fundoB': 'black', 
             '--fundoC': '#3c3d3e',
             '--fundoD': '#4a4c50',
+            '--fundoG': '#656161'
         };
 
         const temaB = {
             '--fundoA': '#252222',
             '--fundoB': 'black', 
-            '--fundoD': '#2f2828',
+            '--fundoD': '#7E7C7C',
             '--fundoE': 'black',
             '--fundoG': '#656161'
         };

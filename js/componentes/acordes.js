@@ -141,7 +141,7 @@ export class Acordes extends Aux{
                         </div>
                             </div>
                             
-                            <div id='blocoVelocidade' class="fundoE justContBetween p-1 flex textStart"> 
+                            <div id='blocoVelocidade' class="bgDark filterC justContBetween p-1 flex textStart"> 
                         
                                 <!-- Bloco: Velocidade -->
                                 <label for="velo" class="flex p-1 itemCenter gap2">

@@ -89,8 +89,8 @@ body{
 }
 
 .comp{
-    background-color: var(--fundoG);
-    color: var(--colorA);
+    background-color: var(--fundoC);
+    color: var(--colorB);
     height: fit-content;
     border-radius: 4px 4px 0 0;
     align-items: center;
