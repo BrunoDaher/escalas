@@ -12,7 +12,6 @@ export class Main extends Aux{
 
         this.sections = [
             {name:'opcoes', icon:'bi bi-music-note',  id: 'painelOptions', className: 'painel grid f2vh', style: {alignContent: 'flex-start'}},
-            
             {name:'arquivos', icon:'bi bi-music-note', id: 'painelFiles', className: 'painel f2vh'},
             {name:'acordes', icon:'bi bi-music-note', id: 'painelChords', className: 'painel f2vh'},
             {name:'metronomo', icon:'bi bi-music-note', id: 'painelClock', className: 'painel f2vh'},
@@ -23,19 +22,17 @@ export class Main extends Aux{
 
     addBraco() {
         const braco = document.createElement('div');
-        braco.id = 'braco';
-
-        
-        //braco.style.maxWidth = '100vw';
-        //braco.style.overflowX = 'scroll';
-        this.element.appendChild(braco);
+            braco.id = 'braco';
+            //braco.style.maxWidth = '100vw';
+            //braco.style.overflowX = 'scroll';
+            this.element.appendChild(braco);
         return this;
     }
 
     addPaineis() {
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
-        paineis.className = 'flexCenter gap1 my-1 filterC';
+        paineis.className = 'flexCenter gap1 filterC';
         paineis.style.maxWidth = '';
         paineis.style.overflowX = '';
 
@@ -59,8 +56,17 @@ export class Main extends Aux{
     build() {
         const header = document.querySelector('header');
 
-        this.addBraco();
-        this.addPaineis();
+         this.addBraco();
+            
+        setTimeout( ()=>{
+               const braco = document.getElementById('braco');
+     
+                let video = this.renderVideo();
+                 braco.insertAdjacentHTML('afterend', video);
+
+        },100)
+          
+         this.addPaineis();
             
          header.insertAdjacentElement('afterend', this.element);
 
@@ -83,6 +89,21 @@ export class Main extends Aux{
 
        this.painelNav();
         
+    }
+
+    renderVideo(){
+        return`
+             <div id='video'class='off' >
+                <video class='w-100 video' id='currentVideo' ; 
+                        controls
+                        playsinline
+                        autoplay
+                        >
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+            `
     }
 
     painelNav(){

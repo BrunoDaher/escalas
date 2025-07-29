@@ -14,7 +14,9 @@ label{
 }
 
 
-
+.fundoE{
+    background-color: var(--fundoE);
+}
 
 .paint-bucket {
   /* O 'auto' é o cursor de fallback (reserva) que será usado caso a imagem personalizada não carregue

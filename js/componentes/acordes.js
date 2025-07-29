@@ -88,74 +88,89 @@ export class Acordes extends Aux{
             <!-- Bloco: Memória de Acordes & Escalas -->    
 
             
-            <div class="grid rel" >
-                <a class="comp p-1 bi-music-note-list"> Acordes & Escalas</a>
-                    
-                <div id='blocoVelocidade' class=" justContBetween p-1 flex textStart"> 
-                       
-                        <!-- Bloco: Velocidade -->
-                        <label for="velo" class="flex p-1 itemCenter gap2">
-                            <i class="bi bi-clock flex"> Duração</i>  
-                            <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
-                        </label>
+            <div class="grid rel">
 
-                         <!-- Controle: Edit -->
-                        <label class="gap1 flex itemCenter">
-                            <a>Edit</a>
-                            <label class="switch">
-                                <input id="editMode" type="checkbox" checked/>
-                                <span class="slider round"></span>
-                            </label>
-                        </label>
+            <div class='flexCenter gap1 p-1'> 
+             <span id='btnVideo' target='video' class='btn3 bi bi-film btnView'> Video </span>
+             <span id='btnBraco' target='braco' class='btn3 bi bi-music-note btnView'> Braco </span>
+            </div>
 
-                        <!-- Controle: Arrastar -->
-                        <label class="gap1 flex itemCenter">
-                            <a>Drag</a>
-                            <label class="switch">
-                                <input id="drag" type="checkbox" checked="false">
-                                <span class="slider round"></span>
-                            </label>
-                        </label>
-
-                    </div>
-                    
-                    
-                    <div id="memoria" class="memoria scroll75 w-75 textCenter gap1 p-1 dragContainer">
-                    </div>
-
-                    <!-- Controle: Adicionar/Remover -->
-                    <div class="flex abs addRem itemCenter gap2">
-                        <div class="flex itemCenter gap1 f2vh">
-                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
-                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
-                        </div>
-                    </div>
-                 
-                </div>
-
-             
-
-                <!-- Bloco: Estrutura Musical -->
-                <div class="gap2 my-1" style="justify-content: normal;text-align: start;">
+            <!-- Bloco: Estrutura Musical -->
+            <div class="gap2 my-1" 
+                        style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
                     <input hidden id="dataLoad" type="file"/>
                     <div class="">
                         <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
                         <!-- Botões de Seção -->
-                        <div class=" flexWrap my-1 justContBetween" id="sectionButtons" style="flex-wrap: wrap; zoom:0.9">
+                        <div class=" flexWrap my-1 gap-2" 
+                            id="sectionButtons">
                             ${this.renderSectionButtons()}
                         </div>
                     </div>
                     <!-- Áreas das Seções -->
-                    <div id="div-estrutura" class="bgDark p-1 textStart" style="height: 9vh">
+                    <div id="div-estrutura" class="bgDark p-1 textStart" 
+                            style="height: 9vh">
                             ${this.renderEstruturaAreas()}
                     </div>
                     <div id='trash' 
-                    class="bi-trash dragContainer  flexCenter gap1 p-1" style="height: 3em; 
-                         color:red;">
+                         class="bi-trash dragContainer  
+                         flexCenter gap1 p-2"
+                         style='
+                            border-style: ridge;
+                            border-color: black;'
+                         >
                     </div>
-            </div>
-            <div class="textStart grid ">
+                </div>
+                
+                <section id='chords'>
+                    <div>
+                            <div class="comp p-1 bi-music-note-list"> Acordes & Escalas</div>
+                            <div id='blocoVelocidade' class="fundoE justContBetween p-1 flex textStart"> 
+                        
+                                <!-- Bloco: Velocidade -->
+                                <label for="velo" class="flex p-1 itemCenter gap2">
+                                    <i class="bi bi-clock flex"> Duração</i>  
+                                    <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
+                                </label>
+
+                                <!-- Controle: Edit -->
+                                <div class="gap1 flex itemCenter">
+                                    <a>Edit</a>
+                                    <label class="switch">
+                                        <input id="editMode" type="checkbox" checked/>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Controle: Arrastar -->
+                                <div class="gap1 flex itemCenter">
+                                    <a>Drag</a>
+                                    <label class="switch">
+                                        <input id="drag" type="checkbox" checked="false">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                        <div>
+                    </div>
+            
+                    
+                 
+                </div>
+                <section id="memoria" class="bgDark memoria  
+                        textCenter gap1 p-1 dragContainer">
+                    </section>
+
+                    <!-- Controle: Adicionar/Remover -->
+                    <section class="flex abs addRem itemCenter gap2">
+                        <div class="flex itemCenter gap1 f2vh">
+                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
+                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
+                        </div>
+                    </section>
+             </section>
+            
+            <div class="textStart grid my-1">
               ${this.renderFx()}
             </div>
         `;
@@ -199,16 +214,36 @@ export class Acordes extends Aux{
     
         //criar label
 
-            // Botões de efeitos
-        const btnsEfeito = document.querySelectorAll('.efeito')
-        btnsEfeito.forEach(btn => {
-            const efeitoBtn = document.getElementById(btn.id);
-            if (efeitoBtn) {
-                efeitoBtn.addEventListener('click', (event) => {
-                    this.fx(event); 
+          const btnViews = this.getAllClass('btnView');
+
+                btnViews.forEach(btn => {
+                    btn.onclick = ()=>{
+                    const irmaos = [...btn.parentNode.children].filter(
+                        (el) => el !== btn
+                        );
+
+                        let targetA = this.getById(irmaos[0].getAttribute('target'));
+                            targetA.classList.add('off');
+                            irmaos[0].classList.remove('active');
+
+                        let targetB = this.getById(btn.getAttribute('target'))
+                            targetB.classList.remove('off');
+                            btn.classList.add('active');
+                        
+                    }
                 });
-            }
-        });
+
+
+            // Botões de efeitos
+          const btnsEfeito = document.querySelectorAll('.efeito')
+                btnsEfeito.forEach(btn => {
+                    const efeitoBtn = document.getElementById(btn.id);
+                    if (efeitoBtn) {
+                        efeitoBtn.addEventListener('click', (event) => {
+                            this.fx(event); 
+                        });
+                    }
+                });
 
         let toggleEditMode = this.getById('editMode');
             toggleEditMode.onclick = ()=>{
@@ -231,11 +266,9 @@ export class Acordes extends Aux{
              }
 
          let sectionBtns = this.getAllClass('section-btn');    
-
              sectionBtns.forEach(btn => {
                
                 btn.onclick = ()=>{
-                    
                     
                     let trecho = btn.innerText.trim().toLowerCase();
 

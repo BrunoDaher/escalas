@@ -11,22 +11,7 @@ export class Arquivos {
 
     renderPainelFiles() {
         return `
-
-        <div id='video'class=' grid mb-1' >
-                <label class="bi-play-circle comp p-1"> Video</label>
-                <video class='w-100' id='currentVideo' 
-                    style='object-fit:cover; border-radius:0 0 1vh 1vh ' 
-                        
-                        height="160" 
-                        controls
-                        playsinline
-                        autoplay
-                        >
-                    <source src="" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-            </div>
-            
+    
             <div class="comp p-1 flex justContBetween textStart ">
                 <div>
                     <i class="bi bi-list"></i>
@@ -54,25 +39,26 @@ export class Arquivos {
         `;
     }
 
-    async renderVideo(song){
-        let video = document.getElementById('currentVideo');
+    async playVideo(song){
+
+        //Dom
+        let currentVideo = document.getElementById('currentVideo');
         
-        if(video){
+        if(currentVideo){
 
           let localVideo = await this.dao.getLocalVideo(song);
 
           if(localVideo){
             console.log('video local')
-            video.src = localVideo;
+            currentVideo.src = localVideo;
           }
           else{
             console.log('buscando video na rede')
               const url =  await this.dao.getVideoUrl(song) //api
-               
                 if(url) {
-                   video.src = url
+                   htmlVideo.src = url
                 } else {
-                    video.src = `./data/logo.mp4`
+                    htmlVideo.src = `./data/logo.mp4`
                 }
           }
             
@@ -130,15 +116,15 @@ export class Arquivos {
         // Add event listener for custom video-play event
         document.addEventListener('video-play', (event) => {
 
-      
-            if(sessionStorage.getItem('currentSong')){
-
-                let song = sessionStorage.getItem('currentSong').toLowerCase() + '_'+ event.detail;
+            let currentSong = sessionStorage.getItem('currentSong');
+           
+            if(currentSong){
+                let song = currentSong.toLowerCase() + '_'+ event.detail;
 
                 let video = document.getElementById('currentVideo');
-                        if (video) {
-                            this.renderVideo(song);
-                        }
+                if (video) {
+                    this.playVideo(song);
+                }
             }
        
         });  
@@ -155,11 +141,11 @@ export class Arquivos {
 
         const exportBtn = document.getElementById('export');
         if (exportBtn) {
-            exportBtn.onclick = () => {
+            exportBtn.addEventListener('click', () => {
                // alert('Exportar arquivo');
                 this.dao.exportData();
                 // Lógica para exportar
-            };
+            });
         }
 
         //load

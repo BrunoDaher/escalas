@@ -163,6 +163,13 @@ menu{
 
 /**/
 
+
+.video{
+     object-fit:cover; 
+                        border-radius:0 0 1vh 1vh;
+                        height: 160px
+}
+
 #paineis{
 
     justify-content: center;
