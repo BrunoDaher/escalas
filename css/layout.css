@@ -1,4 +1,12 @@
 
+.w-30{
+    width: 30%;
+}
+
+.w-20{
+    width: 20%;
+}
+
 .flex{
     display: flex;
     gap: 1vh;

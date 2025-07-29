@@ -263,17 +263,16 @@ padding: 1vh 0;
     color: var(--colorC);
     background: var(--fundoD);
     padding: 1vh;
-        height: 65vh;
+    height: 65vh;
         
     overflow-y: scroll;
-    width: 100%;
 
 
    @media (max-width:500px){
        height: fit-content;
        border-radius: none !important;
         max-height: 55vh;
-        
+        width: 100%;
         padding: 2vh;
         
     }
