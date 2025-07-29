@@ -15,18 +15,12 @@
     position: absolute;
 }
 
-
-main{
-    height: 82vh;
-    border-color: var(--main-bg-color);
-    position: relative;
-
+#gridflex3{
+     display: grid; 
+    grid-template-columns: repeat(3, auto) 35%
 }
 
-menu{
-    padding: 0;
-    margin: 0;
-}
+
 
 .mini{
     width: 32px;
@@ -209,6 +203,7 @@ input{
 
 .selfCenter{
     justify-self: center;
+    justify-items: center;
 }
 
 .w-100{
