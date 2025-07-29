@@ -10,11 +10,11 @@ export class Opcoes extends Aux{
         
         this.containerId = containerId;
         this.cores = [
-            { id: "corEscala", label: "Escala", var: "--fundoG", name: "fundoG" },
-            { id: "corBackground", label: "Background", var: "--fundoC", name: "fundoC" },
-            { id: "corPrincipal", label: "Cor Principal", var: "--fundoE", name: "fundoE" },
-            { id: "corSecundaria", label: "Cor Secundária", var: "--fundoA", name: "fundoA" },
-            { id: "corPaineis", label: "Paineis", var: "--fundoD", name: "fundoD" }
+            { id: "corEscala", label: "Escala", cssVar: "--fundoG", name: "fundoG" },
+            { id: "corBackground", label: "Fundo A", cssVar: "--fundoC", name: "fundoC" },
+            { id: "corPrincipal", label: "Cor Principal", cssVar: "--colorC", name: "colorC" },
+            { id: "corSecundaria", label: "Cor Secundária", cssVar: "--colorB", name: "colorB" },
+            { id: "corPaineis", label: "Paineis", cssVar: "--fundoD", name: "fundoD" }
         ];
         
     }
@@ -30,7 +30,7 @@ export class Opcoes extends Aux{
             <label class="flex justContBetween itemCenter" for="${cor.id}">
                 <a>${cor.label}</a>
                 <input 
-                    style="background-color: var(${cor.var})" 
+                    style="background-color: var(${cor.cssVar})" 
                     id="${cor.id}" name="${cor.name}" 
                     type="color"
                 >
@@ -41,7 +41,7 @@ export class Opcoes extends Aux{
                 <div class="flex justContBetween comp p-1 mb-1">
                  
                     <div class='flex itemCenter'>
-                        <i class='comp bi bi-music-note'>Notas</i>
+                        <i class='bi bi-music-note'>Notas</i>
                         <label class="switch flex itemCenter">
                             <input class='active' id="cleanMode" type="checkbox" checked >
                             <span class="slider round"></span>
@@ -59,9 +59,17 @@ export class Opcoes extends Aux{
                     <a class="comp p-1 textStart bi bi-paint-bucket">Tema</a>
                     <div class="gap1 grid p-2 paint-bucket ">
                         ${temaInputs}
-                        <span class="btn1  itemCenter" id="resetTemaBtn">
-                            <i class="bi bi-arrow-clockwise"></i>
-                            <a>Original</a>
+                          <span class="btn1 itemCenter btnTema" id="temaPadrao" >
+                            <i class="bi bi-arrow-clockwise "></i>
+                            <a>Padrao</a>
+                        </span>
+                        <span class="btn1 itemCenter btnTema" id="temaA" >
+                            <i class="bi bi-paint-bucket "></i>
+                            <a>TemaA</a>
+                        </span>
+                        <span class="btn1 itemCenter btnTema" id="temaB" >
+                            <i class="bi bi-paint-bucket "></i>
+                            <a>TemaB</a>
                         </span>
                     </div>
                 </section>
@@ -103,10 +111,11 @@ export class Opcoes extends Aux{
             });
 
             // Reset tema
-            const resetBtn = document.getElementById('resetTemaBtn');
-            if (resetBtn) {
-                resetBtn.addEventListener('click', () => this.resetTema());
-            }
+            const setTema = document.querySelectorAll('.btnTema');
+
+            setTema.forEach(btn => {
+                btn.addEventListener('click', () => this.setTema(btn));
+            });
 
             const btnCleanMode = document.getElementById('cleanMode');
             
@@ -126,23 +135,57 @@ export class Opcoes extends Aux{
         document.documentElement.style.setProperty('--' + classeRoot, cor);
     }
 
-    resetTema() {
+    setTema(btn) {
+
         const root = document.documentElement;
-        root.style.setProperty('--fundoA', '#f9ac47');
-        root.style.setProperty('--fundoB', 'black');
-        root.style.setProperty('--fundoC', '#3c3d3e');
-        root.style.setProperty('--fundoD', '#4a4c50');
-        root.style.setProperty('--fundoE', '#1916168c');
 
-        const colorMap = [
-            { id: 'corEscala', cssVar: '--fundoG' },
-            { id: 'corBackground', cssVar: '--fundoC' },
-            { id: 'corPrincipal', cssVar: '--fundoE' },
-            { id: 'corSecundaria', cssVar: '--fundoA' },
-            { id: 'corPaineis', cssVar: '--fundoD' }
-        ];
+          const temaPadrao = {
+            '--fundoA': '#f9ac47',
+            '--fundoB': 'black',
+            '--fundoC': '#3c3d3e', 
+            '--fundoD': '#202020',
+            '--fundoE': '#1916168c',
+            '--fundoF': '#f32121',
+            '--fundoG': '#4f4040',
+            '--chroma': '#8aad8a',
+            '--shadowA': '#d0bc5981',
+            '--colorA': 'var(--fundoA)',
+            '--colorB': '#D1CCCC',
+            '--colorC': '#e3a30a',
+            '--colorE': '#438ac5e1'
+        };        
+        const temaA = {
+            '--fundoA': '#f9ac47',
+            '--fundoB': 'black', 
+            '--fundoC': '#3c3d3e',
+            '--fundoD': '#4a4c50',
+        };
 
-        colorMap.forEach(({ id, cssVar }) => {
+        const temaB = {
+            '--fundoA': '#252222',
+            '--fundoB': 'black', 
+            '--fundoD': '#2f2828',
+            '--fundoE': 'black',
+            '--fundoG': '#656161'
+        };
+
+
+
+        const temas = {
+            temaPadrao: temaPadrao,
+            temaA: temaA,
+            temaB: temaB
+        };
+
+        const selectedTheme = temas[btn.id];
+        
+
+        for (const [property, value] of Object.entries(selectedTheme)) {
+            root.style.setProperty(property, value);
+        }
+
+        
+        this.cores.forEach(({ id, cssVar }) => {
             const input = document.getElementById(id);
             if (input) {
                 input.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue(cssVar);

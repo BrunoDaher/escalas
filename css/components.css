@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.btn{
+    cursor: pointer;
+}
+
 .addRem{
         bottom: 0;
     right: 0;
@@ -272,7 +276,8 @@ padding: 1vh 0;
        height: fit-content;
        border-radius: none !important;
         max-height: 55vh;
-        width: 100%;
+       
+        width: 100% !important;
         padding: 2vh;
         
     }
@@ -321,7 +326,7 @@ padding: 1vh 0;
         font-size: 14px;
         font-family: 'Gill Sans';
         padding: 1vh;
-        color: var(--colorA);
+        color: var(--colorB);
         background: var(--fundoC);
         transition: all 0.3s;
 
@@ -337,7 +342,7 @@ padding: 1vh 0;
     font-size: 16px;
     font-family: 'Gill Sans';
     padding: 5px;
-    color: var(--fundoA);
+    
     /* margin: 2px; */
     background: var(--fundoB);
     align-content: center;
@@ -354,7 +359,7 @@ padding: 1vh 0;
         border-radius: 0.5vh;
         font-size:1em;
         font-family: 'Gill Sans';
-        padding: 1vh;
+        padding: 0.7vh;
             margin: 2px;
             background: var(--fundoC);
             align-content: center;
@@ -372,10 +377,13 @@ padding: 1vh 0;
 
     .btn4 {
         background-color: var(--fundoC);
-        padding: 1vh;
-        
         cursor: pointer;
         transition: background-color 0.3s ease;
+        padding: 0.7vh;
+        &.active {
+            background-color: var(--fundoA);
+            color: var(--colorC);
+        }
     }
 
 /* No desktop, hover e focus mudam o fundo */
@@ -383,14 +391,12 @@ padding: 1vh 0;
   .btn4:hover,
   .btn4:focus {
     background-color: var(--fundoA);
+
   }
 }
 
 /* A classe active sempre muda o fundo */
-.btn4.active {
-  background-color: var(--fundoA);
-  color: black;
-}
+
 
         .clicaMus{
             text-transform: capitalize;

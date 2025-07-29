@@ -17,7 +17,7 @@ export class Arquivos {
                     <i class="bi bi-list"></i>
                     <label class="">Lista </label>
                 </div>
-                <label class="btn1" id="addSong"><i class="bi bi-plus"></i>Nova Música</label>
+                <span class="bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
                 
             </div>
 
@@ -25,8 +25,8 @@ export class Arquivos {
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-           <div class=" grid me-2 ">
-                <a class="bi p-2 comp bi-reload"> Atualizar Lista
+           <div class=" grid  my-1">
+                <a class="bi w-100  comp bi-reload"> Atualizar Lista
                
                 </a>
                 <div  id="daoBtns" class="flexCenter justContAround gap1" 
