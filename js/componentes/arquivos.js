@@ -8,7 +8,6 @@ export class Arquivos {
         this.containerId ='painelFiles';
     }
 
-
     renderPainelFiles() {
         return `
     
@@ -25,7 +24,7 @@ export class Arquivos {
                 <ul id="salvos" class="flex"></ul>
             </div>
            
-           <div class=" grid  my-1">
+           <div class=" grid bgDark my-1">
                 <a class="bi w-100  m-1 bi-reload"> Atualizar Lista
                
                 </a>
@@ -177,8 +176,6 @@ export class Arquivos {
 
             cloudLoadBtn.addEventListener('click', async () => {
                     let cloudFiles = await this.dao.cloudSync();
-
-
                 
                     if(cloudFiles){
 
@@ -248,12 +245,13 @@ export class Arquivos {
 
     favBuild(nome){
         
-        console.log('favBuild', nome);
+      
         // Cria o template HTML usando template literals
-        let template = `
-            <div class="flex justContBetween itemCenter textCap ">
+        // /justContBetween
+        let template = ` 
+            <div class="flex justCenter itemCenter textCap p-1 ">
                 <li id="vg_${nome}" class="clicaMus">${nome}</li>
-                <div class="flex ">
+                <div class="flex off ">
                     <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
                     <span data-target='vg_${nome}' role="button" class="btn2 bi-pencil colorE"></span>
                 </div>

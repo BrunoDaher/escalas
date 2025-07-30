@@ -20,7 +20,7 @@ export class Opcoes extends Aux{
     }
 
     init(){
-        console.log('renderizando', this)
+     
         this.renderAll();
         this.eventos();
     }

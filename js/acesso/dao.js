@@ -216,7 +216,6 @@ export class Dao {
     return nts && nts.includes(elem) ? true : false;
   }
 
-
   removeStorage(id){
 
     localStorage.removeItem(id);
@@ -297,7 +296,6 @@ export class Dao {
     document.getElementById('salvos').innerHTML = '';
   }
 
-  
 
   async upload() {
     const fileInput = document.querySelector('input[type=file]');

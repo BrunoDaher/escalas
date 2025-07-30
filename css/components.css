@@ -263,8 +263,8 @@ padding: 1vh 0;
 
 .painel{
     
-    border-radius: 4px;
-    color: var(--colorC);
+    
+    color: var(--colorB);
     background: var(--fundoD);
     padding: 1vh;
     height: 65vh;

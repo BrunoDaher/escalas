@@ -63,7 +63,7 @@ function checkMobile() {
       acesso.fire.auth.onAuthStateChanged((user) => {
           if (user) {
             console.log('user on')
-       
+            console.log(user.email)
               acesso.showUser();
               main.build();
               triggers();
