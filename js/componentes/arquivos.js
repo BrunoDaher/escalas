@@ -26,7 +26,7 @@ export class Arquivos {
             </div>
            
            <div class=" grid  my-1">
-                <a class="bi w-100  comp bi-reload"> Atualizar Lista
+                <a class="bi w-100  m-1 bi-reload"> Atualizar Lista
                
                 </a>
                 <div  id="daoBtns" class="flexCenter justContAround gap1" 

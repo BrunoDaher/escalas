@@ -89,7 +89,7 @@ export class Metronomo {
                         </div>
 
                           <div class="comp flex ">
-                            <a class='card-header flex' id='lbpm' for='bpm'>Compassos</a>
+                            <a class='card-header flex' id='lbpm' for='bpm'></a>
                              ${[1, 2, 3, 4].map(i => `
                                     <span count="${i}" class="compCount btn3 f1rem bordaA p-1 ${i === 4 ? 'active' : ''}">
                                     ${i}

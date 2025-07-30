@@ -54,7 +54,7 @@
   }
   
   input:checked + .slider {
-    background-color: var(--fundoD);
+    background-color: var(--fundoE);
   }
   
   input:focus + .slider {

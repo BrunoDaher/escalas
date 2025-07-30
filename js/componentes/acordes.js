@@ -95,10 +95,19 @@ export class Acordes extends Aux{
             
             <div class="grid rel scroll100">
 
-                <div class='flexCenter gap1 p-1'> 
-                    <span id='btnVideo' target='video' 
-                            class='btn3 bi bi-film btnView'> 
-                            Video 
+                <div class='flexCenter gap1 comp p-1'> 
+                                              
+                    <label for='btnVideo' class="gap1 flex itemCenter">
+                            <a>Video</a>
+                            <label class="switch">
+                                <input id="btnVideo" target='video' type="checkbox" checked/>
+                                <span class="slider round"></span>
+                            </label>
+                    </label>
+
+                      <span id='btnNotas' target='bracoNotas' 
+                            class='btn3 bi bi-music-note '> 
+                            Mapa
                     </span>
                     
                 </div>
@@ -145,7 +154,7 @@ export class Acordes extends Aux{
                         
                                 <!-- Bloco: Velocidade -->
                                 <label for="velo" class="flex p-1 itemCenter gap2">
-                                    <i class="bi bi-clock flex"> Duração</i>  
+                                    <i class="bi bi-clock colorB flex"> Duração</i>  
                                     <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
                                 </label>
 
@@ -228,8 +237,20 @@ export class Acordes extends Aux{
 
           const btnVideo = this.getById('btnVideo');
                 btnVideo.onclick = ()=>{
-                    let id = btnVideo.getAttribute('target');
-                    this.togglePainel(id);
+                    //logica reversa
+                    let showVideo = !btnVideo.checked?true:false;
+
+                    let idPainel = btnVideo.getAttribute('target')
+
+                    if(showVideo){
+                        this.togglePainel(idPainel);
+                    }
+                    else{
+                        this.togglePainel(idPainel);
+                    }
+
+                   // let id = btnVideo.getAttribute('target');
+                 //  this.togglePainel(id);
                 }
 
             // Botões de efeitos

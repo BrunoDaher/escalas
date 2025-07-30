@@ -327,7 +327,7 @@ padding: 1vh 0;
         font-family: 'Gill Sans';
         padding: 1vh;
         color: var(--colorB);
-        background: var(--fundoC);
+        background: var(--fundoE);
         transition: all 0.3s;
 
         &.active, &:hover, &:focus{
