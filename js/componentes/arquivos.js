@@ -20,7 +20,7 @@ export class Arquivos {
                 
             </div>
 
-            <div id="listaArq" class="scroll50">
+            <div id="listaArq" >
                 <ul id="salvos" class="flex"></ul>
             </div>
            
@@ -61,13 +61,15 @@ export class Arquivos {
 
           if(localVideo){
             console.log('video local')
+            
             currentVideo.src = localVideo;               
           }
           else{
             console.log('buscando video na rede')
               const url =  await this.dao.getVideoUrl(song) //api
                 if(url) {
-                   currentVideo.src = url
+                   currentVideo.src = url;
+                   
                 } else {
                     currentVideo.src = `./data/logo.mp4`
                 }
@@ -135,6 +137,21 @@ export class Arquivos {
                 let video = document.getElementById('currentVideo');
                 if (video) {
                     this.playVideo(song);
+                }
+            }
+       
+        });  
+
+        document.addEventListener('video-stop', (event) => {
+
+            let currentSong = sessionStorage.getItem('currentSong');
+           
+            if(currentSong){
+                let song = currentSong.toLowerCase() + '_'+ event.detail;
+
+                let video = document.getElementById('currentVideo');
+                if (video) {
+                    this.stopVideo();
                 }
             }
        
@@ -221,8 +238,19 @@ export class Arquivos {
                 item.addEventListener('click', ()=>{
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
-                       
                         this.acordes.loadSlot(item); 
+
+                        setTimeout(
+                            //
+                            ()=>{
+                                //disparar um evento q aciona o acordes
+                                let btn = document.getElementById('acordes')
+
+                                console.log(btn)
+                                btn.click();
+                                
+                            }
+                            ,400)
                        // this.renderVideo(item)
                 })
             });

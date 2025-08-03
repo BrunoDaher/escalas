@@ -7,14 +7,13 @@ import {Tocador} from './inst/tocador.js'
 
 export class Acordes extends Aux{
      
-        sections = [
-            { id: "seq", label: "Sequencia", off: false },
-            { id: "intro", label: "Intro", off: true },
-            { id: "verso", label: "Verso", off: true },
-            { id: "refrao", label: "Refrao", off: true },
-            { id: "ponte", label: "Ponte", off: true }
-        ];
-        
+    sections = [
+        { id: "seq", label: "Sequencia", off: false },
+        { id: "intro", label: "Intro", off: true },
+        { id: "verso", label: "Verso", off: true },
+        { id: "refrao", label: "Refrao", off: true },
+        { id: "ponte", label: "Ponte", off: true }
+    ];
        
     constructor() {
         super(); // Chama o construtor da classe pai
@@ -47,9 +46,6 @@ export class Acordes extends Aux{
     }
 
     renderEstruturaAreas() {
-
-      //  document.getElementById('div-estrutura').innerHTML = '';
-
         return this.sections.map(
             s => `
             <div class="sectionPanel bg-Dark${s.off ? " off" : ""}" id="div-${s.id}">
@@ -76,54 +72,56 @@ export class Acordes extends Aux{
     controles(){
         return `
            <!-- Bloco: Controles Gerais -->
-            
-                     <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
-                        <a class="bi-command"> Controles</a>
-                    </label>
-                     <div class=" flexCenter gap2 justContAround px-2" style="zoom:0.9">  
-                  
-                   
-                      
-                    </div>`
+                <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
+                <a class="bi-command"> Controles</a>
+            </label>
+                <div class=" flexCenter gap2 justContAround px-2" style="zoom:0.9">  
+            </div>
+        `
     }
 
     renderPainelChords() {
         return `
 
-            <!-- Bloco: Memória de Acordes & Escalas -->    
-
-            
+            <!-- Bloco: Memória de Acordes & Escalas -->   
             <div class="grid rel scroll100">
-
-                <div class='flexCenter gap1 comp p-1'> 
-                                              
-                    <label for='btnVideo' class="gap1 flex itemCenter">
-                            <a>Video</a>
-                            <label class="switch">
-                                <input id="btnVideo" target='video' type="checkbox" checked/>
-                                <span class="slider round"></span>
-                            </label>
-                    </label>
-
-                      <span id='btnNotas' target='bracoNotas' 
-                            class='btn3 bi bi-music-note '> 
-                            Mapa
-                    </span>
-                    
-                </div>
+              
 
             <!-- Bloco: Estrutura Musical -->
             <div class="gap2 my-1" 
                         style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
+                    
+                    
                     <input hidden id="dataLoad" type="file"/>
                     <div class="">
-                        <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+                       
+                    <div class='flex justContBetween gap1 comp p-1'> 
+
+                              <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+
+                                <div class='flex'>
+                                              
+                                    <label for='btnVideo' class="gap1 flex itemCenter">
+                                            <a>Violão</a>
+                                            <label class="switch">
+                                                <input id="btnVideo" target='video' type="checkbox" checked/>
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <a>Video</a>
+                                    </label>
+
+                                </div>
+                        
+                </div>
+                        </div>
+                        
                         <!-- Botões de Seção -->
                         <div class=" flexWrap my-1 gap-2" 
                             id="sectionButtons">
                             ${this.renderSectionButtons()}
                         </div>
+                        
                     </div>
                     <!-- Áreas das Seções -->
                     <div id="div-estrutura" class="bgDark p-1 textStart" 
@@ -139,8 +137,7 @@ export class Acordes extends Aux{
                          >
                     </div>
                 </div>
-                
-                <section id='chords'>
+                <section id='chords' class='my-2'>
                     <div>
                             <div class="comp flex justContBetween p-1"> 
                             <span class=' bi-music-note-list'> Acordes & Escalas </span>
@@ -149,7 +146,6 @@ export class Acordes extends Aux{
                             <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
                         </div>
                             </div>
-                            
                             <div id='blocoVelocidade' class="bgDark filterC justContBetween p-1 flex textStart"> 
                         
                                 <!-- Bloco: Velocidade -->
@@ -177,9 +173,6 @@ export class Acordes extends Aux{
                                 </div>
                         <div>
                     </div>
-            
-                    
-                 
                 </div>
                 <section id="memoria" class="bgDark memoria  
                         textCenter gap1 p-1 dragContainer">
@@ -187,7 +180,6 @@ export class Acordes extends Aux{
 
                     <!-- Controle: Adicionar/Remover -->
                     <div class="flex abs addRem itemCenter gap2">
-                       
                     </div>
              </section>
             
@@ -196,7 +188,6 @@ export class Acordes extends Aux{
             </div>
         `;
     }
-
 
     renderFx(){
         return `
@@ -211,7 +202,6 @@ export class Acordes extends Aux{
     renderAll() {
 
         this.violao.init();
-
         const painelChords = document.getElementById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
@@ -232,9 +222,7 @@ export class Acordes extends Aux{
     }
 
     triggers(){
-    
         //criar label
-
           const btnVideo = this.getById('btnVideo');
                 btnVideo.onclick = ()=>{
                     //logica reversa
@@ -246,11 +234,15 @@ export class Acordes extends Aux{
                         this.togglePainel(idPainel);
                     }
                     else{
+                       /* const event = new CustomEvent('video-stop', {
+                            detail: false, // Dados para o método clean
+                        });
+
+                        document.dispatchEvent(event)*/
+
                         this.togglePainel(idPainel);
                     }
 
-                   // let id = btnVideo.getAttribute('target');
-                 //  this.togglePainel(id);
                 }
 
             // Botões de efeitos
@@ -289,8 +281,6 @@ export class Acordes extends Aux{
                
                 btn.onclick = ()=>{
             
-
-                  
                         let trecho = btn.innerText.trim().toLowerCase();
 
                         const event = new CustomEvent('video-play', {
@@ -320,9 +310,7 @@ export class Acordes extends Aux{
                         
                         this.addAll('sectionPanel','off');
                             tgt.classList.remove('off')
-                        }
-
-                    
+                }
                
              });
             

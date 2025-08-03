@@ -119,14 +119,17 @@ export class Main extends Aux{
         navBtns.forEach((btn) => {
             btn.onclick = () => {
                 //estetica do botao
-                this.removeAll(`navBtn`,'active');
-                btn.classList.add('active');
-
-                this.addAll(`painel`,'off');
-                this.activePainel(btn.getAttribute('data-panel'));
+                this.chooseTab(btn)
                 
             };
         });
+    }
+
+    chooseTab(btn){
+          this.removeAll(`navBtn`,'active');
+        btn.classList.add('active');
+        this.addAll(`painel`,'off');
+        this.activePainel(btn.getAttribute('data-panel'));
     }
 
     triggers(){

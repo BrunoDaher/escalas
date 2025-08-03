@@ -153,12 +153,6 @@
     width: fit-content;
 }
 
-main{
-    height: 82vh;
-    border-color: var(--main-bg-color);
-    position: relative;
-
-}
 
 menu{
     padding: 0;
@@ -223,8 +217,7 @@ padding: 1vh 0;
 #paineis{
 
     justify-content: space-between;
-    height: 70vh;
-    overflow-y: scroll;
+    
     
 
    @media (max-width: 500px) {
@@ -262,12 +255,10 @@ padding: 1vh 0;
 }
 
 .painel{
-    
-    
     color: var(--colorB);
     background: var(--fundoD);
     padding: 1vh;
-    height: 65vh;
+    height: 62svh;
         
     overflow-y: scroll;
 
@@ -275,8 +266,7 @@ padding: 1vh 0;
    @media (max-width:500px){
        height: fit-content;
        border-radius: none !important;
-        max-height: 55vh;
-       
+        max-height: 45svh;
         width: 100% !important;
         padding: 2vh;
         
@@ -386,6 +376,17 @@ padding: 1vh 0;
         }
     }
 
+     #listaArq{
+
+            @media (max-width:500px) {
+                
+            }
+
+       
+    }
+
+    
+
 /* No desktop, hover e focus mudam o fundo */
 @media (hover: hover) {
   .btn4:hover,
@@ -431,6 +432,7 @@ font-size: 2vh;
             }
         }
 
+       
 
    
     .listas , legend{
@@ -467,18 +469,7 @@ font-size: 2vh;
 
             }
 
-footer{
-position: fixed;
 
-    justify-self: center;
-    text-align: center;
-    padding: 1vh 0;
-    width: 100%;
-    background-color: var(--fundoD);
-    bottom: 0;
-    align-content: center;
-    
-}
 
 
 
