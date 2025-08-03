@@ -117,7 +117,7 @@ export class Acordes extends Aux{
                         </div>
                         
                         <!-- Botões de Seção -->
-                        <div class=" flexWrap my-1 gap-2" 
+                        <div class=" comp filterC flexWrap gap-2 justContAround p-1" 
                             id="sectionButtons">
                             ${this.renderSectionButtons()}
                         </div>
