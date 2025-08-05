@@ -1,6 +1,14 @@
 import { Dao } from  '../acesso/dao.js'
 
+
+
+    function testes (texto) {
+       return document.getElementById('contexto').innerText = texto;
+    }
+
 export class Arquivos {
+
+    
 
     constructor(acordes) {
         this.dao = new Dao();
@@ -60,8 +68,6 @@ export class Arquivos {
           let localVideo = await this.dao.getLocalVideo(song);
 
           if(localVideo){
-            console.log('video local')
-            
             currentVideo.src = localVideo;               
           }
           else{
@@ -95,6 +101,7 @@ export class Arquivos {
             console.log(22)
         }
     }
+
 
     novoArquivo(){
 
@@ -130,14 +137,28 @@ export class Arquivos {
         document.addEventListener('video-play', (event) => {
 
             let currentSong = sessionStorage.getItem('currentSong');
+
+            console.log(event.detail, 'recebido')
+
+            testes(event.detail);
+            if(event.detail=='seq'){
+                currentSong = '';
+            }
            
             if(currentSong){
                 let song = currentSong.toLowerCase() + '_'+ event.detail;
 
+                console.log('song', song)
+
                 let video = document.getElementById('currentVideo');
                 if (video) {
+                
                     this.playVideo(song);
                 }
+
+            }
+            else{
+            
             }
        
         });  
@@ -239,16 +260,16 @@ export class Arquivos {
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
-
+                       
                         setTimeout(
                             //
                             ()=>{
                                 //disparar um evento q aciona o acordes
-                                let btn = document.getElementById('acordes')
-
-                                console.log(btn)
-                                btn.click();
-                                
+                              let btn = document.getElementById('acordes');
+                               if(btn){
+                                 btn.click();
+                               }
+                             
                             }
                             ,400)
                        // this.renderVideo(item)

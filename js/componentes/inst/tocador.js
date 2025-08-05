@@ -6,6 +6,8 @@ export class Tocador {
 
     constructor() {
 
+
+        console.log('novo contexto')
         this.notas = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#'];
 
         this.timer = null;
@@ -46,12 +48,53 @@ export class Tocador {
         el.classList.toggle('active');
     }
 
+  
+    playSequence() {
+       // let v = getDataJSON('velo');
+        //let n = getDataJSON('notas');
+    }
+
+
+    async playChord(notas, velo, arrayNotas) {
+
+        if(arrayNotas){
+            let cont = 1;
+            arrayNotas.forEach(element => {           
+            
+                let nota = document.getElementById(element).children[0];      
+                
+                setTimeout(()=>{
+                    if(cont==1){
+                        velo = 1;
+                    }
+
+                    this.playNote(nota.id,'square')
+            
+                    let corda = document.getElementById(nota.parentElement.parentElement.id);
+                    corda.classList.add('playing')
+
+                    setTimeout(() => {
+                        corda.classList.remove('playing');
+                    }, 150);
+
+
+                    nota.classList.remove('off')
+                    nota.classList.add('on')},   
+                velo * cont 
+                );    
+                cont++;
+            });
+        }
+    
+    }
+
     playNote(frequency, type) {
-        if (this.audioContext) {
+
+        if (this.audioContext.state) {
             const now = this.audioContext.currentTime;
             const oscillator = this.audioContext.createOscillator();
             const gainNode = this.audioContext.createGain();
-            let eq = this.efeitos.equalizer();
+            let eq = this.efeitos.equalizer(this.audioContext);
 
             let btnChorus = document.getElementById('chorus');
             let btnReverb = document.getElementById('reverb');
@@ -88,45 +131,6 @@ export class Tocador {
         }
     }
 
-    playSequence() {
-       // let v = getDataJSON('velo');
-        //let n = getDataJSON('notas');
-    }
-
-
-    playChord(notas, velo, arrayNotas) {
-
-       
-        if(arrayNotas){
-            let cont = 1;
-            
-            arrayNotas.forEach(element => {           
-              
-                let nota = document.getElementById(element).children[0];      
-                
-                setTimeout(()=>{
-                    if(cont==1){
-                        velo = 1;
-                    }
-                
-                        this.playNote(nota.id,'square')
-                
-                        let corda = document.getElementById(nota.parentElement.parentElement.id);
-                        corda.classList.add('playing')
-
-                        setTimeout(() => {
-                            corda.classList.remove('playing');
-                        }, 150);
-
-
-                        nota.classList.remove('off')
-                        nota.classList.add('on')},   
-                    velo * cont 
-                    );    
-                cont++;
-            });
-        }
-    }
 
     getInterval(obj, ch) {
         let str = obj.parentElement.id;

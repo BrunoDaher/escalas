@@ -39,7 +39,9 @@ export class Acordes extends Aux{
         return this.sections.map(s => 
             `<span class="btn3 
                 section-btn${s.active ? " active" : ""}" 
-                data-target="div-${s.id}">
+                data-target="div-${s.id}"
+                id=btn_${s.id}
+                >
                 ${s.label}
             </span>`
         ).join('');
@@ -88,7 +90,7 @@ export class Acordes extends Aux{
               
 
             <!-- Bloco: Estrutura Musical -->
-            <div class="gap2 my-1" 
+            <div class="gap2" 
                         style="justify-content: normal;text-align: start;">
                     <legend hidden class="off" id="labelNomeSlot"></legend>       
                     
@@ -117,7 +119,7 @@ export class Acordes extends Aux{
                         </div>
                         
                         <!-- Botões de Seção -->
-                        <div class=" comp filterC flexWrap gap-2 justContAround p-1" 
+                        <div class=" bgDark filterC flexWrap gap-2 justContAround p-1" 
                             id="sectionButtons">
                             ${this.renderSectionButtons()}
                         </div>
@@ -151,7 +153,7 @@ export class Acordes extends Aux{
                                 <!-- Bloco: Velocidade -->
                                 <label for="velo" class="flex p-1 itemCenter gap2">
                                     <i class="bi bi-clock colorB flex"> Duração</i>  
-                                    <input type="range" id="velo" max="300" value="10" class="w-100 transp" step="10"/> 
+                                    <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
                                 </label>
 
                                 <!-- Controle: Edit -->
@@ -175,7 +177,7 @@ export class Acordes extends Aux{
                     </div>
                 </div>
                 <section id="memoria" class="bgDark memoria  
-                        textCenter gap1 p-1 dragContainer">
+                        textCenter gap1 p-2 dragContainer">
                     </section>
 
                     <!-- Controle: Adicionar/Remover -->
@@ -191,11 +193,13 @@ export class Acordes extends Aux{
 
     renderFx(){
         return `
-            <label class="bi-radioactive comp p-1"> Efeitos</label>
-            <div class=" flexCenter gap1 p-1">
-            <span class="efeito btn4 " id="chorus" value="false">Chorus</span>
-            <span class="efeito btn4 active" id="reverb" value="true">Reverb</span>
-            <span class="efeito btn4" id="delay" value="false">Delay</span>
+            <a class="bi-radioactive comp p-1"> Efeitos</a  >
+            <div class="comp flexCenter gap1 p-1">
+                <span id='contexto'></span>
+                <span class="efeito btn1 " id="chorus" value="false">Chorus</span>
+                <span class="efeito btn1 active" id="reverb" value="true">Reverb</span>
+                <span class="efeito btn1" id="delay" value="false">Delay</span>
+            </div>
         `
     }
 
@@ -209,6 +213,7 @@ export class Acordes extends Aux{
           document.addEventListener('estrutura', (e) => {
             this.salvaEstrutura(e.detail);
         });   
+        
     }
 
     fx(event) {
@@ -223,6 +228,7 @@ export class Acordes extends Aux{
 
     triggers(){
         //criar label
+        
           const btnVideo = this.getById('btnVideo');
                 btnVideo.onclick = ()=>{
                     //logica reversa
@@ -234,12 +240,6 @@ export class Acordes extends Aux{
                         this.togglePainel(idPainel);
                     }
                     else{
-                       /* const event = new CustomEvent('video-stop', {
-                            detail: false, // Dados para o método clean
-                        });
-
-                        document.dispatchEvent(event)*/
-
                         this.togglePainel(idPainel);
                     }
 
@@ -313,6 +313,7 @@ export class Acordes extends Aux{
                 }
                
              });
+            
             
     }
 
@@ -484,8 +485,6 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
-        console.log(dataLabel)
-
         //preenche memoria
         if (dataLabel) {
             Object.entries(dataLabel).forEach(label => {
@@ -498,13 +497,12 @@ export class Acordes extends Aux{
             cosole.log('sem dados ')
         }
     }
+
   
     salvaEstrutura(e) {
 
 
         let estrutura = this.dao.getDataJSON('estrutura') || {};
-
-        console.log(estrutura)
 
         if (estrutura[e.seq]) {
             if (e.add) {

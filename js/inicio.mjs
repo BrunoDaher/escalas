@@ -87,7 +87,7 @@ function checkMobile() {
 
  function triggers(){
 
-    console.log('triggers')
+    
     //carregamentos
     msg.setFirebase(acesso.getFire())
     msg.renderMessenger();  
@@ -102,6 +102,14 @@ function checkMobile() {
     if(checkMobile()){
       main.addFooter();
       aux.getById('arquivos').click();
+       
+      
+      let src = 'seq'
+      const event = new CustomEvent('video-play', {
+                        detail: src, // Dados para o método clean
+                  });
+
+        document.dispatchEvent(event);
     }
     else{
        

@@ -97,12 +97,12 @@ export class Main extends Aux{
 
              
                 let classe = isMobile ? 'mobile' : 'desktop';
-                let controls = isMobile ? 'controls' : '';
+                let controls = isMobile ? 'controls' : 'controls';
 
         return`
-             <div id='video'class='off' >
+             <div id='video' class='off' >
                 <video class='video ${classe}' id='currentVideo' ; 
-                        controls
+                        ${controls}
                         playsinline
                         autoplay
                         >
@@ -117,26 +117,41 @@ export class Main extends Aux{
         const navBtns = this.getAllClass('navBtn');
 
         navBtns.forEach((btn) => {
+            
+         
             btn.onclick = () => {
                 //estetica do botao
-                this.chooseTab(btn)
-                
+
+                if(btn.id=='acordes'){
+                  
+                    let src = 'seq'
+
+                       
+
+                }
+
+                this.chooseTab(btn);
+
             };
         });
     }
 
     chooseTab(btn){
-          this.removeAll(`navBtn`,'active');
+
+        this.removeAll(`navBtn`,'active');
         btn.classList.add('active');
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
+
+        
     }
 
     triggers(){
-
-     
+           //     document.getElementById('btn_seq').click();
 
     }
+
+  
 }
    //return this;
 

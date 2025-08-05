@@ -64,13 +64,13 @@
   }
 
   .compCount{
-    border-radius: unset;
+    border:none;
          
     transition: all 0.3s;
 
     &.active{
         border-color: var(--fundoC) !important;
-                border-style: inset !important;
+                border: none;
                 transition: all 0.3s;
     }
     
@@ -166,7 +166,7 @@ menu{
     
  position: absolute;
  right: 0;
- top: 110px;
+ top: 120px;
 padding: 1vh 0;
   object-fit:cover; 
        
@@ -186,17 +186,18 @@ padding: 1vh 0;
 
 .mobile{
 
-      height: 17em;
-    top: 15vh;
+      height: 15em;
+    
     width: 100vw;
-    transform: translateY(-13em);
+background: #2d2541;
+     object-fit:cover; 
+    transform: translateY(-11em);
 
 }
 
 .video{
 
-   
-
+    
 
 }
 
@@ -258,7 +259,7 @@ padding: 1vh 0;
     color: var(--colorB);
     background: var(--fundoD);
     padding: 1vh;
-    height: 62svh;
+    height: 60svh;
         
     overflow-y: scroll;
 

@@ -3,8 +3,14 @@ export class Efeitos {
         this.audioContext = audioContext;
     }
 
-    equalizer() {
+    resetContext(){
+        
+    }
+
+    equalizer(context) {
     
+        this.audioContext = context;
+
         const low = this.audioContext.createBiquadFilter();
         low.type = 'lowshelf';
         low.frequency.value = 120;

@@ -98,9 +98,9 @@ export class Metronomo {
                          </div>
                     </div>
                     
-                    <div id="compasso" class="compasso  w-100  m-1 justCenter">
+                    <div id="compasso" class="compasso p-2 ">
                         ${[1, 2, 3, 4].map(i => `
-                            <div id='p${i}' value="${i}" class="pulse w-75 justCenter">
+                            <div id='p${i}' value="${i}" class="pulse  justContBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
                                     `<div class="subdivision w-100 btn3">
                                     ${j + 1}</div>`).join('')}
