@@ -98,7 +98,7 @@ export class Acordes extends Aux{
                     <input hidden id="dataLoad" type="file"/>
                     <div class="">
                        
-                    <div class='flex justContBetween gap1 comp p-1'> 
+                    <div class='flex justContBetween gap1 comp filterC  p-1'> 
 
                               <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
@@ -115,11 +115,11 @@ export class Acordes extends Aux{
 
                                 </div>
                         
-                </div>
+                            </div>
                         </div>
                         
                         <!-- Botões de Seção -->
-                        <div class=" bgDark filterC flexWrap gap-2 justContAround p-1" 
+                        <div class=" bgDark flexWrap gap-2 justContAround p-1" 
                             id="sectionButtons">
                             ${this.renderSectionButtons()}
                         </div>
@@ -141,14 +141,14 @@ export class Acordes extends Aux{
                 </div>
                 <section id='chords' class='my-2'>
                     <div>
-                            <div class="comp flex justContBetween p-1"> 
+                            <div class="comp filterC flex justContBetween p-1"> 
                             <span class=' bi-music-note-list'> Acordes & Escalas </span>
                              <div class="flex itemCenter gap1 f2vh">
                             <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
                             <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
                         </div>
                             </div>
-                            <div id='blocoVelocidade' class="bgDark filterC justContBetween p-1 flex textStart"> 
+                            <div id='blocoVelocidade' class="bgDark  justContBetween p-1 flex textStart"> 
                         
                                 <!-- Bloco: Velocidade -->
                                 <label for="velo" class="flex p-1 itemCenter gap2">
