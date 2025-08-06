@@ -51,8 +51,8 @@ export class Acordes extends Aux{
         return this.sections.map(
             s => `
             <div class="sectionPanel bg-Dark${s.off ? " off" : ""}" id="div-${s.id}">
-                <div id="${s.id}" class="p-1 gap1 flex dragContainer" 
-                    style="line-height: normal;">
+                <div id="${s.id}" class="p-1 gap1 flexWrap dragContainer" 
+                    style="line-height: normal;max-height: 6vh;">
                 </div>  
             </div>`
         ).join('');
