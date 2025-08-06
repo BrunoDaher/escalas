@@ -61,7 +61,7 @@ export class Acesso {
           
             <div id="acesso" class="grid p-2  gap1 w-50 selfCenter me2">
                 <input type="text" id="login" placeholder="Login" class="bordaA btn2 colorA">
-                <input type="password" id="senha" placeholder="Senha" class="bordaA btn2">
+                <input type="password" id="senha" placeholder="Senha" class="bordaA btn2 colorA">
                 
             </div>
             <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
