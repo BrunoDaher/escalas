@@ -193,8 +193,8 @@ export class Acordes extends Aux{
 
     renderFx(){
         return `
-            <a class="bi-radioactive comp p-1"> Efeitos</a  >
-            <div class="comp flexCenter gap1 p-1">
+            <a class="bi-radioactive comp filterC p-1"> Efeitos</a  >
+            <div class="comp flexCenter gap1 p-2">
                 <span id='contexto'></span>
                 <span class="efeito btn1 " id="chorus" value="false">Chorus</span>
                 <span class="efeito btn1 active" id="reverb" value="true">Reverb</span>

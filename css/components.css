@@ -186,12 +186,12 @@ padding: 1vh 0;
 
 .mobile{
 
-      height: 15em;
+      height: 11em;
     
     width: 100vw;
 background: #2d2541;
      object-fit:cover; 
-    transform: translateY(-11em);
+    transform: translateY(-9em);
 
 }
 
@@ -276,6 +276,12 @@ background: #2d2541;
 
 }
 
+    .sectionPanel{
+        line-height: normal;
+    max-height: 30vh;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    }
 
     #memoria {
         
