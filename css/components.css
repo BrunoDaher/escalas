@@ -278,10 +278,10 @@ background: #2d2541;
 
     .sectionPanel{
         line-height: normal;
-    max-height: 30vh;
-    max-width: 100%;
-    flex-wrap: wrap;
-    overflow-y: scroll;
+        max-height: 30vh;
+        max-width: 100%;
+        flex-wrap: wrap;
+        overflow-y: scroll;
     }
 
     #memoria {
