@@ -124,7 +124,7 @@
         filter: drop-shadow(2px 4px 6px black);
         margin: 1em;
         position: absolute;
-        width: 40vh;
+
         background-color: var(--fundoD);
         backdrop-filter: blur(4em);
         border-radius: 1vh;
