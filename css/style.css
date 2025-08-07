@@ -140,6 +140,10 @@ body{
     
 }
 
+.capt{
+    text-transform: capitalize;
+}
+
 .set{
     background-color: aqua;
 }

@@ -113,7 +113,14 @@ export class Acordes extends Aux{
                                             <a>Video</a>
                                     </label>
 
+                                    
+
                                 </div>
+
+                                                   <div id='videoControl' class='flexCenter'>
+                        <span id='video-pause' class='vControl f2em btn bi bi-pause'></span>
+                        <span id='video-play' class='vControl f2em btn bi bi-play'></span>
+                    </div>
                         
                             </div>
                         </div>
@@ -126,8 +133,10 @@ export class Acordes extends Aux{
                         
                     </div>
                     <!-- Áreas das Seções -->
+ 
                     <div id="div-estrutura" class="bgDark p-1 textStart" 
                             style="height: 9vh">
+                            
                             ${this.renderEstruturaAreas()}
                     </div>
                     <div id='trash' 
@@ -204,7 +213,6 @@ export class Acordes extends Aux{
     }
 
     renderAll() {
-
         this.violao.init();
         const painelChords = document.getElementById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
@@ -213,7 +221,6 @@ export class Acordes extends Aux{
           document.addEventListener('estrutura', (e) => {
             this.salvaEstrutura(e.detail);
         });   
-        
     }
 
     fx(event) {
@@ -244,6 +251,20 @@ export class Acordes extends Aux{
                     }
 
                 }
+
+          const vControle = this.getAllClass('vControl');
+
+          vControle.forEach(btn => {
+            console.log(btn);
+            btn.onclick = ()=>{
+                let id = btn.id;
+                let event = new CustomEvent('video-control', {
+                    detail: id, // Dados para o método clean
+                });
+                document.dispatchEvent(event);
+
+            }
+          });
 
             // Botões de efeitos
           const btnsEfeito = document.querySelectorAll('.efeito')
@@ -315,6 +336,7 @@ export class Acordes extends Aux{
              });
             
             
+
     }
 
     setVelo(btn) {
@@ -450,6 +472,20 @@ export class Acordes extends Aux{
             // Evento de clique para executar acorde
             btn.addEventListener('click', (btn)=>{
                 
+                
+                // Check if video button is checked and click it if true
+            let video = this.getById('video');
+
+            console.log(video.classList.contains('off'))
+
+            //logica inversa
+            
+            if (video && !video.classList.contains('off')) {
+                //btnVideo.click();
+
+                
+            }                                
+
                 this.slotId = id;
                 this.violao.getChord(btn);
             });
@@ -497,7 +533,6 @@ export class Acordes extends Aux{
             cosole.log('sem dados ')
         }
     }
-
   
     salvaEstrutura(e) {
 
@@ -544,7 +579,7 @@ export class Acordes extends Aux{
         
     }
 
-    loadEstrutura(){
+    loadEstrutura(){    
 
         this.cleanSection();
        // console.log('carregando estrutura', item.innerText)
@@ -588,7 +623,7 @@ export class Acordes extends Aux{
                 btns.forEach(btn => {
                 btn.onclick = (e) => {
                    let id = this.getById(btn.getAttribute('slot'));
-                   id.click()
+                   id.click();
                 };
             });
             

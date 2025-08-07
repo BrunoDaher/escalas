@@ -16,14 +16,37 @@ export class Messenger extends Aux{
               this.firebase = _firebase;
     }
 
+  
+        updateContatos() {
+             const contatosDiv = this.getById('contatos');
+            if (contatosDiv) {
+                contatosDiv.innerHTML = '';
+                this.contatos.forEach(contato => {
+                    console.log(contato)
+                    const span = document.createElement('span');
+                    span.className = 'bi bi-person contact btn1 capt flex gap1';
+                    span.textContent = contato.split('@')[0];            
+                   
+
+                    span.addEventListener('click',()=>{
+                        this.setDestino(contato);
+                    })
+                     contatosDiv.appendChild(span);
+                });
+    }
+}            
+
     renderMessenger() {
 
         //cosole.log('renderizando messenger')
 
          this.messengerHTML = `
                 <section>
-                    <div class="flex itemCenter justContBetween" style="color: white;">
+              
+                    <div class="flex w-100 itemCenter justContBetween" style="color: white;">
                         <a id='msgr'class="p-2 bi-chat"> Mensagens </a>
+                        <a id='btnContatos'class="btn1 p-2 bi-person"> Contatos </a>
+                        
                     </div>  
                     <div id="receiving" class="p-2"></div>
                     <div id="sending" class="">
@@ -33,8 +56,11 @@ export class Messenger extends Aux{
                             style="background: var(--colorA);"
                             placeholder="Digite sua mensagem...">
                     </div>
+
+                      <div id='contatos' class='grid off'>  
+                            
+                        </div>
                 </section>
-       
         `;
         // Supondo que você tenha um elemento com id 'container' para inserir o messenger
 
@@ -87,6 +113,10 @@ export class Messenger extends Aux{
 
     }
 
+    filtraMensagem(){
+
+    }
+
     escutarMinhasMensagens(event){
         
             const user = this.firebase.getAuth().currentUser;
@@ -100,64 +130,80 @@ export class Messenger extends Aux{
 
             this.firebase.verificaAcesso().then((autorizado) => {
                 if (autorizado) {
+                    
                     const contact = this.firebase.getRef('/contatos');
+
+                   
                     contact.once('value').then((snapshot) => {
                         const cont = snapshot.val();
                         if (cont) {
                             Object.entries(cont).forEach(([key, contato]) => {
-                                this.contatos.push(contato); // 'this' da classe é preservado
+                                //monta contados
+                                this.contatos.push(contato); // 'this' da classe é preservado   
+                                //aqui cria-se os contatos
                             });
+                            this.updateContatos();
                             this.firebase.setRole('adm'); // Preservando contexto
                         }
                     });
                 } else {
-                    //cosole.log("Usuario ok");
+                    console.log("Aluno ok");
                 }
             });
-
 
             // Query para buscar mensagens trocadas entre dois autores, ordenadas por timestamp
             let query = mensagensRef.orderByChild('timestamp');
         
                 query.on('value', (snapshot) => {
                     const mensagens = snapshot.val();
+                    
                     const mensagensFiltradas = {};
                     if (mensagens) {
                         Object.entries(mensagens).forEach(([key, mensagem]) => {
                             // Filtra mensagens onde o usuário é autor ou destino
-                            if (mensagem.autor === userMail ||mensagem.destino === userMail ) {
+                            if (mensagem.autor === userMail || mensagem.destino === userMail ) {
                                 mensagensFiltradas[key] = mensagem;
                             }
                         });
                     }
         
-                // Chama o restante do código usando o snapshot filtrado
-                const receiving = document.getElementById('receiving');
-                if (receiving) {
-                    receiving.innerHTML = '';
-                }
+                    // Chama o restante do código usando o snapshot filtrado
+                    const receiving = document.getElementById('receiving');
+                    if (receiving) {
+                        receiving.innerHTML = '';
+                    }
 
-                if (mensagensFiltradas) {
-                    Object.entries(mensagensFiltradas).forEach(([key, mensagem]) => {
-                        let cor = (mensagem.autor !== mensagem.destino && mensagem.autor !== userMail) ? '#4caf50' : '#888';
-                        let pos = (mensagem.autor !== mensagem.destino && mensagem.autor !== userMail) ? 'justify-content: end;' : ';';
+                    if (mensagensFiltradas) {
 
-                        let html = `
-                            <div class='grid' style="margin-bottom: 10px;${pos}">
-                                <div class='contact'  style=" font-size: 0.8em; color: ${cor};">
-                                    ${mensagem.autor ? mensagem.autor : ''}
-                                </div>
-                                <span class='colorA'>${mensagem.conteudo}</span>
-                            </div>
-                        `;
+                        console.log(this.destinatario)
+                        
+                        Object.entries(mensagensFiltradas).forEach(([key, mensagem]) => {
 
-                        if (receiving) {
-                            let tempDiv = document.createElement('div');
-                            tempDiv.innerHTML = html;
-                            receiving.appendChild(tempDiv.firstElementChild);
-                        }
-                    });
-                }
+                            if(mensagem.autor !== 1){
+                                
+                                let cor = (mensagem.autor !== mensagem.destino && mensagem.autor !== userMail) ? '#4caf50' : '#888';
+                                let pos = (mensagem.autor !== mensagem.destino && mensagem.autor !== userMail) ? 'justify-content: end;' : ';';
+
+                                let html = `
+                                    <div class='grid' style="margin-bottom: 10px;${pos}">
+                                        <div class='contact'  style=" font-size: 0.8em; color: ${cor};">
+                                            ${mensagem.autor ? mensagem.autor : ''}
+                                        </div>
+                                        <span class='colorA'>${mensagem.conteudo}</span>
+                                    </div>
+                                `;
+
+                                if (receiving) {
+                                    let tempDiv = document.createElement('div');
+                                    tempDiv.innerHTML = html;
+                                    receiving.appendChild(tempDiv.firstElementChild);
+                                }
+
+                            }
+                        });
+                    }else{
+                        console.log('nao ha filtros')
+                    }
             }, (error) => {
                 console.error("Erro ao escutar mensagens:", error);
             });
@@ -171,6 +217,8 @@ export class Messenger extends Aux{
         
         if(this.contatos.includes(_dest)){
             this.destinatario = _dest;
+
+            //renderizar novamente as msg
         }
 
        // console.log('destinatario',this.destinatario)
@@ -182,11 +230,11 @@ export class Messenger extends Aux{
       //  console.log(this)
     // trigger destino
             let contacts = this.getAllClass('contact');
-            
+     
             for(let contact of contacts) {
+
                 contact.onclick = (event) => {
-                    
-                    this.setDestino(contact.innerText.trim());
+                    this.setDestino(event.target.innerText.trim());
                 }
             }
     }
@@ -221,6 +269,12 @@ export class Messenger extends Aux{
                 }
 
             this.escutarMinhasMensagens();
+
+
+            let btnContatos = this.getById('btnContatos');
+                btnContatos.onclick = ()=>{
+                    this.togglePainel('contatos');
+                }
 
             setTimeout(()=>{
                 this.setContacts();

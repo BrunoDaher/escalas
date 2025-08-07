@@ -1,5 +1,6 @@
 
 import {Aux} from '../util/aux.js'
+import VideoObj from './video.js';
 
 export class Main extends Aux{
     
@@ -9,6 +10,8 @@ export class Main extends Aux{
         this.element = document.createElement('main');
         //this.element.className = 'off';
         this.element.id = 'main';
+
+        this.videoObj = new VideoObj();
 
         this.sections = [
             {name:'opcoes', icon:'bi bi-music-note',  id: 'painelOptions', className: 'painel grid f2vh w-20', style: {alignContent: 'flex-start'}},
@@ -60,8 +63,8 @@ export class Main extends Aux{
             
             setTimeout( ()=>{
                 const braco = document.getElementById('braco');
-        
-                    let video = this.renderVideo();
+                    let video = this.videoObj.renderVideo();
+                    this.videoObj.setVideoId('currentVideo');
                     braco.insertAdjacentHTML('afterend', video);
 
             },100)
@@ -91,27 +94,7 @@ export class Main extends Aux{
         
     }
 
-    renderVideo(){
-
-         const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
-             
-                let classe = isMobile ? 'mobile' : 'desktop';
-                let controls = isMobile ? 'controls' : 'controls';
-
-        return`
-             <div id='video' class='off' >
-                <video class='video ${classe}' id='currentVideo' ; 
-                        ${controls}
-                        playsinline
-                        autoplay
-                        >
-                    <source src="" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-            </div>
-            `
-    }
+    
 
     painelNav(){
         const navBtns = this.getAllClass('navBtn');
@@ -123,11 +106,7 @@ export class Main extends Aux{
                 //estetica do botao
 
                 if(btn.id=='acordes'){
-                  
                     let src = 'seq'
-
-                       
-
                 }
 
                 this.chooseTab(btn);
@@ -148,7 +127,11 @@ export class Main extends Aux{
 
     triggers(){
            //     document.getElementById('btn_seq').click();
-
+        setTimeout(()=>{
+            this.videoObj.setVideoId('currentVideo');
+        }
+        ,300);
+        this.videoObj.triggers();
     }
 
   

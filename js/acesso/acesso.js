@@ -59,12 +59,13 @@ export class Acesso {
     renderLogon() {
         return `
           
-            <div id="acesso" class="grid p-2  gap1 w-50 selfCenter me2">
+            <div id="acesso" class="grid p-2  gap1  selfCenter me2">
                 <input type="text" id="login" placeholder="Login" class="bordaA btn2 colorA">
                 <input type="password" id="senha" placeholder="Senha" class="bordaA btn2 colorA">
-                
+                 <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
+            <div id='logReturn' class='colorA'></div>
             </div>
-            <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
+           
         `;
     }
 
@@ -103,7 +104,11 @@ export class Acesso {
                 this.renderUser();
                 this.showUser();
             } catch (error) {
-                alert('Erro ao entrar no app: ' + error.message);
+
+                aux.getById('logReturn').innerHTML = 'e-mail ou senha inválidos';
+                
+
+                //alert('Erro ao entrar no app: ' + error.message);
             }
         }
     }

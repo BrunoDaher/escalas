@@ -240,9 +240,12 @@ input{
 }
 
 .selfCenter{
-    justify-self: center;
+   
+    text-align: center;
     justify-items: center;
+    justify-self: center;
 }
+
 
 .w-100{
     width: 100%;

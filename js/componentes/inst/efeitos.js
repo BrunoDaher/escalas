@@ -15,17 +15,17 @@ export class Efeitos {
         low.type = 'lowshelf';
         low.frequency.value = 120;
         low.Q.value = 1;
-        low.gain.value = 5;
+        low.gain.value = 15;
 
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
-        mid.frequency.value = 1100;
-        mid.Q.value = 1;
+        mid.frequency.value = 1000;
+        mid.Q.value = 2;
         mid.gain.value = -40;
 
         const high = this.audioContext.createBiquadFilter();
         high.type = 'highshelf';
-        high.frequency.value = 4200;
+        high.frequency.value = 2200;
         high.Q.value = 1;
         high.gain.value = -10;
 

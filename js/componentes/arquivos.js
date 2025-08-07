@@ -1,10 +1,7 @@
 import { Dao } from  '../acesso/dao.js'
 
 
-
-    function testes (texto) {
-       return document.getElementById('contexto').innerText = texto;
-    }
+  
 
 export class Arquivos {
 
@@ -14,6 +11,7 @@ export class Arquivos {
         this.dao = new Dao();
         this.acordes = acordes;
         this.containerId ='painelFiles';
+        
     }
 
     renderPainelFiles() {
@@ -55,35 +53,6 @@ export class Arquivos {
             </div>
         
         `;
-    }
-
-    async playVideo(song){
-
-
-        //Dom
-        let currentVideo = document.getElementById('currentVideo');
-        
-        if(currentVideo){
-
-          let localVideo = await this.dao.getLocalVideo(song);
-
-          if(localVideo){
-            currentVideo.src = localVideo;               
-          }
-          else{
-            console.log('buscando video na rede')
-              const url =  await this.dao.getVideoUrl(song) //api
-                if(url) {
-                   currentVideo.src = url;
-                   
-                } else {
-                    currentVideo.src = `./data/logo.mp4`
-                }
-          }
-            
-        }
-
-
     }
 
     renderAll() {
@@ -134,49 +103,7 @@ export class Arquivos {
     triggers(){
 
         // Add event listener for custom video-play event
-        document.addEventListener('video-play', (event) => {
-
-            let currentSong = sessionStorage.getItem('currentSong');
-
-            console.log(event.detail, 'recebido')
-
-            testes(event.detail);
-            if(event.detail=='seq'){
-                currentSong = '';
-            }
-           
-            if(currentSong){
-                let song = currentSong.toLowerCase() + '_'+ event.detail;
-
-                console.log('song', song)
-
-                let video = document.getElementById('currentVideo');
-                if (video) {
-                
-                    this.playVideo(song);
-                }
-
-            }
-            else{
-            
-            }
-       
-        });  
-
-        document.addEventListener('video-stop', (event) => {
-
-            let currentSong = sessionStorage.getItem('currentSong');
-           
-            if(currentSong){
-                let song = currentSong.toLowerCase() + '_'+ event.detail;
-
-                let video = document.getElementById('currentVideo');
-                if (video) {
-                    this.stopVideo();
-                }
-            }
-       
-        });  
+        
             
         this.novoArquivo();
 
