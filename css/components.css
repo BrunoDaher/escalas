@@ -6,6 +6,10 @@
 
 .btn{
     cursor: pointer;
+
+    &.active{
+        color: var(--colorA);
+    }
 }
 
 .addRem{
@@ -178,8 +182,50 @@ menu{
  top: 120px;
 padding: 1vh 0;
   object-fit:cover; 
+
+  &.tablet{
+    
+    left: 450px !important;
+    top: 150px !important;
+    padding: 1vh 0;
+    
+  }
        
 }
+
+
+
+.video.tablet{
+    width: 65vw;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    background-color: var(--fundoD);
+    padding: 1px;
+    
+}
+
+.video{
+
+    
+
+}
+
+#video.xray{
+        filter: invert(0.6) brightness(1) contrast(4.5);
+
+        &.invertido{
+             rotate: 180deg;
+        
+                .video{
+                        transform: translateY(-30vw);
+                        height: 50vw;
+                    }
+        }
+}
+
+
 
 
 .desktop{
@@ -203,27 +249,6 @@ background: #2d2541;
     transform: translateY(-9em);
 
 }
-
-.video{
-
-    
-
-}
-
-#video.xray{
-        filter: invert(0.6) brightness(1) contrast(4.5);
-}
-
-#video.invertido{
-                rotate: 180deg;
-        
-                .video{
-                        transform: translateY(-30vw);
-                        height: 50vw;
-                    }
-                
-}
-
 #paineis{
 
     justify-content: space-between;
@@ -331,7 +356,7 @@ background: #2d2541;
     .btn1{
         cursor: pointer;
         font-size: 14px;
-        font-family: 'Gill Sans';
+        
         padding: 1vh;
         color: var(--colorB);
         background: var(--fundoE);
@@ -347,7 +372,7 @@ background: #2d2541;
     .btn2{
        cursor: pointer;
     font-size: 16px;
-    font-family: 'Gill Sans';
+    
     padding: 5px;
     
     /* margin: 2px; */
@@ -362,10 +387,11 @@ background: #2d2541;
     }
 
     .btn3{
+
         cursor: pointer;
         border-radius: 0.5vh;
         font-size:1em;
-        font-family: 'Gill Sans';
+        
         padding: 0.7vh;
             margin: 2px;
             background: var(--fundoC);
@@ -373,11 +399,10 @@ background: #2d2541;
             color: white;
         
             &:hover, &.active{
-                     color: black;
-                    background-color: var(--colorC);
-                    
-                    border-color: var(--fundoB);
-                    filter: var(--filterB);
+                            color: white;
+        background-color: var(--fundoC);
+        border-color: var(--fundoA);
+        filter: var(--filterB);
             }
     }
 

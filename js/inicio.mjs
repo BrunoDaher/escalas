@@ -50,12 +50,55 @@ const main = new Main();
           platforms.classList.remove('off');      
           */
     //  }
+
+    
  
    
 function checkMobile() {
     let agent = navigator.userAgent.toLowerCase();
-    //console.log('checkMobile', agent);
-    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
+
+   // Additional checks for mobile devices
+    let isMobileByPlatform = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
+    let isMobileByScreen = window.innerWidth <= 800 && window.innerHeight <= 900;
+    let isMobileByTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    let isMobileByVendor = /android|iphone|kindle|silk/i.test(navigator.vendor || navigator.platform);
+
+    // Combine all checks
+
+    let ismobile = isMobileByPlatform || isMobileByScreen || isMobileByTouch || isMobileByVendor;
+
+        if(window.innerWidth > 800 && isMobileByTouch){
+            
+            let paineis = aux.getAllClass('painel');
+              paineis.forEach(painel => {
+              painel.classList.add('tablet');
+            });
+
+
+            setTimeout(
+              ()=>{
+                let video = aux.getById('video');
+                  video.classList.add('tablet');
+
+                  let currentVideo = aux.getById('currentVideo');
+                  currentVideo.classList.remove('desktop');
+                  currentVideo.classList.add('tablet');
+              }
+              ,300)
+
+        }
+        else{
+          setTimeout(
+              ()=>{
+           let videoControl = aux.getById('videoControl');
+           videoControl.classList.add('off');
+              }
+              ,300)
+        }
+
+   
+
+    return ismobile;
  }    
    
  function init() {
@@ -102,9 +145,9 @@ function checkMobile() {
     if(checkMobile()){
       main.addFooter();
       aux.getById('arquivos').click();
+
+      //tablet
        
-      
-     
     }
     else{
        

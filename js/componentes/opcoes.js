@@ -6,7 +6,7 @@ export class Opcoes extends Aux{
     
         super();
     
-        const containerId = 'painelOptions'
+        const containerId = 'painelOptions';
         
         this.containerId = containerId;
         this.cores = [

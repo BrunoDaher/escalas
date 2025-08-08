@@ -1,4 +1,11 @@
-export class Metronomo {
+
+import { Aux } from "../../util/aux.js";
+
+//dependencia
+const aux = new Aux();
+
+
+export class Metronomo{
     constructor() {
         this.metronomo = null;
         this.i = 0;
@@ -21,7 +28,7 @@ export class Metronomo {
     }
 
     buildPainelClock() {
-        const painelClock = document.getElementById('painelClock');
+        const painelClock = aux.getById('painelClock');
         painelClock.innerHTML = '';
 
         painelClock.innerHTML += `
@@ -102,7 +109,7 @@ export class Metronomo {
                         ${[1, 2, 3, 4].map(i => `
                             <div id='p${i}' value="${i}" class="pulse  justContBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
-                                    `<div class="subdivision w-100 btn3">
+                                    `<div class="subdivision w-100 btn4">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
@@ -112,9 +119,9 @@ export class Metronomo {
     }
 
     cacheElements() {
-        this.bpmInput = document.getElementById("bpm");
-        this.toggleBtn = document.getElementById("metroToggle");
-        this.knobs = document.querySelectorAll('.knob');
+        this.bpmInput = aux.getById("bpm");
+        this.toggleBtn = aux.getById("metroToggle");
+        this.knobs = aux.getAllClass('knob');
         this.bpm = this.bpmInput.value;
     }
 
@@ -122,13 +129,13 @@ export class Metronomo {
         
         this.pulsos = n;
         [2, 3, 4].forEach(p => {
-            document.getElementById(`p${p}`).classList.toggle('none', this.pulsos < p);
+            aux.getById(`p${p}`).classList.toggle('none', this.pulsos < p);
         });
     }
 
     onPulseClick = (e) => {
         
-        document.querySelectorAll('.compCount').forEach(
+        aux.getAllClass('compCount').forEach(
             b => b.classList.remove('active')
         );
         e.target.classList.add('active');
@@ -137,7 +144,7 @@ export class Metronomo {
     }
 
     stop() {
-        document.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+        aux.getAllClass('button').forEach(btn => btn.classList.remove('active'));
         if (!this.toggleBtn.classList.contains('active')) this.toggleBtn.click();
         clearInterval(this.metronomo);
     } 
@@ -145,14 +152,18 @@ export class Metronomo {
     start() {
         this.i = this.i < this.pulsos ? this.i + 1 : 1;
        // playNote('10', 'sine');
-        this.fig();
+
+       const activeBtn = aux.getByClass('figura-btn.active');
+        if(activeBtn ? true:false){
+         this.fig();
+        }
+ 
     }
 
     fig() {
-        const activeBtn = document.querySelector('.figura-btn.active');
+        const activeBtn = aux.getByClass('figura-btn.active');
         this.figuraCount = activeBtn ? parseInt(activeBtn.dataset.value, 10) || 1 : 1;
         const intervalo = (60 / this.bpm) * 1000 / this.figuraCount;
-
         
         for (let n = 0; n < this.figuraCount; n++) {
             setTimeout(() => {
@@ -183,24 +194,24 @@ export class Metronomo {
      
         this.bpm = this.bpmInput.value;
         this.stop();
-        document.getElementById("lbpm").textContent = `${this.bpm}  BPM`;
+        aux.getById("lbpm").textContent = `${this.bpm}  BPM`;
         this.metronomo = setInterval(() => this.start(), 60 / this.bpm * 1000);
     }
 
 
     onFiguraBtnClick = (e) => {
-        document.querySelectorAll('.figura-btn').forEach(
+        aux.getAllClass('figura-btn').forEach(
             b => b.classList.remove('active')
         );
          e.target.classList.add('active');
         this.figuraCount = e.target.getAttribute('data-value');
         
-        document.getElementById('compasso').innerHTML = [1, 2, 3, 4].map(i => {
+        aux.getById('compasso').innerHTML = [1, 2, 3, 4].map(i => {
             const isVisible = i <= this.pulsos ? '' : 'none';
             return `
                 <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision w-100 btn3">
+                        `<div class="subdivision w-100 btn4">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;
@@ -233,26 +244,25 @@ export class Metronomo {
     }
 
     onWrapChange = () => {
-            const compasso = document.getElementById('compasso');
+            const compasso = aux.getById('compasso');
             compasso.classList.toggle('flex');
     }
 
     addListeners() {
-        this.bpmInput.addEventListener("change", this.onBpmChange);
+        this.bpmInput.onchange = this.onBpmChange;
 
-        document.querySelectorAll(".compCount").forEach(pulse =>
-            pulse.addEventListener("click", this.onPulseClick)
+        aux.getAllClass("compCount").forEach(pulse =>
+            pulse.onclick = this.onPulseClick
         );
    // document.getElementById('wrap').addEventListener('change', this.onWrapChange);             
    
-
 // Adicionar ao método addListeners():
-    document.getElementById('metroToggle').addEventListener('change', this.onToggleChange);             
-        document.querySelectorAll('.figura-btn').forEach(btn =>
-            btn.addEventListener('click', this.onFiguraBtnClick)
+    aux.getById('metroToggle').addEventListener('change', this.onToggleChange);             
+        aux.getAllClass('figura-btn').forEach(btn =>
+            btn.onclick =  this.onFiguraBtnClick
         );
 
-        this.toggleBtn.addEventListener("change", this.onToggleChange);
+        this.toggleBtn.onchange =  this.onToggleChange;
 
         this.knobs.forEach((knob, idx) =>
             knob.addEventListener('wheel', e => this.onKnobWheel(idx, e))

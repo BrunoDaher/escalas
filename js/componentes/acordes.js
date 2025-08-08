@@ -30,6 +30,18 @@ export class Acordes extends Aux{
 
     }
 
+      controles(){
+        return `
+           <!-- Bloco: Controles Gerais -->
+                <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
+                <a class="bi-command"> Controles</a>
+            </label>
+                <div class=" flexCenter gap2 justContAround px-2" style="zoom:0.9">  
+            </div>
+        `
+    }
+   
+
     getViolao(){
         return this.violao;
     }
@@ -56,30 +68,6 @@ export class Acordes extends Aux{
                 </div>  
             </div>`
         ).join('');
-    }
-
-    chordShortcut(data){
-        return `<span 
-            id="${data.id}" 
-            slot="${data.idMemoria}"
-            class="btnChord bordaA painelBtn shortcut item" 
-            draggable="false" 
-            velo="${data.velo}" 
-            value="${data.value}" 
-            style="user-select: none;" 
-            seq="${data.seq}"
-        >${data.value}</span>`  
-    }
-
-    controles(){
-        return `
-           <!-- Bloco: Controles Gerais -->
-                <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
-                <a class="bi-command"> Controles</a>
-            </label>
-                <div class=" flexCenter gap2 justContAround px-2" style="zoom:0.9">  
-            </div>
-        `
     }
 
     renderPainelChords() {
@@ -115,10 +103,7 @@ export class Acordes extends Aux{
 
                     </div>
 
-                    <div id='videoControl' class='flexCenter'>
-                        <span id='video-pause' class='vControl f2em btn bi bi-pause'></span>
-                        <span id='video-play' class='vControl f2em btn bi bi-play'></span>
-                    </div>
+              
                         
                             </div>
                         </div>
@@ -137,6 +122,7 @@ export class Acordes extends Aux{
                             
                             ${this.renderEstruturaAreas()}
                     </div>
+
                     <div id='trash' 
                          class="bi-trash dragContainer  
                          flexCenter gap1 p-2"
@@ -146,51 +132,17 @@ export class Acordes extends Aux{
                          >
                     </div>
                 </div>
-                <section id='chords' class='my-2'>
-                    <div>
-                            <div class="comp filterC flex justContBetween p-1"> 
-                            <span class=' bi-music-note-list'> Acordes & Escalas </span>
-                             <div class="flex itemCenter gap1 f2vh">
-                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
-                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
-                        </div>
-                            </div>
-                            <div id='blocoVelocidade' class="bgDark  justContBetween p-1 flex textStart"> 
-                        
-                                <!-- Bloco: Velocidade -->
-                                <label for="velo" class="flex p-1 itemCenter gap2">
-                                    <i class="bi bi-clock colorB flex"> Duração</i>  
-                                    <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
-                                </label>
+               
+                ${this.renderSectionChords()}
+                
+            <section id="memoria" class="bgDark memoria  
+                    textCenter gap1 p-2 dragContainer">
+                </section>
 
-                                <!-- Controle: Edit -->
-                                <div class="gap1 flex itemCenter">
-                                    <a>Edit</a>
-                                    <label class="switch">
-                                        <input id="editMode" type="checkbox" checked/>
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-
-                                <!-- Controle: Arrastar -->
-                                <div class="gap1 flex itemCenter">
-                                    <a>Drag</a>
-                                    <label class="switch">
-                                        <input id="drag" type="checkbox" checked="false">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                        <div>
-                    </div>
+                <!-- Controle: Adicionar/Remover -->
+                <div class="flex abs addRem itemCenter gap2">
                 </div>
-                <section id="memoria" class="bgDark memoria  
-                        textCenter gap1 p-2 dragContainer">
-                    </section>
-
-                    <!-- Controle: Adicionar/Remover -->
-                    <div class="flex abs addRem itemCenter gap2">
-                    </div>
-             </section>
+            </section>
             
             <div class="textStart grid my-1">
               ${this.renderFx()}
@@ -198,6 +150,67 @@ export class Acordes extends Aux{
         `;
     }
 
+    renderSectionChords(){
+        return `
+         <section id='chords' class='my-2'>
+                    <div>    
+                        <div class="comp filterC flex justContBetween p-1"> 
+                            
+                        <span class=' bi-music-note-list'> Acordes & Escalas </span>
+                        
+                        <div class="flex itemCenter gap1 f2vh">
+                            <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
+                            <span id="removeMem" class="btn1 f2vh bi bi-dash filter"></span> 
+                        </div>
+
+                    </div>
+                        
+                    <div id='blocoVelocidade' class="bgDark  justContBetween p-1 flex textStart"> 
+                
+                        <!-- Bloco: Velocidade -->
+                        <label for="velo" class="flex p-1 itemCenter gap2">
+                            <i class="bi bi-clock colorB flex"> Duração</i>  
+                            <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
+                        </label>
+
+                        <!-- Controle: Edit -->
+                        <div class="gap1 flex itemCenter">
+                            <a>Edit</a>
+                            <label class="switch">
+                                <input id="editMode" type="checkbox" checked/>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <!-- Controle: Arrastar -->
+                        <div class="gap1 flex itemCenter">
+                            <a>Drag</a>
+                            <label class="switch">
+                                <input id="drag" type="checkbox" checked="false">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                    <div>
+                
+            </section>
+        `
+    }
+
+    chordShortcut(data){
+        return `<span 
+            id="${data.id}" 
+            slot="${data.idMemoria}"
+            class="btnChord bordaA painelBtn shortcut item" 
+            draggable="false" 
+            velo="${data.velo}" 
+            value="${data.value}" 
+            style="user-select: none;" 
+            seq="${data.seq}"
+        >${data.value}</span>`  
+    }
+
+  
     renderFx(){
         return `
             <a class="bi-radioactive comp filterC p-1"> Efeitos</a  >
@@ -250,20 +263,7 @@ export class Acordes extends Aux{
 
                 }
 
-          const vControle = this.getAllClass('vControl');
-
-          vControle.forEach(btn => {
-            console.log(btn);
-            btn.onclick = ()=>{
-                let id = btn.id;
-                let event = new CustomEvent('video-control', {
-                    detail: id, // Dados para o método clean
-                });
-                document.dispatchEvent(event);
-
-            }
-          });
-
+         
             // Botões de efeitos
           const btnsEfeito = document.querySelectorAll('.efeito')
                 btnsEfeito.forEach(btn => {
@@ -305,7 +305,6 @@ export class Acordes extends Aux{
                             detail: trecho, // Dados para o método clean
                         });
 
-                        console.log(event.detail)
 
                         let currentSong = sessionStorage.getItem('currentSong')
 

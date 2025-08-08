@@ -14,7 +14,7 @@ export class Main extends Aux{
         this.videoObj = new VideoObj();
 
         this.sections = [
-            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: 'painel grid f2vh w-20', style: {alignContent: 'flex-start'}},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: 'painel f2vh w-20'},
             {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: 'painel f2vh w-20'},
             {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: 'painel f2vh w-30'},
             {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: 'painel f2vh w-30'},
@@ -36,24 +36,16 @@ export class Main extends Aux{
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
         paineis.className = 'flexCenter gap1 filterC';
-        paineis.style.maxWidth = '';
-        paineis.style.overflowX = '';
 
-        this.sections.forEach(sectionData => {
+        //sections é um array de obj
+        this.sections.forEach(obj => {
             const section = document.createElement('section');
-            section.id = sectionData.id;
-            section.className = sectionData.className;
-            if(sectionData.style) {
-                Object.assign(section.style, sectionData.style);
-            }
-            if(sectionData.hidden) {
-                section.hidden = true;
-            }
+            section.id = obj.id;
+            section.className = obj.className;
             paineis.appendChild(section);
         });
 
         this.element.appendChild(paineis);
-        return this;
     }
 
     build() {
@@ -63,33 +55,28 @@ export class Main extends Aux{
             
             setTimeout( ()=>{
                 const braco = document.getElementById('braco');
-                    let video = this.videoObj.renderVideo();
-                    this.videoObj.setVideoId('currentVideo');
-                    braco.insertAdjacentHTML('afterend', video);
-
+                      braco.insertAdjacentHTML('afterend', this.videoObj.renderVideo());
             },100)
             
          this.addPaineis();
-            
+         
          header.insertAdjacentElement('afterend', this.element);
-
          header.classList.add('on');
-         this.triggers();
-                    
+
+         setTimeout(()=>{this.triggers()},300)
     }
 
     addFooter(){
 
         this.getById('footer').classList.remove('off');
-
+        
         let buttons = this.sections.map(btn => `
-                <span id=${btn.name}  class="navBtn bordaA btn3" data-panel="${btn.id}">
+                <span id=${btn.name}  class="navBtn bordaA btn3 grid p-2 w-100 f2vh" data-panel="${btn.id}">
                     <i class="${btn.icon}"></i>
                     <a style='text-transform:capitalize'>${btn.name}</a>
                 </span>`).join('');    
-
+       
        this.getById('navegacao').innerHTML = buttons; 
-
        this.painelNav();
         
     }
@@ -126,19 +113,16 @@ export class Main extends Aux{
     }
 
     triggers(){
+
+         this.videoObj.triggers();
            //     document.getElementById('btn_seq').click();
         setTimeout(()=>{
-            this.videoObj.setVideoId('currentVideo');
-
-             let src = 'sequencia'
-      const event = new CustomEvent('video-play', {
-                        detail: src, // Dados para o método clean
-                  });
-
-        document.dispatchEvent(event);
-        }
+                this.videoObj.setVideoId('currentVideo');
+            }
         ,300);
-        this.videoObj.triggers();
+
+       
+        
     }
 
   

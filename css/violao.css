@@ -200,15 +200,15 @@ p {
 }
 
 #braco{
-        margin: 1vh 0;
+     margin: 0.5vh 0 0.5vh 1px;
     transition: all 1s;
-    padding: 1vh;  
+    padding: 0.5vh;
 
      @media (max-width: 500px) {
        
     overflow-x: scroll;
         padding : 2vh 0 0 1vh !important;
-overflow-y: hidden;
+    overflow-y: hidden;
           
     
 }

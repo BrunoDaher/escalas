@@ -5,8 +5,6 @@ export class Tocador {
 
 
     constructor() {
-
-
         console.log('novo contexto')
         this.notas = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#'];
 
@@ -47,13 +45,11 @@ export class Tocador {
         }
         el.classList.toggle('active');
     }
-
   
     playSequence() {
        // let v = getDataJSON('velo');
         //let n = getDataJSON('notas');
     }
-
 
     async playChord(notas, velo, arrayNotas) {
 
@@ -131,74 +127,4 @@ export class Tocador {
         }
     }
 
-
-    getInterval(obj, ch) {
-        let str = obj.parentElement.id;
-        let casa = str.split(':')[0];
-        let corda = str.split(':')[1];
-        let ini = parseInt(casa);
-        let fim = parseInt(casa) + 3;
-        let intervalo = [];
-
-        for (let index = ini; index < fim; index++) {
-            let int = corda == 'A' ? ['A', 'D', 'G', 'B', 'e'] : ['E', 'A', 'D', 'G', 'B', 'e'];
-            int.forEach(element => {
-                let id = index + ':' + element;
-                let div = document.getElementById(id);
-                let btn = div.children[0];
-                intervalo.push(btn);
-                btn.classList.add('set');
-            });
-        }
-
-        let typeChord = document.getElementById('typeChord');
-        switch (typeChord.value) {
-            case '1':
-                ch.splice(1, 3);
-                break;
-            case '2':
-                ch.splice(1, 1);
-                ch.splice(2, 1);
-                break;
-            case '3':
-                ch.splice(3, 1);
-                break;
-            case '4':
-                break;
-            default:
-                break;
-        }
-
-        resetClass('on');
-        resetClass('set');
-
-        let tonica = obj.innerText;
-        let ntsLabel = [];
-        let oitavas = [];
-        let cont = 0;
-        intervalo.forEach(element => {
-            element.classList.add('set');
-            ntsLabel.push(element.innerText);
-            if (ch.includes(element.innerText)) {
-                element.classList.add('on');
-                if (ntsLabel.includes(element.innerText)) {
-                    if (element.innerText == tonica) {
-                        oitavas.push(element.id);
-                        cont++;
-                    }
-                }
-                element.classList.add('on');
-            }
-        });
-
-        if (typeChord.value == 4) {
-            document.getElementById(oitavas.sort((a, b) => a - b)[1]).classList.remove('on');
-        }
-
-        obj.classList = 'nota on';
-        return ('intervalo de: ' + (casa) + ' até ' + [parseInt(casa) + 3]);
-    }
-
-    // Placeholder for getFig, getDataJSON, setDataJSON, salvaLocal, resetClass, equalizer, this.efeitos.conectChorus, this.efeitos.conectReverb, this.efeitos.conectDelay, notas, slotId
-    // These should be implemented or imported elsewhere in your codebase.
 }

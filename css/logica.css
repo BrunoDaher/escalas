@@ -4,11 +4,13 @@
     color: white;
     filter: var(--filterB);
     transition: all 0.1s;
+    z-index: unset;
 }
 
 
 .off{
      display: none;
+     z-index: -10;
     opacity: 0.05;
     transition: all 0.1s;
 }

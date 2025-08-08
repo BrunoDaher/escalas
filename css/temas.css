@@ -8,6 +8,10 @@ paineis : #2f2828
 */
 
 
+.rev{
+    transform: scaleX(-1);
+}
+
 .vinheta{
     background-color: var(--main-bg-color);
     filter: blur(12vh);
@@ -40,20 +44,28 @@ label{
     font-family: 'Hymnus FG';
 }
 
+
+
 .curs{
     font-family: cursive;
 }
 
+.zoom2{
+
+       object-position: bottom;
+    object-fit: none;
+        object-position: -77vh -30vh;
+}
+
+
 .bgDark2{
     background-color:black;
     color:var(--colorB);
-
-
 }
 
 .bgDark{
     background-color:var(--fundoC);
-    color:var(--fundoA);
+    color:white;
 
 }
 

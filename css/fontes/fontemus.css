@@ -7,6 +7,11 @@
     font-display: swap;
 }
 
+body
+{
+    font-family: 'Roboto', sans-serif;
+}
+
 
 .f1em{
     font-size: 1em;
@@ -23,9 +28,6 @@
 .f3vh{
     font-size: 3vh;
 }
-
-
-
 .f3em{
     font-size: 3em;
 }
@@ -33,7 +35,6 @@
 .f1rem{
     font-size: 1rem;
 }
-
 
 .t1{
     font-size: 1.5em;

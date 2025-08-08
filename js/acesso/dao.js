@@ -33,6 +33,11 @@ export class Dao {
         this.persiste.init();
   }
 
+  async getUrlVideo(song){
+    this.startSupa();
+    return await this.supa.getUrlVideo(song);
+  }
+
   async getFile(song){
     return this.supa.getFile(song)
   }

@@ -1,3 +1,4 @@
+import {Dao} from '../acesso/dao.js'
 
 
 export default class VideoObj {
@@ -6,13 +7,24 @@ export default class VideoObj {
 
         this.url = null;
         this.state = 'pause';
-        
-        
-
+        this.dao = new Dao();
     }
 
+    botoesControle (){
+        return    [
+                    {id: 'video-pause', icon: 'bi-pause-circle'},
+                    {id: 'video-play', icon: 'bi-play-circle'},
+                    {id: 'video-slow', icon: 'bi-clock-history', extraClass: 'rev'},
+                    {id: 'video-normal', icon: 'bi-clock'},
+                    {id: 'video-filter', icon: 'bi-image'},
+                    {id: 'video-zoom', icon: 'bi-zoom-in'},
+                ] ;
+    }
 
     triggers(){
+
+        console.log('video triggers')
+
         document.addEventListener('video-play', (event) => {
 
             let currentSong = sessionStorage.getItem('currentSong');
@@ -22,14 +34,11 @@ export default class VideoObj {
                 currentSong = null;
                 this.playVideo(null);
 
-                console.log(this.video)
-
                  this.video.src = `./data/logo.mp4`
             }
             else{
                 if(currentSong){
                     let song = currentSong.toLowerCase() + '_'+ event.detail;
-                    console.log(song)
                         if (this.video) {
                             this.playVideo(song);
                         }
@@ -42,22 +51,43 @@ export default class VideoObj {
        
         });  
 
-        //evento controle de fluxo
-         document.addEventListener('video-control', (event) => {
 
-            if(event.detail == 'video-pause'){
-                this.video.pause();
-            }
-            else if(event.detail == 'video-play'){
-                this.video.play();
-            }
-            else if(event.detail == 'video-stop'){
-                this.video.stop();
-            }
-            
+        this.triggerControles();
        
-        });  
 
+    }
+
+    triggerControles(){
+ let btnsControle = document.querySelectorAll('.vControl'); 
+        btnsControle.forEach(btn => {
+
+            btn.onclick = ()=>{
+                
+                   const videoActions = {
+                        'video-play': (video) => video.play(),
+                        'video-pause': (video) => video.pause(),
+                        'video-slow': (video) => video.playbackRate = 0.5,
+                        'video-normal': (video) => video.playbackRate = 1,
+                        'video-filter': () => {
+                            document.getElementById('currentVideo').classList.toggle('filterA')
+                        },
+                        'video-zoom': () => {
+                            document.getElementById('currentVideo').classList.toggle('zoom2')
+                        },
+                    };
+
+                if (videoActions[btn.id]) {
+                    videoActions[btn.id](this.video);
+                
+                    btnsControle.forEach(element => {
+                        element.classList.remove('active');
+                    });
+
+                    btn.classList.add('active');
+                }                
+            }
+
+        } );
 
     }
 
@@ -80,10 +110,6 @@ export default class VideoObj {
 
     async playVideo(song){
 
-
-        //Dom
-
-        
         let currentVideo = document.getElementById('currentVideo');
         
         if(currentVideo && song){
@@ -94,6 +120,7 @@ export default class VideoObj {
                 currentVideo.src = localBlob;               
             }
             else{
+                
                 console.log('buscando video na rede')
                 const url =  await this.getVideoUrl(song) //api
                     if(url) {
@@ -117,7 +144,7 @@ export default class VideoObj {
                 let classe = isMobile ? 'mobile' : 'desktop';
                 let controls = isMobile ? '' : 'controls';
 
-                    
+
 
 
         return`
@@ -130,66 +157,72 @@ export default class VideoObj {
                     <source src="" type="video/mp4">
                     Seu navegador não suporta a tag de vídeo.
                 </video>
+                <div id='videoControl' class='gap2 p-2 flexCenter abs bgDark' 
+                    style='z-index:20;     justify-self: anchor-center;'>
+                    ${this.botoesControle().map(btn => `
+                    <span id='${btn.id}' 
+                        class='vControl f3em btn bi ${btn.icon} ${btn.extraClass || ''}'></span>
+                `).join('')}                
+                </div>
             </div>
             `
     }
-
     
-  async getLocalVideo(key) {
-    return new Promise((resolve, reject) => {
-      const request = indexedDB.open("virtuaguitar");
+    async getLocalVideo(key) {
+        return new Promise((resolve, reject) => {
+        const request = indexedDB.open("virtuaguitar");
 
-      request.onerror = (event) => {
-        console.error("Erro ao abrir o banco IndexedDB:", event.target.error);
-        reject(event.target.error);
-      };
-
-      request.onsuccess = (event) => {
-        const db = event.target.result;
-        const transaction = db.transaction(['videos'], 'readonly');
-        const objectStore = transaction.objectStore('videos');
-
-        objectStore.openCursor().onsuccess = (event) => {
-          const cursor = event.target.result;
-          if (!cursor) {
-            // Fim dos registros
-            resolve(null);
-            return;
-          }
-
-          if (cursor.key === key) {
-            const blob = cursor.value;
-            const url = URL.createObjectURL(blob);
-            resolve(url); // ✅ retorna a URL
-          } else {
-            cursor.continue();
-          }
+        request.onerror = (event) => {
+            console.error("Erro ao abrir o banco IndexedDB:", event.target.error);
+            reject(event.target.error);
         };
 
-        objectStore.openCursor().onerror = (event) => {
-          console.error("Erro ao iterar o object store:", event.target.error);
-          reject(event.target.error);
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            const transaction = db.transaction(['videos'], 'readonly');
+            const objectStore = transaction.objectStore('videos');
+
+            objectStore.openCursor().onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (!cursor) {
+                // Fim dos registros
+                resolve(null);
+                return;
+            }
+
+            if (cursor.key === key) {
+                const blob = cursor.value;
+                const url = URL.createObjectURL(blob);
+                resolve(url); // ✅ retorna a URL
+            } else {
+                cursor.continue();
+            }
+            };
+
+            objectStore.openCursor().onerror = (event) => {
+            console.error("Erro ao iterar o object store:", event.target.error);
+            reject(event.target.error);
+            };
         };
-      };
-    });
-  }
+        });
+    }
 
-  async getVideoUrl(song) {
-  
-  let url = await this.supa.getUrlVideo(song);
+    async getVideoUrl(song) {
+    
+        let url = await this.dao.getUrlVideo(song);
 
-      if(url) {
-       await  this.persiste.saveVideo(url, song);
-      }
-      else{
-        console.log('erro')
-      }
+            if(url) {
+            await  this.persiste.saveVideo(url, song);
+            }
+            else{
+                console.log('erro')
+            }
+                
+
+            return url
+            
+    }
         
-
-    return url
-      
-  }
-    
 
 
 }
