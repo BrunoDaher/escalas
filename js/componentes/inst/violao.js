@@ -102,6 +102,7 @@ export class Violao {
             this.editMode = aux.getById('editMode').checked;
           
             if(this.editMode){
+             
                 this.tocador.playChord(btn.id,vel, dao.getDataJSON(btn.id));
             }
         }

@@ -1,8 +1,6 @@
 import { Dao } from  '../acesso/dao.js'
 
 
-  
-
 export class Arquivos {
 
     
@@ -26,29 +24,28 @@ export class Arquivos {
                 
             </div>
 
-            <div id="listaArq" >
-                <ul id="salvos" class="flex"></ul>
+            <div id="listaArq" class='my-1' >
+                <div id="salvos" class=""></div>
             </div>
            
-           <div class=" grid bgDark my-1">
-                <a class="bi w-100  m-1 bi-reload"> Atualizar Lista
+           <div class=" grid my-1 p-1">
+                <label class="comp bi bi-tools my-1 p-1 flex colorB gap1 textStart w-100"> Tools
                
-                </a>
-                <div  id="daoBtns" class="flexCenter justContAround gap1" 
-                style='transform:scale(0.8)'
-                >   
-                    <div class="grid rad1 btn1" id="cloudLoad">
-                        <i class='bi-cloud-download f3vh'></i>
-                        <a>Atualizar</a>
-                    </div>
-                    <div class="grid rad1 btn1" id="export">
-                        <i class=' bi-arrow-down'></i>
-                        <a>Exportar</a>
-                    </div>
-                    <div class="grid rad1 btn1" id="load" target="dataLoad">
-                        <i class=' bi-arrow-up'></i>
-                        <a>Importar</a>
-                    </div>
+                </label>
+                <div  id="daoBtns" class=" justContBetween flex gap1">
+                           
+                         <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
+                                <i class='bi-cloud-download'></i>
+                                <a>Atualizar</a>
+                            </div>
+                            <div class="grid rad1 btn1 f2vh" id="export">
+                                <i class=' bi-arrow-down '></i>
+                                <a>Exportar</a>
+                            </div>
+                            <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
+                                <i class=' bi-arrow-up '></i>
+                                <a>Importar</a>
+                            </div>
                 </div>
             </div>
         
@@ -187,6 +184,9 @@ export class Arquivos {
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
+
+                        console.log(item)
+                        //document.getElementById('contexto').innerText = item
                        
                         setTimeout(
                             //
@@ -198,7 +198,7 @@ export class Arquivos {
                                }
                              
                             }
-                            ,400)
+                            ,300)
                        // this.renderVideo(item)
                 })
             });
@@ -225,9 +225,16 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div class="flex justCenter itemCenter textCap p-1 ">
-                <li id="vg_${nome}" class="clicaMus">${nome}</li>
-                <div class="flex off ">
+            <div id="vg_${nome}"  class=" clicaMus bgDark grid capt p-2 ">
+            <div class='grid'>
+                <a id="vg_${nome}" class=" f2vh">
+                    ${nome}
+                </a>
+                <img src='../img/alb.png' class='capa filterD' >
+            </div>
+                
+                <a class="clicaMus"></a>
+                <div class="flex off">
                     <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
                     <span data-target='vg_${nome}' role="button" class="btn2 bi-pencil colorE"></span>
                 </div>

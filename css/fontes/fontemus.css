@@ -37,7 +37,7 @@ body
 }
 
 .t1{
-    font-size: 1.5em;
+    font-size: 1.5rem;
    
     filter: drop-shadow(2px 4px 6px var(--fundoB));
     color: var(--colorB);
@@ -48,6 +48,8 @@ body
 .t2{
     width: fit-content;
     position: relative;
+
+        font-size: 1.5rem;
     
     filter: drop-shadow(2px 4px 6px var(--fundoB)) brightness(7.5);
     color: var(--colorC);
@@ -58,7 +60,11 @@ body
 .t3{
     cursor: pointer;
     color: var(--colorC);
-    font-size: 1em;
+    font-size: 1rem;
     
 }
 
+
+.colorB{
+ color:var(--colorB)   
+}

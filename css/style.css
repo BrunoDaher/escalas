@@ -12,16 +12,6 @@
 
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
 
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap');
-
-
-
-
-
-
-
-
-
 :root{
     --top: calc(12vh + 3vw);
     --topSides: calc(var(--top) + 8vw);
@@ -96,58 +86,6 @@ body{
 
 .transp{
     background-color: transparent;
-}
-
-.comp{
-    background-color: var(--fundoC);
-    color: var(--colorB);
-    height: fit-content;
-    border-radius: 4px 4px 0 0;
-    align-items: center;
-
-}
-
-
-.lista{
-    
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-    background-color: #00000038;
-    border-radius: 4px;
-    justify-content: center;
-    padding: 1vh;
-    /* margin: 0; */
-    height: 45px;
-    gap:2vh;
-    cursor: pointer;
-}
-
-#salvos{
-    list-style-type: none;
-    margin: 1vh;
-    font-size: 0    .9rem;
-    padding: 0vh;
-    display: grid;
-    gap:1vh;
-}
-
-#salvos > li , div>li   {
-    cursor: pointer;
-    color: white;
-        opacity: 0.5;
-    gap: 2vh;
-    filter:drop-shadow(2px 4px 6px black);
-
-    &:hover, &.active{
-        color: var(--fundoA);
-        opacity: 1 !important;
-    }
-}
-
-#hMenu{
-    padding: 0;
-    margin: 0;
-    
 }
 
 .capt{

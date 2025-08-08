@@ -67,36 +67,41 @@ function checkMobile() {
 
     let ismobile = isMobileByPlatform || isMobileByScreen || isMobileByTouch || isMobileByVendor;
 
-        if(window.innerWidth > 800 && isMobileByTouch){
-            
-            let paineis = aux.getAllClass('painel');
-              paineis.forEach(painel => {
-              painel.classList.add('tablet');
-            });
+        if(window.innerWidth > 800 && isMobileByTouch)
+          {
+             
+              setTimeout(
+                ()=>{
+                  let video = aux.getById('video');
+                    video.classList.add('tablet');
 
+                    let currentVideo = aux.getById('currentVideo');
+                    currentVideo.classList.remove('desktop');
+                    currentVideo.classList.add('tablet');
+                }
+                ,300)
 
+                main.addFooter();
+
+          }
+          else
+          { 
+            console.log('n eh tablet')
             setTimeout(
-              ()=>{
-                let video = aux.getById('video');
-                  video.classList.add('tablet');
+                ()=>{
+                  let videoControl = aux.getById('videoControl');
+                  videoControl.classList.add('off');
+                     
+                }
+                ,300)
+          }
 
-                  let currentVideo = aux.getById('currentVideo');
-                  currentVideo.classList.remove('desktop');
-                  currentVideo.classList.add('tablet');
-              }
-              ,300)
+          let land = window.screen.orientation.angle == 90 ? true:false;
 
-        }
-        else{
-          setTimeout(
-              ()=>{
-           let videoControl = aux.getById('videoControl');
-           videoControl.classList.add('off');
-              }
-              ,300)
-        }
-
-   
+           let paineis = aux.getAllClass('painel');
+                paineis.forEach(painel => {
+                painel.classList.add(land ? 'tablet':'mobile');
+            });
 
     return ismobile;
  }    
@@ -130,7 +135,6 @@ function checkMobile() {
 
  function triggers(){
 
-    
     //carregamentos
     msg.setFirebase(acesso.getFire())
     msg.renderMessenger();  

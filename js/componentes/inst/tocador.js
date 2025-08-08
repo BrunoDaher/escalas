@@ -53,6 +53,7 @@ export class Tocador {
 
     async playChord(notas, velo, arrayNotas) {
 
+
         if(arrayNotas){
             let cont = 1;
             arrayNotas.forEach(element => {           

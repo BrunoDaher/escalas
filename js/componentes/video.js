@@ -29,6 +29,7 @@ export default class VideoObj {
 
             let currentSong = sessionStorage.getItem('currentSong');
 
+          
             
             if(event.detail=='sequencia'){
                 currentSong = null;
@@ -39,12 +40,13 @@ export default class VideoObj {
             else{
                 if(currentSong){
                     let song = currentSong.toLowerCase() + '_'+ event.detail;
+                    
                         if (this.video) {
                             this.playVideo(song);
                         }
                     }
                 else{
-                        alert('no current song')
+                        console.log('no current song')
                     }
             }
            
@@ -58,36 +60,36 @@ export default class VideoObj {
     }
 
     triggerControles(){
- let btnsControle = document.querySelectorAll('.vControl'); 
-        btnsControle.forEach(btn => {
+        let btnsControle = document.querySelectorAll('.vControl'); 
+                btnsControle.forEach(btn => {
 
-            btn.onclick = ()=>{
-                
-                   const videoActions = {
-                        'video-play': (video) => video.play(),
-                        'video-pause': (video) => video.pause(),
-                        'video-slow': (video) => video.playbackRate = 0.5,
-                        'video-normal': (video) => video.playbackRate = 1,
-                        'video-filter': () => {
-                            document.getElementById('currentVideo').classList.toggle('filterA')
-                        },
-                        'video-zoom': () => {
-                            document.getElementById('currentVideo').classList.toggle('zoom2')
-                        },
-                    };
+                    btn.onclick = ()=>{
+                        
+                        const videoActions = {
+                                'video-play': (video) => video.play(),
+                                'video-pause': (video) => video.pause(),
+                                'video-slow': (video) => video.playbackRate = 0.5,
+                                'video-normal': (video) => video.playbackRate = 1,
+                                'video-filter': () => {
+                                    document.getElementById('currentVideo').classList.toggle('filterA')
+                                },
+                                'video-zoom': () => {
+                                    document.getElementById('currentVideo').classList.toggle('zoom2')
+                                },
+                            };
 
-                if (videoActions[btn.id]) {
-                    videoActions[btn.id](this.video);
-                
-                    btnsControle.forEach(element => {
-                        element.classList.remove('active');
-                    });
+                        if (videoActions[btn.id]) {
+                            videoActions[btn.id](this.video);
+                        
+                            btnsControle.forEach(element => {
+                                element.classList.remove('active');
+                            });
 
-                    btn.classList.add('active');
-                }                
-            }
+                            btn.classList.add('active');
+                        }                
+                    }
 
-        } );
+                } );
 
     }
 
@@ -124,30 +126,40 @@ export default class VideoObj {
                 console.log('buscando video na rede')
                 const url =  await this.getVideoUrl(song) //api
                     if(url) {
-                    currentVideo.src = url;
+                         currentVideo.src = url;
                     } else {
+                        console.log('video não encontrado')
                         currentVideo.src = `./data/logo.mp4`
                     }
             }
             
         }
+        else{
+            alert(error)
+        }
 
 
     }
 
+    async saveVideo(url,key){
+
+    }
 
     renderVideo(){
 
          const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-             
                 let classe = isMobile ? 'mobile' : 'desktop';
-                let controls = isMobile ? '' : 'controls';
-
-
+                let controls = isMobile ? 'controls' : '';
 
 
         return`
+         <div id='videoControl' class='gap2 p-2 flexCenter abs' >
+                    ${this.botoesControle().map(btn => `
+                    <span id='${btn.id}' 
+                        class='vControl f2em btn bi ${btn.icon} ${btn.extraClass || ''}'></span>
+                `).join('')}                
+                </div>
              <div id='video' class='off' >
                 <video class='video ${classe}' id='currentVideo' ; 
                         ${controls}
@@ -157,13 +169,7 @@ export default class VideoObj {
                     <source src="" type="video/mp4">
                     Seu navegador não suporta a tag de vídeo.
                 </video>
-                <div id='videoControl' class='gap2 p-2 flexCenter abs bgDark' 
-                    style='z-index:20;     justify-self: anchor-center;'>
-                    ${this.botoesControle().map(btn => `
-                    <span id='${btn.id}' 
-                        class='vControl f3em btn bi ${btn.icon} ${btn.extraClass || ''}'></span>
-                `).join('')}                
-                </div>
+               
             </div>
             `
     }
@@ -212,7 +218,7 @@ export default class VideoObj {
         let url = await this.dao.getUrlVideo(song);
 
             if(url) {
-            await  this.persiste.saveVideo(url, song);
+              await  this.dao.saveVideoUrl(url, song);
             }
             else{
                 console.log('erro')

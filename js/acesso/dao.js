@@ -38,6 +38,10 @@ export class Dao {
     return await this.supa.getUrlVideo(song);
   }
 
+  async saveVideoUrl(url,song){
+    await this.persiste.saveVideo(url,song)
+  }
+
   async getFile(song){
     return this.supa.getFile(song)
   }

@@ -263,7 +263,7 @@ export class Acordes extends Aux{
 
                 }
 
-         
+        
             // Botões de efeitos
           const btnsEfeito = document.querySelectorAll('.efeito')
                 btnsEfeito.forEach(btn => {
