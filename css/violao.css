@@ -120,7 +120,7 @@ p {
     
     
     border-right-color: #a3a7ab;
-    width: 100%;
+    width: 1em;
     border-right-width: 5px;
     border-right-style: ridge;                 
 }
@@ -147,7 +147,7 @@ p {
         margin-top: -24px;
 */
     margin-left:  -1.4svh !important;
-    margin-top: -3.8svh;
+       margin-top: -1.7em;
      
 
 }
@@ -221,7 +221,7 @@ p {
 #braco{
      margin: 0.5vh 0 0.5vh 1px;
     transition: all 1s;
-    padding: 0.5vh;
+    padding: 1.5vh 0 0.2svh 0;
 
     position: relative;
  height: 170px;   
