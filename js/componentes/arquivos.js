@@ -230,7 +230,7 @@ export class Arquivos {
                 <a id="vg_${nome}" class=" f2vh">
                     ${nome}
                 </a>
-                <img src='/img/alb.png' class='capa filterD' >
+                <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterD' >
             </div>
                 
                 <a class="clicaMus"></a>

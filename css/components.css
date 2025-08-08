@@ -196,7 +196,7 @@ menu{
   object-fit:cover; 
 
   &.tablet{
-        top: 22svh !important;
+        top: 23svh !important;
         left: 32% !important;
         padding: 1vh 0;
   }
