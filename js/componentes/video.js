@@ -17,26 +17,32 @@ export default class VideoObj {
 
             let currentSong = sessionStorage.getItem('currentSong');
 
-            console.log(event.detail, 'recebido')
+            
+            if(event.detail=='sequencia'){
+                currentSong = null;
+                this.playVideo(null);
 
-            if(event.detail=='seq'){
-                currentSong = '';
-            }
-           
-            if(currentSong){
-                let song = currentSong.toLowerCase() + '_'+ event.detail;
-               
-                if (this.video) {
-                    this.playVideo(song);
-                }
+                console.log(this.video)
+
+                 this.video.src = `./data/logo.mp4`
             }
             else{
-            
+                if(currentSong){
+                    let song = currentSong.toLowerCase() + '_'+ event.detail;
+                    console.log(song)
+                        if (this.video) {
+                            this.playVideo(song);
+                        }
+                    }
+                else{
+                        alert('no current song')
+                    }
             }
+           
        
         });  
 
-        //pra botoes de
+        //evento controle de fluxo
          document.addEventListener('video-control', (event) => {
 
             if(event.detail == 'video-pause'){
@@ -76,24 +82,26 @@ export default class VideoObj {
 
 
         //Dom
+
+        
         let currentVideo = document.getElementById('currentVideo');
         
-        if(currentVideo){
+        if(currentVideo && song){
 
           let localBlob = await this.getLocalVideo(song);
 
-          if(localBlob){
-            currentVideo.src = localBlob;               
-          }
-          else{
-            console.log('buscando video na rede')
-              const url =  await this.getVideoUrl(song) //api
-                if(url) {
-                   currentVideo.src = url;
-                } else {
-                    currentVideo.src = `./data/logo.mp4`
-                }
-          }
+            if(localBlob){
+                currentVideo.src = localBlob;               
+            }
+            else{
+                console.log('buscando video na rede')
+                const url =  await this.getVideoUrl(song) //api
+                    if(url) {
+                    currentVideo.src = url;
+                    } else {
+                        currentVideo.src = `./data/logo.mp4`
+                    }
+            }
             
         }
 

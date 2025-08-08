@@ -129,6 +129,13 @@ export class Main extends Aux{
            //     document.getElementById('btn_seq').click();
         setTimeout(()=>{
             this.videoObj.setVideoId('currentVideo');
+
+             let src = 'sequencia'
+      const event = new CustomEvent('video-play', {
+                        detail: src, // Dados para o método clean
+                  });
+
+        document.dispatchEvent(event);
         }
         ,300);
         this.videoObj.triggers();

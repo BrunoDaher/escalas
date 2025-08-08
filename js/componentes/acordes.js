@@ -100,24 +100,22 @@ export class Acordes extends Aux{
                        
                     <div class='flex justContBetween gap1 comp filterC  p-1'> 
 
-                              <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+                    <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
-                                <div class='flex'>
-                                              
-                                    <label for='btnVideo' class="gap1 flex itemCenter">
-                                            <a>Violão</a>
-                                            <label class="switch">
-                                                <input id="btnVideo" target='video' type="checkbox" checked/>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <a>Video</a>
-                                    </label>
-
+                    <div class='flex'>
                                     
+                        <label for='btnVideo' class="gap1 flex itemCenter">
+                                <a>Violão</a>
+                                <label class="switch">
+                                    <input id="btnVideo" target='video' type="checkbox" checked/>
+                                    <span class="slider round"></span>
+                                </label>
+                                <a>Video</a>
+                        </label>
 
-                                </div>
+                    </div>
 
-                                                   <div id='videoControl' class='flexCenter'>
+                    <div id='videoControl' class='flexCenter'>
                         <span id='video-pause' class='vControl f2em btn bi bi-pause'></span>
                         <span id='video-play' class='vControl f2em btn bi bi-play'></span>
                     </div>
@@ -299,14 +297,15 @@ export class Acordes extends Aux{
 
          let sectionBtns = this.getAllClass('section-btn');    
              sectionBtns.forEach(btn => {
-               
                 btn.onclick = ()=>{
-            
+                        
                         let trecho = btn.innerText.trim().toLowerCase();
 
                         const event = new CustomEvent('video-play', {
                             detail: trecho, // Dados para o método clean
                         });
+
+                        console.log(event.detail)
 
                         let currentSong = sessionStorage.getItem('currentSong')
 
@@ -332,10 +331,7 @@ export class Acordes extends Aux{
                         this.addAll('sectionPanel','off');
                             tgt.classList.remove('off')
                 }
-               
              });
-            
-            
 
     }
 
@@ -544,7 +540,7 @@ export class Acordes extends Aux{
                 // Somar: adiciona o valor ao array existente
                 estrutura[e.seq] = [...estrutura[e.seq], {'tone':e.value, 'slot':e.idMemoria}];
             } else {
-                console.log('remocao')
+               // console.log('remocao')
                 if (Array.isArray(estrutura[e.seq])) {
                     estrutura[e.seq] = estrutura[e.seq].filter(item => item.tone !== e.value);
                     

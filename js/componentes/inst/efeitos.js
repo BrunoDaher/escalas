@@ -20,7 +20,7 @@ export class Efeitos {
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
         mid.frequency.value = 1000;
-        mid.Q.value = 2;
+        mid.Q.value = 1;
         mid.gain.value = -40;
 
         const high = this.audioContext.createBiquadFilter();

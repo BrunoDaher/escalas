@@ -58,18 +58,18 @@ export class Metronomo {
 
             figurasHtml += 
             
-            `<span class="figura-btn btn3 ${classe}  figritm" 
+            `<button class="bordaA figura-btn btn1 ${classe}  figritm" 
                 data-value="${fig.value}" 
                 title="${fig.title}">
                 ${fig.text}
-            </span>`;
+            </button>`;
 
             
         }
 
         figurasHtml += `</div>`;
 
-        painelClock.innerHTML += `<div class="comp my-2 gridCenter p-1">${figurasHtml}</div>`;
+        painelClock.innerHTML += `<div class="flexCenter gap2 itemCenter my-2 p-1 w-100">${figurasHtml}</div>`;
   
         let wrap =   `  <label class="itemCenter my-1 flexList">
                 <a><i class="bi bi-grid"></i> Layout </a>

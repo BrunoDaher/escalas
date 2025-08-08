@@ -23,7 +23,7 @@ export class Messenger extends Aux{
                 contatosDiv.innerHTML = '';
                 contatosDiv.className='gap2 grid scroll25 my-1'
                 this.contatos.forEach(contato => {
-                    console.log(contato)
+
                     const span = document.createElement('span');
                     span.className = 'bi bi-person contact btn1 capt flex gap1';
                     span.textContent = contato.split('@')[0];            

@@ -104,12 +104,7 @@ function checkMobile() {
       aux.getById('arquivos').click();
        
       
-      let src = 'seq'
-      const event = new CustomEvent('video-play', {
-                        detail: src, // Dados para o método clean
-                  });
-
-        document.dispatchEvent(event);
+     
     }
     else{
        
