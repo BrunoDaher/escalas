@@ -21,6 +21,7 @@ export class Messenger extends Aux{
              const contatosDiv = this.getById('contatos');
             if (contatosDiv) {
                 contatosDiv.innerHTML = '';
+                contatosDiv.className='gap2 grid scroll25 my-1'
                 this.contatos.forEach(contato => {
                     console.log(contato)
                     const span = document.createElement('span');
@@ -49,11 +50,10 @@ export class Messenger extends Aux{
                         
                     </div>  
                     <div id="receiving" class="p-2"></div>
-                    <div id="sending" class="">
+                    <div id="sending" class="fundoE colorA">
                         <input type="text"
                             id="inputMensagem"
                             class="p-1 flex w-full"
-                            style="background: var(--colorA);"
                             placeholder="Digite sua mensagem...">
                     </div>
 

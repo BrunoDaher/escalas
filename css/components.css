@@ -125,6 +125,9 @@
         margin: 1em;
         position: absolute;
 
+        width: 18em;
+        right: 2em;
+
         background-color: var(--fundoD);
         backdrop-filter: blur(4em);
         border-radius: 1vh;
@@ -132,6 +135,11 @@
         
         margin: 2em;
         top: 3em;
+
+        @media (max-width:500px) {
+              width: 18em;
+                right: unset;
+        }
     }
 
     

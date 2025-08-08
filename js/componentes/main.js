@@ -14,10 +14,10 @@ export class Main extends Aux{
         this.videoObj = new VideoObj();
 
         this.sections = [
-            {name:'opcoes', icon:'bi bi-music-note',  id: 'painelOptions', className: 'painel grid f2vh w-20', style: {alignContent: 'flex-start'}},
-            {name:'arquivos', icon:'bi bi-music-note', id: 'painelFiles', className: 'painel f2vh w-20'},
-            {name:'acordes', icon:'bi bi-music-note', id: 'painelChords', className: 'painel f2vh w-30'},
-            {name:'metronomo', icon:'bi bi-music-note', id: 'painelClock', className: 'painel f2vh w-30'},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: 'painel grid f2vh w-20', style: {alignContent: 'flex-start'}},
+            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: 'painel f2vh w-20'},
+            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: 'painel f2vh w-30'},
+            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: 'painel f2vh w-30'},
          //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
     }
@@ -83,7 +83,7 @@ export class Main extends Aux{
         this.getById('footer').classList.remove('off');
 
         let buttons = this.sections.map(btn => `
-                <span id=${btn.name}  class="navBtn btn3" data-panel="${btn.id}">
+                <span id=${btn.name}  class="navBtn bordaA btn3" data-panel="${btn.id}">
                     <i class="${btn.icon}"></i>
                     <a style='text-transform:capitalize'>${btn.name}</a>
                 </span>`).join('');    
