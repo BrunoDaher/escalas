@@ -52,9 +52,9 @@ label{
 
 .zoom2{
 
-       object-position: bottom;
-    object-fit: none;
-        object-position: -77vh -30vh;
+        object-position: -44vh -25vh;
+    zoom: 2.2;
+    overflow-y: hidden;
 }
 
 

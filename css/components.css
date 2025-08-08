@@ -108,7 +108,7 @@
 .subdivision{
     background-color: var(--colorB);
     height: unset;
-    font-size: 22px !important;
+    font-size: 3vh !important;
 
 }
 
@@ -176,7 +176,7 @@ menu{
 
 
 #videoControl{
-    bottom: 4%;
+    bottom: 10vh;
     right: 0;
     color:var(--colorB);
     height: max-content;
@@ -196,16 +196,45 @@ menu{
   object-fit:cover; 
 
   &.tablet{
-        top: 23svh !important;
+        top: calc(17vh + 3em) !important;
         left: 32% !important;
         padding: 1vh 0;
+
+
+        & > video{
+            width:98%;
+            height: 53vh;
+            z-index: 20;
+            left: 0;
+            right: 0;
+            border-radius: 5px;
+            background-color: var(--fundoD);
+            padding: 1px;
+            object-fit: cover;
+
+        @media(min-width:768px){
+         
+         }
+    
+}
+  }
+
+  &.landscape{
+         top: calc(17vh + 4em) !important;
+        left: 32% !important;
+        padding: 1vh 0;
+
+
+        &.video{
+                height: calc(17vh + 5em);
+        }
   }
        
 }
 
 video.mobile{
 
-           height: 200px;   
+           height: calc(17vh + 4em);
     width: 100vw;
 
 background: #2d2541;
@@ -217,21 +246,7 @@ background: #2d2541;
 
 }
 
-.video.tablet{
-    width:98%;
-    height: 50svh;
-    z-index: 20;
-    left: 0;
-    right: 0;
-    border-radius: 5px;
-    background-color: var(--fundoD);
-    padding: 1px;
 
-        @media(min-width:768px){
-         
-    }
-    
-}
 
 
 #video.xray{
@@ -363,19 +378,15 @@ background: #2d2541;
     color: var(--colorB);
     background: var(--fundoD);
     padding: 1vh;
-    max-height: 50vh;
+    max-height: 60vh;
     overflow-y: scroll;
-
-   @media (max-width:500px){
-       
-        max-height: 48svh;
-        width: 100% !important;
-        padding: 2vh;
-        
-    }
 
     &.mobile{
         width: 100%;
+        height: fit-content;
+        width: 100% !important;
+        padding: 2vh;
+        max-height: 44svh;
     }
  
 

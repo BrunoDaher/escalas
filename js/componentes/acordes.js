@@ -123,9 +123,9 @@ export class Acordes extends Aux{
                             ${this.renderEstruturaAreas()}
                     </div>
 
-                    <div id='trash' 
+                    <div  id='trash' 
                          class="bi-trash dragContainer  
-                         flexCenter gap1 p-2"
+                         flexCenter gap1 p-2 "
                          style='
                             border-style: ridge;
                             border-color: black;'
@@ -151,6 +151,11 @@ export class Acordes extends Aux{
     }
 
     renderSectionChords(){
+
+        let isAdm = this.dao.isStored('adm')
+
+
+        
         return `
          <section id='chords' class='my-2'>
                     <div>    
@@ -172,29 +177,38 @@ export class Acordes extends Aux{
                             <i class="bi bi-clock colorB flex"> Duração</i>  
                             <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
                         </label>
-
-                        <!-- Controle: Edit -->
-                        <div class="gap1 flex itemCenter">
-                            <a>Edit</a>
-                            <label class="switch">
-                                <input id="editMode" type="checkbox" checked/>
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-
-                        <!-- Controle: Arrastar -->
-                        <div class="gap1 flex itemCenter">
-                            <a>Drag</a>
-                            <label class="switch">
-                                <input id="drag" type="checkbox" checked="false">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
                         
+                          ${this.renderEditMode()}
                     <div>
+
+                  
                 
             </section>
         `
+    }
+
+    renderEditMode(){
+
+          return `
+           <section class='flex'>
+                <div class="gap1 flex itemCenter">
+                    <a>Edit</a>
+                    <label class="switch">
+                        <input id="editMode" type="checkbox" checked/>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <!-- Controle: Arrastar -->
+                <div class="gap1 flex itemCenter">
+                    <a>Drag</a>
+                    <label class="switch">
+                        <input id="drag" type="checkbox" checked="false">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </section>
+                `
+
     }
 
     chordShortcut(data){

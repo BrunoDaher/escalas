@@ -65,19 +65,28 @@ function checkMobile() {
 
     // Combine all checks
 
+     let land = window.screen.orientation.angle == 90 ? true:false;
+
     let ismobile = isMobileByPlatform || isMobileByScreen || isMobileByTouch || isMobileByVendor;
 
+
+  
         if(window.innerWidth > 800 && isMobileByTouch)
           {
              
               setTimeout(
                 ()=>{
-                  let video = aux.getById('video');
+                      let video = aux.getById('video');
                     video.classList.add('tablet');
 
                     let currentVideo = aux.getById('currentVideo');
                     currentVideo.classList.remove('desktop');
                     currentVideo.classList.add('tablet');
+
+                    if(land){
+
+                    }
+                    
                 }
                 ,300)
 
@@ -85,23 +94,27 @@ function checkMobile() {
 
           }
           else
-          { 
+          {         
             console.log('n eh tablet')
+           
             setTimeout(
                 ()=>{
                   let videoControl = aux.getById('videoControl');
                   videoControl.classList.add('off');
-                     
                 }
                 ,300)
           }
 
-          let land = window.screen.orientation.angle == 90 ? true:false;
+         
 
            let paineis = aux.getAllClass('painel');
                 paineis.forEach(painel => {
                 painel.classList.add(land ? 'tablet':'mobile');
+                 
+               
+
             });
+            
 
     return ismobile;
  }    
