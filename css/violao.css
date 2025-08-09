@@ -195,7 +195,7 @@ margin-top: -4svh;
 }
 
 #braco{
-     margin: 0.5vh 0 0.5vh 1px;
+   
     transition: all 1s;
     padding: 1.5vh 0 0.2svh 0;
 
@@ -206,7 +206,7 @@ margin-top: -4svh;
   
     @media (max-width: 500px) {
 
-         height: calc(17vh + 2.5rem);   
+         height: calc(19vh);   
         overflow-x: scroll;
             padding : 2vh 0 0 1vh !important;
         overflow-y: hidden;

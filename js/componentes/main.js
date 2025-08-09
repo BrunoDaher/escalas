@@ -16,9 +16,7 @@ export class Main extends Aux{
         let css =  this.navegador().desktop ? 'desktop':
                    this.navegador().tablet ? 'tablet' : 'mobile';
 
-
-                   css = this.navegador().landscape && this.navegador().iphone ? 'tablet' : css;
-                 
+                   console.log(css)
 
                
         this.sections = [

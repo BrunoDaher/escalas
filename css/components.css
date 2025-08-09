@@ -254,14 +254,16 @@ menu{
 
 video.mobile{
 
-           height: calc(17vh + 4em);
+           height: calc(12vh + 4em);
     width: 100vw;
 
 background: #2d2541;
      object-fit:cover; 
 
       @media(min-width:768px){
-         height: 220px;
+         
+                height: 300px;
+        
     }
 
 }
@@ -304,7 +306,7 @@ background: #2d2541;
     color: var(--colorB);
     background: var(--fundoD);
     padding: 1vh;
-    max-height: 50vh;
+    max-height: 50svh;
     overflow-y: scroll;
 
      width: 100%;
@@ -315,7 +317,7 @@ background: #2d2541;
         height: fit-content;
         width: 100% !important;
         padding: 2vh;
-        max-height: 48svh;
+        max-height: 50svh !important;
     }
 
     &.tablet{
@@ -421,11 +423,11 @@ background: #2d2541;
 
 #sectionButtons{
 
-    @media (min-width: 800px) {
-        display: flex;
-    max-width: 28vw;
-    overflow-x: scroll;
-        
+    @media (max-width:500px) {
+            display: flex;
+        max-width: 99;
+        overflow-x: scroll;
+            
     }
       
 }

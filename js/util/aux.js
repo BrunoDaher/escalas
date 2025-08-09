@@ -127,11 +127,19 @@ export class Aux {
         let ipad =  agent.includes('ipad') && isMobileByPlatform;
         let iphone =  agent.includes('iphone') && isMobileByPlatform;
         let desktop = !ismobile;
-        let tablet = ismobile && !ipad || (land && iphone);  
-        
 
-        iphone = iphone && !land;
+        let foneLand = land && iphone;
+
+        let tablet = (!isMobileByScreen) || foneLand;  
         
+        
+       
+        
+        if(tablet && !land){
+            tablet= false;
+            iphone = true;
+        }    
+
         let dados = {'ipad':ipad, 'iphone':iphone,'tablet':tablet,'landscape':land, 'desktop':desktop};
       
         return dados
