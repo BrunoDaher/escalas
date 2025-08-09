@@ -95,7 +95,7 @@ p {
     position: relative;
     padding: 2svh 3svh 10px;
     border-right-color: #a3a7ab;
-    width: 0.1em;
+    width: 0.15em;
     border-right-width: 5px;
     border-right-style: ridge;                 
 }
@@ -142,8 +142,8 @@ margin-top: -4svh;
     margin-left: calc(-5px - 0.8rem);
     width: 3em;
     */
-height: 2svh;
-    width: 4svh;
+    height: 2svh;
+    
     margin-top: -3.4svh;
     margin-left: -1.2svh;
     width: 3.7svh;

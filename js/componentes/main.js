@@ -16,8 +16,7 @@ export class Main extends Aux{
         let css =  this.navegador().desktop ? 'desktop':
                    this.navegador().tablet ? 'tablet' : 'mobile';
 
-                   console.log(css)
-
+               
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel f2vh ${css}`},
             {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel f2vh ${css}`},

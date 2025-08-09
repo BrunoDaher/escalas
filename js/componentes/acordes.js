@@ -49,7 +49,7 @@ export class Acordes extends Aux{
     renderSectionButtons() {
       
         return this.sections.map(s => 
-            `<span class="btn3 p-2 
+            `<span class="btn1 p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
                 id=btn_${s.id}
@@ -74,65 +74,65 @@ export class Acordes extends Aux{
         return `
 
             <!-- Bloco: Memória de Acordes & Escalas -->   
-            <div class="grid rel scroll100">
+            <div class="grid">
               
 
-            <!-- Bloco: Estrutura Musical -->
-            <div class="gap2" 
-                        style="justify-content: normal;text-align: start;">
-                    <legend hidden class="off" id="labelNomeSlot"></legend>       
-                    
-                    
-                    <input hidden id="dataLoad" type="file"/>
-                    <div class="">
-                       
-                    <div class='flex justContBetween gap1 comp filterC  p-1'> 
-
-                    <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
-
-                    <div class='flex'>
-                                    
-                        <label for='btnVideo' class="gap1 flex itemCenter">
-                                <a>Violão</a>
-                                <label class="switch">
-                                    <input id="btnVideo" target='video' type="checkbox" checked/>
-                                    <span class="slider round"></span>
-                                </label>
-                                <a>Video</a>
-                        </label>
-
-                    </div>
-
-              
+                <!-- Bloco: Estrutura Musical -->
+                <div class="gap2" 
+                            style="justify-content: normal;text-align: start;">
+                        <legend hidden class="off" id="labelNomeSlot"></legend>       
                         
-                            </div>
+                        
+                        <input hidden id="dataLoad" type="file"/>
+                        <div class="">
+                        
+                        <div class='flex justContBetween gap1 comp filterC  p-1'> 
+
+                        <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+
+                        <div class='flex'>
+                                        
+                            <label for='btnVideo' class="gap1 flex itemCenter">
+                                    <a>Violão</a>
+                                    <label class="switch">
+                                        <input id="btnVideo" target='video' type="checkbox" checked/>
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <a>Video</a>
+                            </label>
+
                         </div>
-                        
-                        <!-- Botões de Seção -->
-                        <div class="flexScroll bgDark2 flex " 
-                            id="sectionButtons"
-                            >
-                            ${this.renderSectionButtons()}
-                        </div>
-                        
-                    </div>
-                    <!-- Áreas das Seções -->
- 
-                    <div id="div-estrutura" class="bgDark p-1 textStart" 
-                            style="height: 9vh">
+
+                
                             
-                            ${this.renderEstruturaAreas()}
-                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Botões de Seção -->
+                            <div class="grid" 
+                                id="sectionButtons"
+                                >
+                                ${this.renderSectionButtons()}
+                            </div>
+                            
+                        </div>
+                        <!-- Áreas das Seções -->
+    
+                        <div id="div-estrutura" class="bgDark p-1 textStart" 
+                                style="height: 9vh">
+                                
+                                ${this.renderEstruturaAreas()}
+                        </div>
 
-                    <div  id='trash' 
-                         class="bi-trash dragContainer  
-                         flexCenter gap1 p-2 "
-                         style='
-                            border-style: ridge;
-                            border-color: black;'
-                         >
+                        <div  id='trash' 
+                            class="bi-trash dragContainer  
+                            flexCenter gap1 p-2 "
+                            style='
+                                border-style: ridge;
+                                border-color: black;'
+                            >
+                        </div>
                     </div>
-                </div>
                
                 ${this.renderSectionChords()}
                 

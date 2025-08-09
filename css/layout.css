@@ -1,5 +1,5 @@
 
-.w-30, .painel.tablet{
+.w-30{
     width: 30%;
 }
 
@@ -13,9 +13,10 @@
 }
 
 .flexScroll{
-
-      overflow-x: scroll;
-      max-width: 99vw;
+    overflow-x: scroll;
+    max-width: 30vw;
+    overflow-y: hidden;
+    display: flex;
 }
 
 .flow{
@@ -32,6 +33,17 @@
 #gridflex3{
      display: grid; 
     grid-template-columns: repeat(3, auto) 35%
+}
+
+.grid3{
+    display: grid; 
+    grid-template-columns: repeat(2, auto) ;
+    grid-template-rows: repeat(3, auto) ;
+}
+
+.grid2{
+    display: grid;
+grid-template-columns: repeat(2, 1fr) ;
 }
 
 

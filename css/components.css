@@ -100,7 +100,7 @@ filter: drop-shadow(1px 1px 1px black);
 
 
 .section-btn.active{
-            transform: scale3d(1.1, 1.1, 1.1);
+           /* transform: scale3d(1.1, 1.1, 1.1);*/
 }
 
 @media (max-width: 768px) {
@@ -220,7 +220,13 @@ menu{
     }
 
     &.desktop{
-          width: 45svh;
+        
+        width: 45svh;
+        right: 0;
+        position: fixed;
+        top: 86px;
+        right: 0;
+
             & > video{
                     width: 100%;
                     z-index: 20;
@@ -280,20 +286,56 @@ background: #2d2541;
 #paineis{
 
     justify-content: space-between;
-
+   width: 100%;
    @media (max-width: 500px) {
             #paineis {
                 justify-content: center;
                 border-radius: 0 !important;
                 justify-content: normal;
-                display: grid;
+                
                 filter: var(--filterB);
                 margin: 1vh;
-                width: 100%;
                 padding: 1vh;
              }
     }
 }
+
+.painel{
+    color: var(--colorB);
+    background: var(--fundoD);
+    padding: 1vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+
+     width: 100%;
+
+    &.mobile{
+
+    
+        height: fit-content;
+        width: 100% !important;
+        padding: 2vh;
+        max-height: 48svh;
+    }
+
+    &.tablet{
+            max-height: 56vh;
+    }
+
+    &.desktop{
+          
+     max-height: 60vh;
+        z-index: 20;
+        right: 0;
+        border-radius: 5px;
+        background-color: var(--fundoD);
+        padding: 1px;
+            
+}
+ 
+
+}
+
 
     #navegacao{
         display: flex;
@@ -353,15 +395,18 @@ background: #2d2541;
     color: white;
 
     margin: 0.5svh 0;
-    background:linear-gradient(245deg, var(--fundoB), var(--fundoC));
+    background:radial-gradient(var(--fundoD),var(--fundoB));
     text-align: start;
     height: 20svh;
+    opacity: 0.7;
+    filter: contrast(0.8);
     
     align-content: space-between;
     filter:drop-shadow(2px 4px 6px black);
 
     &:hover, &.active{
         color: var(--fundoA);
+        filter: contrast(1.2) brightness(1.2) hue-rotate(-12deg);
         opacity: 1 !important;
     }
 }
@@ -373,38 +418,6 @@ background: #2d2541;
 }
 
 
-.painel{
-    color: var(--colorB);
-    background: var(--fundoD);
-    padding: 1vh;
-    max-height: 50vh;
-    overflow-y: scroll;
-
-    &.mobile{
-        width: 100%;
-        height: fit-content;
-        width: 100% !important;
-        padding: 2vh;
-        max-height: 48svh;
-    }
-
-    &.tablet{
-            max-height: 56vh;
-    }
-
-    &.desktop{
-        width: 100%;
-     max-height: 60vh;
-        z-index: 20;
-        right: 0;
-        border-radius: 5px;
-        background-color: var(--fundoD);
-        padding: 1px;
-            
-}
- 
-
-}
 
     .sectionPanel{
         line-height: normal;
@@ -454,8 +467,8 @@ background: #2d2541;
         transition: all 0.3s;
 
         &.active, &:hover, &:focus{
-            background-color: var(--fundoA);
-            color: white;
+            background-color: var(--fundoB);
+            color: var(--fundoA);
         }
         
     }

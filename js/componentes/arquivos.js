@@ -25,31 +25,40 @@ export class Arquivos {
             </div>
 
             <div id="listaArq" class='my-1' >
-                <div id="salvos" class=""></div>
+                <div id="salvos" class="grid2"></div>
             </div>
            
-           <div class=" grid my-1 p-1">
-                <label class="comp bi bi-tools my-1 p-1 flex colorB gap1 textStart w-100"> Tools
+           <div class="grid my-1 p-1">
+                <a class="bi bi-tools colorB comp my-1 p-1 textStart"> Tools
                
-                </label>
-                <div  id="daoBtns" class=" justContBetween flex gap1">
-                           
-                         <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
-                                <i class='bi-cloud-download'></i>
-                                <a>Atualizar</a>
-                            </div>
-                            <div class="grid rad1 btn1 f2vh" id="export">
-                                <i class=' bi-arrow-down '></i>
-                                <a>Exportar</a>
-                            </div>
-                            <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
-                                <i class=' bi-arrow-up '></i>
-                                <a>Importar</a>
-                            </div>
-                </div>
+                </a>
+                 
+                ${this.renderDaoBtns()}
+
             </div>
         
         `;
+    }
+
+
+    renderDaoBtns(){
+
+        return `
+        <div  id="daoBtns" class=" justCenter gap2 p-1 flex ">
+                <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
+                    <i class='bi-cloud-download'></i>
+                    <a>Atualizar</a>
+                </div>
+                <div class="grid rad1 btn1 f2vh" id="export">
+                    <i class=' bi-arrow-down'></i>
+                    <a>Exportar</a>
+                </div>
+                <div class="grid rad1 btn1 f1vh" id="load" target="dataLoad">
+                    <i class=' bi-arrow-up '></i>
+                    <a>Importar</a>
+                </div>
+            </div>
+        `
     }
 
     renderAll() {

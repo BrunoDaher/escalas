@@ -71,10 +71,18 @@ label{
 
 ::-webkit-scrollbar {
     width: 2px;
-    height: 5px;
+    height: 3px;
+
+    @media screen and (max-width: 500px) {
+        width: 2px;
+        height: 2px;
+        
+    }
+
+
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--fundoA) !important;
+    background: var(--colorC) !important;
 }
 
 input:focus, button:focus {
