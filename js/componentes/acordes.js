@@ -49,7 +49,7 @@ export class Acordes extends Aux{
     renderSectionButtons() {
       
         return this.sections.map(s => 
-            `<span class="btn3 
+            `<span class="btn3 p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
                 id=btn_${s.id}
@@ -109,8 +109,9 @@ export class Acordes extends Aux{
                         </div>
                         
                         <!-- Botões de Seção -->
-                        <div class=" bgDark flexWrap gap-2 justContAround p-1" 
-                            id="sectionButtons">
+                        <div class="flexScroll bgDark2 flex " 
+                            id="sectionButtons"
+                            >
                             ${this.renderSectionButtons()}
                         </div>
                         
@@ -157,7 +158,7 @@ export class Acordes extends Aux{
 
         
         return `
-         <section id='chords' class='my-2'>
+         <section id='chords' class='mt-2'>
                     <div>    
                         <div class="comp filterC flex justContBetween p-1"> 
                             

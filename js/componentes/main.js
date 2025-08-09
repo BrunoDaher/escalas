@@ -13,11 +13,16 @@ export class Main extends Aux{
 
         this.videoObj = new VideoObj();
 
+        let css =  this.navegador().desktop ? 'desktop':
+                   this.navegador().tablet ? 'tablet' : 'mobile';
+
+                   console.log(css)
+
         this.sections = [
-            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: 'painel f2vh'},
-            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: 'painel f2vh'},
-            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: 'painel f2vh'},
-            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: 'painel f2vh'},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel f2vh ${css}`},
+            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel f2vh ${css}`},
+            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel f2vh ${css}`},
+            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel f2vh ${css}`},
          //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
     }
@@ -38,10 +43,14 @@ export class Main extends Aux{
         paineis.className = 'flexCenter gap1 filterC';
 
         //sections é um array de obj
+
+        let painelClasse = this.navegador().iphone ? 'mobile':'';
         this.sections.forEach(obj => {
             const section = document.createElement('section');
             section.id = obj.id;
-            section.className = obj.className;
+            section.className = obj.className + ' '+  painelClasse;
+
+          
             paineis.appendChild(section);
         });
 
@@ -83,8 +92,6 @@ export class Main extends Aux{
         
     }
 
-    
-
     painelNav(){
         const navBtns = this.getAllClass('navBtn');
 
@@ -110,8 +117,6 @@ export class Main extends Aux{
         btn.classList.add('active');
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
-
-        
     }
 
     triggers(){
@@ -122,12 +127,7 @@ export class Main extends Aux{
                 this.videoObj.setVideoId('currentVideo');
             }
         ,300);
-
-       
-        
     }
-
-  
 }
    //return this;
 

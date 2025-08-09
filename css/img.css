@@ -9,14 +9,14 @@
   }
 
   img.capa{
-        height: 12vh;
-    width: 12vh;
+        height: 7svh;
+    width: 7svh;
     border-radius: 6vh;
     outline: none;
   }
 
   .filterD{
-    filter: invert(1) hue-rotate(145deg) drop-shadow(2px 4px 6px black);
+   filter:invert(1) hue-rotate(10deg) drop-shadow(2px 4px 6px var(--fundoB));
   }
 
   .trash{

@@ -1,5 +1,7 @@
 import {Dao} from '../acesso/dao.js'
+import {Aux} from '../util/aux.js'
 
+    const aux = new Aux();
 
 export default class VideoObj {
  
@@ -28,9 +30,7 @@ export default class VideoObj {
         document.addEventListener('video-play', (event) => {
 
             let currentSong = sessionStorage.getItem('currentSong');
-
-          
-            
+        
             if(event.detail=='sequencia'){
                 currentSong = null;
                 this.playVideo(null);
@@ -49,10 +49,7 @@ export default class VideoObj {
                         console.log('no current song')
                     }
             }
-           
-       
         });  
-
 
         this.triggerControles();
        
@@ -147,30 +144,38 @@ export default class VideoObj {
 
     renderVideo(){
 
-         const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        let classe =  aux.isMobile()  ? 'mobile' : 'desktop';
 
-                let classe = isMobile ? 'mobile' : 'desktop';
-                let controls = isMobile ? 'controls' : '';
+            let css =  aux.navegador().desktop ? 'desktop':
+                   aux.navegador().tablet ? 'tablet' : 'mobile';
 
-
-        return`
-         <div id='videoControl' class='gap2 p-2 flexCenter abs' >
-                    ${this.botoesControle().map(btn => `
-                    <span id='${btn.id}' 
-                        class='vControl f2em btn bi ${btn.icon} ${btn.extraClass || ''}'></span>
-                `).join('')}                
-                </div>
-             <div id='video' class='off' >
-                <video class='video ${classe}' id='currentVideo' ; 
-                        ${controls}
-                        playsinline
-                        autoplay
-                        >
-                    <source src="" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
+        let controls = aux.navegador().desktop ? 'controls' : '';
+             
+        return `
                
-            </div>
+
+                <div id='video' class='off ${css}' >
+                 <div id='videoControl' 
+                    class=' ${!aux.navegador().tablet ? 'off':'on'} 
+                    gap2 p-2 flexCenter abs' >
+                    ${this.botoesControle().map(btn => `
+                            <span id='${btn.id}' 
+                                class='vControl f2em btn bi 
+                                ${btn.icon} ${btn.extraClass || ''}'>
+                            </span>
+                        `).join('')
+                     }                
+                </div>
+                    <video class='video ${classe}' id='currentVideo' ; 
+                            ${controls}
+                            playsinline
+                            autoplay
+                            >
+                        <source src="" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                
+                </div>
             `
     }
     

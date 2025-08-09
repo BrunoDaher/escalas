@@ -112,4 +112,36 @@ export class Aux {
             elem.classList.add(classe);
         }); 
     }
+
+      navegador(){
+          let agent = navigator.userAgent.toLowerCase();
+    
+       // Additional checks for mobile devices
+        let isMobileByPlatform = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
+        let isMobileByScreen = window.innerWidth <= 800 && window.innerHeight <= 900;
+        let isMobileByTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        let isMobileByVendor = /android|iphone|kindle|silk/i.test(navigator.vendor || navigator.platform);
+        let land = window.screen.orientation.angle == 90 ? true:false;
+        
+        let ismobile = isMobileByPlatform || isMobileByScreen || isMobileByTouch || isMobileByVendor;
+        let ipad =  agent.includes('ipad') && isMobileByPlatform;
+        let iphone =  agent.includes('iphone') && isMobileByPlatform;
+        let desktop = !ismobile;
+        let tablet = ismobile && !ipad && !iphone ; 
+        
+        let dados = {'ipad':ipad, 'iphone':iphone,'tablet':tablet,'landscape':land, 'desktop':desktop};
+      
+        return dados
+      }
+
+      isTablet(){
+        return this.navegador().tablet || this.navegador().ipad;
+      }
+
+
+      isMobile(){
+        let mobile = this.navegador().iphone || this.navegador().ipad || this.navegador().tablet;
+        return mobile;
+      }
+    
 }

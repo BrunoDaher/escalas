@@ -13,9 +13,9 @@ export class Efeitos {
 
         const low = this.audioContext.createBiquadFilter();
         low.type = 'lowshelf';
-        low.frequency.value = 120;
+        low.frequency.value = 420;
         low.Q.value = 1;
-        low.gain.value = 15;
+        low.gain.value = 2;
 
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
@@ -25,9 +25,9 @@ export class Efeitos {
 
         const high = this.audioContext.createBiquadFilter();
         high.type = 'highshelf';
-        high.frequency.value = 2200;
-        high.Q.value = 1;
-        high.gain.value = -10;
+        high.frequency.value = 3200;
+        high.Q.value = 4;
+        high.gain.value = -5;
 
         return { low, mid, high };
     }

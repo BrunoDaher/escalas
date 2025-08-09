@@ -12,6 +12,12 @@
     gap: 1vh;
 }
 
+.flexScroll{
+
+      overflow-x: scroll;
+      max-width: 99vw;
+}
+
 .flow{
     display: flow;
 }

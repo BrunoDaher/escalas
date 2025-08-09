@@ -70,6 +70,7 @@ export class Violao {
     chroma(btn) {
         btn.classList.toggle('active');
         aux.getById('braco').classList.toggle('chroma');
+        
     }
 
     resetClean() {
