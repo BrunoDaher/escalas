@@ -320,6 +320,7 @@ background: #2d2541;
 
     &.tablet{
             max-height: 56vh;
+            width: 30%;
     }
 
     &.desktop{
@@ -418,6 +419,16 @@ background: #2d2541;
 }
 
 
+#sectionButtons{
+
+    @media (min-width: 800px) {
+        display: flex;
+    max-width: 28vw;
+    overflow-x: scroll;
+        
+    }
+      
+}
 
     .sectionPanel{
         line-height: normal;

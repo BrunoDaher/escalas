@@ -16,6 +16,10 @@ export class Main extends Aux{
         let css =  this.navegador().desktop ? 'desktop':
                    this.navegador().tablet ? 'tablet' : 'mobile';
 
+
+                   css = this.navegador().landscape && this.navegador().iphone ? 'tablet' : css;
+                 
+
                
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel f2vh ${css}`},
@@ -126,7 +130,12 @@ export class Main extends Aux{
                 this.videoObj.setVideoId('currentVideo');
             }
         ,300);
-    }
+
+
+        // Add window orientation change event listener to reload page
+window.addEventListener('orientationchange', function() {
+    location.reload();
+});            }
 }
    //return this;
 
