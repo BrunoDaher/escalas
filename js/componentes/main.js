@@ -49,7 +49,7 @@ export class Main extends Aux{
         this.sections.forEach(obj => {
             const section = document.createElement('section');
             section.id = obj.id;
-            section.className = obj.className + ' '+  painelClasse;
+            section.className = obj.className;
 
           
             paineis.appendChild(section);

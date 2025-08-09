@@ -180,12 +180,14 @@ menu{
 
 
 #videoControl{
-    bottom: 3vh;
+       bottom: 7vw;
     right: 0;
-    color:var(--colorB);
+    color: var(--colorB);
     height: max-content;
     z-index: 20;
     right: 3vh;
+    zoom: 0.7;
+    margin: 3vh;
 }
 
 
@@ -254,7 +256,7 @@ menu{
 
 video.mobile{
 
-           height: calc(12vh + 4em);
+           height: calc(14vh + 4em);
     width: 100vw;
 
 background: #2d2541;
@@ -425,7 +427,7 @@ background: #2d2541;
 
     @media (max-width:500px) {
             display: flex;
-        max-width: 99;
+        max-width: 99vw;
         overflow-x: scroll;
             
     }
@@ -444,7 +446,7 @@ background: #2d2541;
         display: flex;
         flex-wrap: wrap;
         overflow-y: scroll;
-        height: 120px;
+        height: 16vh;
     align-content: baseline;
     }
     
@@ -472,7 +474,7 @@ background: #2d2541;
 
     .btn1{
         cursor: pointer;
-        font-size: 14px;
+        font-size: 0.7em;
         
         padding: 1vh;
         color: var(--colorB);
@@ -488,7 +490,7 @@ background: #2d2541;
 
     .btn2{
        cursor: pointer;
-    font-size: 16px;
+    font-size: 1.2em;
     
     padding: 5px;
     

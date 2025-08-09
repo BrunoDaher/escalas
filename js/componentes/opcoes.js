@@ -57,20 +57,24 @@ export class Opcoes extends Aux{
 
                 <section class="textStart grid f2vh ">
                     <a class="comp p-1 textStart bi bi-paint-bucket">Tema</a>
-                    <div class="gap1 grid p-2 paint-bucket ">
+                    <div class="gap2 grid p-2 paint-bucket ">
                         ${temaInputs}
-                          <span class="btn1 itemCenter btnTema" id="temaPadrao" >
-                            <i class="bi bi-arrow-clockwise "></i>
-                            <a>Padrao</a>
-                        </span>
-                        <span class="btn1 itemCenter btnTema" id="temaA" >
-                            <i class="bi bi-paint-bucket "></i>
-                            <a>TemaA</a>
-                        </span>
-                        <span class="btn1 itemCenter btnTema" id="temaB" >
-                            <i class="bi bi-paint-bucket "></i>
-                            <a>TemaB</a>
-                        </span>
+
+                        <div class='flexCenter gap1 justCenter'>
+                            <span class="btn1 grid itemCenter btnTema" id="temaPadrao" >
+                                <i class="bi bi-arrow-clockwise "></i>
+                                <a>Padrao</a>
+                            </span>
+                            <span class="btn1 grid itemCenter btnTema" id="temaA" >
+                                <i class="bi bi-paint-bucket "></i>
+                                <a>TemaA</a>
+                            </span>
+                            <span class="btn1 grid itemCenter btnTema" id="temaB" >
+                                <i class="bi bi-paint-bucket "></i>
+                                <a>TemaB</a>
+                            </span>
+
+                        </div>
                     </div>
                 </section>
 

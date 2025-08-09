@@ -76,7 +76,7 @@ export class Metronomo{
 
         figurasHtml += `</div>`;
 
-        painelClock.innerHTML += `<div class="flexCenter gap2 itemCenter my-2 p-1 w-100">${figurasHtml}</div>`;
+        painelClock.innerHTML += `<div class="flexCenter gap2 itemCenter my-1 p-1">${figurasHtml}</div>`;
   
         let wrap =   `  <label class="itemCenter my-1 flexList">
                 <a><i class="bi bi-grid"></i> Layout </a>

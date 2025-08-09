@@ -132,13 +132,7 @@ export class Aux {
 
         let tablet = (!isMobileByScreen) || foneLand;  
         
-        
-       
-        
-        if(tablet && !land){
-            tablet= false;
-            iphone = true;
-        }    
+         
 
         let dados = {'ipad':ipad, 'iphone':iphone,'tablet':tablet,'landscape':land, 'desktop':desktop};
       
