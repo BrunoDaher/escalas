@@ -1,4 +1,4 @@
-    export class CameraGrid {
+export class CameraGrid {
    
     constructor() {
         this.cameras = [1, 2];

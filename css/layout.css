@@ -1,4 +1,5 @@
 
+
 /* Width Classes */
 .w-20 { width: 20%; }
 .w-30 { width: 30%; }
@@ -164,7 +165,7 @@
     );
 }
 
-body { overflow-y: hidden !important; }
+
 
 /* Media Queries */
 @media (max-width: 500px) {

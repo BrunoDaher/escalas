@@ -7,15 +7,14 @@ export class Main extends Aux{
     constructor() {
         
         super();
-        this.element = document.createElement('main');
-        //this.element.className = 'off';
-        this.element.id = 'main';
 
         this.videoObj = new VideoObj();
 
-        
+        this.header = this.getById('header');
+        this.mainDiv = document.createElement('main');
+        this.mainDiv.id = 'main';
 
-        let css =   this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
+        let css = this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
         
         this.css = css;
@@ -25,86 +24,78 @@ export class Main extends Aux{
             {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${css}`},
             {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
             {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${css}`},
-         //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
     }
 
-    addBraco() {
-        const braco = document.createElement('div');
-            braco.id = 'braco';
-            this.element.appendChild(braco);
-        return this;
+    renderBracoViolao() {
+        return `<div id="braco"></div>`;
     }
 
-    addPaineis() {
-        const paineis = document.createElement('article');
-        paineis.id = 'paineis';
-        paineis.className = `flexCenter gap1 filterC ${this.css}`;
-
-        //sections é um array de obj
-        this.sections.forEach(obj => {
-            const section = document.createElement('section');
-            section.id = obj.id;
-            section.className = obj.className;
-
-          
-            paineis.appendChild(section);
-        });
-
-        this.element.appendChild(paineis);
+    renderPaineis() {
+        return `
+            <article id="paineis" class="flexCenter gap1 filterC ${this.css}">
+                ${this.sections.map(obj => `
+                    <section id="${obj.id}" class="${obj.className}"></section>
+                `).join('')}
+            </article>
+        `;
     }
 
     build() {
-        const header = document.querySelector('header');
+        
+        this.mainDiv.insertAdjacentHTML('beforeend',this.renderBracoViolao());
+        this.mainDiv.insertAdjacentHTML('beforeend',this.videoObj.renderVideo());
+        this.mainDiv.insertAdjacentHTML('beforeend', this.renderPaineis());
 
-         this.addBraco();
-            
-            setTimeout( ()=>{
-                const braco = document.getElementById('braco');
-                      braco.insertAdjacentHTML('afterend', this.videoObj.renderVideo());
-            },100)
-            
-         this.addPaineis();
-         
-         header.insertAdjacentElement('afterend', this.element);
-         header.classList.add('on');
+        this.header.insertAdjacentElement('afterend', this.mainDiv);
+        this.header.classList.add('on');
 
-         setTimeout(()=>{this.triggers()},300)
+         setTimeout(()=>{
+                this.triggers()
+            },
+            300)
     }
 
-    addFooter(){
+    renderFooter(){
 
         this.getById('footer').classList.remove('off');
+
+        let self = this;
         
         let buttons = this.sections.map(btn => `
-                <span id=${btn.name}  
-                    class="navBtn w-100 grid bordaA btn1 f2vh" 
-                    data-panel="${btn.id}">
-                    <i class="${btn.icon}"></i>
-                    <a style='text-transform:capitalize'>${btn.name}</a>
-                </span>`).join('');    
+            <span id=${btn.name}  
+                class="navBtn w-100 grid bordaA btn1 f2vh" 
+               
+                data-panel="${btn.id}">
+                <i class="${btn.icon}"></i>
+                <a style='text-transform:capitalize'>${btn.name}</a>
+            </span>`).join('');    
        
-       this.getById('navegacao').innerHTML = buttons; 
-       this.painelNav();
+       
+       this.getById('navegacao').insertAdjacentHTML('beforeend', buttons);
+      
+       //acoes
+       this.navTriggers();
         
     }
 
-    painelNav(){
+    navTriggers(){
         const navBtns = this.getAllClass('navBtn');
 
-        navBtns.forEach((btn) => {
-            btn.onclick = () => {
-                //estetica do botao
-                if(btn.id=='acordes'){
-                    let src = 'seq'
-                }
-                this.chooseTab(btn);
-            };
-        });
+            navBtns.forEach((btn) => {
+                btn.onclick = () => {
+                    //estetica do botao
+                    if(btn.id=='acordes'){
+                        let src = 'seq'
+                    }
+                    this.chooseTab(btn);
+                };
+            });
     }
 
     chooseTab(btn){
 
+        console.log(btn);
         this.removeAll(`navBtn`,'active');
         btn.classList.add('active');
         this.addAll(`painel`,'off');

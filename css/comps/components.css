@@ -1,4 +1,3 @@
-
 @import url(./acordes.css);
 @import url(./arquivos.css);
 @import url(./messenger.css);
@@ -31,14 +30,8 @@
     cursor: pointer;
 }
 
-
-
-
-
-
-
 #wellcome {
-    top: 1vh;
+    
     font-size: 3vw;
     position: relative;
 }
@@ -46,9 +39,3 @@
 #controls {
     left: 7vw;
 }
-
-
-
-
-
- 

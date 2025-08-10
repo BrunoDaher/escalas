@@ -73,11 +73,6 @@
     overflow-y: scroll;
 }
 
-#navegacao {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2svh;
-}
 
 body, html {
     
@@ -89,7 +84,6 @@ body, html {
   position: relative;
 }
 
-/* Menu & Navigation */
 menu {
     padding: 0;
     margin: 0;
@@ -103,20 +97,11 @@ menu {
 header {
     position: sticky;
     top: 0vh;
-    display: grid;
-    height: 7vh;
-    align-items: center;
-    z-index: 10;
-
-    &.on {
-        justify-content: space-between;
-        display: flex;
-    }
-
+    height: var(--headerHeight);
+    z-index: 20;
 }
 
 main {
-    height: 100vh;
     background: linear-gradient(145deg, var(--fundoG), black,var(--fundoA));
     position: relative;
     min-height: fit-content;
@@ -124,11 +109,18 @@ main {
 
 footer {
     position: fixed;
-    height: 8vh;
+    height: 80px;
     justify-self: center;
     text-align: center; 
     width: 100vw;
     background-color: var(--fundoD);
     bottom: 0;
     align-content: center;
+}
+
+
+#navegacao {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2svh;
 }

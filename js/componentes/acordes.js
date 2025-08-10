@@ -90,7 +90,7 @@ export class Acordes extends Aux{
                                     <div class='flex'>
                                                     
                                         <label for='btnVideo' class="gap1 flex itemCenter">
-                                                <a>Violão</a>
+                                                <a>Braço</a>
                                                 <label class="switch">
                                                     <input id="btnVideo" target='video' type="checkbox" checked/>
                                                     <span class="slider round"></span>
@@ -150,8 +150,6 @@ export class Acordes extends Aux{
 
         let isAdm = this.dao.isStored('adm')
 
-
-        
         return `
          <section id='chords' class='mt-2'>
                     <div>    
@@ -220,7 +218,6 @@ export class Acordes extends Aux{
         >${data.value}</span>`  
     }
 
-  
     renderFx(){
         return `
             <a class="bi-radioactive comp filterC p-1"> Efeitos</a  >
@@ -444,15 +441,15 @@ export class Acordes extends Aux{
     }   
 
     createSlot(){
-     this.addSlot('note',null)
+        this.addSlot('note',null)
     }
 
     addSlot(chordLabel,id){
             
             // Adiciona um novo slot de acorde na memória usando template literals e reduz redundâncias
-            let mem = document.getElementById('memoria');
+            let mem = this.getById('memoria');
             let curSize = mem.childElementCount;
-            let velo = document.getElementById('velo').value;
+            let velo = this.getById('velo').value;
             let btnId = id ? id : curSize + 1;
             let btnLabel = chordLabel ? chordLabel : btnId;
 
@@ -476,21 +473,12 @@ export class Acordes extends Aux{
 
             // Evento de clique para executar acorde
             btn.addEventListener('click', (btn)=>{
-                
-                
                 // Check if video button is checked and click it if true
             let video = this.getById('video');
-
-            console.log(video.classList.contains('off'))
-
-            //logica inversa
             
             if (video && !video.classList.contains('off')) {
                 //btnVideo.click();
-
-                
             }                                
-
                 this.slotId = id;
                 this.violao.getChord(btn);
             });
@@ -510,7 +498,7 @@ export class Acordes extends Aux{
 
             // Evento de cancelamento (opcional)
             btn.oncancel = function () {};
-// Pequeno delay para resetar UI
+            // Pequeno delay para resetar UI
             setTimeout(() => {
                 this.violao.reset();
             }, 700);

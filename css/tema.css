@@ -1,5 +1,3 @@
-
-
 .rev{
     transform: scaleX(-1);
 }
@@ -10,13 +8,12 @@
     backdrop-filter: brightness(0.5);
 }
 
-.recOn 
-    {
-        background-color: var(--fundoA) !important;
-        color:  white;
-        transition: all 0.3s;
-        filter: var(--filterB);
-    }
+.recOn {
+    background-color: var(--fundoA) !important;
+    color:  white;
+    transition: all 0.3s;
+    filter: var(--filterB);
+}
     
 .bgClean{
     background-color:white;
@@ -26,7 +23,6 @@
 label{
     cursor: unset;
 }
-
 
 .fundoE{
     background-color: var(--fundoE);
@@ -38,19 +34,13 @@ label{
   cursor: pointer;
 }
 
-
-
 .figritm{
     font-family: 'Hymnus FG';
 }
 
-
-
 .curs{
     font-family: cursive;
 }
-
-
 
 .bgDark2{
     background-color:black;
@@ -60,7 +50,6 @@ label{
 .bgDark{
     background-color:var(--fundoC);
     color:white;
-
 }
 
 ::-webkit-scrollbar {
@@ -70,11 +59,9 @@ label{
     @media screen and (max-width: 500px) {
         width: 2px;
         height: 2px;
-        
     }
-
-
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--colorC) !important;
 }
@@ -108,13 +95,10 @@ input[type="color"] {
     border-style:solid;
     border-color: var(--fundoD);
     border-radius: 4px;
-    
 }
-
 .rad1{
     border-radius: 1vh;
 }
-
 
 .legenda{
      /* height: 19px; */
@@ -126,11 +110,9 @@ input[type="color"] {
     text-align: -webkit-center;
 }
 
-
 .filterC{
         filter: drop-shadow(2px 4px 6px black);
 }
-
 
 .filtro{
     filter: brightness(95%) hue-rotate(80deg) saturate(354%);
@@ -145,16 +127,10 @@ input[type="color"] {
     height: fit-content;
     border-radius: 4px 4px 0 0;
     align-items: center;
-
 }
-
-
 
 .croma{
     padding: 2em;
     background: rgb(0, 255, 0);
 }
-
-
-
 /*violao*/

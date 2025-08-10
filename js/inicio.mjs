@@ -62,7 +62,7 @@ const main = new Main();
     
     //if(!aux.infoNavegador.desktop){
         //inicia na aba arquivos
-        main.addFooter()
+        main.renderFooter()
          aux.getById('arquivos').click();
     //}
 

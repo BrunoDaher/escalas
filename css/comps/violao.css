@@ -201,11 +201,11 @@ margin-top: -4svh;
     padding: 10px 0 10px 0;
     position: relative;
     max-width: 99vw;
+    height:calc(100% - var(--headerHeight) - var(--footerHeight)) !important;
   
     @media (max-width: 500px) {
          
         overflow-x: scroll;
-            padding : 2vh 0 0 1vh !important;
         overflow-y: hidden;
     }
 
