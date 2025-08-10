@@ -180,7 +180,7 @@ menu{
 
 
 #videoControl{
-    bottom: 7vw;
+    bottom: 7vh;
     right: 0;
     color: var(--colorB);
     height: max-content;
@@ -207,6 +207,12 @@ menu{
             top: calc(23vh) !important;
             left: 31.5vw !important;
             padding: 1vh 0;
+
+            @media (max-height: 450px) {
+                top: calc(29vh) !important;
+                   height: 25vh;
+                
+            }
 
             & > video{
                 width:98%;
