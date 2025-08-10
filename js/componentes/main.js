@@ -13,14 +13,18 @@ export class Main extends Aux{
 
         this.videoObj = new VideoObj();
 
-     let css =  this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
+        
+
+        let css =   this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
-               
+        
+        this.css = css;
+                       
         this.sections = [
-            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel f2vh ${css}`},
-            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel f2vh ${css}`},
-            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel f2vh ${css}`},
-            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel f2vh ${css}`},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
+            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${css}`},
+            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
+            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${css}`},
          //   {name:'meet', id: 'painelMeet', className: 'painel f2vh', hidden: true}
         ];
     }
@@ -35,7 +39,7 @@ export class Main extends Aux{
     addPaineis() {
         const paineis = document.createElement('article');
         paineis.id = 'paineis';
-        paineis.className = 'flexCenter gap1 filterC';
+        paineis.className = `flexCenter gap1 filterC ${this.css}`;
 
         //sections é um array de obj
         this.sections.forEach(obj => {
@@ -74,7 +78,7 @@ export class Main extends Aux{
         
         let buttons = this.sections.map(btn => `
                 <span id=${btn.name}  
-                    class="navBtn w-100 grid bordaA btn1 p-1 f2vh" 
+                    class="navBtn w-100 grid bordaA btn1 f2vh" 
                     data-panel="${btn.id}">
                     <i class="${btn.icon}"></i>
                     <a style='text-transform:capitalize'>${btn.name}</a>

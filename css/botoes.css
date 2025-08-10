@@ -1,0 +1,88 @@
+
+.btn {
+    cursor: pointer;
+
+    &.selected {
+        color: var(--colorA);
+        background-color: var(--fundoB);
+        filter: drop-shadow(2px 4px 6px var(--fundoD));
+        transition: background-color 0.3s;
+    }
+
+    &.active {
+        color: var(--colorA);
+    }
+}
+
+.btn1 {
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 1vh;
+    color: var(--colorB);
+    background: var(--fundoE);
+    transition: all 0.3s;
+
+    &.active,
+    &:hover,
+    &:focus {
+            box-shadow: 0px 0px 1px var(--fundoA);
+            backdrop-filter: brightness(0.5);
+           
+        color: var(--fundoA);
+        border-width: 2px;
+        border-radius: 0vh 1vh 1vh 1vh;
+    }
+}
+
+.btn2 {
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+    background: var(--fundoA);
+    align-content: center;
+    filter: saturate(1.1) contrast(0.9);
+    color: white;
+
+    &:hover,
+    &.active {
+        outline: var(--colorA);
+    }
+}
+
+.btn3 {
+    cursor: pointer;
+    border-radius: 0.5vh;
+    font-size: 1em;
+    padding: 0.7vh;
+    background: var(--fundoC);
+    align-content: center;
+    color: white;
+
+    &:hover, &.active {
+        color: white;
+        background-color: var(--fundoC);
+        border-color: var(--fundoA);
+        filter: var(--filterB);
+    }
+}
+
+.btn4 {
+    background-color: var(--fundoC);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.7vh;
+}
+
+.btn4.active {
+    background-color: var(--fundoA);
+    color: var(--colorC);
+}
+
+
+.addRem {
+    bottom: 0;
+    right: 0;
+    padding: 1vh;
+}
+
+

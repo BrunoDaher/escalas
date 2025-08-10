@@ -1,0 +1,127 @@
+/**/
+
+
+#videoControl{
+    bottom: 25vh;
+    right: 0;
+    color: var(--colorB);
+    height: max-content;
+    z-index: 20;
+    flex-flow: column-reverse;
+    right: 3vh;
+    zoom: 0.7;
+    margin: 3vh;
+
+      @media (min-width: 950px) {
+                bottom: 45vh;
+                
+            }
+}
+
+.zoom2{
+    transform: scale(1.2); /* 1.0 = normal, >1 = zoom */
+  transform-origin: center center; /* mantém o foco no centro */
+}
+
+
+
+#video{
+    
+    position: fixed;
+    right: 0;
+    top:0;
+    overflow: hidden; 
+
+    &>.video{
+        filter: brightness(0.7) contrast(1) saturate(1.1);
+    }
+
+    object-fit:cover; 
+
+    &.mobile{
+        top: 11vh;
+    }
+
+    &.tablet{
+            top: calc(22svh + 100px) !important;
+            left: 31.5vw !important;
+           
+            @media (max-height: 450px) {
+                height: 25vh;
+            }
+
+            /*note 13*/
+            
+
+            & > video{
+                width:99%;
+                height: 58vh;
+                z-index: 20;
+                left: 0;
+                right: 0;
+                border-radius: 5px;
+                background-color: var(--fundoD);
+                padding: 1px;
+                object-fit: cover;
+
+             
+        }
+    }
+
+    &.desktop{
+        
+        width: 45svh;
+        right: 0;
+        position: fixed;
+        top: 86px;
+        right: 0;
+
+            & > video{
+                    width: 100%;
+                    z-index: 20;
+                    left: 0;
+                    right: 0;
+                    border-radius: 5px;
+                    background-color: var(--fundoD);
+                    padding: 1px;
+                    object-fit: cover;  
+                   
+            }
+    }
+ 
+    &.landscape{
+            top: calc(18vh) !important;
+            left: 31.5vw !important;
+            padding: 1vh 0;
+
+            &.video{
+                height: calc(17vh + 5em);
+            }
+    }
+       
+}
+
+video.mobile{
+
+    height:calc(16vh + 4em);
+    width:100vw;
+    background:#2d2541;
+    object-fit:cover; 
+
+    @media(min-width:768px){
+    height:300px;
+    }
+
+}
+.video.xray{
+        filter: invert(0.6) brightness(1) contrast(4.5);
+
+        &.invertido{
+             rotate: 180deg;
+        
+                .video{
+                        transform: translateY(-30vw);
+                        height: 50vw;
+                    }
+        }
+}

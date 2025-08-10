@@ -1,11 +1,3 @@
-/*
-
-escala : #656161
-fundoA : #252222
-corPrincipal : black
-paineis : #2f2828
-
-*/
 
 
 .rev{
@@ -18,6 +10,14 @@ paineis : #2f2828
     backdrop-filter: brightness(0.5);
 }
 
+.recOn 
+    {
+        background-color: var(--fundoA) !important;
+        color:  white;
+        transition: all 0.3s;
+        filter: var(--filterB);
+    }
+    
 .bgClean{
     background-color:white;
     color:black
@@ -50,12 +50,6 @@ label{
     font-family: cursive;
 }
 
-.zoom2{
-
-        object-position: -44vh -25vh;
-    zoom: 2.2;
-    overflow-y: hidden;
-}
 
 
 .bgDark2{
@@ -144,11 +138,23 @@ input[type="color"] {
     -moz-filter: brightness(95%) hue-rotate(80deg) saturate(354%);
 }
 
+/* Components */
+.comp {
+    background-color: var(--fundoC);
+    color: var(--colorB);
+    height: fit-content;
+    border-radius: 4px 4px 0 0;
+    align-items: center;
+
+}
+
 
 
 .croma{
     padding: 2em;
     background: rgb(0, 255, 0);
 }
+
+
 
 /*violao*/

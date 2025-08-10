@@ -1,0 +1,54 @@
+
+@import url(./acordes.css);
+@import url(./arquivos.css);
+@import url(./messenger.css);
+@import url(./metronomo.css);
+@import url(./video.css);
+@import url(./main.css);
+@import url(./violao.css);
+
+/* Layout & Positioning */
+
+.rel {
+    position: relative;
+}
+
+.container {
+    display: grid;
+    gap: 2vh;
+}
+
+
+.lista {
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    background-color: #00000038;
+    border-radius: 4px;
+    justify-content: center;
+    padding: 1vh;
+    height: 45px;
+    gap: 2vh;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+#wellcome {
+    top: 1vh;
+    font-size: 3vw;
+    position: relative;
+}
+
+#controls {
+    left: 7vw;
+}
+
+
+
+
+
+ 

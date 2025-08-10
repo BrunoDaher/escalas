@@ -1,6 +1,6 @@
 
 .marca{
-    background-image: url("../img/marca.png");
+    background-image: url("./marca.png");
     background-size: 40px;
     background-position-x: center;
     background-position-y: center;
@@ -97,13 +97,14 @@ p {
     border-right-color: #a3a7ab;
     width: 0.15em;
     border-right-width: 5px;
-    border-right-style: ridge;                 
+    border-right-style: ridge;         
+    
+    @media (min-width:900px) {
+        padding: 2svh 2svw 10px;
+        border-right-width: 3px;
+        
+    }
 }
-
-
-  
-  
- 
 
 
 .corda > div.capo{
@@ -166,7 +167,7 @@ margin-top: -4svh;
 
     }
 
-    @media (min-width:600px) {
+    @media (min-width:900px) {
         
     }
 }
@@ -197,23 +198,20 @@ margin-top: -4svh;
 #braco{
    
     transition: all 1s;
-    padding: 1.5vh 0 0.2svh 0;
-
+    padding: 10px 0 10px 0;
     position: relative;
-   height: calc(17vh + 3em);   
-
     max-width: 99vw;
   
     @media (max-width: 500px) {
-
-         height: calc(19vh);   
+         
         overflow-x: scroll;
             padding : 2vh 0 0 1vh !important;
         overflow-y: hidden;
     }
 
     @media(min-width:768px){
-         height: unset;
+         
+        left:1vw;
         max-width: 100vw;
         overflow-x: scroll;
     }

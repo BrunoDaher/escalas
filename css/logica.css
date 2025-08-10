@@ -16,8 +16,8 @@
 }
 
 
-.dropOut.selected , .btn.selected{
-    color: var(--second-text-color);
+.dropOut.selected {
+    
     background-color: var(--second-bg-color);
     filter: drop-shadow(2px 4px 6px black);
     transition: background-color 0.3s;

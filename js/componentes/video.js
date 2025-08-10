@@ -117,9 +117,7 @@ export default class VideoObj {
         
              
         return `
-               
-             <div id='video' class='off ${css}' >
-                 <div id='videoControl' 
+           <div id='videoControl' 
                     class=' ${!aux.infoNavegador.mobile ? 'on':'off'} 
                     gap2 p-2 flexCenter abs' >
                     ${this.botoesControle().map(btn => `
@@ -130,6 +128,9 @@ export default class VideoObj {
                         `).join('')
                      }                
                 </div>
+               
+             <div id='video' class='${css}' >
+              
                     <video class='video ${css}' id='currentVideo' ; 
                             ${controls}
                             playsinline

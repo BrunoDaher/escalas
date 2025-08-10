@@ -1,0 +1,90 @@
+
+/*metronomo*/
+
+#ritmo > img {
+    border-radius: 100px;
+    width: 6%;
+    filter: grayscale(100%) sepia(100%) hue-rotate(1deg);
+}
+
+#ritmo > img.on {
+    filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+    transition: all 0.1s;
+}
+
+
+.figritm{
+    font-family: 'Hymnus FG';
+}
+
+#compasso > button{
+    
+    border-color:var(--fundoC);   
+    background-color: var(--fundoD);
+    color: var(--colorB);
+    font-size: 3vh;
+    border-radius: 1vh;
+    text-align: left;
+    justify-items: start;
+    text-anchor: start;
+
+
+    &:hover{
+        background-color: var(--fundoA);
+        cursor: pointer;
+        filter: drop-shadow(2px 4px 6px var(--fundoA));
+        border: none;
+    }
+
+    &.active{
+
+        background-color: var(--fundoA);
+        
+        border: 0;
+    }
+
+
+}
+
+.compCount{
+    border:none;
+            
+    transition: all 0.3s;
+
+    &.active{
+        border-color: var(--fundoC) !important;
+                border: none;
+                transition: all 0.3s;
+    }
+
+}
+
+.contact:hover{
+    cursor: pointer;
+}
+
+.pulse{
+    display: flex;
+    gap: 2px;
+    width: 100%;
+    padding: 4px;
+    background-color: var(--fundoD);
+    filter: drop-shadow(1px 1px 1px black);
+
+        &.active{
+        background-color: var(--fundoA);
+        color: unset;
+        
+    }
+     
+    @media (max-width: 768px) {
+        width: 100% !important; 
+    }
+
+}
+
+.subdivision{
+    height: unset;
+    font-size: 3vh !important;
+
+}

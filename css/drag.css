@@ -1,36 +1,30 @@
-.dragContainer {
 
-}
 
-input.btnChord{
+.btnChord{
        
-    font-size: 1.8vh;
- transition: all 0.3s;
- align-content: flex-start;
- 
+      font-size: 1.8vh;
+  transition: all 0.3s;
+  align-content: flex-start;
+
+    &.edit{
+
         
-}
-
-
-.btnChord.edit{
-
-     
-      font-style: italic;
-      filter: brightness(0.9) hue-rotate(160deg) saturate(124%);
-      transition: all 0.3s;
-     
+          font-style: italic;
+          filter: brightness(0.9) hue-rotate(160deg) saturate(124%);
+          transition: all 0.3s;
+        
+    }   
 }
 
 .item {
     
-     font-size: 2vh; 
-   width: 3em;
-    height: 2em;
-    align-content: center;
-    text-align: center;
-    /* margin: 2px; */
-    background: var(--fundoC);
-    color: white;
+  font-size: 2vh; 
+  width: 3em;
+  height: 2em;
+  align-content: center;
+  text-align: center;
+  background: var(--fundoC);
+  color: white;
   cursor: pointer;
 
   &:hover{
@@ -52,7 +46,6 @@ input.btnChord{
   }
 }
 
-
-  .gu-transit, .voando{
-    background-color: var(--colorE) !important;
-  }
+.gu-transit, .voando{
+  background-color: var(--fundoC) !important;
+}

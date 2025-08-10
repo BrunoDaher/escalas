@@ -1,0 +1,58 @@
+/*msg*/
+#messenger{
+   position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 12;
+    backdrop-filter: brightness(0.2) blur(1px);
+    
+    & > section {
+        z-index: 11;
+        filter: drop-shadow(2px 4px 6px black);
+        margin: 2em;
+        position: absolute;
+        width: 18em;
+        right: 2em;
+        background-color: var(--fundoD);
+        backdrop-filter: blur(4em);
+        border-radius: 1vh;
+        top: 3em;
+
+        @media (max-width:500px) {
+            width: 18em;
+            right: unset;
+        }
+    }
+}
+
+        
+
+#receiving{
+    background-color: var(--fundoC);
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+
+.camera{
+    
+    border-radius: 8px; 
+    display: flex;
+    align-items: center;
+    position: relative;
+        
+    height:30vh;
+    justify-content: center; 
+    flex-direction: column;
+
+    &>label{
+        position: absolute;
+        top: 0;
+            align-self: baseline;
+            align-items: center;
+                
+
+    }
+
+
+}
+

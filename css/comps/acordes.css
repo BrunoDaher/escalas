@@ -1,0 +1,33 @@
+
+/* Memory & Rhythm */
+.memoria {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 16vh;
+    align-content: baseline;
+}
+
+#sectionButtons {
+    @media (orientation: landscape) or (max-width:500px) {
+        display: flex;
+        max-width: 99%;
+        overflow-x: scroll;
+        justify-content: space-around;
+    }
+}
+
+.section-btn{
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+
+    &.active, &:hover{
+        border-color: var(--colorC);
+        border-style: solid;
+        border-width: 0 1px 0 1px;
+        backdrop-filter: contrast(0.8);
+    }
+}
+
+

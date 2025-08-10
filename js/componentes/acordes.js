@@ -49,7 +49,7 @@ export class Acordes extends Aux{
     renderSectionButtons() {
       
         return this.sections.map(s => 
-            `<span class="btn1 p-2 
+            `<span class="btnChord p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
                 id=btn_${s.id}
@@ -62,7 +62,7 @@ export class Acordes extends Aux{
     renderEstruturaAreas() {
         return this.sections.map(
             s => `
-            <div class="sectionPanel bg-Dark${s.off ? " off" : ""}" id="div-${s.id}">
+            <div class="sectionPanel${s.off ? " off" : ""}" id="div-${s.id}">
                 <div id="${s.id}" class="p-1 gap1 flexWrap dragContainer" 
                     style="line-height: normal;max-height: 6vh;">
                 </div>  
@@ -74,46 +74,41 @@ export class Acordes extends Aux{
         return `
 
             <!-- Bloco: Memória de Acordes & Escalas -->   
-            <div class="grid">
+            <div class="grid ">
               
 
                 <!-- Bloco: Estrutura Musical -->
-                <div class="gap2" 
-                            style="justify-content: normal;text-align: start;">
+                <div class="gap2 "
+                style="overflow: hidden"> 
                         <legend hidden class="off" id="labelNomeSlot"></legend>       
-                        
-                        
                         <input hidden id="dataLoad" type="file"/>
                         <div class="">
                         
-                        <div class='flex justContBetween gap1 comp filterC  p-1'> 
+                            <div class='flex justContStart gap1 comp filterC  p-1'> 
 
-                        <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+                                    <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+                                    <div class='flex'>
+                                                    
+                                        <label for='btnVideo' class="gap1 flex itemCenter">
+                                                <a>Violão</a>
+                                                <label class="switch">
+                                                    <input id="btnVideo" target='video' type="checkbox" checked/>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <a>Video</a>
+                                        </label>
 
-                        <div class='flex'>
-                                        
-                            <label for='btnVideo' class="gap1 flex itemCenter">
-                                    <a>Violão</a>
-                                    <label class="switch">
-                                        <input id="btnVideo" target='video' type="checkbox" checked/>
-                                        <span class="slider round"></span>
-                                    </label>
-                                    <a>Video</a>
-                            </label>
-
-                        </div>
-
-                
+                                    </div>
                             
                                 </div>
                             </div>
                             
                             <!-- Botões de Seção -->
-                            <div class="grid" 
-                                id="sectionButtons"
-                                >
-                                ${this.renderSectionButtons()}
-                            </div>
+                        
+                                <div class="flex" 
+                                    id="sectionButtons">
+                                    ${this.renderSectionButtons()}
+                                </div>
                             
                         </div>
                         <!-- Áreas das Seções -->
@@ -171,7 +166,7 @@ export class Acordes extends Aux{
 
                     </div>
                         
-                    <div id='blocoVelocidade' class="bgDark  justContBetween p-1 flex textStart"> 
+                    <div id='blocoVelocidade' class="justContBetween p-1 flex textStart"> 
                 
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">

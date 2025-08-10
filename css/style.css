@@ -1,11 +1,15 @@
-@import url(./components.css);
+@import url(./botoes.css);
+@import url(./input.css);
 @import url(./layout.css);
 @import url(./logica.css);
 @import url(./img.css);
-@import url(./temas.css);
-@import url(./violao.css);
+@import url(./tema.css);
 @import url(./slider.css);
 @import url(./drag.css);
+
+
+@import url(./comps/components.css);
+
 
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
@@ -13,6 +17,7 @@
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
 
 :root{
+      --vh: 100%;
     --top: calc(12vh + 3vw);
     --topSides: calc(var(--top) + 8vw);
     --topInfo: calc(var(--top) + var(--topSides));
@@ -40,25 +45,13 @@
 }
 
 
-header{
-      position: sticky;
-    top: 0vh;
-    display: grid;
-    height: 8vh;
-    align-items: center;
-    z-index: 10;
-}
-
-header.on{
-    justify-content: space-between;
-    display: flex;
-}
 
 
 body{
 
-    
+    overflow-x:hidden !important;
     background-color:var(--fundoC);
+     
     
     margin: 0;
 }

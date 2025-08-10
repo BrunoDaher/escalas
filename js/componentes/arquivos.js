@@ -3,8 +3,6 @@ import { Dao } from  '../acesso/dao.js'
 
 export class Arquivos {
 
-    
-
     constructor(acordes) {
         this.dao = new Dao();
         this.acordes = acordes;
@@ -25,7 +23,7 @@ export class Arquivos {
             </div>
 
             <div id="listaArq" class='my-1' >
-                <div id="salvos" class="grid2"></div>
+                <div id="salvos" class=""></div>
             </div>
            
            <div class="grid my-1 p-1">
@@ -90,7 +88,7 @@ export class Arquivos {
                 await this.dao.upload();
                 if(this.dao.upload){
                     const elem = document.getElementById('arquivo');
-                     this.favBuild(elem.innerText);
+                     this.favBuild(elem.innerText.trim());
                 }
              }) 
         }
@@ -155,12 +153,9 @@ export class Arquivos {
                         document.getElementById('salvos').innerHTML = '';
                         cloudFiles.forEach(async song => {
                             let songName = song.replace('.json','');
-
                             let json = await this.dao.getFile(song);
                             this.dao.setLocalDataJSON('vg_' + songName, json);
-                            //this.dataSong(songName);
                             this.favBuild(songName);
-
                             this.triggersFav();
                     });
                    
@@ -229,19 +224,15 @@ export class Arquivos {
     }
 
     favBuild(nome){
-        
       
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div id="vg_${nome}"  class=" clicaMus bgDark grid capt p-2 ">
+            <div id="vg_${nome}" class="clicaMus bgDark grid capt p-2 ">
             <div class='grid'>
-                <a id="vg_${nome}" class=" f2vh">
-                    ${nome}
-                </a>
+                <a id="vg_${nome}"class="f2vh">${nome}</a>
                 <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterD' >
             </div>
-                
                 <a class="clicaMus"></a>
                 <div class="flex off">
                     <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
