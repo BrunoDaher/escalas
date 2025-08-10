@@ -1,5 +1,11 @@
 export class Aux {
     // Elimina uma classe de todos os elementos do array
+    
+    
+    constructor() {
+        this.refreshNav();
+    }
+    
     arrayRemoveClass(array, classe) {
         array.forEach(elem => {
             elem.classList.remove(classe);
@@ -26,7 +32,6 @@ export class Aux {
         });
     }
         
-
     getById(id){
         return document.getElementById(id);
     }
@@ -113,40 +118,37 @@ export class Aux {
         }); 
     }
 
-      navegador(){
-          let agent = navigator.userAgent.toLowerCase();
-    
-       // Additional checks for mobile devices
-        let isMobileByPlatform = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(agent);
-        let isMobileByScreen = window.innerWidth <= 800 && window.innerHeight <= 900;
-        let isMobileByTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        let isMobileByVendor = /android|iphone|kindle|silk/i.test(navigator.vendor || navigator.platform);
-        let land = window.screen.orientation.angle == 90 ? true:false;
+    refreshNav(){
+
+        let agent = navigator.userAgent.toLowerCase();
+         // Additional checks for mobile devices
+       // let isMobileByScreen = window.innerWidth <= 500 && window.innerHeight <= 950;
+        let landscape = window.screen.orientation.angle == 90 ? true:false;
         
-        let ismobile = isMobileByPlatform || isMobileByScreen || isMobileByTouch || isMobileByVendor;
-        let ipad =  agent.includes('ipad') && isMobileByPlatform;
-        let iphone =  agent.includes('iphone') && isMobileByPlatform;
-        let desktop = !ismobile;
-
-        let foneLand = land && iphone;
-
-        let tablet = (!isMobileByScreen) || foneLand;  
+        this.infoNavegador.landscape = landscape;
+        this.infoNavegador.ipad =  agent.includes('ipad');
+        this.infoNavegador.iphone =  agent.includes('iphone');
+        this.infoNavegador.android = agent.includes('android');
         
-         
+        let ismobile =  this.infoNavegador.iphone || this.infoNavegador.android;
+       
+        this.infoNavegador.mobile = ismobile;
+        
+        let foneLand = landscape && ismobile;
+        
+        this.infoNavegador.desktop = agent.includes('mac os') || agent.includes('windows');
+        this.infoNavegador.tablet = (!ismobile && !this.infoNavegador.desktop) || foneLand;  
 
-        let dados = {'ipad':ipad, 'iphone':iphone,'tablet':tablet,'landscape':land, 'desktop':desktop};
-      
-        return dados
+        
+    }
+      infoNavegador = {
+        'ipad': false,
+        'android': false,
+        'iphone': false,
+        'tablet': false,
+        'landscape': false,
+        'desktop': false,
+        'mobile': false
       }
 
-      isTablet(){
-        return this.navegador().tablet || this.navegador().ipad;
-      }
-
-
-      isMobile(){
-        let mobile = this.navegador().iphone || this.navegador().ipad || this.navegador().tablet;
-        return mobile;
-      }
-    
 }

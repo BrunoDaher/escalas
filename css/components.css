@@ -180,7 +180,7 @@ menu{
 
 
 #videoControl{
-       bottom: 7vw;
+    bottom: 7vw;
     right: 0;
     color: var(--colorB);
     height: max-content;
@@ -204,13 +204,13 @@ menu{
    object-fit:cover; 
 
     &.tablet{
-            top: calc(17vh + 2em) !important;
-            left: 32% !important;
+            top: calc(23vh) !important;
+            left: 31.5vw !important;
             padding: 1vh 0;
 
             & > video{
                 width:98%;
-                height: 56vh;
+                height: 57vh;
                 z-index: 20;
                 left: 0;
                 right: 0;
@@ -243,12 +243,12 @@ menu{
     }
  
     &.landscape{
-            top: calc(17vh + 4em) !important;
-            left: 32% !important;
+            top: calc(18vh) !important;
+            left: 31.5vw !important;
             padding: 1vh 0;
 
             &.video{
-                    height: calc(17vh + 5em);
+                height: calc(17vh + 5em);
             }
     }
        
@@ -256,23 +256,16 @@ menu{
 
 video.mobile{
 
-           height: calc(14vh + 4em);
-    width: 100vw;
+    height:calc(14vh + 4em);
+    width:100vw;
+    background:#2d2541;
+    object-fit:cover; 
 
-background: #2d2541;
-     object-fit:cover; 
-
-      @media(min-width:768px){
-         
-                height: 300px;
-        
+    @media(min-width:768px){
+    height:300px;
     }
 
 }
-
-
-
-
 .video.xray{
         filter: invert(0.6) brightness(1) contrast(4.5);
 
@@ -425,8 +418,8 @@ background: #2d2541;
 
 #sectionButtons{
 
-    @media (max-width:500px) {
-            display: flex;
+    @media (orientation: landscape) or (max-width:500px) {            
+        display: flex;
         max-width: 99vw;
         overflow-x: scroll;
             
@@ -474,7 +467,7 @@ background: #2d2541;
 
     .btn1{
         cursor: pointer;
-        font-size: 0.7em;
+        font-size: 0.8em;
         
         padding: 1vh;
         color: var(--colorB);

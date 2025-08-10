@@ -33,9 +33,6 @@ const main = new Main();
       
       init();
    
-
- 
-   
  function init() {
 
       acesso.fire.auth.onAuthStateChanged((user) => {
@@ -61,14 +58,13 @@ const main = new Main();
     metronomo.init();  
     dragula.init();
 
-    console.log(aux.navegador())
-
-
-    if(aux.navegador().tablet || aux.isMobile() || aux.navegador.landscape){
-        main.addFooter();
+    console.log(navigator)
+    
+    //if(!aux.infoNavegador.desktop){
         //inicia na aba arquivos
+        main.addFooter()
          aux.getById('arquivos').click();
-    }
+    //}
 
     
  };    

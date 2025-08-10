@@ -13,11 +13,8 @@ export class Main extends Aux{
 
         this.videoObj = new VideoObj();
 
-        let css =  this.navegador().desktop ? 'desktop':
-                   this.navegador().tablet ? 'tablet' : 'mobile';
-
-                   console.log(css)
-
+     let css =  this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
+                       this.infoNavegador.tablet ? 'tablet' : 'mobile';
                
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel f2vh ${css}`},
@@ -28,12 +25,9 @@ export class Main extends Aux{
         ];
     }
 
-
     addBraco() {
         const braco = document.createElement('div');
             braco.id = 'braco';
-            //braco.style.maxWidth = '100vw';
-            //braco.style.overflowX = 'scroll';
             this.element.appendChild(braco);
         return this;
     }
@@ -44,8 +38,6 @@ export class Main extends Aux{
         paineis.className = 'flexCenter gap1 filterC';
 
         //sections é um array de obj
-
-        let painelClasse = this.navegador().iphone ? 'mobile':'';
         this.sections.forEach(obj => {
             const section = document.createElement('section');
             section.id = obj.id;
@@ -97,17 +89,12 @@ export class Main extends Aux{
         const navBtns = this.getAllClass('navBtn');
 
         navBtns.forEach((btn) => {
-            
-         
             btn.onclick = () => {
                 //estetica do botao
-
                 if(btn.id=='acordes'){
                     let src = 'seq'
                 }
-
                 this.chooseTab(btn);
-
             };
         });
     }
@@ -123,17 +110,18 @@ export class Main extends Aux{
     triggers(){
 
          this.videoObj.triggers();
-           //     document.getElementById('btn_seq').click();
-        setTimeout(()=>{
+        //document.getElementById('btn_seq').click();
+            setTimeout(()=>{
                 this.videoObj.setVideoId('currentVideo');
             }
         ,300);
 
-
         // Add window orientation change event listener to reload page
-window.addEventListener('orientationchange', function() {
-    location.reload();
-});            }
+        window.addEventListener('orientationchange', function() {
+            location.reload();
+        });            
+
+    }
 }
    //return this;
 
