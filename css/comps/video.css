@@ -33,7 +33,7 @@
     margin: 0;
     padding: 0;
     
-        background: linear-gradient(-45deg, var(--fundoG), black, var(--fundoA));
+        background: linear-gradient(-45deg, var(--fundoG), black, var(--fundoC));
     background-attachment: fixed;
 
     &>.video{
@@ -51,12 +51,12 @@
 
             @media (orientation: landscape) {
                 top: calc(var(--headerHeight) + 1vh);
-                width: 66vw;
+                width: 68vw;
                 height: 68vh;
             }
 
             & > .video{
-                    height:calc(var(--headerHeight) + 4.5em);
+                    height:calc(var(--headerHeight) + 6.5em);
                     width:100vw;
                   
                     object-fit:cover; 
@@ -70,7 +70,18 @@
     }
 
     &.tablet{
-        left: 31.5vw !important;
+
+        @media (orientation: landscape) {
+                    left: 29.5vw !important;
+            width:68vw;
+            padding-top: 5px;
+
+
+          
+        }
+
+
+        
         
         @media (max-height: 450px) {
             height: 25vh;
@@ -113,7 +124,7 @@
  
     &.landscape{
         top: calc(18vh) !important;
-        left: 31.5vw !important;
+        left: 30vw !important;
         padding: 1vh 0;
 
         &.video{

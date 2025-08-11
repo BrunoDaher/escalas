@@ -14,7 +14,7 @@ export class Main extends Aux{
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
 
-        console.log(this.infoNavegador)
+        
 
         let css = this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
@@ -100,7 +100,7 @@ export class Main extends Aux{
 
     chooseTab(btn){
 
-        console.log(btn);
+        
         this.removeAll(`navBtn`,'active');
         btn.classList.add('active');
         this.addAll(`painel`,'off');

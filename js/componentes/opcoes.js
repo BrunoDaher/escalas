@@ -84,16 +84,16 @@ export class Opcoes extends Aux{
 
     renderTemas(){
         return `
-            <div class='flexCenter gap2 justCenter '>
-                    <span class="btn1 grid itemCenter btnTema" id="temaPadrao" >
+            <div class='flexCenter gap2 p-1 justCenter '>
+                    <span class="grid itemCenter btnTema" id="temaPadrao" >
                         <i class="bi bi-arrow-clockwise "></i>
                         <a>Padrao</a>
                     </span>
-                    <span class="btn1 grid itemCenter btnTema" id="temaA" >
+                    <span class="grid itemCenter btnTema" id="temaA" >
                         <i class="bi bi-paint-bucket "></i>
                         <a>TemaA</a>
                     </span>
-                    <span class="btn1 grid itemCenter btnTema" id="temaB" >
+                    <span class="grid itemCenter btnTema" id="temaB" >
                         <i class="bi bi-paint-bucket "></i>
                         <a>TemaB</a>
                     </span>
