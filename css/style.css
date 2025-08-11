@@ -29,8 +29,8 @@
     --colorE: #438ac5e1;
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5);
-    --headerHeight: 14vh;
-    --footerHeight: 10vh;
+    --headerHeight: 12svh;
+    --footerHeight: 9svh;
     --mainHeight: 80vh;
     --topMainHeight: 20vh;
     --bodyMainHeight: 65vh;

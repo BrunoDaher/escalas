@@ -37,7 +37,7 @@
         padding: 1vh;
         height: calc(var(--bodyMainHeight) - var(--headerHeight));
         margin-top: 1vh;
-        max-height:44svh;
+        max-height:48svh;
 
             @media (orientation:landscape) {
                  width: 30%;

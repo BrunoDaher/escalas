@@ -32,7 +32,7 @@ export class Acordes extends Aux{
 
     }
 
-      controles(){
+    controles(){
         return `
            <!-- Bloco: Controles Gerais -->
                 <label for="velo" class="justContStart flex comp p-1 textStart itemCenter gap2">
@@ -91,7 +91,7 @@ export class Acordes extends Aux{
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
 
-                                    <div  class='flex ${this.infoNavegador.tablet ? 'off' : ''}'>
+                                    <div  class='flex ${this.infoNavegador.desktop ? 'off' : ''}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
@@ -170,7 +170,7 @@ export class Acordes extends Aux{
                 
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
-                            <i class="bi bi-clock colorB flex"> Duração</i>  
+                            <i class="bi bi-clock colorB flex"> Velô</i>  
                             <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
                         </label>
                         
@@ -260,14 +260,23 @@ export class Acordes extends Aux{
                 btnVideo.onclick = ()=>{
                     //logica reversa
                     let showVideo = !btnVideo.checked?true:false;
-
                     let idPainel = btnVideo.getAttribute('target')
+
+                    let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape)
 
                     if(showVideo){
                         this.togglePainel(idPainel);
+
+                        if(mobiLand){
+                            this.getById('braco').classList.remove('off');
+                        }
                     }
                     else{
                         this.togglePainel(idPainel);
+
+                        if(mobiLand){
+                            this.getById('braco').classList.add('off');
+                        }
                     }
 
                 }

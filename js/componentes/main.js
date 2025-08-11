@@ -30,7 +30,10 @@ export class Main extends Aux{
     }
 
     renderBracoViolao() {
-        return `<div id="braco"></div>`;
+
+        let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape);
+
+        return `<div id="braco" class='${mobiLand? 'off':'on' }'></div>`;
     }
 
     renderPaineis() {

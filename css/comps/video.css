@@ -33,15 +33,30 @@
 
     &>.video{
         filter: brightness(0.7) contrast(1) saturate(1.1);
+
+       
     }
 
     &.mobile{
-        top: var(--headerHeight);
-        height: var(--bodyMainHeight);
+            top: calc(var(--headerHeight));
+        height: var(--bodyMainHeight) + 2vh;
 
         @media (orientation: landscape) {
-            top: calc(var(--headerHeight) + 2vh);   
-            height: calc(var(--bodyMainHeight) - 2vh);
+            top: calc(var(--headerHeight) + 2vh);
+            width: 68vw;
+            padding: 2vh;
+        }
+
+        & > .video{
+
+             height:calc(var(--headerHeight) + 6em);
+            width:100vw;
+                     background: linear-gradient(90deg, var(--fundoD), var(--colorA));
+            object-fit:cover; 
+
+        @media(orientation: landscape){
+            height:275px;
+        }
         }
 
     }
@@ -101,18 +116,7 @@
        
 }
 
-video.mobile{
 
-    height:calc(14vh + 4em);
-    width:100vw;
-    background:#2d2541;
-    object-fit:cover; 
-
-    @media(min-width:768px){
-        height:275px;
-    }
-
-}
 .video.xray{
         filter: invert(0.6) brightness(1) contrast(4.5);
 
