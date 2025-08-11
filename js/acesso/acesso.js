@@ -60,8 +60,8 @@ export class Acesso {
         return `
           
             <div id="acesso" class="grid p-2  gap1  selfCenter me2">
-                <input type="text" id="login" placeholder="Login" class="bordaA btn2 colorA">
-                <input type="password" id="senha" placeholder="Senha" class="bordaA btn2 colorA">
+                <input type="text" id="login" placeholder="Login" class="btn2 bgDark2">
+                <input type="password" id="senha" placeholder="Senha" class="bgDark2 btn2">
                  <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
             <div id='logReturn' class='colorA'></div>
             </div>
@@ -74,6 +74,10 @@ export class Acesso {
         let userInfo = this.fire.getAuth().currentUser.email || '';
 
         aux.getById('userInfo').innerText = userInfo;
+
+        //aux.getById('userInfo').classList.add('bi bi-person-circle');
+
+       // aux.getById('headerContainer').classList.add('flex justContBetween');
 
         return `
             <section id="divUser" class="grid ">
@@ -93,7 +97,7 @@ export class Acesso {
 
     showSignIn() {
 
-        aux.getById('hMenu').innerHTML = this.renderLogon();
+        aux.getById('dataEnter').innerHTML = this.renderLogon();
 
          let btnSignin = aux.getById('btnSignIn');
 
@@ -119,6 +123,10 @@ export class Acesso {
         aux.getById('hMenu').innerHTML = this.renderUser();
         let btnSignOut = aux.getById('btnSignOut');
 
+       // aux.getById('wellcome').innerHTML += this.renderUser();
+        aux.getById('wellcome').classList.remove('off');
+        
+        aux.getById('enter')?.remove()
         //trigger botao logoff
         btnSignOut.onclick = async () => {
             try {
