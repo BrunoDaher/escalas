@@ -52,6 +52,10 @@ label{
     color:white;
 }
 
+#welcome{
+    font-family: fantasy;
+}
+
 ::-webkit-scrollbar {
     width: 2px;
     height: 3px;

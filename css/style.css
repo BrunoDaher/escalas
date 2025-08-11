@@ -30,11 +30,19 @@
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5);
    
+   /* medidas */
     --headerHeight:12vh;
-    --footerHeight: 12vh;
-    --mainHeight: calc(100vh - var(--headerHeight) - var(--footerHeight));
-    --topMainHeight: 20vh;
-    --bodyMainHeight: 65vh;
+    --footerHeight: 10vh;
+    
+    /*soma*/
+    --headfooter:calc(var(--headerHeight) + var(--footerHeight));
+    
+    --topMainHeight: 22vh;
+    --bodyMainHeight: calc(var(--headfooter) + var(--topMainHeight) );
+
+    /*soma*/
+    --mainHeight: calc(var(--topMainHeight) + var(--bodyMainHeight));
+
 }
 
 .colorA{
@@ -48,8 +56,12 @@ body{
 
     filter: brightness(0.9) contrast(1);
     overflow-x:hidden !important;
+
+        display: grid;
+    height: 100vh;
+    overflow-y: hidden;
     background: linear-gradient(-45deg, var(--fundoG), black,var(--fundoD));
-      background-attachment: fixed;
+    background-attachment: fixed;
      
     
     margin: 0;

@@ -16,7 +16,6 @@
     @media (max-width: 500px) {
 
            
-        
         justify-content: normal;
         border-radius: 0 !important;
         filter: var(--filterB);
@@ -26,7 +25,7 @@
 
     &.mobile{
 
-      max-height: 53vh;
+    max-height: calc(var(--bodyMainHeight) + 3em);
         height: 54vh;
 
           @media (orientation: landscape) {

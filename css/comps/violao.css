@@ -208,6 +208,7 @@ p {
     position: relative;
     max-width: 99vw;
 
+    height: var(--topMainHeight);
   
     @media (max-width: 500px) {
         overflow-x: scroll;
