@@ -216,6 +216,7 @@ p {
 
         &.on{
             padding: 1em;
+
         }
     }
 
@@ -235,6 +236,8 @@ p {
             z-index: 20;
             position: fixed;
             overflow-y: hidden;
+
+            z-index: 17;
             
         }
     }
