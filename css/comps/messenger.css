@@ -11,7 +11,7 @@
         filter: drop-shadow(2px 4px 6px black);
         margin: 2em;
         position: absolute;
-        width: 18em;
+        width: 75%;
         right: 2em;
         background-color: var(--fundoD);
         backdrop-filter: blur(4em);
@@ -19,10 +19,18 @@
         top: 3em;
 
         @media (max-width:500px) {
-            width: 18em;
+            width: 75%;
             right: unset;
         }
     }
+
+ 
+}
+
+
+#sending > input{
+    width: -webkit-fill-available;
+    background: linear-gradient(15deg, var(--fundoD), var(--fundoC));
 }
 
 

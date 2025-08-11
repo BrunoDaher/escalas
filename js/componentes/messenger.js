@@ -21,7 +21,7 @@ export class Messenger extends Aux{
              const contatosDiv = this.getById('contatos');
             if (contatosDiv) {
                 contatosDiv.innerHTML = '';
-                contatosDiv.className='gap2 grid scroll25 my-1'
+                contatosDiv.className='gap2 grid scroll25 my-1 off'
                 this.contatos.forEach(contato => {
 
                     const span = document.createElement('span');
@@ -44,8 +44,8 @@ export class Messenger extends Aux{
          this.messengerHTML = `
                 <section>
               
-                    <div class="flex w-100 itemCenter justContBetween" style="color: white;">
-                        <a id='msgr'class="p-2 bi-chat"> Mensagens </a>
+                    <div class="flex itemCenter justContBetween" style="color: white;">
+                        <a id='msgr'class="colorE p-2 bi-chat "> Mensagens </a>
                         <a id='btnContatos'class="btn1 p-2 bi-person"> Contatos </a>
                         
                     </div>  
@@ -53,11 +53,11 @@ export class Messenger extends Aux{
                     <div id="sending" class="fundoE colorA">
                         <input type="text"
                             id="inputMensagem"
-                            class="p-1 flex w-full"
+                            class="p-1 flex w-100"
                             placeholder="Digite sua mensagem...">
                     </div>
 
-                      <div id='contatos' class='grid off'>  
+                      <div id='contatos' class='off grid scroll25 my-1'>  
                             
                         </div>
                 </section>
@@ -273,6 +273,7 @@ export class Messenger extends Aux{
 
             let btnContatos = this.getById('btnContatos');
                 btnContatos.onclick = ()=>{
+                    console.log('btn contatos')
                     this.togglePainel('contatos');
                 }
 

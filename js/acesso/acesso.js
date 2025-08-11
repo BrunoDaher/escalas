@@ -80,15 +80,15 @@ export class Acesso {
        // aux.getById('headerContainer').classList.add('flex justContBetween');
 
         return `
-            <section id="divUser" class="grid ">
+            <section id="divUser" class="">
                
-                <div class=' itemCenter flex gap2 '>
-                    <small id='btnMsgr'  
-                        class="bi-chat" 
+                <div class=' itemCenter flex gap2'>
+                    <span id='btnMsgr'  
+                        class="bi-chat colorE f3vh grid" 
                         data-target="messenger">
-                         Mensagens
-                    </small>
-                    <small id='btnSignOut' class="btn bi bi-person-walking ">Sair</small>
+                         
+                    </span>
+                    <span id='btnSignOut' class="f3vh btn bi bi-person-walking "></span>
                 </div>
                  
             </section>

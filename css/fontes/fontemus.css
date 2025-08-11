@@ -7,6 +7,10 @@
     font-display: swap;
 }
 
+.colorE{
+    color: var(--colorE);
+}
+
 body
 {
     font-family: 'Roboto', sans-serif;

@@ -30,34 +30,40 @@
     position: fixed;
     right: 0;
     overflow: hidden; 
+    margin: 0;
+    padding: 0;
+    
 
     &>.video{
         filter: brightness(0.7) contrast(1) saturate(1.1);
-
-       
     }
 
     &.mobile{
             top: calc(var(--headerHeight));
         height: var(--bodyMainHeight) + 2vh;
 
-        @media (orientation: landscape) {
-            top: calc(var(--headerHeight) + 2vh);
-            width: 68vw;
-            padding: 2vh;
+
+        @media (orientation: portrait) {
+            left: -1px;
         }
 
-        & > .video{
+            @media (orientation: landscape) {
+                top: calc(var(--headerHeight) + 1vh);
+                width: 66vw;
+                height: 68vh;
+            }
 
-             height:calc(var(--headerHeight) + 6em);
-            width:100vw;
-                     background: linear-gradient(90deg, var(--fundoD), var(--colorA));
-            object-fit:cover; 
+            & > .video{
+                    height:calc(var(--headerHeight) + 5em);
+                    width:100vw;
+                    background: linear-gradient(90deg, var(--fundoD), var(--colorA));
+                    object-fit:cover; 
 
-        @media(orientation: landscape){
-            height:275px;
-        }
-        }
+                    @media(orientation: landscape){
+                        height:68vh;
+                        width: 66vw;
+                    }
+            }
 
     }
 
