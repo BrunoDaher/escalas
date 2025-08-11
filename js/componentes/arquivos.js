@@ -51,7 +51,7 @@ export class Arquivos {
                     <i class=' bi-arrow-down'></i>
                     <a>Exportar</a>
                 </div>
-                <div class="grid rad1 btn1 f1vh" id="load" target="dataLoad">
+                <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
                     <i class=' bi-arrow-up '></i>
                     <a>Importar</a>
                 </div>

@@ -6,7 +6,7 @@
     right: 0;
     color: var(--colorB);
     height: max-content;
-    z-index: 20;
+    z-index: 12;
     flex-flow: column-reverse;
     right: 3vh;
     zoom: 0.7;
@@ -33,6 +33,8 @@
     margin: 0;
     padding: 0;
     
+        background: linear-gradient(-45deg, var(--fundoG), black, var(--fundoA));
+    background-attachment: fixed;
 
     &>.video{
         filter: brightness(0.7) contrast(1) saturate(1.1);
@@ -54,9 +56,9 @@
             }
 
             & > .video{
-                    height:calc(var(--headerHeight) + 5em);
+                    height:calc(var(--headerHeight) + 4.5em);
                     width:100vw;
-                    background: linear-gradient(90deg, var(--fundoD), var(--colorA));
+                  
                     object-fit:cover; 
 
                     @media(orientation: landscape){
@@ -68,23 +70,22 @@
     }
 
     &.tablet{
-       
-        
         left: 31.5vw !important;
-        padding: 1vh 0;
+        
         @media (max-height: 450px) {
             height: 25vh;
         }
 
+
         /*note 13*/
         & > video{
-            width:99%;
-            height: calc(var(--bodyMainHeight) - var(--footerHeight) - 4vh);
+            width:100%;
+            height: 53vh;
             z-index: 20;
  
             left: 0;
             right: 0;
-            border-radius: 5px;
+            
             background-color: var(--fundoD);
             
             object-fit: cover;

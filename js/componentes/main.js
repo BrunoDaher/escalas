@@ -38,7 +38,7 @@ export class Main extends Aux{
 
     renderPaineis() {
         return `
-            <article id="paineis" class="flexCenter gap1 filterC ${this.css}">
+            <article id="paineis" class="flexCenter gap1 ${this.css}">
                 ${this.sections.map(obj => `
                     <section id="${obj.id}" class="${obj.className}"></section>
                 `).join('')}
@@ -53,7 +53,7 @@ export class Main extends Aux{
         this.mainDiv.insertAdjacentHTML('beforeend', this.renderPaineis());
 
         this.header.insertAdjacentElement('afterend', this.mainDiv);
-        this.header.classList.add('on');
+        
 
          setTimeout(()=>{
                 this.triggers()

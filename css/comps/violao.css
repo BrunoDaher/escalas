@@ -198,10 +198,10 @@ margin-top: -4.5svh;
 #braco{
    
     transition: all 1s;
-    padding: 10px 0 10px 0;
+    
     position: relative;
     max-width: 99vw;
-    height:calc(100% - var(--headerHeight) - var(--footerHeight)) !important;
+
   
     @media (max-width: 500px) {
          
@@ -237,6 +237,10 @@ margin-top: -4.5svh;
     background: rgb(0, 255, 0);
     border-radius: 4px;
     transition: all 1s;
+
+    &.on{
+        padding: 1vh;
+    }
 }
 
 

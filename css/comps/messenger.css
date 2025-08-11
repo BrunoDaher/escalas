@@ -3,7 +3,7 @@
    position: absolute;
     height: 100vh;
     width: 100vw;
-    z-index: 12;
+    z-index: 16;
     backdrop-filter: brightness(0.2) blur(1px);
     
     & > section {

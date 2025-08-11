@@ -12,8 +12,8 @@ export class Opcoes extends Aux{
         this.cores = [
             { id: "corEscala", label: "Escala", cssVar: "--fundoG", name: "fundoG" },
             { id: "corBackground", label: "Fundo A", cssVar: "--fundoC", name: "fundoC" },
-            { id: "corPrincipal", label: "Cor Principal", cssVar: "--colorC", name: "colorC" },
-            { id: "corSecundaria", label: "Cor Secundária", cssVar: "--colorB", name: "colorB" },
+            { id: "corPrincipal", label: "Cor A", cssVar: "--colorC", name: "colorC" },
+            { id: "corSecundaria", label: "Cor B", cssVar: "--colorB", name: "colorB" },
             { id: "corPaineis", label: "Paineis", cssVar: "--fundoD", name: "fundoD" }
         ];
         
@@ -27,7 +27,7 @@ export class Opcoes extends Aux{
 
     template() {
         const temaInputs = this.cores.map(cor => `
-            <label class="flex justContBetween itemCenter" for="${cor.id}">
+            <label class="grid gap1 itemCenter" for="${cor.id}">
                 <a>${cor.label}</a>
                 <input 
                     style="background-color: var(${cor.cssVar})" 
@@ -39,7 +39,6 @@ export class Opcoes extends Aux{
 
         return `
                 <div class="flex justContBetween comp p-1 mb-1">
-                 
                     <div class='flex itemCenter'>
                         <i class='bi bi-music-note'>Notas</i>
                         <label class="switch flex itemCenter">
@@ -51,33 +50,21 @@ export class Opcoes extends Aux{
 
                 <div id="controls" class="flex itemCenter gap2 justCenter" style="height: fit-content;">
                     <input hidden id="playChord" type="button" class="btn1" value="Chord">
-                              
                     <input hidden id="reset" type="button" class="btn1 bordaA" value="Reset">
                 </div>
 
-                <section class="textStart grid f2vh ">
-                    <a class="comp p-1 textStart bi bi-paint-bucket">Tema</a>
+                <section class="textStart grid  ">
+                    <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>
                   
-                    <div class="gap2 grid p-2 paint-bucket ">
+                    <div class="gap2 grid3 p-2 paint-bucket justContAround">
                         ${temaInputs}
-                        <a class="comp p-1 textStart bi bi-paint-bucket">Opções</a>
-                       
-                        <div class='flexCenter gap2 justCenter'>
-                            <span class="btn3 grid itemCenter btnTema" id="temaPadrao" >
-                                <i class="bi bi-arrow-clockwise "></i>
-                                <a>Padrao</a>
-                            </span>
-                            <span class="btn3 grid itemCenter btnTema" id="temaA" >
-                                <i class="bi bi-paint-bucket "></i>
-                                <a>TemaA</a>
-                            </span>
-                            <span class="btn3 grid itemCenter btnTema" id="temaB" >
-                                <i class="bi bi-paint-bucket "></i>
-                                <a>TemaB</a>
-                            </span>
-
-                        </div>
                     </div>
+
+                    <legend class="comp filterC p-1 bi bi-paint-bucket flex gap1">Opções</legend>
+                
+                    <div class="p-1"> 
+                    ${this.renderTemas()}
+                    <div>
                 </section>
 
                 <div id="currentItem" class="off flexCenter gap2 itemCenter justCenter my-2 filterB">
@@ -92,6 +79,26 @@ export class Opcoes extends Aux{
 
          
         `;
+    }
+
+
+    renderTemas(){
+        return `
+            <div class='flexCenter gap2 justCenter '>
+                    <span class="btn1 grid itemCenter btnTema" id="temaPadrao" >
+                        <i class="bi bi-arrow-clockwise "></i>
+                        <a>Padrao</a>
+                    </span>
+                    <span class="btn1 grid itemCenter btnTema" id="temaA" >
+                        <i class="bi bi-paint-bucket "></i>
+                        <a>TemaA</a>
+                    </span>
+                    <span class="btn1 grid itemCenter btnTema" id="temaB" >
+                        <i class="bi bi-paint-bucket "></i>
+                        <a>TemaB</a>
+                    </span>
+                </div>
+            `
     }
 
     renderAll() {
