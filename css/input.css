@@ -1,5 +1,9 @@
 input { 
     color: var(--fundoE); 
+
+        border-width: 1px;
+    background-color: black;
+    border-color: var(--fundoC);
 }
 
     .switch {

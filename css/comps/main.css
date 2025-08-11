@@ -21,7 +21,7 @@ body{
 
 main{
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto ;
   height: 100%; /* ou nem precisa definir height */
   overflow: hidden; /* para prevenir scroll duplo */
 }

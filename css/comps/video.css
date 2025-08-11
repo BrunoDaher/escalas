@@ -62,8 +62,8 @@
                 object-fit:cover; 
 
                 @media(orientation: landscape){
-                    height:68vh;
-                    width: 66vw;
+                                    height: 100%;
+                width: 75vw;
                 }
             }
 
@@ -73,14 +73,13 @@
 
         @media (orientation: landscape) {
             
+            bottom: calc(var(--footerHeight) + 1vh);
             width:69vw;
+            left: 29%;
             padding-top: 5px;
           
         }
 
-
-        
-        
         @media (max-height: 450px) {
             height: 25vh;
         }
@@ -88,7 +87,7 @@
 
         /*note 13*/
         & > video{
-            width:100%;
+            width:autowe;
             height: 53vh;
             z-index: 20;
  
