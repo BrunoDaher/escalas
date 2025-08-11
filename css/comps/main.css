@@ -10,9 +10,7 @@
 #paineis {
     justify-content: space-between;
     width: auto;
-    padding: 1vh;
-    
-    
+        padding: 1vh;
     @media (max-width: 500px) {
   
         justify-content: normal;
@@ -28,31 +26,31 @@
     color: var(--colorB);
     background: var(--fundoD);
 
-    
     overflow-y: scroll;
     width: 100%;
 
     max-height: 56vh;
     height: fit-content;
 
-    
 
     &.mobile {
         width: 100% !important;
         padding: 1vh;
+        height: calc(var(--bodyMainHeight) - var(--headerHeight));
         margin-top: 1vh;
-        max-height: 54svh !important;
+        max-height: calc(var(--bodyMainHeight) - var(--headerHeight)) !important;
     }
 
     &.tablet {
+        padding: 0 ;
         max-height: unset;
         width: 30vw;
-        height: 56vh;
-        max-height: 56vh;
+         
+        max-height: calc(var(--bodyMainHeight) - var(--headerHeight));
 
         @media (min-height: 800px) {
-            height: 65vh !important;
-            max-height: 65svh !important;
+            
+          
         }
     }
 

@@ -90,12 +90,12 @@ export class Acordes extends Aux{
                                     <div class='flex'>
                                                     
                                         <label for='btnVideo' class="gap1 flex itemCenter">
-                                                <a>Braço</a>
+                                                <a>Video</a>
                                                 <label class="switch">
                                                     <input id="btnVideo" target='video' type="checkbox" checked/>
                                                     <span class="slider round"></span>
                                                 </label>
-                                                <a>Video</a>
+                                                <a>Braço</a>
                                         </label>
 
                                     </div>

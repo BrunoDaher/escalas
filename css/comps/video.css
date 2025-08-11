@@ -2,7 +2,7 @@
 
 
 #videoControl{
-    bottom: 25vh;
+    bottom: var(--topMainHeight);
     right: 0;
     color: var(--colorB);
     height: max-content;
@@ -29,6 +29,7 @@
     
     position: fixed;
     right: 0;
+    padding: 2vh 0;
     top:0;
     overflow: hidden; 
 
@@ -44,9 +45,9 @@
     }
 
     &.tablet{
-        top: calc(22svh + 100px) !important;
+       
+        top: auto;
         left: 31.5vw !important;
-        
         @media (max-height: 450px) {
             height: 25vh;
         }
@@ -54,8 +55,9 @@
         /*note 13*/
         & > video{
             width:99%;
-            height: 58vh;
+            height: calc(var(--bodyMainHeight) - var(--footerHeight) - 4vh);
             z-index: 20;
+ 
             left: 0;
             right: 0;
             border-radius: 5px;
