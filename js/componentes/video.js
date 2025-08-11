@@ -14,12 +14,12 @@ export default class VideoObj {
 
     botoesControle (){
         return    [
-                    {id: 'video-pause', icon: 'bi-pause-circle'},
-                    {id: 'video-play', icon: 'bi-play-circle'},
-                    {id: 'video-slow', icon: 'bi-clock-history', extraClass: 'rev'},
-                    {id: 'video-normal', icon: 'bi-clock'},
-                    {id: 'video-filter', icon: 'bi-image'},
-                    {id: 'video-zoom', icon: 'bi-zoom-in'},
+                    {id: 'video-pause', icon: 'bi-pause-circle', desc: 'Pausar vídeo'},
+                    {id: 'video-play', icon: 'bi-play-circle', desc: 'Reproduzir vídeo'},
+                    {id: 'video-slow', icon: 'bi-clock-history', desc: 'Velocidade lenta', extraClass: 'rev'},
+                    {id: 'video-normal', icon: 'bi-clock', desc: 'Velocidade normal'},
+                    {id: 'video-filter', icon: 'bi-image', desc: 'Aplicar filtro'},
+                    
                 ] ;
     }
 
@@ -68,7 +68,7 @@ export default class VideoObj {
                                 'video-slow': (video) => video.playbackRate = 0.5,
                                 'video-normal': (video) => video.playbackRate = 1,
                                 'video-filter': () => {
-                                    document.getElementById('currentVideo').classList.toggle('filterA')
+                                    document.getElementById('video').classList.toggle('filterA')
                                 },
                                 'video-zoom': () => {
                                     document.getElementById('currentVideo').classList.toggle('zoom2')
@@ -77,13 +77,20 @@ export default class VideoObj {
 
                         if (videoActions[btn.id]) {
                             videoActions[btn.id](this.video);
-                        
                             btnsControle.forEach(element => {
                                 element.classList.remove('active');
                             });
-
                             btn.classList.add('active');
                         }                
+                    }
+
+                    btn.onmouseover = ()=>{
+                      
+                        //btn.insertAdjacentHTML('beforebegin', `<div class="popup" style=" transform:translateX(-50%); background:#000; color:#fff; padding:4px 8px; border-radius:4px; font-size:12px;">${btn.getAttribute('title')}</div>`);
+                      //  console.log(btn)
+                       setTimeout(() => {
+                           // btn.removeChild(btn.lastChild);
+                        }, 210);
                     }
 
                 } );
@@ -118,11 +125,12 @@ export default class VideoObj {
              
         return `
            <div id='videoControl' 
-                    class=' ${!aux.infoNavegador.mobile ? 'on':'off'} 
+                    class=' ${aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on':'off'} 
                     gap2 p-2 flexCenter abs' >
                     ${this.botoesControle().map(btn => `
                             <span id='${btn.id}' 
-                                class='vControl f2em btn bi 
+                                title='${btn.desc}'
+                                class='vControl f2em btn bi rel 
                                 ${btn.icon} ${btn.extraClass || ''}'>
                             </span>
                         `).join('')
