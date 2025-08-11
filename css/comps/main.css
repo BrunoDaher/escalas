@@ -1,29 +1,24 @@
 
 
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
-  touch-action: none;
-  
-  
+  height: 100%; /* não 100vh */
+  overflow: hidden;
 }
 
-body{
+body {
   display: grid;
-  grid-template-rows: var(--headerHeight) 1fr var(--footerHeight); /* header | main flexível | footer */
-  height: 100vh; /* altura da viewport */
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* impede scroll da página, só scroll interno */
-  
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
 }
 
 main{
   display: grid;
-  grid-template-rows: auto ;
-  height: 100%; /* ou nem precisa definir height */
-  overflow: hidden; /* para prevenir scroll duplo */
+  grid-template-rows: auto 1fr;
+  height: 100%; /* preenche o espaço disponível */
+  overflow: hidden;
 }
 
 menu {
@@ -41,13 +36,12 @@ header {
 }
 
 footer {
-    justify-self: center;
-    text-align: center; 
-    width: 100vw;
-    background-color: var(--fundoE);
-    bottom: 0;
-    align-content: center;
-    
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--fundoE);
+  padding: 1rem 0;
 }
 
 #navegacao {

@@ -12,12 +12,11 @@
     
     background-color: var(--fundoD );
     padding: 1rem;
-
- overflow-y: scroll;
-  min-height: 0;  /* permite que o container respeite o limite */
-
+    overflow-y: auto;
+  min-height: 0;
+      
     
-    @media (max-width: 500px) {
+      @media (max-width: 500px) {
         border-radius: 0 !important;
         filter: var(--filterB);
     }
