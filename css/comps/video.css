@@ -26,10 +26,13 @@
 
 
 #video{
+
+    
     
     position: fixed;
-    right: 0;
     overflow: hidden; 
+
+    right: 0;
     margin: 0;
     padding: 0;
     
@@ -41,30 +44,27 @@
     }
 
     &.mobile{
-            top: calc(var(--headerHeight));
-        height: calc(var(--topMainHeight) + 2em);
 
-
-        @media (orientation: portrait) {
-            left: -1px;
-        }
+            @media (orientation: portrait) {
+                left: -1px;
+            }
 
             @media (orientation: landscape) {
-                top: calc(var(--headerHeight) + 1vh);
-                width: 68vw;
-                height: 68vh;
+                  height: auto;
+                left: 31%;
+                max-width: 66%;
             }
 
             & > .video{
-                       height: calc(var(--topMainHeight) + 2em);
-                    width:100vw;
-                  
-                    object-fit:cover; 
+                height: calc(var(--topMainHeight) + 2em);
+                width:100vw;
+            
+                object-fit:cover; 
 
-                    @media(orientation: landscape){
-                        height:68vh;
-                        width: 66vw;
-                    }
+                @media(orientation: landscape){
+                    height:68vh;
+                    width: 66vw;
+                }
             }
 
     }
@@ -72,11 +72,9 @@
     &.tablet{
 
         @media (orientation: landscape) {
-            left: 29.5vw !important;
+            
             width:69vw;
             padding-top: 5px;
-
-
           
         }
 

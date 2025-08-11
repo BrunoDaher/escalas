@@ -32,7 +32,7 @@
    
    /* medidas */
     --headerHeight:12vh;
-    --footerHeight: 10vh;
+    --footerHeight:10vh;
     
     /*soma*/
     --headfooter:calc(var(--headerHeight) + var(--footerHeight));
@@ -45,6 +45,8 @@
 
 }
 
+
+
 .colorA{
     color: var(--fundoA);
 }
@@ -55,16 +57,12 @@
 body{
 
     filter: brightness(0.9) contrast(1);
-    overflow-x:hidden !important;
-
-        display: grid;
-    height: 100vh;
-    overflow-y: hidden;
+  
+  
     background: linear-gradient(-45deg, var(--fundoG), black,var(--fundoD));
     background-attachment: fixed;
      
-    
-    margin: 0;
+  
 }
 
 .filterA{

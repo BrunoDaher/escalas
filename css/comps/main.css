@@ -1,23 +1,29 @@
-.logCont {
-    margin-left: 1vh;
-    background-color: var(--fundoE);
-    border-radius: 2vh 1px;
-    padding: 1vh;
-    gap: 1vh;
-    width: fit-content;
-}
 
 
 
 body, html {
-    
-    align-content: space-between;
-    margin: 0;
-    padding: 0;
-    touch-action: none;
+  margin: 0;
+  padding: 0;
+  touch-action: none;
+  
+  
+}
 
-     box-sizing: border-box;
-  position: relative;
+body{
+  display: grid;
+  grid-template-rows: var(--headerHeight) 1fr var(--footerHeight); /* header | main flexível | footer */
+  height: 100vh; /* altura da viewport */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* impede scroll da página, só scroll interno */
+  
+}
+
+main{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%; /* ou nem precisa definir height */
+  overflow: hidden; /* para prevenir scroll duplo */
 }
 
 menu {
@@ -31,34 +37,18 @@ menu {
 }
 
 header {
-    position: relative;
-    top: 0vh;
-    height: var(--headerHeight);
     z-index: 20;
- 
-}
-
-main {
-   
-    position: relative;
-    
-
-        max-width: 100vw;
-    overflow: hidden;
-    
 }
 
 footer {
-    position: relative;
-    height: var(--footerHeight);
     justify-self: center;
     text-align: center; 
     width: 100vw;
     background-color: var(--fundoE);
     bottom: 0;
     align-content: center;
+    
 }
-
 
 #navegacao {
     display: flex;

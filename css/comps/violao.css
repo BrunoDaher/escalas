@@ -229,14 +229,13 @@ p {
 
     &.mobile{
         @media (orientation:landscape) {
-            max-width: 67vw !important;
+                    max-width: 65vw !important;
             overflow-x: scroll;
-            right: 0;
-            height: 120px !important;
+            left: 32%;
+            height: 130px !important;
             z-index: 20;
             position: fixed;
             overflow-y: hidden;
-
             z-index: 17;
             
         }

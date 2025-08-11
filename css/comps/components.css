@@ -9,45 +9,29 @@
 /* Layout & Positioning */
 
 #paineis {
-    justify-content: space-between;
+    
     background-color: var(--fundoD );
-    overflow-y: scroll;
+    padding: 1rem;
+
+ overflow-y: scroll;
+  min-height: 0;  /* permite que o container respeite o limite */
+
     
     @media (max-width: 500px) {
-
-           
-        justify-content: normal;
         border-radius: 0 !important;
         filter: var(--filterB);
-
-        
     }
 
     &.mobile{
-
-    max-height: calc(var(--bodyMainHeight) + 3em);
-        height: 54vh;
-
           @media (orientation: landscape) {
             padding: 0;
             width: 100%;
-            height: 80vh;
-            max-height: 78vh;
-        
          }
     }
 
 
     @media (min-width: 501px) {
-         
         padding: 1vh 1vh;
-      
-        height: 52vh;
-        max-height: 58vh;
-
-       
-       
-        
     }
 
 }
@@ -59,44 +43,21 @@
     &.mobile {
         width: 100% ;
         @media (orientation:landscape) {
-                width: 30%;
-                
+            width: 30%;
         }
     }
 
     &.tablet {
         padding: 0 ;
-
         @media (orientation: landscape) {
             width: 28vw;
         }
-        
     }
 
-    &.desktop {
-        z-index: 20;
-        right: 0;
-        border-radius: 5px;
-        padding: 1px;
-    }
 }
-
-.sectionPanel {
-    line-height: normal;
-    max-height: 30vh;
-    max-width: 100%;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-}
-
 
 .rel {
     position: relative;
-}
-
-.container {
-    display: grid;
-    gap: 2vh;
 }
 
 
