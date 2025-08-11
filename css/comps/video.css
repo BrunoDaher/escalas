@@ -29,7 +29,7 @@
     
     position: fixed;
     right: 0;
-    padding: 2vh 0;
+    
     top:0;
     overflow: hidden; 
 
@@ -48,6 +48,7 @@
        
         top: auto;
         left: 31.5vw !important;
+        padding: 1vh 0;
         @media (max-height: 450px) {
             height: 25vh;
         }

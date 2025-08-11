@@ -28,6 +28,8 @@ export class Acordes extends Aux{
                 this.dao = new Dao();
                 this.tocador = new Tocador();
 
+            
+
     }
 
       controles(){
@@ -87,8 +89,9 @@ export class Acordes extends Aux{
                             <div class='flex justContStart gap1 comp filterC  p-1'> 
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
-                                    <div class='flex'>
-                                                    
+
+
+                                    <div  class='flex ${this.infoNavegador.tablet ? 'off' : ''}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
@@ -97,7 +100,6 @@ export class Acordes extends Aux{
                                                 </label>
                                                 <a>Braço</a>
                                         </label>
-
                                     </div>
                             
                                 </div>
