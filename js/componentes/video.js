@@ -125,7 +125,7 @@ export default class VideoObj {
              
         return `
            <div id='videoControl' 
-                    class=' ${aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on':'off'} 
+                    class='${(aux.infoNavegador.mobile && !aux.infoNavegador.tablet) ? 'off':'on'} 
                     gap2 p-2 flexCenter abs' >
                     ${this.botoesControle().map(btn => `
                             <span id='${btn.id}' 

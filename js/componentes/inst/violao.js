@@ -114,9 +114,14 @@ export class Violao {
     }
 
     montaBraco() {
-        document.querySelector('#braco').innerHTML ='';
+        aux.getById('braco').innerHTML ='';
+
+        if(aux.infoNavegador.mobile && aux.infoNavegador.landscape){
+             aux.getById('braco').classList.add('mobile');
+        }
+
         this.nCordas.forEach(ncorda => {
-            document.querySelector('#braco').append(this.braco(ncorda));
+            aux.getById('braco').append(this.braco(ncorda));
         });
     }
 

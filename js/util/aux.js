@@ -136,8 +136,8 @@ export class Aux {
         
         let foneLand = landscape && ismobile;
         
-        this.infoNavegador.desktop = agent.includes('mac os') || agent.includes('windows');
-        this.infoNavegador.tablet = (!ismobile && !this.infoNavegador.desktop) || foneLand;  
+        this.infoNavegador.desktop = !ismobile && (agent.includes('mac os') || agent.includes('windows'));
+        this.infoNavegador.tablet = !ismobile && !this.infoNavegador.desktop;
 
         
     }

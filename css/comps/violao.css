@@ -210,10 +210,23 @@ margin-top: -4svh;
     }
 
     @media(min-width:768px){
-        padding: 0;
+        padding: 10px 0 2px 0 ;
         left:1vw;
         max-width: 100vw;
         overflow-x: scroll;
+    }
+
+    &.mobile{
+        @media (orientation:landscape) {
+            max-width: 67vw !important;
+            overflow-x: scroll;
+            right: 0;
+            height: 120px !important;
+            z-index: 20;
+            position: fixed;
+            overflow-y: hidden;
+            
+        }
     }
     
 }

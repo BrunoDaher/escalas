@@ -16,8 +16,6 @@
         justify-content: normal;
         border-radius: 0 !important;
         filter: var(--filterB);
-
-        
     }
 
 }
@@ -26,6 +24,7 @@
     color: var(--colorB);
     background: var(--fundoD);
 
+    font-size: 2.5vh;
     overflow-y: scroll;
     width: 100%;
 
@@ -34,11 +33,17 @@
 
 
     &.mobile {
-        width: 100% !important;
+        width: 100% ;
         padding: 1vh;
         height: calc(var(--bodyMainHeight) - var(--headerHeight));
         margin-top: 1vh;
-        max-height: calc(var(--bodyMainHeight) - var(--headerHeight)) !important;
+        max-height:44svh;
+
+            @media (orientation:landscape) {
+                 width: 30%;
+                   height: 70vh;
+               max-height:84svh !important; 
+             }
     }
 
     &.tablet {
@@ -48,10 +53,7 @@
          
         max-height: calc(var(--bodyMainHeight) - var(--headerHeight));
 
-        @media (min-height: 800px) {
-            
-          
-        }
+    
     }
 
     &.desktop {
@@ -102,12 +104,12 @@ header {
 main {
     background: linear-gradient(145deg, var(--fundoG), black,var(--fundoA));
     position: relative;
-    min-height: fit-content;
+    
 }
 
 footer {
     position: fixed;
-    height: 80px;
+    height: var(--footerHeight);
     justify-self: center;
     text-align: center; 
     width: 100vw;

@@ -14,6 +14,8 @@ export class Main extends Aux{
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
 
+        console.log(this.infoNavegador)
+
         let css = this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
         
