@@ -160,7 +160,7 @@ margin-top: -4.5svh;
 
     &.on{
 
-        background-color: var(--fundoE) ;
+        background-color: var(--fundoD) ;
         color: white;
         filter: var(--filterB);
         transition: all 0.1s;

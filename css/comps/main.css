@@ -11,8 +11,9 @@
     justify-content: space-between;
     width: auto;
         padding: 1vh;
+    
     @media (max-width: 500px) {
-  
+        padding: 0;
         justify-content: normal;
         border-radius: 0 !important;
         filter: var(--filterB);

@@ -22,9 +22,7 @@
     text-align: center;
 
     &.active, &:hover{
-        border-color: var(--colorC);
-        border-style: solid;
-        border-width: 0 1px 0 1px;
+        background: linear-gradient(190deg, var(--fundoD), var(--fundoC));
         backdrop-filter: contrast(0.8);
     }
 }
