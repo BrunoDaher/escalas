@@ -93,7 +93,7 @@ p {
 .corda > div{
     
     position: relative;
-    padding: 2svh 3svh 10px;
+    padding: 2svh 3svh 5px;
     border-right-color: #a3a7ab;
     width: 0.15em;
     border-right-width: 5px;
@@ -208,7 +208,13 @@ p {
     position: relative;
     max-width: 99vw;
 
+       padding: 1vh 0.5vh;
+
     height: var(--topMainHeight);
+
+    &.on{
+                  z-index: 3;
+    }
   
     @media (max-width: 500px) {
         overflow-x: scroll;
@@ -216,6 +222,7 @@ p {
 
         &.on{
             padding: 1em;
+  
 
         }
     }

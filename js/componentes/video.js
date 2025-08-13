@@ -33,9 +33,9 @@ export default class VideoObj {
         
             if(event.detail=='sequencia'){
                 currentSong = null;
-                this.playVideo(null);
+                this.playVideo('seq');
 
-                 this.video.src = `./data/logo.mp4`
+                 //this.video.src = `./data/logo.mp4`
             }
             else{
                 if(currentSong){
@@ -154,6 +154,8 @@ export default class VideoObj {
 
     async playVideo(song){
 
+
+        console.log(song)
         let currentVideo = document.getElementById('currentVideo');
         
         if(currentVideo && song){
@@ -177,7 +179,7 @@ export default class VideoObj {
             
         }
         else{
-            alert(error)
+            console.log(currentVideo, song)
         }
 
 

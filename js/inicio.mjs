@@ -57,15 +57,15 @@ const main = new Main();
     arquivos.renderAll();
     metronomo.init();  
     dragula.init();
-
-    console.log(navigator)
     
-    //if(!aux.infoNavegador.desktop){
-        //inicia na aba arquivos
         main.renderFooter()
-         aux.getById('arquivos').click();
-    //}
+      
+      aux.getById('arquivos').click();
 
+      
+      
+      
+      
     
  };    
 

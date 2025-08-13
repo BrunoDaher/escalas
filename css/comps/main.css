@@ -39,6 +39,11 @@ footer {
  display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (orientation: landscape) {
+    justify-content:flex-start
+  }
+
   text-align: center;
   background-color: var(--fundoE);
   padding: 1rem 0;

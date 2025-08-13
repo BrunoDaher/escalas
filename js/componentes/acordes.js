@@ -27,9 +27,6 @@ export class Acordes extends Aux{
                this.drag = new Dragula();
                 this.dao = new Dao();
                 this.tocador = new Tocador();
-
-            
-
     }
 
     controles(){
