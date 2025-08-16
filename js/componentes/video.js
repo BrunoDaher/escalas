@@ -122,9 +122,9 @@ export default class VideoObj {
 
         let controls = aux.infoNavegador.desktop ? 'controls' : '';
 
-        let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet ? 'on':'off'
+        let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet;
 
-        console.log(showVideo)
+        console.log(css)
         
              
         return `
@@ -141,7 +141,7 @@ export default class VideoObj {
                      }                
                 </div>
                
-             <div id='video' class='${showVideo} ${css}' >
+             <div id='video' class='${css} on' >
               
                     <video class='video ${css}' id='currentVideo' ; 
                             ${controls}
