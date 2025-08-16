@@ -127,7 +127,7 @@ export default class VideoObj {
            <div id='videoControl' 
                     class='${(aux.infoNavegador.mobile && !aux.infoNavegador.tablet) ? 'off':'on'} 
                     gap2 p-2 flexCenter abs' >
-                    ${this.botoesControle().map(btn => `
+                         ${this.botoesControle().map(btn => `
                             <span id='${btn.id}' 
                                 title='${btn.desc}'
                                 class='vControl f2em btn bi rel 
@@ -155,7 +155,7 @@ export default class VideoObj {
     async playVideo(song){
 
 
-        console.log(song)
+    
         let currentVideo = document.getElementById('currentVideo');
         
         if(currentVideo && song){

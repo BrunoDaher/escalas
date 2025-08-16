@@ -47,7 +47,11 @@
             @media (orientation: portrait) {
                 left: -1px;
                             position: absolute;
-            z-index: 20;
+
+                            &.on{
+                                z-index: 12;
+                            }
+            
             }
 
             @media (orientation: landscape) {
