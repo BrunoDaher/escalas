@@ -7,7 +7,7 @@
     backdrop-filter: brightness(0.2) blur(1px);
     
     & > section {
-        z-index: 11;
+        z-index: 7;
         filter: drop-shadow(2px 4px 6px black);
         margin: 2em;
         position: absolute;

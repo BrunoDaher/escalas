@@ -262,11 +262,6 @@ export class Metronomo{
             btn.onclick =  this.onFiguraBtnClick
         );
 
-        this.toggleBtn.onchange =  this.onToggleChange;
-
-        this.knobs.forEach((knob, idx) =>
-            knob.addEventListener('wheel', e => this.onKnobWheel(idx, e))
-        );
     }
 }
 

@@ -126,6 +126,7 @@ export class Violao {
     }
 
     braco(ncorda) {
+        
         let corda = document.createElement('div');
         corda.classList.add('corda');
         corda.id = ncorda;
@@ -159,15 +160,19 @@ export class Violao {
                     btn.classList.toggle('off');
                 }
                 dao.toggleArray(this.slotId,cel.id);
-            };
+            }; 
             btn.classList.add('nota');
-            if(ncorda != 'borda' || casa >1){
+
+            
+
+            if(casa >0){
                 cel.append(btn);
             }
             if(casa==1){
                 cel.classList.add('capo');
                 btn.classList.add('cordaSolta');
             }
+        
             corda.append(cel);
             casa++;
         });
@@ -182,11 +187,16 @@ export class Violao {
         for (let x = 1; x < _notas.length; x++) {
             let tom = _notas[pos];
             if(corda!='borda'){
-                escala[tom + curFreq] = {'freq':curFreq,corda:corda, tom:tom, casa:x};
+                escala[tom + curFreq.toFixed(2)] = {'freq':curFreq,corda:corda, tom:tom, casa:x};
+            }
+            else{
+                escala['mTop' + x] = ({'freq':0,corda:corda, tom:'', casa:x})
             }
             pos = pos + 1 == 24 ? 0: pos + 1;
             curFreq = (curFreq * this.constante);
         }
+
+       // console.log(escala)
         return escala;
     }
 

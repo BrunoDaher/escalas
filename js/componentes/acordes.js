@@ -258,12 +258,13 @@ export class Acordes extends Aux{
                     //logica reversa
                     let showVideo = !btnVideo.checked?true:false;
                     let idPainel = btnVideo.getAttribute('target')
-
+                  
                     let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape)
+
 
                     if(showVideo){
                         this.togglePainel(idPainel);
-
+                        
                         if(mobiLand){
                             this.getById('braco').classList.remove('off');
                         }

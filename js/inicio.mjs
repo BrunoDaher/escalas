@@ -61,11 +61,5 @@ const main = new Main();
         main.renderFooter()
       
       aux.getById('arquivos').click();
-
-      
-      
-      
-      
-    
  };    
 

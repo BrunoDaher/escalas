@@ -9,7 +9,7 @@
 
 #borda{
     border-top-left-radius: 4px;
-    border-top-color:rgb(252, 230, 134);
+    border-top-color:rgb(62, 52, 8);
 }
 
 #borda > div{
@@ -41,6 +41,11 @@
 #E > div{
     border-bottom-color:#795548;
     padding-bottom: 0px;
+
+    
+
+
+
 }
 
 #E{
@@ -65,6 +70,8 @@
     border-top-width: 1px;
     
     border-top-color: aliceblue;
+
+     
 }
 
 
@@ -75,13 +82,13 @@ p {
   
   .cordaSolta{    
     background:none !important;
-    font-size: 10px;
+    
     text-align: center;
     border: none;    
     margin-left: -3vh !important;
     border-radius: 0px !important;
     background: none;
-    font-size: 16px !important;
+    font-size: 1svh;
     padding: 6px;
     font-weight: bold;
     color:#c59206 !important;
@@ -93,7 +100,7 @@ p {
 .corda > div{
     
     position: relative;
-    padding: 2svh 3svh 5px;
+    padding: 1.8svh 3svh;
     border-right-color: #a3a7ab;
     width: 0.15em;
     border-right-width: 5px;
@@ -104,18 +111,22 @@ p {
         border-right-width: 3px;
         
     }
-}
+    
+    &.capo{
+        border-width: 1px;
+        border-color: var(--fundoD);
+        
+
+    }
 
 
-.corda > div.capo{
-    border: none !important;
 }
 
 .capo{
 
-    padding-left: 2px !important;
-    width: 1px !important;
-    background-color: rgb(252, 230, 134) !important;
+    padding-left: 6px !important;
+    
+    background-color: rgb(0, 0, 0) !important;
 }
 
 .capo > .nota{
@@ -123,11 +134,27 @@ p {
         margin-top: -24px;
 */
     margin-left:  -1.4svh !important;
-    margin-top: -4svh;
+    margin-top: -4.5svh;
+    color: var(--fundoA) !important;
+
+    font-size: 2.5svh;
 
     @media (max-width:500px) {
-        margin-top: -4.5svh;
+               margin-top: -4.5svh;
+        
     }
+
+        @media (orientation: landscape) and (max-width:500px) {
+           
+                margin-top: -5.5svh;
+                
+            
+            margin-inline-start: 1svh;
+
+    
+    }
+
+
 
  
      
@@ -153,7 +180,7 @@ p {
     
     margin-top: -3.4svh;
     margin-left: -1.2svh;
-    width: 3.7svh;
+    
     background-color: #6d5858;
     position: absolute;
     color: wheat;
@@ -208,22 +235,22 @@ p {
     position: relative;
     max-width: 99vw;
 
-       padding: 1vh 0.5vh;
+    padding: 1vh 0.5vh;
 
     height: var(--topMainHeight);
 
     &.on{
-                  z-index: 3;
+            z-index: 3;
     }
   
     @media (max-width: 500px) {
         overflow-x: scroll;
         overflow-y: hidden;
 
-        &.on{
-            padding: 1em;
-  
+        height: unset;
 
+        &.on{
+            padding: 1svh;
         }
     }
 
