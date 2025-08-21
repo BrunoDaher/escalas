@@ -78,7 +78,7 @@
 
         @media (orientation: landscape) {
             
-            bottom: calc(var(--footerHeight) + 1vh);
+            bottom: calc(var(--footerHeight) + 3vh);
             width:69vw;
             left: 29%;
             padding-top: 5px;
@@ -93,7 +93,7 @@
         /*note 13*/
         & > video{
             width:100%;
-            height: 53vh;
+            height: 50vh;
             z-index: 20;
  
             left: 0;
@@ -105,24 +105,7 @@
         }
     }
 
-    &.desktop{
-        width: 45svh;
-        right: 0;
-        position: fixed;
-        top: 86px;
-        right: 0;
-
-        & > video{
-            width: 100%;
-            z-index: 20;
-            left: 0;
-            right: 0;
-            border-radius: 5px;
-            background-color: var(--fundoD);
-            padding: 1px;
-            object-fit: cover;  
-        }
-    }
+   
  
     &.landscape{
         top: calc(18vh) !important;

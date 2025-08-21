@@ -36,21 +36,27 @@ header {
 }
 
 footer {
- display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
 
-  @media (orientation: landscape) {
-    justify-content:flex-start
-  }
+    justify-content: center;
 
-  text-align: center;
+    text-align: center;
   background-color: var(--fundoE);
   padding: 1rem 0;
+
+  @media (orientation: landscape) {
+      justify-content: flex-start;
+  }  
+  
+
+  
+
+  
 }
 
 #navegacao {
     display: flex;
-    justify-content: space-between;
+    
     padding: 0 2svh;
 }
