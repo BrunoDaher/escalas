@@ -61,7 +61,7 @@
             }
 
             & > .video{
-                height: calc(var(--topMainHeight) + 2em);
+                height: calc(var(--topMainHeight) + 1em);
                 width:100vw;
             
                 object-fit:cover; 

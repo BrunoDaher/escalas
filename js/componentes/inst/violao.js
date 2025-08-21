@@ -91,8 +91,8 @@ export class Violao {
 
         aux.getById('labelNomeSlot').innerText = btn.name;
         
-        this.arrayRemoveClass(slots,'recOn');
-        btn.classList.add('recOn');
+        this.arrayRemoveClass(slots,'on');
+        btn.classList.add('on');
 
         if (this.isStored(btn.id)){
             this.reset();
@@ -133,7 +133,7 @@ export class Violao {
         let oitavas = this.getOitava(ncorda);
         let casa = 1;
         let marcas = [3,5,7,9,15,17,19];
-        let dupla = ['13:A','13:B'];
+        let dupla = ['13:A','13:e'];
         if(this.modus=='bass'){
             dupla = ['13:A','13:G'];
         }
@@ -151,6 +151,7 @@ export class Violao {
             if(dupla.includes(cel.id)){
                 cel.classList.add('marca');
             }
+
             btn.id = oitava.freq.toFixed(2);
             btn.append(oitava.tom);
             btn.onclick = () => {
@@ -161,11 +162,16 @@ export class Violao {
                 }
                 dao.toggleArray(this.slotId,cel.id);
             }; 
+
+            console.log(ncorda)
+            //if(btn.id.contains('borda')){
             btn.classList.add('nota');
+            //}
+
 
             
 
-            if(casa >0){
+            if(casa >0 && ncorda!=='borda'){
                 cel.append(btn);
             }
             if(casa==1){

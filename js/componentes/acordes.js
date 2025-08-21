@@ -378,7 +378,6 @@ export class Acordes extends Aux{
                 
             if(!editavel){
                 botao.contentEditable = false;
-                
                 botao.classList.remove('edit')
             }
 
@@ -480,16 +479,22 @@ export class Acordes extends Aux{
             let btn = mem.lastElementChild;
             btn.value = btnLabel;
 
+            console.log(btn)
+
             // Evento de clique para executar acorde
             btn.addEventListener('click', (btn)=>{
                 // Check if video button is checked and click it if true
-            let video = this.getById('video');
-            
-            if (video && !video.classList.contains('off')) {
-                //btnVideo.click();
-            }                                
-                this.slotId = id;
-                this.violao.getChord(btn);
+             let video = this.getById('video');
+
+                
+                console.log(btn.target)
+
+                
+                if (video && !video.classList.contains('off')) {
+                    //btnVideo.click();
+                }                                
+                    this.slotId = id;
+                    this.violao.getChord(btn);
             });
 
             // Evento de alteração para salvar nome do acorde
@@ -607,7 +612,6 @@ export class Acordes extends Aux{
                                 velo: 0,
                                 seq: chave
                             });
-
                    
                        div.innerHTML += btn;
                     }); 
@@ -621,9 +625,14 @@ export class Acordes extends Aux{
             //trigger q atribui evendo de click ao idOriginal 
             // de cada botao clonado durante o drag and drop
 
-           let btns = document.querySelectorAll('.shortcut');
+           let btns = this.getAllClass('shortcut');
                 btns.forEach(btn => {
                 btn.onclick = (e) => {
+
+
+                    this.arrayRemoveClass(btns,'on');
+                    btn.classList.add('on')
+
                    let id = this.getById(btn.getAttribute('slot'));
                    id.click();
                 };

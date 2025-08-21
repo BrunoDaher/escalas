@@ -14,17 +14,15 @@
 }
 
 .item {
-    
-  font-size: 2vh; 
-  width: 3em;
-  height: 2em;
+  
+  padding: 1vh;
   align-content: center;
   text-align: center;
   background: var(--fundoC);
   color: white;
   cursor: pointer;
 
-  &:hover{
+   &.active{
     background-color: var(--fundoA);
   }
 

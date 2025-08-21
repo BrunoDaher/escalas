@@ -251,7 +251,7 @@ export class Arquivos {
         //jogar pro dao
         sessionStorage.clear();
         const elem = document.getElementById('arquivo');
-              elem.innerText = 'newSong';
+              elem.innerText = 'arquivo';
         this.favBuild(elem.innerText)
         const salvos = document.getElementById('salvos');
               salvos.append(elem)

@@ -10,9 +10,10 @@
 
 .recOn {
     background-color: var(--fundoA) !important;
+        
     color:  white;
     transition: all 0.3s;
-    filter: var(--filterB);
+   
 }
     
 .bgClean{
@@ -138,3 +139,7 @@ input[type="color"] {
     background: rgb(0, 255, 0);
 }
 /*violao*/
+
+.espelho{
+        transform: rotateX(180deg);
+}

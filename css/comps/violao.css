@@ -1,7 +1,7 @@
 
 .marca{
     background-image: url("./marca.png");
-    background-size: 40px;
+    background-size: 4svh;
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
@@ -42,10 +42,6 @@
     border-bottom-color:#795548;
     padding-bottom: 0px;
 
-    
-
-
-
 }
 
 #E{
@@ -80,29 +76,28 @@ p {
     text-align: center;
   }
   
-  .cordaSolta{    
+  button.cordaSolta{    
     background:none !important;
-    
-    text-align: center;
-    border: none;    
-    margin-left: -3vh !important;
-    border-radius: 0px !important;
-    background: none;
     font-size: 1svh;
     padding: 6px;
     font-weight: bold;
-    color:#c59206 !important;
-    text-shadow: 2px 2px 2px #463402;
     transition: all 0.3s;
+
+    &.on, &:hover{
+        color:#ffffff !important;
+        text-shadow: 2px 2px 2px #cca13c;
+        transition: all 0.3s;
+    }
+
 }
 
 
 .corda > div{
     
     position: relative;
-    padding: 1.8svh 3svh;
+    padding: 1.4svh 3svh;
     border-right-color: #a3a7ab;
-    width: 0.15em;
+    
     border-right-width: 5px;
     border-right-style: ridge;         
     
@@ -116,6 +111,7 @@ p {
         border-width: 1px;
         border-color: var(--fundoD);
         
+        
 
     }
 
@@ -125,47 +121,37 @@ p {
 .capo{
 
     padding-left: 6px !important;
-    
-    background-color: rgb(0, 0, 0) !important;
+    background-color: wheat !important;
 }
 
 .capo > .nota{
-    /*corrigindo offset
-        margin-top: -24px;
-*/
-    margin-left:  -1.4svh !important;
-    margin-top: -4.5svh;
-    color: var(--fundoA) !important;
+        /*corrigindo offset
+            margin-top: -24px;
+    */
+        margin-left:  -1.4svh !important;
+        margin-top: -3.5svh;
+        color: var(--fundoC) !important;
 
-    font-size: 2.5svh;
+        font-size: 2.5svh;
 
-    @media (max-width:500px) {
-               margin-top: -4.5svh;
-        
-    }
-
-        @media (orientation: landscape) and (max-width:500px) {
-           
-                margin-top: -5.5svh;
-                
+        @media (max-width:500px) {
+                margin-top: -4.5svh;
             
-            margin-inline-start: 1svh;
+        }
 
-    
-    }
+            @media (orientation: landscape) and (max-width:500px) {
+            
+                    margin-top: -5.5svh;
+                margin-inline-start: 1svh;
 
-
-
- 
+        
+        }
      
 
 }
 
-.cordaSolta:hover{
-    background-color: transparent !important;
-    text-shadow: 2px 2px 2px #cca13c;
-    transition: all 0.3s;
-    
+#borda > div > button{
+    background-color: none !important;
 }
 
 /*nota */
@@ -176,14 +162,15 @@ p {
     margin-left: calc(-5px - 0.8rem);
     width: 3em;
     */
-    height: 2svh;
+    height: 2.4svh;
+    width: 4svh;
+    margin-top: -2.6svh;
+    margin-left: -2.2svh;
     
-    margin-top: -3.4svh;
-    margin-left: -1.2svh;
-    
-    background-color: #6d5858;
+    background-color: var(--fundoC);
     position: absolute;
     color: wheat;
+    
     
     cursor: pointer;
     border-radius: 7px;
@@ -193,7 +180,7 @@ p {
 
     &.on{
 
-        background-color: var(--fundoD) ;
+        background-color: var(--colorC) ;
         color: white;
         filter: var(--filterB);
         transition: all 0.1s;
@@ -211,11 +198,7 @@ p {
 }
 
 
-.cordaSolta.on{
-    color:#ffffff !important;
-    text-shadow: 2px 2px 2px #cca13c;
-    transition: all 0.3s;
-}
+
 
 .corda{
     width: fit-content;
@@ -250,7 +233,7 @@ p {
         height: unset;
 
         &.on{
-            padding: 1svh;
+            padding: 1rem;
         }
     }
 
@@ -266,7 +249,7 @@ p {
             max-width: 65vw !important;
             overflow-x: scroll;
             left: 32%;
-            height: 130px !important;
+           height: calc(var(--topMainHeight) + 1em);
             z-index: 20;
             position: fixed;
             overflow-y: hidden;
@@ -289,6 +272,7 @@ p {
 
 .braco , .corda > div{
     background-color: var(--fundoG);                        
+    
 }
    
 
