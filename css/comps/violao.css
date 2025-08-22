@@ -230,7 +230,7 @@ p {
         overflow-x: scroll;
         overflow-y: hidden;
 
-        height: unset;
+        height: calc(var(--topMainHeight) - 2vh);
 
         &.on{
             padding: 1rem;

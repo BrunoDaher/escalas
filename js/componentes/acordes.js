@@ -12,7 +12,8 @@ export class Acordes extends Aux{
         { id: "intro", label: "Intro", off: true },
         { id: "verso", label: "Verso", off: true },
         { id: "refrao", label: "Refrao", off: true },
-        { id: "ponte", label: "Ponte", off: true }
+        { id: "ponte", label: "Ponte", off: true },
+        { id: "solo", label: "Solo", off: true }
     ];
        
     constructor() {
