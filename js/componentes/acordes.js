@@ -114,7 +114,7 @@ export class Acordes extends Aux{
                         <!-- Áreas das Seções -->
     
                         <div id="div-estrutura" class="bgDark p-1 textStart" 
-                                style="height: 9vh">
+                                style="height: 12vh">
                                 
                                 ${this.renderEstruturaAreas()}
                         </div>
@@ -169,7 +169,7 @@ export class Acordes extends Aux{
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex p-1 itemCenter gap2">
                             <i class="bi bi-clock colorB flex"> Velô</i>  
-                            <input type="range" id="velo" max="300" value="10" class="w-100 comp" step="10"/> 
+                            <input type="range" id="velo" max="800" value="10" class="w-100 comp" step="10"/> 
                         </label>
                         
                           ${this.renderEditMode()}
@@ -538,7 +538,7 @@ export class Acordes extends Aux{
             this.loadEstrutura();
         }
         else{
-            cosole.log('sem dados ')
+            console.log('sem dados ')
         }
     }
   

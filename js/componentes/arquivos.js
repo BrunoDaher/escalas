@@ -145,22 +145,27 @@ export class Arquivos {
 
             cloudLoadBtn.addEventListener('click', async () => {
                     let cloudFiles = await this.dao.cloudSync();
-                
+                    
                     if(cloudFiles){
 
-                        localStorage.clear();
+                         localStorage.clear();
+                         this.dao.refreshBlob();
+
+                           cloudFiles.forEach(async song => {
+                                let songName = song.replace('.json','');
+                                let json = await this.dao.getFile(song);
+                                    this.dao.setLocalDataJSON('vg_' + songName, json);
+                             });
 
                         document.getElementById('salvos').innerHTML = '';
-                        cloudFiles.forEach(async song => {
-                            let songName = song.replace('.json','');
-                            let json = await this.dao.getFile(song);
-                            this.dao.setLocalDataJSON('vg_' + songName, json);
-                            this.favBuild(songName);
-                            this.triggersFav();
-                    });
-                   
+                            cloudFiles.forEach( song => {
+                                let songName = song.replace('.json','');
+                                this.favBuild(songName);
+                                this.triggersFav();
+                        });
                     
-                }
+                    }
+
            })
         }   
 
@@ -271,6 +276,7 @@ export class Arquivos {
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
+         str = str.sort();
          //criar o arquivo 
          str.forEach(mus => {
                 this.favBuild(mus);

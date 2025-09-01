@@ -34,8 +34,8 @@ async getFile(song) {
 async cloudSync() {
   // Download the file from Supabase storage
   const { data, error } = await this.client.storage.from('virtuaguitar').list('chords/');
-  return data? data.map((file) => file.name) : []
   
+  return data? data.map((file) => file.name).sort() : []  
 }
 
  

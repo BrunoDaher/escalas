@@ -116,4 +116,22 @@ export class Persiste {
       request.onerror = () => reject(request.error)
     })
   }
+
+    async resetBlob() {
+    return new Promise((resolve, reject) => {
+      const tx = this.db.transaction(this.storeName, 'readwrite')
+      const store = tx.objectStore(this.storeName)
+      const request = store.clear()
+
+      request.onsuccess = () => {
+        console.log("[resetBlob] Store limpa com sucesso")
+        resolve(true)
+      }
+
+      request.onerror = (event) => {
+        console.error("[resetBlob] Erro ao limpar store:", event.target.error)
+        reject(event.target.error)
+      }
+    })
+  }   
 }

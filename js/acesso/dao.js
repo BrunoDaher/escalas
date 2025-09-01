@@ -7,6 +7,10 @@ export class Dao {
   }
 
 
+  refreshBlob(){
+    this.persiste.resetBlob();
+  }
+
   storageReadByTag(tag) {
 
     let obj = [];
