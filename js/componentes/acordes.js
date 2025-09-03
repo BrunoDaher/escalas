@@ -11,8 +11,8 @@ export class Acordes extends Aux{
         { id: "seq", label: "Sequencia", off: false },
         { id: "intro", label: "Intro", off: true },
         { id: "verso", label: "Verso", off: true },
-        { id: "refrao", label: "Refrao", off: true },
         { id: "ponte", label: "Ponte", off: true },
+        { id: "refrao", label: "Refrao", off: true },
         { id: "solo", label: "Solo", off: true }
     ];
        
@@ -64,7 +64,7 @@ export class Acordes extends Aux{
             s => `
             <div class="sectionPanel${s.off ? " off" : ""}" id="div-${s.id}">
                 <div id="${s.id}" class="p-1 gap1 flexWrap dragContainer" 
-                    style="line-height: normal;max-height: 6vh;">
+                    style="line-height: normal;max-height: 9vh;">
                 </div>  
             </div>`
         ).join('');

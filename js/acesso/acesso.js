@@ -11,7 +11,7 @@ export class Acesso {
     constructor() {
         this.fire = new Fire();
         this.persiste = new Persiste();
-
+        
     }
 
     async authFireSupa(){
@@ -39,6 +39,8 @@ export class Acesso {
         }
   }
 
+
+  
     async userOn() {
         const isLogged = await this.fire.estaLogado();
       

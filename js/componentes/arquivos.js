@@ -1,16 +1,18 @@
 import { Dao } from  '../acesso/dao.js'
 
-
 export class Arquivos {
 
-    constructor(acordes) {
+    constructor(acordes, role) {
         this.dao = new Dao();
         this.acordes = acordes;
         this.containerId ='painelFiles';
+        this.role = role;
         
     }
 
     renderPainelFiles() {
+
+        let controlesShow = this.role == 'adm' ? '':'off';
         return `
     
             <div class="comp p-1 flex justContBetween textStart ">
@@ -18,7 +20,7 @@ export class Arquivos {
                     <i class="bi bi-list"></i>
                     <label class="">Lista </label>
                 </div>
-                <span class="bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
+                <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
                 
             </div>
 
@@ -41,26 +43,35 @@ export class Arquivos {
 
     renderDaoBtns(){
 
+        
+        let controlesShow = this.role == 'adm' ? '':'off';
+
         return `
         <div  id="daoBtns" class=" justCenter gap2 p-1 flex ">
                 <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
                     <i class='bi-cloud-download'></i>
                     <a>Atualizar</a>
                 </div>
-                <div class="grid rad1 btn1 f2vh" id="export">
-                    <i class=' bi-arrow-down'></i>
-                    <a>Exportar</a>
+
+                <div class='${controlesShow} flex'>
+                    <div class="grid rad1 btn1 f2vh" id="export">
+                        <i class=' bi-arrow-down'></i>
+                        <a>Exportar</a>
+                    </div>
+                    <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
+                        <i class=' bi-arrow-up '></i>
+                        <a>Importar</a>
+                    </div>
                 </div>
-                <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
-                    <i class=' bi-arrow-up '></i>
-                    <a>Importar</a>
-                </div>
+
             </div>
         `
     }
 
-    renderAll() {
+    renderAll(role) {
 
+
+        this.role = role;
         //iniciando supabase
         this.dao.startSupa();
 
@@ -229,7 +240,11 @@ export class Arquivos {
     }
 
     favBuild(nome){
-      
+        
+        
+ 
+        let controlesShow = this.role == 'adm' ? '':'off';
+        
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
@@ -239,9 +254,10 @@ export class Arquivos {
                 <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterD' >
             </div>
                 <a class="clicaMus"></a>
-                <div class="flex off">
-                    <span data-target='vg_${nome}' role="button" class="btn2 bi-eraser-fill colorE"></span>
-                    <span data-target='vg_${nome}' role="button" class="btn2 bi-pencil colorE"></span>
+                <div class="flex ${controlesShow}">
+                    <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
+                    <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
+                    <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
                 </div>
             </div>
         `;

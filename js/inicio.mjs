@@ -13,36 +13,35 @@ import { Main } from './componentes/main.js'
 
              
 const acordes = new Acordes();
-const arquivos = new Arquivos(acordes);
+
 const dragula = new Dragula();
 const opcoes = new Opcoes();
 const acesso = new Acesso();
+
+let role = await acesso.getFire().getRole();
+
+const arquivos = new Arquivos(acordes, role);
 const msg = new Messenger();
 const metronomo = new Metronomo();
 const aux = new Aux();
 const main = new Main();
 
-      let user = await acesso.userOn();
 
-      if(!user){
-        acesso.showSignIn();
-      }
-      else{
-        acesso.showUser();
-      }
+  init();
       
-      init();
-   
  function init() {
 
-      acesso.fire.auth.onAuthStateChanged((user) => {
+      acesso.fire.auth.onAuthStateChanged(async (user) => {
           if (user) {
+             role = await acesso.getFire().getRole();
               acesso.showUser();
               main.build();
               triggers();
              
           } else {
+              
               aux.getById('main')?.remove();           
+              acesso.showSignIn();
           }
       });
  }
@@ -54,7 +53,7 @@ const main = new Main();
     msg.renderMessenger();  
     opcoes.init();
     acordes.renderAll();
-    arquivos.renderAll();
+    arquivos.renderAll(role);
     metronomo.init();  
     dragula.init();
     

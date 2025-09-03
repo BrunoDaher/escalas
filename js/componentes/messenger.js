@@ -143,7 +143,9 @@ export class Messenger extends Aux{
                                 //aqui cria-se os contatos
                             });
                             this.updateContatos();
-                            this.firebase.setRole('adm'); // Preservando contexto
+
+                            //classifica como adm se ele enxerga contatos
+                           // this.firebase.setRole('adm'); // Preservando contexto
                         }
                     });
                 } else {
@@ -175,7 +177,7 @@ export class Messenger extends Aux{
 
                     if (mensagensFiltradas) {
 
-                        console.log(this.destinatario)
+                        console.log('destino das msgs: ',this.destinatario)
                         
                         Object.entries(mensagensFiltradas).forEach(([key, mensagem]) => {
 

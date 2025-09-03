@@ -21,7 +21,8 @@ export class Fire {
     }
     this.auth = firebase.auth();
     this.database = firebase.database();
-    this.role = 'user';
+    
+    
   }
 
 
@@ -29,9 +30,16 @@ export class Fire {
     return firebaseConfig;
   }
 
-  getRole(){
+  async getRole(){
+    
+    
+    await this.verificaAcesso();
+    
+    console.log(this.role)
     return this.role;
   }
+
+  
 
   getIdToken(){
     return this.auth.currentUser.getIdToken();
@@ -42,7 +50,7 @@ export class Fire {
 
     setTimeout(()=>{
       this.role = _role;
-    },500)
+    },300)
     
   }
 
@@ -77,28 +85,29 @@ export class Fire {
   }
 
   async verificaAcesso() {
-    const user = this.auth.currentUser;
-
-    if (!user) {
-      console.error("Usuário não autenticado.");
-      return false;
-    }
 
     try {
       const contatosRef = this.getRef('contatos');
       const snapshot = await contatosRef.get();
 
       if (snapshot.exists()) {
-        //cosole.log("Usuário tem acesso à tabela contatos.");
-        return true;
-      } else {
-        //cosole.log("Tabela contatos está vazia ou não há dados disponíveis.");
-        return true;
+        console.log("Usuário tem acesso à tabela contatos.")
+        
+        this.role = 'adm';
+        return true
       }
-    } catch (msg) {
-      //cosole.log('sem permissao de acesso');
-      return false;
+      
+    } catch (error) {
+
+      this.role = 'user';
+      
+      console.log("Sem acesso a contatos");
+      return false
     }
+    
+      
+     
+    
   }
 
  async estaLogado() {
