@@ -163,7 +163,7 @@ export class Violao {
                 dao.toggleArray(this.slotId,cel.id);
             }; 
 
-            console.log(ncorda)
+            //console.log(ncorda)
             //if(btn.id.contains('borda')){
             btn.classList.add('nota');
             //}
@@ -230,7 +230,7 @@ export class Violao {
 
     chordEdit(btn) {
 
-        console.log('editando acorde')
+        //console.log('editando acorde')
         btn.classList.toggle('on');
         this.chordEditStatus = !this.chordEditStatus;
     }

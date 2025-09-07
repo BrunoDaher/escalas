@@ -483,8 +483,6 @@ export class Acordes extends Aux{
             let btn = mem.lastElementChild;
             btn.value = btnLabel;
 
-            console.log(btn)
-
             // Evento de clique para executar acorde
             btn.addEventListener('click', (btn)=>{
                 // Check if video button is checked and click it if true
