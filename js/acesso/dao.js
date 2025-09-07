@@ -165,6 +165,8 @@ export class Dao {
   }
 
   setDataJSON(id, data) {
+
+    console.log(id, data)
     sessionStorage.setItem(id, JSON.stringify(data));
 
      this.salvaLocal();

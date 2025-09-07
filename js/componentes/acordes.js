@@ -355,8 +355,11 @@ export class Acordes extends Aux{
 
         let velo = this.dao.getDataJSON('velo');
         console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
+
+        
         let obj = velo ? velo : [];
-            obj[this.slotId] = btn.value;
+            obj[this.violao.slotId] = btn.value;
+
         this.dao.setDataJSON('velo', obj);
        
     }

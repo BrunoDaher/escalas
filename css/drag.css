@@ -26,11 +26,13 @@
     background-color: var(--fundoA);
   }
 
-}
-.voando {
-  background-color: var(--colorE) !important;
+  &.voando {
+  background-color: var(--colorA) !important;
   animation: bgPulse 0.2s infinite alternate;
 }
+
+}
+
 
 @keyframes bgPulse {
   0% {
@@ -42,5 +44,5 @@
 }
 
 .gu-transit, .voando{
-  background-color: var(--fundoC) !important;
+  background-color: var(--fundoA) !important;
 }
