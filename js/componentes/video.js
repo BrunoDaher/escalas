@@ -25,11 +25,13 @@ export default class VideoObj {
 
     triggers(){
 
-        console.log('video triggers')
+        
 
         document.addEventListener('video-play', (event) => {
 
             let currentSong = sessionStorage.getItem('currentSong');
+
+
         
             if(event.detail=='sequencia'){
                 currentSong = null;
@@ -124,12 +126,11 @@ export default class VideoObj {
 
         let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet;
 
-        console.log(css)
-        
+     
              
         return `
            <div id='videoControl' 
-                    class='${(aux.infoNavegador.mobile && !aux.infoNavegador.tablet) ? 'off':'on'} 
+                    class='${showVideo ? 'off':'on'} 
                     gap2 p-2 flexCenter abs' >
                          ${this.botoesControle().map(btn => `
                             <span id='${btn.id}' 
@@ -141,6 +142,12 @@ export default class VideoObj {
                      }                
                 </div>
                
+            <div class='flex itemCenter' id='currentLabel'>
+              <img src='https://brunodaher.github.io/escalas/img/alb.png' class='mini  filterD' >
+                <a id="currentLabelText" class="f2vh colorA"> </a>
+               
+            </div>
+
              <div id='video' class='${css} on' >
               
                     <video class='video ${css}' id='currentVideo' ; 
@@ -159,6 +166,7 @@ export default class VideoObj {
     async playVideo(song){
 
 
+        
     
         let currentVideo = document.getElementById('currentVideo');
         

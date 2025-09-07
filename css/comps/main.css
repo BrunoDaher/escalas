@@ -45,8 +45,10 @@ footer {
   background-color: var(--fundoE);
   padding: 1rem 0;
 
+
   @media (orientation: landscape) {
       justify-content: flex-start;
+      width: 29%;
   }  
   
 

@@ -203,6 +203,9 @@ export class Arquivos {
                 item.addEventListener('click', ()=>{
 
                     console.log(item)
+
+                    document.getElementById('currentLabelText').innerText = item.innerText
+
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
