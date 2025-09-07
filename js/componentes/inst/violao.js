@@ -45,6 +45,16 @@ export class Violao {
          document.addEventListener('clean-request', (event) => {
            let btn = event.detail;
            this.cleanMode(btn);
+
+           //ermover classes dos botoes, ativar ou desativar
+           let clr = document.querySelectorAll('.cleanReq');
+           
+           clr.forEach(btn => {
+        
+              this.cleanMode(btn);
+           });
+
+
         });
     }
     
@@ -207,7 +217,10 @@ export class Violao {
     }
 
     cleanMode(btn) {
-        btn.classList.toggle('active');
+    //    btn.classList.toggle('active');
+        
+        btn.checked = !btn.checked;
+
         let notas = document.querySelectorAll('.nota');
         if(!this.isCleanMode) {
            aux.arrayRemoveClass(notas,'off');

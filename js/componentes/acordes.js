@@ -84,7 +84,7 @@ export class Acordes extends Aux{
                         <input hidden id="dataLoad" type="file"/>
                         <div class="">
                         
-                            <div class='flex justContStart gap1 comp filterC  p-1'> 
+                            <div class='flex justContBetween gap1 comp filterC  p-1'> 
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
@@ -98,6 +98,14 @@ export class Acordes extends Aux{
                                                 </label>
                                                 <a>Braço</a>
                                         </label>
+                                    </div>
+
+                                    <div class='flex itemCenter'>
+                                        <i class='bi bi-music-note'>Notas</i>
+                                        <label class="switch flex itemCenter">
+                                            <input class='active cleanReq' id="cleanMode2" type="checkbox" checked >
+                                            <span class="slider round"></span>
+                                        </label>    
                                     </div>
                             
                                 </div>
@@ -253,6 +261,20 @@ export class Acordes extends Aux{
 
     triggers(){
         //criar label
+
+            const btnCleanMode = document.getElementById('cleanMode2');
+
+
+        
+            btnCleanMode.onclick = ()=>{
+
+                    
+            
+                     const event = new CustomEvent('clean-request', {
+                         detail: btnCleanMode, // Dados para o método clean
+                    });
+                document.dispatchEvent(event);
+            }
         
           const btnVideo = this.getById('btnVideo');
                 btnVideo.onclick = ()=>{

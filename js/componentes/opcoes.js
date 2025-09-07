@@ -42,7 +42,7 @@ export class Opcoes extends Aux{
                     <div class='flex itemCenter'>
                         <i class='bi bi-music-note'>Notas</i>
                         <label class="switch flex itemCenter">
-                            <input class='active' id="cleanMode" type="checkbox" checked >
+                            <input class='active cleanReq' id="cleanMode" type="checkbox" checked >
                             <span class="slider round"></span>
                         </label>    
                     </div>
