@@ -149,7 +149,7 @@ export class Violao {
         }
         Object.values(oitavas).forEach(oitava => {
             let cel = document.createElement('div');
-            let btn = document.createElement('button');
+            let btnTom = document.createElement('button');
             corda.id = ncorda;
             cel.id = casa + ':' + ncorda;
             let stringMarca = this.modus=='bass'?'D':'G';
@@ -162,31 +162,30 @@ export class Violao {
                 cel.classList.add('marca');
             }
 
-            btn.id = oitava.freq.toFixed(2);
-            btn.append(oitava.tom);
-            btn.onclick = () => {
-                this.tocador.playNote(btn.id,'square');
-                btn.classList.toggle('on');
-                if(Object.values(btn.classList).includes('off')){
-                    btn.classList.toggle('off');
+            btnTom.id = oitava.freq.toFixed(2);
+            btnTom.append(oitava.tom);
+            btnTom.onclick = () => {
+                this.tocador.playNote(btnTom.id,'square');
+                btnTom.classList.toggle('on');
+                if(Object.values(btnTom.classList).includes('off')){
+                    btnTom.classList.toggle('off');
                 }
                 dao.toggleArray(this.slotId,cel.id);
             }; 
 
             //console.log(ncorda)
             //if(btn.id.contains('borda')){
-            btn.classList.add('nota');
+            btnTom.classList.add('nota');
             //}
-
 
             
 
             if(casa >0 && ncorda!=='borda'){
-                cel.append(btn);
+                cel.append(btnTom);
             }
             if(casa==1){
                 cel.classList.add('capo');
-                btn.classList.add('cordaSolta');
+                btnTom.classList.add('cordaSolta');
             }
         
             corda.append(cel);
@@ -243,6 +242,7 @@ export class Violao {
 
     chordEdit(btn) {
 
+        console.log(btn)
         //console.log('editando acorde')
         btn.classList.toggle('on');
         this.chordEditStatus = !this.chordEditStatus;

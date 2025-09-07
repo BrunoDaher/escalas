@@ -31,9 +31,9 @@
     align-content: space-between;
 }
 
-#salvos > div:hover, #salvos > div.active {
-    color: var(--fundoA);
-    filter: contrast(1.2) brightness(1.2) hue-rotate(-12deg);
+.clicaMus.active, .clicaMus:hover {
+        color: var(--fundoA);
+    filter: contrast(1.6) brightness(1.2) hue-rotate(-12deg);
     opacity: 1 !important;
 }
 
@@ -41,4 +41,7 @@
 .clicaMus {
     text-transform: capitalize;
     font-family: ui-rounded;
+padding: 1vh;
+   
+
 }

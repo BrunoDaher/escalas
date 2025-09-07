@@ -201,6 +201,8 @@ export class Arquivos {
 
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
+
+                    console.log(item)
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
@@ -248,12 +250,12 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div id="vg_${nome}" class="clicaMus bgDark grid capt p-2 ">
-            <div class='grid'>
+            <div  class=" bgDark grid capt p-2 ">
+            <div id="vg_${nome}" class='grid clicaMus'>
                 <a id="vg_${nome}"class="f2vh">${nome}</a>
                 <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterD' >
             </div>
-                <a class="clicaMus"></a>
+                <a class=""></a>
                 <div class="flex ${controlesShow}">
                     <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
                     <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
