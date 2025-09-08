@@ -3,9 +3,19 @@
 
 #currentLabel{
     position: absolute;
-    z-index: 10;
-    top: 40vh;
-    left: 31%;
+    z-index: 20;
+
+
+    
+    background: var(--fundoE);
+    padding: 1vh;
+    margin: 1vh;
+    border-radius: 1vh;
+     
+
+    @media (orientation:portrait) {
+        z-index: 20;
+    }
 }
 
 
@@ -63,7 +73,7 @@
             }
 
             @media (orientation: landscape) {
-                  height: auto;
+                height: auto;
                 left: 31%;
                 max-width: 66%;
             }
@@ -72,7 +82,7 @@
                 height: calc(var(--topMainHeight) + 1em);
                 width:100vw;
             
-                object-fit:contain; 
+                object-fit:cover; 
 
                 @media(orientation: landscape){
                         height: 100%;
@@ -86,7 +96,7 @@
 
         @media (orientation: landscape) {
             
-            /*bottom: calc(var(--footerHeight) + 3vh);*/
+            bottom: calc(var(--footerHeight) + 3vh);
 
             
             width:69vw;
@@ -103,7 +113,7 @@
         /*note 13*/
         & > video{
             width:100%;
-            height: 85vh;
+            height: 50vh;
             z-index: 20;
             
          
@@ -113,22 +123,12 @@
             background-color: var(--fundoD);
             
              
-            object-fit: cover;
+            object-fit: scale-down;
             
         }
     }
 
    
- 
-    &.landscape{
-        top: calc(18vh) !important;
-        left: 30vw !important;
-        padding: 1vh 0;
-
-        &.video{
-            height: calc(17vh + 5em);
-        }
-    }
        
 }
 

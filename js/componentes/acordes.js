@@ -338,8 +338,10 @@ export class Acordes extends Aux{
              sectionBtns.forEach(btn => {
                 btn.onclick = ()=>{
                         
+                    console.log('clicando na secao')
                         let trecho = btn.innerText.trim().toLowerCase();
 
+                        console.log(trecho)
                         const event = new CustomEvent('video-play', {
                             detail: trecho, // Dados para o método clean
                         });
@@ -348,7 +350,6 @@ export class Acordes extends Aux{
                         let currentSong = sessionStorage.getItem('currentSong')
 
                         if(currentSong){
-                       
                             let id = `vg_${currentSong}`;
                             let btnLista = this.getById(id);
 
@@ -358,17 +359,16 @@ export class Acordes extends Aux{
                             document.dispatchEvent(event);
                          }
                          else{
-                            document.dispatchEvent(event);
+                           // document.dispatchEvent(event);
                          }
                         //funcao aux
                         this.removeAll('section-btn','active')
                             btn.classList.add('active');
-
-                        let tgt = this.getById(btn.getAttribute('data-target'));
+                             let tgt = this.getById(btn.getAttribute('data-target'));
                         
                         this.addAll('sectionPanel','off');
                             tgt.classList.remove('off')
-                }
+                        }
              });
 
     }
@@ -548,10 +548,11 @@ export class Acordes extends Aux{
     }
 
     loadSlot() {
-        //console.log('loadSlot', item.innerText);x
+        
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
+        
         //preenche memoria
         if (dataLabel) {
             Object.entries(dataLabel).forEach(label => {
@@ -596,15 +597,8 @@ export class Acordes extends Aux{
     }
 
     cleanSection(){
-          let sections = [
-            { id: "seq", label: "Sequencia", off: false },
-            { id: "intro", label: "Intro", off: true },
-            { id: "verso", label: "Verso", off: true }, 
-            { id: "refrao", label: "Refrao", off: true },
-            { id: "ponte", label: "Ponte", off: true },
-        ];
         
-        sections.forEach(section => {
+        this.sections.forEach(section => {
             document.getElementById(section.id).innerHTML = '';
         });
         
@@ -612,23 +606,32 @@ export class Acordes extends Aux{
 
     loadEstrutura(){    
 
+        console.log('carregand estrutura')
+
         this.cleanSection();
        // console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
         if(estrutura){
         
+            
             Object.entries(estrutura).forEach(([chave,valor]) => {
 
+ console.log(chave)
+                
                 if(valor.length > 0){
                  
                     let div = this.getById(chave);
 
+                      
                  //   div.innerHTML = ''; // Limpa o conteúdo da div antes de adicionar novos botões
                   
                     if(div){
-                      
+                     
                         valor.forEach(element => {
+
+                            console.log(element)
+                            
                             let btn = this.chordShortcut({
                                 id: chave+element.tone,
                                 idMemoria: element.slot,

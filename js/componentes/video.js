@@ -142,13 +142,15 @@ export default class VideoObj {
                      }                
                 </div>
                
-            <div class='flex itemCenter' id='currentLabel'>
+           
+
+             <div id='video' class='${css} on' >
+
+              <div class='flex itemCenter' id='currentLabel'>
               <img src='https://brunodaher.github.io/escalas/img/alb.png' class='mini  filterD' >
                 <a id="currentLabelText" class="f2vh colorA"> </a>
                
             </div>
-
-             <div id='video' class='${css} on' >
               
                     <video class='video ${css}' id='currentVideo' ; 
                             ${controls}

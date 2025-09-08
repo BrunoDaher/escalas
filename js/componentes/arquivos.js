@@ -202,15 +202,12 @@ export class Arquivos {
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
 
-                    console.log(item)
-
                     document.getElementById('currentLabelText').innerText = item.innerText
 
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
 
-                        console.log(item)
                         //document.getElementById('contexto').innerText = item
                        
                         setTimeout(
