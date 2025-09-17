@@ -35,7 +35,7 @@ export class Fire {
     
     await this.verificaAcesso();
     
-    console.log(this.role)
+    
     return this.role;
   }
 
@@ -66,7 +66,7 @@ export class Fire {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => userCredential.user)
       .catch((error) => {
-        console.error("Erro no login:", error.message);
+       
         throw error;
       });
   }
@@ -91,7 +91,7 @@ export class Fire {
       const snapshot = await contatosRef.get();
 
       if (snapshot.exists()) {
-        console.log("Usuário tem acesso à tabela contatos.")
+       // console.log("Usuário tem acesso à tabela contatos.")
         
         this.role = 'adm';
         return true
@@ -101,7 +101,7 @@ export class Fire {
 
       this.role = 'user';
       
-      console.log("Sem acesso a contatos");
+      //console.log("Sem acesso a contatos");
       return false
     }
     

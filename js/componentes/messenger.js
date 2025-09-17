@@ -177,7 +177,7 @@ export class Messenger extends Aux{
 
                     if (mensagensFiltradas) {
 
-                        console.log('destino das msgs: ',this.destinatario)
+                      //  console.log('destino das msgs: ',this.destinatario)
                         
                         Object.entries(mensagensFiltradas).forEach(([key, mensagem]) => {
 

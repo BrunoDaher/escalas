@@ -9,7 +9,7 @@
     padding: 1vh;
     margin:2vh;
     border-radius: 1vh;
-
+    
      
 
     @media (orientation:portrait) {
@@ -28,11 +28,12 @@
     right: 3vh;
     zoom: 0.7;
     margin: 3vh;
+    display: none;
 
       @media (min-width: 950px) {
-                   bottom: calc(var(--footerHeight) + 10em);
+                   bottom: calc(var(--footerHeight) + 14em);
              right: 3vw;
-                
+                display: block;
         }
 }
 
@@ -95,7 +96,7 @@
 
         @media (orientation: landscape) {
             
-            bottom: calc(var(--footerHeight) );
+            bottom: calc(var(--footerHeight) + 3vh);
 
             
             width:69vw;

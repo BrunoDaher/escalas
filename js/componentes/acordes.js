@@ -632,7 +632,7 @@ export class Acordes extends Aux{
                      
                         valor.forEach(element => {
 
-                            console.log(element)
+                           // console.log(element)
                             
                             let btn = this.chordShortcut({
                                 id: chave+element.tone,

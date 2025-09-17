@@ -82,7 +82,7 @@ export class Arquivos {
             this.triggers()
         }
         else{
-            console.log(22)
+         //  console.log(22)
         }
     }
 
@@ -240,7 +240,7 @@ export class Arquivos {
                 })
             });
 
-            console.log('triggers ')
+
         
     }
 

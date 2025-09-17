@@ -124,12 +124,12 @@ export class Persiste {
       const request = store.clear()
 
       request.onsuccess = () => {
-        console.log("[resetBlob] Store limpa com sucesso")
+       // console.log("[resetBlob] Store limpa com sucesso")
         resolve(true)
       }
 
       request.onerror = (event) => {
-        console.error("[resetBlob] Erro ao limpar store:", event.target.error)
+        //console.error("[resetBlob] Erro ao limpar store:", event.target.error)
         reject(event.target.error)
       }
     })

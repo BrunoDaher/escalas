@@ -5,7 +5,7 @@ export class Tocador {
 
 
     constructor() {
-        console.log('novo contexto')
+      //  console.log('novo contexto')
         this.notas = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#'];
 
         this.timer = null;
