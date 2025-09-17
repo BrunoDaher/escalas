@@ -89,6 +89,8 @@ export class Arquivos {
 
     novoArquivo(){
 
+
+        
         let dataLoad = document.getElementById('dataLoad');
 
         if(dataLoad){
@@ -185,6 +187,7 @@ export class Arquivos {
                 addSongBtn.addEventListener('click', () => {
 
                 this.addSong();
+                this.triggersFav()
                 });
             }
 

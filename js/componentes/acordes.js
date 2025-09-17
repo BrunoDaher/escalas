@@ -441,24 +441,26 @@ export class Acordes extends Aux{
         if (novoNome !== null && novoNome.trim() !== '') {
             console.log('Novo nome:', novoNome);
             // Remove o item antigo do localStorage e sessionStorage
-            const oldId = elemento.id;
+            const oldId = elemTarget;
             const newId = 'vg_' + novoNome.trim();
 
-
+           let oldData = this.dao.getLocalDataJSON(oldId);
             // Remove o antigo
-            localStorage.removeItem(oldId);
+            
             sessionStorage.setItem('currentSong',novoNome.trim());
             //sessionStorage.removeItem(oldId);
 
             // Atualiza o id do elemento
             elemento.id = newId;
-
+      
             // Atualiza o texto e salva com o novo id
 
             let target = (this.getById(elemTarget));
 
             target.innerText = novoNome;
-            this.dao.setLocalDataJSON(novoNome,elemento);
+            this.dao.setLocalDataJSON(newId,oldData);
+
+         
 
         }
         else{

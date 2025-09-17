@@ -5,12 +5,11 @@
     position: absolute;
     z-index: 20;
 
-
-    
     background: var(--fundoE);
     padding: 1vh;
-    margin: 1vh;
+    margin:2vh;
     border-radius: 1vh;
+
      
 
     @media (orientation:portrait) {
@@ -96,7 +95,7 @@
 
         @media (orientation: landscape) {
             
-            bottom: calc(var(--footerHeight) + 3vh);
+            bottom: calc(var(--footerHeight) );
 
             
             width:69vw;
