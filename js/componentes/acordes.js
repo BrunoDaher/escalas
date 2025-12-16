@@ -335,10 +335,20 @@ export class Acordes extends Aux{
              }
 
          let sectionBtns = this.getAllClass('section-btn');    
-             sectionBtns.forEach(btn => {
-                btn.onclick = ()=>{
-                        
-                    console.log('clicando na secao')
+
+
+         sectionBtns.forEach(btn => {
+            btn.addEventListener('click', this.clicaSection.bind(this,btn));
+         });
+
+
+
+    }
+
+    clicaSection(btn){
+        
+        
+            console.log('clicando na secao', btn.id)
                         let trecho = btn.innerText.trim().toLowerCase();
 
                         console.log(trecho)
@@ -368,9 +378,6 @@ export class Acordes extends Aux{
                         
                         this.addAll('sectionPanel','off');
                             tgt.classList.remove('off')
-                        }
-             });
-
     }
 
     setVelo(btn) {
@@ -549,19 +556,24 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
     }
 
-    loadSlot() {
+     loadSlot() {
+
+        console.log('loading slots')
         
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
 
-        
         //preenche memoria
         if (dataLabel) {
             Object.entries(dataLabel).forEach(label => {
                 this.addSlot(label[1], label[0]);
             });
-            //zerar estrutura
-            this.loadEstrutura();
+            
+                this.loadEstrutura();
+                
+                
+                
+
         }
         else{
             console.log('sem dados ')
@@ -606,7 +618,7 @@ export class Acordes extends Aux{
         
     }
 
-    loadEstrutura(){    
+    async loadEstrutura(){    
 
         console.log('carregand estrutura')
 
@@ -619,7 +631,6 @@ export class Acordes extends Aux{
             
             Object.entries(estrutura).forEach(([chave,valor]) => {
 
- console.log(chave)
                 
                 if(valor.length > 0){
                  
@@ -657,7 +668,6 @@ export class Acordes extends Aux{
            let btns = this.getAllClass('shortcut');
                 btns.forEach(btn => {
                 btn.onclick = (e) => {
-
 
                     this.arrayRemoveClass(btns,'on');
                     btn.classList.add('on')

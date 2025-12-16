@@ -98,6 +98,8 @@ export class Dao {
     
     // Set source to trigger preload
     img.src = `img/${imagePath}`;
+
+    console.log('imgSrc')
     
     // Return promise that resolves when image loads
     return new Promise((resolve, reject) => {
