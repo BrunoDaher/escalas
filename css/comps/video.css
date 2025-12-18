@@ -7,7 +7,7 @@
 
     /*background: var(--fundoE);*/
     padding: 1vh;
-    margin:2vh;
+    margin: 0 2vw;
     border-radius: 1vh;
     
      
@@ -32,6 +32,7 @@
 
       @media (min-width: 950px) {
                    bottom: calc(var(--footerHeight) + 14em);
+                   display: grid !important;
              right: 3vw;
                 display: block;
         }
@@ -123,7 +124,7 @@
             background-color: var(--fundoD);
             
              
-            object-fit: scale-down;
+            object-fit: contain
             
         }
     }
