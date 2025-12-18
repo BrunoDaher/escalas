@@ -167,7 +167,7 @@ p {
     */
     height: auto;
     width: 2em;
-    margin-top: -3.6svh;
+    margin-top: -3svh;
     margin-left: -2svh;
     
     background-color: var(--fundoE);
@@ -178,14 +178,14 @@ p {
     cursor: pointer;
     border-radius: 7px;
     border: none;
-    font-size: 2svh;
+    font-size: 1.7svh;
     transition: all 0.05s;
 
     font-family: Math;
 
     &.on{
 
-        background-color: var(--colorE) ;
+        background: linear-gradient(45deg, var(--fundoE), var(--colorA));
         color: white;
         filter: var(--filterB);
         transition: all 0.1s;
@@ -223,7 +223,7 @@ p {
     max-width: 100vw;
     justify-items: start;
     padding: 2vh 6vh;
-    height: calc(var(--topMainHeight) - 2em);
+    height: calc(var(--topMainHeight) - 2);
 
     &.on{
             z-index: 3;

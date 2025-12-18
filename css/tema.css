@@ -58,8 +58,9 @@ label{
 }
 
 ::-webkit-scrollbar {
-    width: 2px;
-    height: 3px;
+    
+        width: 4px;
+    height: 0.3em;
 
     @media screen and (max-width: 500px) {
         width: 2px;
@@ -69,6 +70,8 @@ label{
 
 ::-webkit-scrollbar-thumb {
     background: var(--colorC) !important;
+    cursor:grabbing;
+    border-radius: 10px;
 }
 
 input:focus, button:focus {
