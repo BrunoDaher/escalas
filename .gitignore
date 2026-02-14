@@ -1,0 +1,33 @@
+
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+
+# Build output
+/dist/
+/out/
+/build/
+/*.dmg
+/*.app
+
+# Electron specific
+electron-builder-cache/
+*.local
+
+# macOS Xcode / signing
+*.xcarchive
+*.xcworkspace
+*.xcodeproj
+*.plist
+*.entitlements
+*.p12
+
+# Lockfile (opcional, se você não quiser travar versões)
+package-lock.json
