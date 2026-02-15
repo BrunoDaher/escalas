@@ -30,8 +30,6 @@ export default class VideoObj {
         document.addEventListener('video-play', (event) => {
 
             let currentSong = sessionStorage.getItem('currentSong');
-
-
         
             if(event.detail=='sequencia'){
                 currentSong = null;
@@ -52,6 +50,10 @@ export default class VideoObj {
                     }
             }
         });  
+
+          
+      
+
 
         this.triggerControles();
        

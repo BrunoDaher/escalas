@@ -268,8 +268,6 @@ export class Acordes extends Aux{
         
             btnCleanMode.onclick = ()=>{
 
-                    
-            
                      const event = new CustomEvent('clean-request', {
                          detail: btnCleanMode, // Dados para o método clean
                     });
@@ -347,15 +345,13 @@ export class Acordes extends Aux{
 
     clicaSection(btn){
         
-        
             console.log('clicando na secao', btn.id)
                         let trecho = btn.innerText.trim().toLowerCase();
 
-                        console.log(trecho)
+                        //console.log(trecho)
                         const event = new CustomEvent('video-play', {
                             detail: trecho, // Dados para o método clean
                         });
-
 
                         let currentSong = sessionStorage.getItem('currentSong')
 
@@ -554,6 +550,9 @@ export class Acordes extends Aux{
     
     clearMemoria(){
         this.getById('memoria').innerHTML = '';
+
+    
+
     }
 
      loadSlot() {
@@ -570,9 +569,6 @@ export class Acordes extends Aux{
             });
             
                 this.loadEstrutura();
-                
-                
-                
 
         }
         else{
@@ -611,9 +607,12 @@ export class Acordes extends Aux{
     }
 
     cleanSection(){
-        
+    
+        console.log('limpando secao')
         this.sections.forEach(section => {
             document.getElementById(section.id).innerHTML = '';
+
+
         });
         
     }
@@ -669,10 +668,13 @@ export class Acordes extends Aux{
                 btns.forEach(btn => {
                 btn.onclick = (e) => {
 
+                    //console.log('acorde clicado -> ' ,e.srcElement.innerText, btn)
+
                     this.arrayRemoveClass(btns,'on');
                     btn.classList.add('on')
 
                    let id = this.getById(btn.getAttribute('slot'));
+                   
                    id.click();
                 };
             });

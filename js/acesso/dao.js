@@ -110,6 +110,13 @@ export class Dao {
 
   clicaMusica(mus) {
 
+
+          const event = new CustomEvent('video-play', {
+              detail: 'sequencia', // Dados para o método clean
+          });
+
+          document.dispatchEvent(event);
+
     
     sessionStorage.clear();
 

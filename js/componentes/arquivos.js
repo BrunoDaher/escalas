@@ -111,8 +111,13 @@ export class Arquivos {
     }
 
     dataSong(nomeMusica){
+       
+        console.log('buscando dados' + nomeMusica)
     
             let btn = document.getElementById('vg_' + nomeMusica);
+
+            console.log(elem)
+           
             this.acordes.loadSlot(elem);
             btn.click();
    }
@@ -207,6 +212,8 @@ export class Arquivos {
 
                     document.getElementById('currentLabelText').innerText = item.innerText
 
+
+
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
@@ -245,8 +252,7 @@ export class Arquivos {
     }
 
     favBuild(nome){
-        
-        
+    
  
         let controlesShow = this.role == 'adm' ? '':'off';
         
