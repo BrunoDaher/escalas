@@ -21,16 +21,17 @@
     color: var(--colorB);
     background: var(--fundoE);
     transition: all 0.3s ease;
+    
 
     &.active,
     &:hover,
     &:focus {
-            box-shadow: 0px 0px 1px var(--fundoA);
-         backdrop-filter: invert(1);
+            
+         background-color: var(--fundoC);
            
         color: var(--colorB);
-        border-width: 2px;
-        border-radius: 0vh 1vh 1vh 1vh;
+        
+        
     }
 }
 
