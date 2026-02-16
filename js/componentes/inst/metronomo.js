@@ -109,7 +109,7 @@ export class Metronomo{
                         ${[1, 2, 3, 4].map(i => `
                             <div id='p${i}' value="${i}" class="pulse  justContBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
-                                    `<div class="subdivision w-100 btn4">
+                                    `<div class="subdivision  btn1">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
@@ -149,46 +149,64 @@ export class Metronomo{
         clearInterval(this.metronomo);
     } 
 
-    start() {
-        this.i = this.i < this.pulsos ? this.i + 1 : 1;
-       // playNote('10', 'sine');
+start() {
 
-       const activeBtn = aux.getByClass('figura-btn.active');
-        if(activeBtn ? true:false){
-         this.fig();
-        }
- 
+    const pulseIndex = this.i; // congela o pulso atual
+
+    if (pulseIndex <= this.pulsos) {
+        this.fig(pulseIndex);
     }
 
-    fig() {
-        const activeBtn = aux.getByClass('figura-btn.active');
-        this.figuraCount = activeBtn ? parseInt(activeBtn.dataset.value, 10) || 1 : 1;
-        const intervalo = (60 / this.bpm) * 1000 / this.figuraCount;
-        
-        for (let n = 0; n < this.figuraCount; n++) {
-            setTimeout(() => {
-                let el = document.getElementById("p" + this.i);
-                if (el) {
-                    let subdivision = el.children[n];
-                    if (subdivision) {
-                        subdivision.classList.add('active');
-                        setTimeout(() => subdivision.classList.remove('active'), intervalo * 1);
-                    }
+    this.i = this.i < this.pulsos ? this.i + 1 : 1;
+}
+
+
+
+   fig(pulseIndex) {
+
+    const activeBtn = aux.getByClass('figura-btn.active');
+    this.figuraCount = activeBtn ? parseInt(activeBtn.dataset.value, 10) || 1 : 1;
+
+    const intervalo = (60 / this.bpm) * 1000 / this.figuraCount;
+
+    for (let n = 0; n < this.figuraCount; n++) {
+
+        setTimeout(() => {
+
+            let el = document.getElementById("p" + pulseIndex);
+
+            if (el) {
+                let subdivision = el.children[n];
+
+                if (subdivision) {
+                    subdivision.classList.add('active');
+
+                    setTimeout(() => {
+                        subdivision.classList.remove('active');
+                    }, intervalo);
                 }
-            }, n * intervalo);
-        }
-        
-        setTimeout(
-            this.mark, 
-            (60 / this.bpm * 1000) / 4);        
+            }
+
+        }, n * intervalo);
     }
 
-    mark() {
-        let el = document.getElementById("p" + this.i);
-        if (el){
-            el.classList.toggle('active');
-        } 
+    this.mark(pulseIndex);
+}
+
+
+mark(index) {
+
+    // remove active de todos
+    for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById("p" + i);
+        if (el) el.classList.remove('btn1');
     }
+
+    // aplica só no pulso atual
+    const el = document.getElementById("p" + index);
+    if (el) el.classList.add('btn1');
+}
+
 
     onBpmChange = () => {
      
@@ -197,7 +215,6 @@ export class Metronomo{
         aux.getById("lbpm").textContent = `${this.bpm}  BPM`;
         this.metronomo = setInterval(() => this.start(), 60 / this.bpm * 1000);
     }
-
 
     onFiguraBtnClick = (e) => {
         aux.getAllClass('figura-btn').forEach(
@@ -211,7 +228,7 @@ export class Metronomo{
             return `
                 <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision w-100 btn4">
+                        `<div class="subdivision  btn1">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;
@@ -227,7 +244,7 @@ export class Metronomo{
         
         // Alterna o estado visual do botão toggle
         // Se estava rodando, remove active; se estava parado, adiciona active
-        this.toggleBtn.classList.toggle('active', !this.isRunning);
+        this.toggleBtn.classList.toggle('btn1', !this.isRunning);
         
         // Se o metrônomo estava parado (!isRunning é true)
         if (!this.isRunning) {

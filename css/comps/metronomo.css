@@ -9,12 +9,17 @@
 
 #ritmo > img.on {
     filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
-    transition: all 0.1s;
+    transition: all 0.3s;
 }
 
 
 .figritm{
     font-family: 'Hymnus FG';
+}
+
+.compasso{
+        display: flex !important;
+
 }
 
 #compasso > button{
@@ -27,6 +32,7 @@
     text-align: left;
     justify-items: start;
     text-anchor: start;
+
 
 
     &:hover{
@@ -64,7 +70,7 @@
 }
 
 .pulse{
-    display: flex;
+    display: unset;
     gap: 2px;
     width: 100%;
     padding: 4px;
@@ -85,6 +91,7 @@
 
 .subdivision{
     height: unset;
+    margin: 1vh;
     font-size: 3vh !important;
 
 }

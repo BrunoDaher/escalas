@@ -124,7 +124,7 @@
             background-color: var(--fundoD);
             
              
-            object-fit: contain
+            object-fit: cover
             
         }
     }

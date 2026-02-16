@@ -8,7 +8,7 @@ import {Tocador} from './inst/tocador.js'
 export class Acordes extends Aux{
      
     sections = [
-        { id: "seq", label: "Sequencia", off: false },
+        { id: "seq", label: "Dados", off: false },
         { id: "intro", label: "Intro", off: true },
         { id: "verso", label: "Verso", off: true },
         { id: "ponte", label: "Ponte", off: true },
