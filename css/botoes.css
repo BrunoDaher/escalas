@@ -21,15 +21,15 @@
     color: var(--colorB);
     background: var(--fundoE);
     transition: all 0.3s ease;
-    
+
 
     &.active,
     &:hover,
     &:focus {
             
-         background-color: var(--fundoC);
+         background-color: var(--colorC);
            
-        color: var(--colorB);
+        color: var(--colorD);
         
         
     }
