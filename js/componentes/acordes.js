@@ -345,8 +345,10 @@ export class Acordes extends Aux{
 
     clicaSection(btn){
         
-            console.log('clicando na secao', btn.id)
+
                         let trecho = btn.innerText.trim().toLowerCase();
+
+                        console.log('clicando na secao',  trecho)
 
                         //console.log(trecho)
                         const event = new CustomEvent('video-play', {
@@ -365,6 +367,7 @@ export class Acordes extends Aux{
                             document.dispatchEvent(event);
                          }
                          else{
+                            console.log('no current song')
                            // document.dispatchEvent(event);
                          }
                         //funcao aux

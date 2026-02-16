@@ -170,33 +170,40 @@ export default class VideoObj {
     async playVideo(song){
 
 
+        console.log('tocar video', song)
         
-    
         let currentVideo = document.getElementById('currentVideo');
+            currentVideo.src = `./data/loading.mp4`;
         
-        if(currentVideo && song){
+        if(song == 'seq'){
+            currentVideo.src = `./data/logo.mp4`
+        }
+        else if(currentVideo && song ){
 
-          let localBlob = await this.getLocalVideo(song);
+             let localBlob = await this.getLocalVideo(song);
+
+             console.log(localBlob)
 
             if(localBlob){
                 currentVideo.src = localBlob;               
             }
             else{
-                
                 console.log('buscando video na rede')
-                const url =  await this.getVideoUrl(song) //api
+
+                const url =  await this.getVideoUrl(song) //apiˆs
+
+                console.log(url)
+
                     if(url) {
                          currentVideo.src = url;
                     } else {
-                        console.log('video não encontrado')
+                        console.log('video nao encontrado na rede')
                         currentVideo.src = `./data/logo.mp4`
                     }
             }
             
         }
-        else{
-            console.log(currentVideo, song)
-        }
+        
 
 
     }
@@ -252,7 +259,7 @@ export default class VideoObj {
               await  this.dao.saveVideoUrl(url, song);
             }
             else{
-                console.log('erro')
+                console.log('video nao encontrado')
             }
                 
         return url
