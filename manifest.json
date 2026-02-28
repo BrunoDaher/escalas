@@ -3,8 +3,8 @@
   "short_name": "VirtuaGuitar",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#333333",
+  "background_color": "#1916168c",
+  "theme_color": "f9ac47",
   "icons": [
     {
       "src": "img/ico/icon192.png",
