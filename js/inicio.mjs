@@ -26,10 +26,29 @@ const metronomo = new Metronomo();
 const aux = new Aux();
 const main = new Main();
 
+   //sw//
+        if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("./service-worker.js")
+            .then(reg => console.log("PWA pronto para instalação"))
+            .catch(err => console.log("Erro ao registrar SW", err));
+        });
+        }
+        else{
+            console.log('no sw')
+        }
+
 
   init();
+
+  
       
  function init() {
+
+
+     
+
+
 
       acesso.fire.auth.onAuthStateChanged(async (user) => {
           if (user) {
