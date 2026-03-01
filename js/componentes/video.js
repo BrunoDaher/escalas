@@ -197,7 +197,7 @@ export default class VideoObj {
                     if(url) {
                          currentVideo.src = url;
                     } else {
-                        console.log('video nao encontrado na rede')
+                        // console.log('video nao encontrado na rede')
                         currentVideo.src = `./data/logo.mp4`
                     }
             }

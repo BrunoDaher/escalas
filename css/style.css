@@ -61,6 +61,14 @@ body{
   
     background: linear-gradient(-45deg, var(--fundoG), black,var(--fundoD));
     background-attachment: fixed;
+
+
+
+    @media (display-mode: standalone) {
+        
+        background-color: #000000 !important;
+
+    }
      
   
 }

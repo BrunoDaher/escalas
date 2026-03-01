@@ -106,6 +106,13 @@
           
         }
 
+        @media (display-mode: standalone) {
+               bottom: calc(var(--footerHeight) + 1vh);
+
+               
+        }
+        
+
         @media (max-height: 450px) {
             height: 25vh;
         }
