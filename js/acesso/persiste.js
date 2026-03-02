@@ -23,10 +23,6 @@ export class Persiste {
     })
   }
 
-  async saveFile(){
-
-  }
-
   async saveVideo(url, key) {
     console.log(`[saveVideo] Iniciando para url=${url} e key=${key}`);
 
@@ -71,25 +67,20 @@ export class Persiste {
     })
   }
 
-  async getVideoUrl(key) {
-    return new Promise((resolve, reject) => {
-      const tx = this.db.transaction(this.storeName, 'readonly')
-      const store = tx.objectStore(this.storeName)
-      const request = store.get(key)
+async getVideoBlob(key) {
+    if (!this.db) await this.init();
+    return new Promise((resolve) => {
+        const tx = this.db.transaction([this.storeName], 'readonly');
+        const store = tx.objectStore(this.storeName);
+        const request = store.get(key);
 
-      request.onsuccess = () => {
-        const blob = request.result
-        if (blob) {
-          const url = URL.createObjectURL(blob)
-          resolve(url)
-        } else {
-          resolve(null)
-        }
-      }
-
-      request.onerror = () => reject(request.error)
-    })
-  }
+        request.onsuccess = () => {
+            // Importante: retornar null se não houver resultado para cair no else da nuvem
+            resolve(request.result || null); 
+        };
+        request.onerror = () => resolve(null);
+    });
+}
 
   async deleteVideo(key) {
     const tx = this.db.transaction(this.storeName, 'readwrite')
@@ -97,25 +88,41 @@ export class Persiste {
     return tx.complete
   }
 
-  async listKeys() {
-    const tx = this.db.transaction(this.storeName, 'readonly')
-    const store = tx.objectStore(this.storeName)
-    const keys = []
-    const request = store.openCursor()
+async listKeys() {
+    // Garante que o banco está aberto
+    if (!this.db) await this.init();
+
+    const tx = this.db.transaction(this.storeName, 'readonly');
+    const store = tx.objectStore(this.storeName);
+    const keys = [];
+    
+    // Usamos openCursor (e não openKeyCursor) porque precisamos testar o 'value'
+    const request = store.openCursor();
 
     return new Promise((resolve, reject) => {
-      request.onsuccess = (event) => {
-        const cursor = event.target.result
-        if (cursor) {
-          keys.push(cursor.key)
-          cursor.continue()
-        } else {
-          resolve(keys)
-        }
-      }
-      request.onerror = () => reject(request.error)
-    })
-  }
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+                // SÓ ADICIONA SE O VALOR EXISTIR E FOR UM BLOB VÁLIDO
+                // Isso filtra chaves "fantasmas" ou registros corrompidos
+                if (cursor.value instanceof Blob && cursor.value.size > 0) {
+                    keys.push(cursor.key);
+                }
+                
+                cursor.continue();
+            } else {
+                // Fim da listagem
+                console.log(`🔍 Itens reais encontrados no disco: ${keys.length}`);
+                resolve(keys);
+            }
+        };
+
+        request.onerror = () => {
+            console.error("Erro ao varrer chaves:", request.error);
+            reject(request.error);
+        };
+    });
+}
 
     async resetBlob() {
     return new Promise((resolve, reject) => {

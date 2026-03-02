@@ -3,7 +3,7 @@ import { Dao } from  '../acesso/dao.js'
 export class Arquivos {
 
     constructor(acordes, role) {
-        this.dao = new Dao();
+        this.dao = acordes.dao;
         this.acordes = acordes;
         this.containerId ='painelFiles';
         this.role = role;
@@ -77,12 +77,12 @@ export class Arquivos {
 
          this.container = document.getElementById(this.containerId);
         if (this.container) {
-            //console.log('Renderizando painel de arquivos');
+            ////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
             this.triggers()
         }
         else{
-         //  console.log(22)
+         //  //console.log(22)
         }
     }
 
@@ -95,7 +95,7 @@ export class Arquivos {
 
         if(dataLoad){
             dataLoad.addEventListener('change', async ()=>{
-                //console.log('uplad de arquivo')
+                ////console.log('uplad de arquivo')
 
                 //aguarda a persistencia (sessionStorage)
                 await this.dao.upload();
@@ -106,22 +106,11 @@ export class Arquivos {
              }) 
         }
         else{
-            console.log('no upload')
+            //console.log('no upload')
         }
     }
 
-    dataSong(nomeMusica){
-       
-        console.log('buscando dados' + nomeMusica)
-    
-            let btn = document.getElementById('vg_' + nomeMusica);
-
-            console.log(elem)
-           
-            this.acordes.loadSlot(elem);
-            btn.click();
-   }
-
+   
     triggers(){
 
         // Add event listener for custom video-play event
@@ -210,9 +199,8 @@ export class Arquivos {
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
 
+                    console.log(item)
                     document.getElementById('currentLabelText').innerText = item.innerText
-
-
 
                     this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);

@@ -17,6 +17,22 @@
     }
 }
 
+.videoLoading{
+
+    position: absolute;
+    z-index: 15;
+    height: 102%;
+    top: -2px;
+    width: 100%;
+    
+    &.off{
+        z-index: -10;
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+    
+}
+
 
 #videoControl{
     bottom: var(--topMainHeight);

@@ -24,7 +24,7 @@ const arquivos = new Arquivos(acordes, role);
 const msg = new Messenger();
 const metronomo = new Metronomo();
 const aux = new Aux();
-const main = new Main();
+const main = new Main(acordes.dao);
 
    //sw//
         if ("serviceWorker" in navigator) {

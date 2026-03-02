@@ -4,11 +4,11 @@ import VideoObj from './video.js';
 
 export class Main extends Aux{
     
-    constructor() {
+    constructor(dao) {
         
         super();
 
-        this.videoObj = new VideoObj();
+        this.videoObj = new VideoObj(dao);
 
         this.header = this.getById('header');
         this.mainDiv = document.createElement('main');

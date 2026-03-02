@@ -6,7 +6,6 @@ export class Supa {
   }
 
   start(){
-  
         const supabaseUrl = 'https://pqixqvfjfzgcxbkllqfx.supabase.co' // sua URL
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxaXhxdmZqZnpnY3hia2xscWZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU3OTY3MTQsImV4cCI6MjA2MTM3MjcxNH0.qOuDLZoTwJ2VPPI4E6LSxZWGJzdGxEa-JKv8cBOMCZw'          // sua anon key
         this.client = createClient(supabaseUrl, supabaseKey)
@@ -39,20 +38,21 @@ async cloudSync() {
 }
 
  
- async getUrlVideo(fileName) {
-  const bucket = 'virtuaguitar'
-  const path = `media/${fileName}.mp4`
+async getUrlVideo(fileName) {
+  const bucket = 'virtuaguitar';
+  const path = `media/${fileName}.mp4`;
 
+  // Aumentado para 1 hora (3600s). Isso permite que o browser 
+  // gerencie melhor o buffer e aceite "Partial Content" (206).
   const { data, error } = await this.client
     .storage
     .from(bucket)
-    .createSignedUrl(path, 60)
-  if (error || !data?.signedUrl) {
-    return false
-  }
+    .createSignedUrl(path, 3600);
 
- // console.log('URL gerada:', data.signedUrl)
-  return data.signedUrl
+  if (error || !data?.signedUrl) {
+    return false;
+  }
+  return data.signedUrl;
 }
 
 

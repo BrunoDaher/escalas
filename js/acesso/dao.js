@@ -2,8 +2,10 @@ import { Supa } from './supa.js';
 import { Persiste } from './persiste.js';
 
 export class Dao {
-  constructor() {
- 
+  constructor(string) {
+    console.log('dao instanciada', string)
+
+    this.startSupa();
   }
 
 
@@ -39,7 +41,7 @@ export class Dao {
   }
 
   async getUrlVideo(song){
-    this.startSupa();
+   // this.startSupa();
     return await this.supa.getUrlVideo(song);
   }
 
@@ -112,7 +114,7 @@ export class Dao {
 
 
           const event = new CustomEvent('video-play', {
-              detail: 'sequencia', // Dados para o método clean
+              detail: 'seq', // Dados para o método clean
           });
 
           document.dispatchEvent(event);

@@ -19,14 +19,16 @@ export class Acordes extends Aux{
     constructor() {
         super(); // Chama o construtor da classe pai
 
-             this.violao = new Violao();
+            this.dao = new Dao('acordes call');
+             this.violao = new Violao(this.dao);
              
              this.slotId = 'acordes';
            this.editMode = false;
         this.dragEnabled = true;
                this.velo = 10; // Default speed
                this.drag = new Dragula();
-                this.dao = new Dao();
+               
+            
                 this.tocador = new Tocador();
     }
 
@@ -52,6 +54,7 @@ export class Acordes extends Aux{
             `<span class="btnChord p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
+                name="${s.id}"
                 id=btn_${s.id}
                 >
                 ${s.label}
@@ -345,23 +348,24 @@ export class Acordes extends Aux{
 
     clicaSection(btn){
         
-
                         let trecho = btn.innerText.trim().toLowerCase();
 
-                        console.log('clicando na secao',  trecho)
-
-                        //console.log(trecho)
+                        trecho = btn.getAttribute('name');
+                
                         const event = new CustomEvent('video-play', {
                             detail: trecho, // Dados para o método clean
                         });
 
                         let currentSong = sessionStorage.getItem('currentSong')
 
+                        console.log('trecho -> ', trecho, 'currentSong -> ', currentSong)
+
                         if(currentSong){
                             let id = `vg_${currentSong}`;
                             let btnLista = this.getById(id);
 
                             if(btnLista){
+                                console.log(btnLista)
                                 btnLista.click();
                             }
                             document.dispatchEvent(event);
@@ -382,7 +386,7 @@ export class Acordes extends Aux{
     setVelo(btn) {
 
         let velo = this.dao.getDataJSON('velo');
-        console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
+        //console.log('acordes acessa violaoSlotId -> ', this.violao.slotId);
 
         
         let obj = velo ? velo : [];
@@ -445,7 +449,7 @@ export class Acordes extends Aux{
         let elemTarget = elemento.getAttribute('data-target');
 
         if (novoNome !== null && novoNome.trim() !== '') {
-            console.log('Novo nome:', novoNome);
+            //console.log('Novo nome:', novoNome);
             // Remove o item antigo do localStorage e sessionStorage
             const oldId = elemTarget;
             const newId = 'vg_' + novoNome.trim();
@@ -470,7 +474,7 @@ export class Acordes extends Aux{
 
         }
         else{
-            console.log('Nome inválido ou vazio');
+            //console.log('Nome inválido ou vazio');
         }
 
     
@@ -519,7 +523,7 @@ export class Acordes extends Aux{
              let video = this.getById('video');
 
                 
-                console.log(btn.target)
+                //console.log(btn.target)
 
                 
                 if (video && !video.classList.contains('off')) {
@@ -560,7 +564,7 @@ export class Acordes extends Aux{
 
      loadSlot() {
 
-        console.log('loading slots')
+        //console.log('loading slots')
         
         this.getById('memoria').innerHTML = '';
         let dataLabel = this.dao.getDataJSON('label');
@@ -575,7 +579,7 @@ export class Acordes extends Aux{
 
         }
         else{
-            console.log('sem dados ')
+            //console.log('sem dados ')
         }
     }
   
@@ -589,7 +593,7 @@ export class Acordes extends Aux{
                 // Somar: adiciona o valor ao array existente
                 estrutura[e.seq] = [...estrutura[e.seq], {'tone':e.value, 'slot':e.idMemoria}];
             } else {
-               // console.log('remocao')
+               // //console.log('remocao')
                 if (Array.isArray(estrutura[e.seq])) {
                     estrutura[e.seq] = estrutura[e.seq].filter(item => item.tone !== e.value);
                     
@@ -611,7 +615,7 @@ export class Acordes extends Aux{
 
     cleanSection(){
     
-        console.log('limpando secao')
+        //console.log('limpando secao')
         this.sections.forEach(section => {
             document.getElementById(section.id).innerHTML = '';
 
@@ -622,10 +626,10 @@ export class Acordes extends Aux{
 
     async loadEstrutura(){    
 
-        console.log('carregand estrutura')
+        //console.log('carregand estrutura')
 
         this.cleanSection();
-       // console.log('carregando estrutura', item.innerText)
+       // //console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
         if(estrutura){
@@ -645,7 +649,7 @@ export class Acordes extends Aux{
                      
                         valor.forEach(element => {
 
-                           // console.log(element)
+                           // //console.log(element)
                             
                             let btn = this.chordShortcut({
                                 id: chave+element.tone,
@@ -671,7 +675,7 @@ export class Acordes extends Aux{
                 btns.forEach(btn => {
                 btn.onclick = (e) => {
 
-                    //console.log('acorde clicado -> ' ,e.srcElement.innerText, btn)
+                    ////console.log('acorde clicado -> ' ,e.srcElement.innerText, btn)
 
                     this.arrayRemoveClass(btns,'on');
                     btn.classList.add('on')

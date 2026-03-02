@@ -5,16 +5,16 @@ import { Aux } from '../../util/aux.js'
 
 
 const aux = new Aux();
-const dao = new Dao();
+
 
 
 export class Violao {
     
-    constructor() {
+    constructor(dao) {
 
         //console.log('instanciando violao')
         
-        
+        this.dao = dao;
         this.tocador = new Tocador();
         this.editMode = false;
         this.chordEditStatus = false;
@@ -107,14 +107,14 @@ export class Violao {
         if (this.isStored(btn.id)){
             this.reset();
             
-            let vel = dao.getDataJSON('velo')[btn.id];
+            let vel = this.dao.getDataJSON('velo')[btn.id];
             aux.getById('velo').value = vel;
 
             this.editMode = aux.getById('editMode').checked;
           
             if(this.editMode){
              
-                this.tocador.playChord(btn.id,vel, dao.getDataJSON(btn.id));
+                this.tocador.playChord(btn.id,vel, this.dao.getDataJSON(btn.id));
             }
         }
     }
@@ -170,7 +170,7 @@ export class Violao {
                 if(Object.values(btnTom.classList).includes('off')){
                     btnTom.classList.toggle('off');
                 }
-                dao.toggleArray(this.slotId,cel.id);
+                this.dao.toggleArray(this.slotId,cel.id);
             }; 
 
             //console.log(ncorda)
