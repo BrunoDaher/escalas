@@ -176,9 +176,9 @@ export default class VideoObj {
                
             </div>
               
-                <div id='videoLoading' class='off'>
-                    <img src='./data/loading.gif' width="" class='videoLoading'>
-                </div>
+                
+                    <img src='./data/loading.gif' id='videoLoading'  width="" class='videoLoading off'>
+                
 
                     <video class='video ${css}' id='currentVideo' ; 
                             ${controls}
@@ -198,43 +198,58 @@ export default class VideoObj {
   // 1. Reset e Feedback Visual Imediato
   this.currentVideo.pause();
   const loadingElement = document.getElementById('videoLoading');
-  loadingElement.classList.remove('off');
+
+   loadingElement.src = `./data/loading.gif`;
+  if(song !== 'seq') {
+    loadingElement.classList.remove('off');
+  }
 
   // 2. Limpeza de Cache de Memória (Essencial para não travar o browser)
   if (this.currentVideo.src.startsWith('blob:')) {
+    //oculta loading 
+    loadingElement.classList.add('off');
     URL.revokeObjectURL(this.currentVideo.src);
   }
 
   try {
     console.log(song)
     if (song == 'seq') {
-        console.log('seq1')
-      this.currentVideo.src = `./data/logo.mp4`;
+        
+        this.currentVideo.src = `./data/logo.mp4`;
     } else if (this.currentVideo && song) {
       
       // Tenta Local primeiro (IndexedDB)
       let localBlob = await this.getLocalVideo(song);
 
       if (localBlob) {
-        console.log('Vídeo local:', song);
+        //oculta loading 
+        
         this.currentVideo.src = localBlob;
       } else {
-        console.log('Buscando online...');
+   
+        
         // Busca a Signed URL
         const url = await this.getVideoUrl(song);
 
         if (url) {
+            console.log('existe url')
           this.currentVideo.src = url;
           // Dispara o salvamento no IndexedDB sem 'await' 
           // para não segurar o início do vídeo
           this.dao.saveVideoUrl(url, song);
         } else {
-          this.currentVideo.src = `./data/emBreve.mp4`;
+            console.log('n existe url')
+            loadingElement.src = `./data/emBreve.gif`;
+            loadingElement.classList.remove('off');
+
+            console.log(loadingElement)
+
+         // this.currentVideo.src = `./data/emBreve.mp4`;
         }
       }
 
       // 3. Força o carregamento e aguarda apenas os metadados (rápido)
-      this.currentVideo.load();
+      //this.currentVideo.load();
       
       // 'loadedmetadata' dispara assim que o browser sabe o tamanho/tempo do vídeo
       this.currentVideo.onloadedmetadata = () => {
