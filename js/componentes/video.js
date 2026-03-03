@@ -46,7 +46,7 @@ export default class VideoObj {
          this.currentSong = document.getElementById('currentLabelText').innerText.trim();
 
  
-         console.log(event.detail, this.currentSong)
+         console.log('lançando evento : ',event.detail, this.currentSong)
          
 
             this.currentVideo.onplaying = () => {
@@ -206,7 +206,9 @@ export default class VideoObj {
   }
 
   try {
-    if (song === 'seq') {
+    console.log(song)
+    if (song == 'seq') {
+        console.log('seq1')
       this.currentVideo.src = `./data/logo.mp4`;
     } else if (this.currentVideo && song) {
       

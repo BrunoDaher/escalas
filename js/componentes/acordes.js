@@ -351,6 +351,9 @@ export class Acordes extends Aux{
                         let trecho = btn.innerText.trim().toLowerCase();
 
                         trecho = btn.getAttribute('name');
+
+                        console.log('clicado ',btn)
+                        console.log(trecho)
                 
                         const event = new CustomEvent('video-play', {
                             detail: trecho, // Dados para o método clean
@@ -366,7 +369,7 @@ export class Acordes extends Aux{
 
                             if(btnLista){
                                 console.log(btnLista)
-                                btnLista.click();
+                                //btnLista.click();
                             }
                             document.dispatchEvent(event);
                          }
