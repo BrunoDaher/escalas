@@ -59,7 +59,7 @@ body{
     filter: brightness(0.9) contrast(1);
   
   
-    background: linear-gradient(-45deg, var(--fundoG), black,var(--fundoD));
+    background: linear-gradient(-145deg, var(--fundoA), var(--fundoD),var(--fundoB));
     background-attachment: fixed;
 
 

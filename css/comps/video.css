@@ -9,6 +9,7 @@
     padding: 1vh;
     margin:  2vh;
     border-radius: 1.2vh;
+    right: 0;
      
 
     @media (orientation:portrait) {
