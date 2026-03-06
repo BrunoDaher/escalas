@@ -146,16 +146,19 @@ export default class VideoObj {
             let css =  aux.infoNavegador.desktop && !aux.infoNavegador.mobile ? 'tablet':
                        aux.infoNavegador.tablet ? 'tablet' : 'mobile';
 
-        let controls = aux.infoNavegador.desktop ? 'controls' : '';
+        let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
         let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet;
 
-     
              
         return `
-           <div id='videoControl' 
-                    class='${showVideo ? 'off':'on'} 
-                    gap2 p-2 flexCenter abs' >
+        
+               
+             <div id='video' class='${css} on' >
+
+                <div id='videoControl' 
+                    class='${showVideo ? 'on':'on'} 
+                    gap2 p-2 flexCenter abs w-fit' >
                          ${this.botoesControle().map(btn => `
                             <span id='${btn.id}' 
                                 title='${btn.desc}'
@@ -165,10 +168,6 @@ export default class VideoObj {
                         `).join('')
                      }                
                 </div>
-               
-           
-               
-             <div id='video' class='${css} on' >
 
               <div class='flex itemCenter' id='currentLabel'>
               <img src='https://brunodaher.github.io/escalas/img/alb.png' class='mini  filterD' >

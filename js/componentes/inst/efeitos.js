@@ -9,25 +9,26 @@ export class Efeitos {
 
     equalizer(context) {
     
-        this.audioContext = context;
+    this.audioContext = context;
 
+        // 1. O PESO (Low Shelf) - Foco no sub-grave e corpo
         const low = this.audioContext.createBiquadFilter();
         low.type = 'lowshelf';
-        low.frequency.value = 420;
-        low.Q.value = 1;
-        low.gain.value = 2;
+        low.frequency.value = 120; // Abaixo da "lama" dos médios-graves
+        low.gain.value = 8;        // Peso real (o M2 aguenta bem isso)
 
+        // 2. O CORTE "ESTILO IMAGEM" (Peaking) - Limpeza total da "escrotidão"
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
-        mid.frequency.value = 1000;
-        mid.Q.value = 1;
-        mid.gain.value = -40;
+        mid.frequency.value = 1400; // Onde mora o som de "lata" do MIDI
+        mid.Q.value = 0.3;          // Q ULTRA BAIXO: Isso faz a curva suave da sua imagem
+        mid.gain.value = -28;       // Corte agressivo para o som ficar "hi-fi"
 
+        // 3. O BRILHO HD (High Shelf) - Definição e "Ar"
         const high = this.audioContext.createBiquadFilter();
         high.type = 'highshelf';
-        high.frequency.value = 3200;
-        high.Q.value = 4;
-        high.gain.value = -5;
+        high.frequency.value = 6000; // Onde o brilho do violão MIDI começa a brilhar
+        high.gain.value = 10;        // Cristalino, estilo produção de estúdio
 
         return { low, mid, high };
     }
@@ -112,13 +113,13 @@ export class Efeitos {
     conectDelay(type, frequency, now, eq) {
       
         const delayNode = this.audioContext.createDelay();
-        delayNode.delayTime.setValueAtTime(0.85, now);
+        delayNode.delayTime.setValueAtTime(0.6, now);
 
         const feedbackGain = this.audioContext.createGain();
-        feedbackGain.gain.setValueAtTime(0.95, now);
+        feedbackGain.gain.setValueAtTime(0.4, now);
 
         const delayGain = this.audioContext.createGain();
-        delayGain.gain.setValueAtTime(0.03, now);
+        delayGain.gain.setValueAtTime(0.1, now);
 
         const delayOsc = this.audioContext.createOscillator();
         delayOsc.type = type;
@@ -127,11 +128,11 @@ export class Efeitos {
 
         delayOsc.connect(delayGain);
         delayGain.connect(delayNode);
-        //delayNode.connect(feedbackGain);
         feedbackGain.connect(delayNode);
-        delayNode.connect(eq.low);
+        delayNode.connect(feedbackGain);
+        delayNode.connect(eq.mid);
 
         delayOsc.start(now);
-        delayOsc.stop(now + 0.250);
+        delayOsc.stop(now + 0.2);
     }
 }
