@@ -49,9 +49,14 @@
 
 
 .colorA{
-    color: var(--fundoA);
+    color: var(--colorA);
 }
 
+
+
+.colorC{
+    color: var(--colorC);
+}
 
 
 
@@ -157,7 +162,7 @@ body{
 
 .slotMem:active, #chroma.active, #chroma:hover{
     background-color:var(--chroma);
-    color: var(--fundoC);
+    color: var(--colorC);
     filter: invert(0);
 }
 

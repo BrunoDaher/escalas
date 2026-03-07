@@ -20,6 +20,6 @@ input {
   }
 
   input[type="range"] {
-    accent-color: var(--colorA);
+    accent-color: var(--colorC);
         border-radius: 5vh;
   }

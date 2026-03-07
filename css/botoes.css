@@ -3,14 +3,14 @@
     cursor: pointer;
 
     &.selected {
-        color: var(--colorA);
+        color: var(--colorC);
         background-color: var(--fundoB);
         filter: drop-shadow(2px 4px 6px var(--fundoD));
         transition: background-color 0.3s ease;
     }
 
     &.active {
-        color: var(--colorA);
+        color: var(--colorC);
     }
 }
 
@@ -77,15 +77,16 @@
 
 .btn4.active {
     background-color: var(--fundoA);
-    color: var(--colorC);
+    color: var(--colorC);   
 }
 
 
 .btnTema{
         cursor: pointer;
-    background: linear-gradient(45deg, var(--fundoC), var(--colorE));
+    background: color-mix(in srgb, var(--fundoA), white 40%);
     padding: 1vh;
     border-radius: 3px;
+    color: color-mix(in srgb, var(--fundoA), black 90%);
 }
 
 .addRem {

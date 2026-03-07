@@ -171,7 +171,7 @@ export default class VideoObj {
 
               <div class='flex itemCenter' id='currentLabel'>
               <img src='https://brunodaher.github.io/escalas/img/alb.png' class='mini  filterD' >
-                <a id="currentLabelText" class="f2vh colorA"> </a>
+                <a id="currentLabelText" class="f2vh colorC"> </a>
                
             </div>
               
