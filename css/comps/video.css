@@ -7,7 +7,7 @@
 
     /*background: var(--fundoE);*/
     padding: 1vh;
-    margin:  2vh;
+    margin:  1vh;
     border-radius: 1.2vh;
     right: 0;
     bottom: 0;
@@ -31,6 +31,7 @@
     height: 102%;
     top: -2px;
     width: 100%;
+    filter: sepia(0.3);
     
     &.off{
         z-index: -10;
@@ -56,8 +57,8 @@
       @media (min-width: 950px) {
                    bottom: calc(var(--footerHeight) + 8em);
                    display: grid !important;
-                    left: 3vw;
-                    display: block;
+                   left: 3vw;
+                   display: block;
 
 
                     

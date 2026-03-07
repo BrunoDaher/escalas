@@ -246,7 +246,7 @@ export default class VideoObj {
           this.dao.saveVideoUrl(url, song);
         } else {
             console.log('n existe url')
-            loadingElement.src = `./data/emBreve2.webp`;
+            loadingElement.src = `./data/emBreve.gif`;
             loadingElement.classList.remove('off');
 
             console.log(loadingElement)
