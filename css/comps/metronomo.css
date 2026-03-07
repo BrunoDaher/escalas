@@ -12,6 +12,19 @@
     transition: all 0.3s;
 }
 
+ #velo{
+    background: var(--fundoC);
+    padding: 2px;
+    
+    appearance: unset;
+
+  }
+  .bpm{
+        
+    appearance: unset;
+    background: var(--fundoD) ;
+  }
+
 
 .figritm{
     font-family: 'Hymnus FG';

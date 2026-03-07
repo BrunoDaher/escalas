@@ -275,7 +275,7 @@ export class Messenger extends Aux{
 
             let btnContatos = this.getById('btnContatos');
                 btnContatos.onclick = ()=>{
-                    console.log('btn contatos')
+                    console.log('clicou contatos', this.contatos)
                     this.togglePainel('contatos');
                 }
 

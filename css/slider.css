@@ -1,16 +1,5 @@
 
-  #velo{
-    background: var(--fundoC);
-    padding: 2px;
-    
-    appearance: unset;
-
-  }
-  .bpm{
-        cursor: pointer;
-    appearance: unset;
-    background: var(--fundoD) ;
-  }
+ 
   
   .slider {
     position: absolute;

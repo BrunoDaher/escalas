@@ -12,7 +12,7 @@ export class Opcoes extends Aux{
         this.cores = [
             { id: "corEscala", label: "Escala", cssVar: "--fundoG", name: "fundoG" },
             { id: "corBackground", label: "Fundo A", cssVar: "--fundoC", name: "fundoC" },
-            { id: "corPrincipal", label: "Cor A", cssVar: "--colorC", name: "colorC" },
+            { id: "corPrincipal", label: "Cor A", cssVar: "--colorA", name: "colorA" },
             { id: "corSecundaria", label: "Cor B", cssVar: "--colorB", name: "colorB" },
             { id: "corPaineis", label: "Paineis", cssVar: "--fundoD", name: "fundoD" }
         ];
