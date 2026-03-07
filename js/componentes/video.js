@@ -15,17 +15,16 @@ export default class VideoObj {
 
     botoesControle (){
         return    [
-                    {id: 'video-pause', icon: 'bi-pause-circle', desc: 'Pausar vídeo'},
-                    {id: 'video-play', icon: 'bi-play-circle', desc: 'Reproduzir vídeo'},
+                    //{id: 'video-pause', icon: 'bi-pause-circle', desc: 'Pausar vídeo'},
+                    //{id: 'video-play', icon: 'bi-play-circle', desc: 'Reproduzir vídeo'},
                     {id: 'video-slow', icon: 'bi-clock-history', desc: 'Velocidade lenta', extraClass: 'rev'},
                     {id: 'video-normal', icon: 'bi-clock', desc: 'Velocidade normal'},
-                    {id: 'video-filter', icon: 'bi-image', desc: 'Aplicar filtro'},
+                 //   {id: 'video-filter', icon: 'bi-image', desc: 'Aplicar filtro'},
                     
                 ] ;
     }
 
     triggers(){
-
 
          this.dao.persiste.listKeys()
             .then(keys => {
@@ -42,9 +41,20 @@ export default class VideoObj {
     document.addEventListener('video-play', (event) => {
         
 
-         this.currentVideo = document.getElementById('currentVideo');
-         this.currentSong = document.getElementById('currentLabelText').innerText.trim();
+         this.currentVideo = aux.getById('currentVideo');
+         this.currentSong = aux.getById('currentLabelText').innerText.trim();
 
+         this.video.onclick = ()=>{
+            const isPlaying = !this.currentVideo.paused;
+            if (isPlaying) {
+                this.currentVideo.pause();
+                this.currentVideo.classList.add('grayscale');
+                
+            } else {
+                this.currentVideo.classList.remove('grayscale');
+                this.currentVideo.play();
+            }
+         }
  
          console.log('lançando evento : ',event.detail, this.currentSong)
          
@@ -93,9 +103,7 @@ export default class VideoObj {
                                 'video-pause': (video) => video.pause(),
                                 'video-slow': (video) => video.playbackRate = 0.5,
                                 'video-normal': (video) => video.playbackRate = 1,
-                                'video-filter': () => {
-                                    document.getElementById('video').classList.toggle('filterA')
-                                },
+                                //'video-filter': () => {document.getElementById('video').classList.toggle('filterA')},
                                 'video-zoom': () => {
                                     this.currentVideo.classList.toggle('zoom2')
                                 },
@@ -154,7 +162,7 @@ export default class VideoObj {
         return `
         
                
-             <div id='video' class='${css} on' >
+             <div id='video' class='${css} ${showVideo ? 'on' : 'off'}' >
 
                 <div id='videoControl' 
                     class='${showVideo ? 'on':'on'} 

@@ -26,6 +26,8 @@ const metronomo = new Metronomo();
 const aux = new Aux();
 const main = new Main(acordes.dao);
 
+aux.refreshNav()
+
    //sw//
         if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
@@ -53,12 +55,12 @@ const main = new Main(acordes.dao);
       acesso.fire.auth.onAuthStateChanged(async (user) => {
           if (user) {
              role = await acesso.getFire().getRole();
-              acesso.showUser();
+             
+             acesso.showUser();
               main.build();
               triggers();
              
           } else {
-              
               aux.getById('main')?.remove();           
               acesso.showSignIn();
           }

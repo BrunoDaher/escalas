@@ -37,8 +37,9 @@ export class Main extends Aux{
     }
 
     renderPaineis() {
+        console.log(this.css)
         return `
-            <article id="paineis" class="flexCenter gap1 ${this.css}">
+            <article id="paineis" class=" gap1 ${this.css}">
                 ${this.sections.map(obj => `
                     <section id="${obj.id}" class="${obj.className}"></section>
                 `).join('')}
@@ -47,6 +48,10 @@ export class Main extends Aux{
     }
 
     build() {
+
+        console.log('loading')
+
+        this.getById('carregandoInicio').classList.add('off');
         
         this.mainDiv.insertAdjacentHTML('beforeend',this.renderBracoViolao());
         this.mainDiv.insertAdjacentHTML('beforeend',this.videoObj.renderVideo());

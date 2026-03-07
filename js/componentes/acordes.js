@@ -74,6 +74,9 @@ export class Acordes extends Aux{
     }
 
     renderPainelChords() {
+
+        this.refreshNav();
+        
         return `
 
             <!-- Bloco: Memória de Acordes & Escalas -->   
@@ -91,12 +94,11 @@ export class Acordes extends Aux{
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
-
-                                    <div  class='flex ${this.infoNavegador.desktop ? 'off' : ''}'>
+                                    <div  class='flex ${this.infoNavegador.desktop ? 'on' : 'on'}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
-                                                    <input id="btnVideo" target='video' type="checkbox" checked/>
+                                                    <input id="btnVideo" target='video' type="checkbox" on/>
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <a>Braço</a>
@@ -280,25 +282,15 @@ export class Acordes extends Aux{
           const btnVideo = this.getById('btnVideo');
                 btnVideo.onclick = ()=>{
                     //logica reversa
-                    let showVideo = !btnVideo.checked?true:false;
-                    let idPainel = btnVideo.getAttribute('target')
-                  
-                    let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape)
-
-
-                    if(showVideo){
-                        this.togglePainel(idPainel);
-                        
-                        if(mobiLand){
-                            this.getById('braco').classList.remove('off');
-                        }
+                    let video = this.getById(btnVideo.getAttribute('target'));
+                    let braco = this.getById('braco');
+                    if(video.classList.contains('off')){
+                        video.classList.remove('off');
+                        braco.classList.add('off');
                     }
                     else{
-                        this.togglePainel(idPainel);
-
-                        if(mobiLand){
-                            this.getById('braco').classList.add('off');
-                        }
+                        video.classList.add('off');
+                        braco.classList.remove('off');
                     }
 
                 }

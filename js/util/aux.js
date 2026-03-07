@@ -3,7 +3,8 @@ export class Aux {
     
     
     constructor() {
-        this.refreshNav();
+
+        //this.refreshNav();
     }
     
     arrayRemoveClass(array, classe) {
@@ -136,9 +137,16 @@ export class Aux {
         
         let foneLand = landscape && ismobile;
         
-        this.infoNavegador.desktop = !ismobile && (agent.includes('mac os') || agent.includes('windows'));
-        this.infoNavegador.tablet = !ismobile && !this.infoNavegador.desktop;
+        this.infoNavegador.desktop = (!ismobile && !this.infoNavegador.ipad) || agent.includes('windows');
+        
+        
+        
+        this.infoNavegador.tablet = (this.infoNavegador.desktop && !this.infoNavegador.mobile) || this.infoNavegador.ipad ? true:false;
 
+        console.log(this.infoNavegador)
+
+        
+        
         
     }
       infoNavegador = {

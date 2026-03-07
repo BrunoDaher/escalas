@@ -15,6 +15,14 @@
     transition: all 0.3s;
    
 }
+
+.startLoad{
+
+    @media (orientation: landscape) {
+        width: 40%;
+    }
+
+}
     
 .bgClean{
     background-color:white;

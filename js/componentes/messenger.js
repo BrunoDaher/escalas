@@ -9,6 +9,7 @@ export class Messenger extends Aux{
   
         this.role = 'user';
         this.contatos = [];
+        //default
         this.destinatario = 'adm@virtuaguitar.web.app';
     }
 
