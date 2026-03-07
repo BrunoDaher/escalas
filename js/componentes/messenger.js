@@ -18,25 +18,29 @@ export class Messenger extends Aux{
     }
 
   
-        updateContatos() {
+     updateContatos() {
+
+            
+
              const contatosDiv = this.getById('contatos');
-            if (contatosDiv) {
+            
+             if (contatosDiv) {
                 contatosDiv.innerHTML = '';
-                contatosDiv.className='gap2 grid scroll25 my-1 off'
+                contatosDiv.className='gap2 flex p-2 scroll25 my-1 off'
                 this.contatos.forEach(contato => {
 
+                    
                     const span = document.createElement('span');
-                    span.className = 'bi bi-person contact btn1 capt flex gap1';
-                    span.textContent = contato.split('@')[0];            
-                   
-
-                    span.addEventListener('click',()=>{
-                        this.setDestino(contato);
-                    })
+                    span.className = 'bi bi-person colorA contact btn1 capt flex gap1';
+               
+                    span.textContent = contato.split('@')[0];    
+                    span.id = contato;        
                      contatosDiv.appendChild(span);
                 });
-    }
-}            
+            }
+
+            
+    }            
 
     renderMessenger() {
 
@@ -58,7 +62,7 @@ export class Messenger extends Aux{
                             placeholder="Digite sua mensagem...">
                     </div>
 
-                      <div id='contatos' class='off grid scroll25 my-1'>  
+                      <div id='contatos' class='off flex scroll25 my-1'>  
                             
                         </div>
                 </section>
@@ -116,10 +120,36 @@ export class Messenger extends Aux{
 
     filtraMensagem(){
 
+        
     }
 
-    escutarMinhasMensagens(event){
+     //retrieve contatcs
+      getContatos() {
+       
+        this.firebase.verificaAcesso().then((autorizado) => {
+            if (autorizado) {
+                const contact = this.firebase.getRef('/contatos');
+                contact.once('value').then((snapshot) => {
+                    const cont = snapshot.val();
+                    if (cont) {
+                            Object.entries(cont).forEach(([key, contato]) => {
+                                this.contatos.push(contato);
+                            });
+
+                           
+                            this.updateContatos();
+                    }
+                    else{
+                        console.log('sem contatos')
+                    }
+                });
+            }
+        }); 
+}
         
+    escutarMinhasMensagens(string){
+        
+
             const user = this.firebase.getAuth().currentUser;
             if (!user) {
                 console.error("Usuário não autenticado.");
@@ -128,59 +158,43 @@ export class Messenger extends Aux{
 
             const userMail = user.email;
             let mensagensRef = this.firebase.getRef('/mensagens');
-
-            this.firebase.verificaAcesso().then((autorizado) => {
-                if (autorizado) {
-                    
-                    const contact = this.firebase.getRef('/contatos');
-
-                   
-                    contact.once('value').then((snapshot) => {
-                        const cont = snapshot.val();
-                        if (cont) {
-                            Object.entries(cont).forEach(([key, contato]) => {
-                                //monta contados
-                                this.contatos.push(contato); // 'this' da classe é preservado   
-                                //aqui cria-se os contatos
-                            });
-                            this.updateContatos();
-
-                            //classifica como adm se ele enxerga contatos
-                           // this.firebase.setRole('adm'); // Preservando contexto
-                        }
-                    });
-                } else {
-                    console.log("Aluno ok");
-                }
-            });
-
-            // Query para buscar mensagens trocadas entre dois autores, ordenadas por timestamp
+            
+            //retrieve msgs
             let query = mensagensRef.orderByChild('timestamp');
-        
                 query.on('value', (snapshot) => {
                     const mensagens = snapshot.val();
                     
                     const mensagensFiltradas = {};
-                    if (mensagens) {
-                        Object.entries(mensagens).forEach(([key, mensagem]) => {
-                            // Filtra mensagens onde o usuário é autor ou destino
-                            if (mensagem.autor === userMail || mensagem.destino === userMail ) {
-                                mensagensFiltradas[key] = mensagem;
-                            }
-                        });
-                    }
-        
-                    // Chama o restante do código usando o snapshot filtrado
-                    const receiving = document.getElementById('receiving');
+                    const mensagensCurrentContact = {};
+
+                    console.log('filtrando mensagens para: ', this.destinatario);
+
+                    const receiving = this.getById('receiving');
                     if (receiving) {
                         receiving.innerHTML = '';
                     }
 
-                    if (mensagensFiltradas) {
+                    if (mensagens) {
+                        Object.entries(mensagens).forEach(([key, mensagem]) => {
+                            // Filtra mensagens onde o usuário é autor ou destino
+                            
+                            if (mensagem.autor === userMail || mensagem.destino === userMail ) {
+                                mensagensFiltradas[key] = mensagem;
+                            }
 
+                            
+                            if(mensagem.autor === this.destinatario || mensagem.destino === this.destinatario){
+                                mensagensCurrentContact[key] = mensagem;
+                            }
+                        });
+                    }
+        
+                  
+
+                    if (mensagensCurrentContact) {
                       //  console.log('destino das msgs: ',this.destinatario)
                         
-                        Object.entries(mensagensFiltradas).forEach(([key, mensagem]) => {
+                        Object.entries(mensagensCurrentContact).forEach(([key, mensagem]) => {
 
                             if(mensagem.autor !== 1){
                                 
@@ -204,6 +218,7 @@ export class Messenger extends Aux{
 
                             }
                         });
+                        
                     }else{
                         console.log('nao ha filtros')
                     }
@@ -218,13 +233,19 @@ export class Messenger extends Aux{
         //let _dest = event.srcElement.innerText.trim();
         //valida mais uma vez
         
+        console.log(_dest)
         if(this.contatos.includes(_dest)){
+
             this.destinatario = _dest;
 
             //renderizar novamente as msg
         }
+        else{
+            console.log('contato nao encontrado')
+        }
 
-       // console.log('destinatario',this.destinatario)
+        this.escutarMinhasMensagens(this.destinatario)
+        console.log('destinatario',this.destinatario)
 
     }
 
@@ -233,11 +254,17 @@ export class Messenger extends Aux{
       //  console.log(this)
     // trigger destino
             let contacts = this.getAllClass('contact');
+
+            console.log(this.contatos)
      
             for(let contact of contacts) {
 
                 contact.onclick = (event) => {
-                    this.setDestino(event.target.innerText.trim());
+                    
+                    this.setDestino(event.target.id);
+
+                    //filtrar mensagens tambem
+                  //   this.escutarMinhasMensagens(event.target.innerText.trim());
                 }
             }
     }
@@ -271,12 +298,12 @@ export class Messenger extends Aux{
                     }
                 }
 
+            this.getContatos();
             this.escutarMinhasMensagens();
 
 
             let btnContatos = this.getById('btnContatos');
                 btnContatos.onclick = ()=>{
-                    console.log('clicou contatos', this.contatos)
                     this.togglePainel('contatos');
                 }
 

@@ -14,12 +14,12 @@
         width: 75%;
         right: 2em;
         background-color: var(--fundoD);
-        backdrop-filter: blur(4em);
+        backdrop-filter: blur(14em);
         border-radius: 1vh;
-        top: 3em;
+        top: 5rem;
 
-        @media (max-width:500px) {
-            width: 75%;
+        @media (max-width:500px) and (orientation: portrait) {
+            width: 85%;
             right: unset;
         }
     }
@@ -37,7 +37,8 @@
 
 #receiving{
      background: color-mix(in srgb, var(--fundoA), black 90%);
-    max-height: 30vh;
+    max-height: 40vh;
+    min-height: 40vh;
     overflow-y: scroll;
 }
 
