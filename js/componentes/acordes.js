@@ -94,11 +94,11 @@ export class Acordes extends Aux{
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
-                                    <div  class='flex ${this.infoNavegador.desktop ? 'on' : 'on'}'>
+                                    <div  class='flex ${this.infoNavegador.desktop ? 'off' : 'on'}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
-                                                    <input id="btnVideo" target='video' type="checkbox" on/>
+                                                    <input id="btnVideo" target='video' type="checkbox" checked=false/>
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <a>Braço</a>
@@ -245,7 +245,7 @@ export class Acordes extends Aux{
 
     renderAll() {
         this.violao.init();
-        const painelChords = document.getElementById('painelChords');
+        const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
         this.triggers();
@@ -284,6 +284,8 @@ export class Acordes extends Aux{
                     //logica reversa
                     let video = this.getById(btnVideo.getAttribute('target'));
                     let braco = this.getById('braco');
+
+                    console.log(this.infoNavegador.desktop)
                     if(video.classList.contains('off')){
                         video.classList.remove('off');
                         braco.classList.add('off');

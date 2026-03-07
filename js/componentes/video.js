@@ -150,7 +150,7 @@ export default class VideoObj {
 
     renderVideo(){
 
-        
+            aux.refreshNav();
             let css =  aux.infoNavegador.desktop && !aux.infoNavegador.mobile ? 'tablet':
                        aux.infoNavegador.tablet ? 'tablet' : 'mobile';
 
@@ -158,11 +158,14 @@ export default class VideoObj {
 
         let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet;
 
+    
+        console.log(aux.infoNavegador)
+
              
         return `
         
                
-             <div id='video' class='${css} ${showVideo ? 'on' : 'off'}' >
+             <div id='video' class='${css} ${aux.infoNavegador.desktop ? 'on' : 'on'}' >
 
                 <div id='videoControl' 
                     class='${showVideo ? 'on':'on'} 

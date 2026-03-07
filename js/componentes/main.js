@@ -14,7 +14,7 @@ export class Main extends Aux{
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
 
-        
+        this.refreshNav();
 
         let css = this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
@@ -33,7 +33,7 @@ export class Main extends Aux{
 
         let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape);
 
-        return `<div id="braco" class='${mobiLand? 'off':'on' }'></div>`;
+        return `<div id="braco" class='${this.infoNavegador.desktop? 'on':'off' }'></div>`;
     }
 
     renderPaineis() {
