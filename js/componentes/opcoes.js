@@ -152,37 +152,41 @@ export class Opcoes extends Aux{
 
         const root = document.documentElement;
 
-          const temaPadrao = {
-            '--fundoA': '#f9ac47',
-            '--fundoB': 'black',
-            '--fundoC': '#3c3d3e', 
-            '--fundoD': '#202020',
-            '--fundoE': '#1916168c',
-            '--fundoF': '#f32121',
-            '--fundoG': '#4f4040',
-            '--chroma': '#8aad8a',
-            '--shadowA': '#d0bc5981',
-            '--colorA': 'var(--fundoA)',
-            '--colorB': '#D1CCCC',
-            '--colorC': '#e3a30a',
-            '--colorE': '#438ac5e1'
-        };        
-        const temaA = {
-            '--fundoA': '#f9ac47',
-            '--fundoB': 'black', 
-            '--fundoC': '#3c3d3e',
-            '--fundoD': '#4a4c50',
-            '--fundoG': '#656161'
-        };
 
-        const temaB = {
-            '--fundoA': '#252222',
-            '--fundoB': 'black', 
-            '--fundoD': '#7E7C7C',
-            '--fundoE': 'black',
-            '--fundoG': '#656161'
-        };
+        
 
+         const temaPadrao = {
+    '--fundoA': '#275b8b', // Substituído pelo seu novo azul
+    '--fundoB': 'black',
+    '--fundoC': '#3c3d3e', 
+    '--fundoD': '#202020',
+    '--fundoE': '#1916168c',
+    '--fundoF': '#f32121',
+    '--fundoG': '#a77b6b85', // Atualizado conforme sua lista
+    '--chroma': '#8aad8a',
+    '--shadowA': '#d0bc5981',
+    '--colorA': '#275b8b',
+    '--colorB': '#D1CCCC',
+    '--colorC': '#e3a30a',
+    '--colorD': '#1b915a',
+    '--colorE': '#438ac5e1'
+};        
+
+const temaA = {
+    '--fundoA': '#275b8b', // Harmonizado com o novo azul
+    '--fundoB': 'black', 
+    '--fundoC': '#3c3d3e',
+    '--fundoD': '#4a4c50',
+    '--fundoG': '#656161'
+};
+
+const temaB = {
+    '--fundoA': '#252222',
+    '--fundoB': 'black', 
+    '--fundoD': '#7E7C7C',
+    '--fundoE': 'black',
+    '--fundoG': '#656161'
+};
 
 
         const temas = {

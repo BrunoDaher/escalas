@@ -82,11 +82,11 @@
 
 
 .btnTema{
-        cursor: pointer;
-    background: color-mix(in srgb, var(--fundoA), white 40%);
+            cursor: pointer;
+    background: color-mix(in srgb, var(--fundoA), black 40%);
     padding: 1vh;
     border-radius: 3px;
-    color: color-mix(in srgb, var(--fundoA), black 90%);
+    color: color-mix(in srgb, var(--fundoA), white 90%);
 }
 
 .addRem {

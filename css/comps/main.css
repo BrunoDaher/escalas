@@ -17,6 +17,7 @@ body {
 main{
   display: grid;
   grid-template-rows: auto 1fr;
+      background: var(--fundoD);
   height: 100%; /* preenche o espaço disponível */
   overflow: hidden;
 }
@@ -45,6 +46,7 @@ footer {
   background-color: var(--fundoE);
   padding: 1rem 0;
 
+  
 
   @media (orientation: landscape) {
       justify-content: flex-start;

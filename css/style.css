@@ -23,7 +23,7 @@
     --fundoG: #a77b6b85;
     --chroma: #8aad8a;
     --shadowA: #d0bc5981;
-    --colorA: #5d1882;
+    --colorA: #275b8b;
     --colorB: #D1CCCC;
     --colorC: #e3a30a;
     --colorD: #1b915a;
@@ -65,8 +65,16 @@ body{
     filter: brightness(0.9) contrast(1);
   
   
-        background: radial-gradient(var(--fundoA), var(--fundoB));
-    background-attachment: fixed;
+        background: 
+        
+        /* Camada 1: Linhas da Colmeia (Hexágonos) */
+        /* Usamos a --colorA com 10% de opacidade para um brilho sutil */
+        linear-gradient(120deg, rgba(39, 91, 139, 0.1) 25%, transparent 25% 75%, rgba(39, 91, 139, 0.1) 75%),
+        linear-gradient(60deg, rgba(39, 91, 139, 0.1) 25%, transparent 25% 75%, rgba(39, 91, 139, 0.1) 75%),
+        
+        radial-gradient(var(--fundoA), var(--fundoB));
+        
+        
 
 
 

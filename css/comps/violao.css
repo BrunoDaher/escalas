@@ -185,7 +185,7 @@ p {
 
     &.on{
 
-        background: linear-gradient(45deg, var(--fundoE), var(--colorA));
+        background: linear-gradient(45deg, var(--fundoE), var(--colorC));
         color: white;
         filter: var(--filterB);
         transition: all 0.1s;
