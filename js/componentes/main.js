@@ -20,6 +20,8 @@ export class Main extends Aux{
                        this.infoNavegador.tablet ? 'tablet' : 'mobile';
         
         this.css = css;
+
+        console.log(this.infoNavegador.landscape)
                        
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
@@ -33,7 +35,7 @@ export class Main extends Aux{
 
         let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape);
 
-        return `<div id="braco" class='${this.infoNavegador.desktop? 'on':'off' }'></div>`;
+        return `<div id="braco" class='${(this.infoNavegador.tablet && !this.infoNavegador.landscape) || this.infoNavegador.mobile ? 'off':'on' }'></div>`;
     }
 
     renderPaineis() {

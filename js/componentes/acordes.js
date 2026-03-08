@@ -85,7 +85,7 @@ export class Acordes extends Aux{
 
                 <!-- Bloco: Estrutura Musical -->
                 <div class="gap2 "
-                style="overflow: hidden"> 
+                        style="overflow: hidden"> 
                         <legend hidden class="off" id="labelNomeSlot"></legend>       
                         <input hidden id="dataLoad" type="file"/>
                         <div class="">
@@ -94,7 +94,7 @@ export class Acordes extends Aux{
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
-                                    <div  class='flex ${this.infoNavegador.desktop ? 'off' : 'on'}'>
+                                    <div id='flagVideo'  class='flex ${(this.infoNavegador.mobile || this.infoNavegador.tablet)? 'on' : 'off'}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
@@ -268,8 +268,6 @@ export class Acordes extends Aux{
         //criar label
 
             const btnCleanMode = document.getElementById('cleanMode2');
-
-
         
             btnCleanMode.onclick = ()=>{
 
@@ -285,7 +283,6 @@ export class Acordes extends Aux{
                     let video = this.getById(btnVideo.getAttribute('target'));
                     let braco = this.getById('braco');
 
-                    console.log(this.infoNavegador.desktop)
                     if(video.classList.contains('off')){
                         video.classList.remove('off');
                         braco.classList.add('off');

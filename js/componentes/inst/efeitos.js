@@ -14,21 +14,22 @@ export class Efeitos {
         // 1. O PESO (Low Shelf) - Foco no sub-grave e corpo
         const low = this.audioContext.createBiquadFilter();
         low.type = 'lowshelf';
-        low.frequency.value = 120; // Abaixo da "lama" dos médios-graves
-        low.gain.value = 8;        // Peso real (o M2 aguenta bem isso)
+        low.frequency.value = 450; // Abaixo da "lama" dos médios-graves
+        low.gain.value = 0;        // Peso real (o M2 aguenta bem isso)
 
         // 2. O CORTE "ESTILO IMAGEM" (Peaking) - Limpeza total da "escrotidão"
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
-        mid.frequency.value = 1400; // Onde mora o som de "lata" do MIDI
+        mid.frequency.value = 1500; // Onde mora o som de "lata" do MIDI
         mid.Q.value = 0.3;          // Q ULTRA BAIXO: Isso faz a curva suave da sua imagem
-        mid.gain.value = -28;       // Corte agressivo para o som ficar "hi-fi"
+        mid.gain.value = -20;       // Corte agressivo para o som ficar "hi-fi"
 
         // 3. O BRILHO HD (High Shelf) - Definição e "Ar"
         const high = this.audioContext.createBiquadFilter();
         high.type = 'highshelf';
-        high.frequency.value = 6000; // Onde o brilho do violão MIDI começa a brilhar
-        high.gain.value = 10;        // Cristalino, estilo produção de estúdio
+        high.Q.value = 0.5;      
+        high.frequency.value = 2000; // Onde o brilho do violão MIDI começa a brilhar
+        high.gain.value = 8;        // Cristalino, estilo produção de estúdio
 
         return { low, mid, high };
     }
