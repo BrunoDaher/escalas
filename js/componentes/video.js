@@ -151,21 +151,29 @@ export default class VideoObj {
     renderVideo(){
 
             aux.refreshNav();
-            let css =  aux.infoNavegador.desktop && !aux.infoNavegador.mobile ? 'tablet':
-                       aux.infoNavegador.tablet ? 'mobile' : 'mobile';
+
+            let css = aux.infoNavegador.mobile ? 'mobile' : aux.infoNavegador.tablet ? 'tablet' : 'desktop';
 
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
-        let showVideo = aux.infoNavegador.mobile && !aux.infoNavegador.tablet;
+        let showVideo = aux.infoNavegador.landscape;
 
+
+        //cenarios video
+
+        /*
+            mostra braco e video
+            mobile-landscape, tablet-landscape e desktop
+
+            alterna braco e video
+            mobile-portrait e tablet-portrait
+        */
     
-        
-
              
         return `
         
                
-             <div id='video' class='${css} ${aux.infoNavegador.desktop ? 'on' : 'off'}' >
+             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop ? 'on' : 'off'}' >
 
                 <div id='videoControl' 
                     class='${showVideo ? 'on':'on'} 

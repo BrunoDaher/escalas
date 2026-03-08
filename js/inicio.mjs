@@ -78,7 +78,7 @@ aux.refreshNav()
     metronomo.init();  
     dragula.init();
     
-        main.renderFooter()
+    main.renderSections();
       
       aux.getById('arquivos').click();
  };    

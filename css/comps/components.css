@@ -43,7 +43,7 @@
         width: 100%;
     }
 
-    &.tablet {
+    &.tablet , &.desktop {
         padding: 0 ;
         @media (orientation: landscape) {
             width: 28vw;

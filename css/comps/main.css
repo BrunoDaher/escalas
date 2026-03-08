@@ -50,12 +50,10 @@ footer {
 
   @media (orientation: landscape) {
       justify-content: flex-start;
-      width: 29%;
+      width: 28vw;
+      padding: 1rem;
+      background: none;
   }  
-  
-
-  
-
   
 }
 

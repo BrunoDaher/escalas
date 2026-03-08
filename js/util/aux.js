@@ -121,31 +121,42 @@ export class Aux {
 
     refreshNav(){
 
-        let agent = navigator.userAgent.toLowerCase();
-         // Additional checks for mobile devices
-       // let isMobileByScreen = window.innerWidth <= 500 && window.innerHeight <= 950;
-        let landscape = window.screen.orientation.angle == 90 ? true:false;
-        
-        this.infoNavegador.landscape = landscape;
-        this.infoNavegador.ipad =  agent.includes('ipad');
-        this.infoNavegador.iphone =  agent.includes('iphone');
-        this.infoNavegador.android = agent.includes('android');
-        
-        let ismobile =  this.infoNavegador.iphone || this.infoNavegador.android;
-       
-        this.infoNavegador.mobile = ismobile;
-        
-        let foneLand = landscape && ismobile;
-        
-        this.infoNavegador.desktop = (!ismobile && !this.infoNavegador.ipad) || agent.includes('windows');
-        
-        
-        
-        this.infoNavegador.tablet = (this.infoNavegador.desktop && !this.infoNavegador.mobile) || this.infoNavegador.ipad ? true:false;
+                const agent = navigator.userAgent.toLowerCase();
+            const width = window.innerWidth;
+            const height = window.innerHeight;
 
-        console.log(this.infoNavegador)
+            // 1. Detecções de Hardware/SO específicas
+            const isIphone = agent.includes('iphone');
+            const isAndroid = agent.includes('android');
+            // iPadOS 13+ se identifica como Macintosh, mas tem touch. 
+            const isIpad = agent.includes('ipad') || (agent.includes('macintosh') && navigator.maxTouchPoints > 1);
 
-        
+            // 2. Orientação
+            const landscape = window.matchMedia("(orientation: landscape)").matches;
+
+            // 3. Lógica de Categorização
+            // Se for iPad ou (Android com tela larga), tratamos como Tablet
+            const isTablet = isIpad || (isAndroid && Math.min(width, height) >= 600);
+
+            // Se for iPhone ou (Android com tela estreita), tratamos como Mobile
+            const isMobile = isIphone || (isAndroid && !isTablet);
+
+            // Se não for nenhum dos acima e tiver cara de computador
+            const isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') || agent.includes('linux'));
+
+            // 4. Preenchimento do seu objeto
+            this.infoNavegador = {
+                'ipad': isIpad,
+                'android': isAndroid,
+                'iphone': isIphone,
+                'tablet': isTablet,
+                'landscape': landscape,
+                'portrait': !landscape,
+                'desktop': isDesktop,
+                'mobile': isMobile
+            };
+
+            console.log('Resultado:', this.infoNavegador);
         
         
     }
@@ -156,7 +167,10 @@ export class Aux {
         'tablet': false,
         'landscape': false,
         'desktop': false,
-        'mobile': false
+        'mobile': false,
+        'portrait': false
       }
 
+
+      
 }

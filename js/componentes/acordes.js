@@ -94,7 +94,7 @@ export class Acordes extends Aux{
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
-                                    <div id='flagVideo'  class='flex ${(this.infoNavegador.mobile || this.infoNavegador.tablet)? 'on' : 'off'}'>
+                                    <div id='flagVideo' class='flex ${(this.infoNavegador.portrait? 'on' : 'off')}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">

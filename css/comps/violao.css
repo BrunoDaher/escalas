@@ -231,7 +231,7 @@ p {
     max-width: 100vw;
     justify-items: start;
     padding: 2vh 2vw;
-    height: calc(var(--topMainHeight) - 2);
+    height: calc(var(--topMainHeight) + 2vh);
 
     &.on{
             z-index: 3;
@@ -241,7 +241,7 @@ p {
         overflow-x: scroll;
         overflow-y: hidden;
 
-        height: calc(var(--topMainHeight) - 2vh);
+        height: calc(var(--topMainHeight) + 2vh);
 
         &.on{
             padding: 1rem;

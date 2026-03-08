@@ -16,12 +16,11 @@ export class Main extends Aux{
 
         this.refreshNav();
 
-        let css = this.infoNavegador.desktop && !this.infoNavegador.mobile ? 'tablet':
-                       this.infoNavegador.tablet ? 'tablet' : 'mobile';
+        let css = this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
         this.css = css;
 
-        console.log(this.infoNavegador.landscape)
+        
                        
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
@@ -33,9 +32,9 @@ export class Main extends Aux{
 
     renderBracoViolao() {
 
-        let mobiLand = (this.infoNavegador.mobile && this.infoNavegador.landscape);
+        
 
-        return `<div id="braco" class='${(this.infoNavegador.tablet && !this.infoNavegador.landscape) || this.infoNavegador.mobile ? 'off':'on' }'></div>`;
+        return `<div id="braco" class='${this.infoNavegador.landscape ? 'on' : 'off'}'></div>`;
     }
 
     renderPaineis() {
@@ -68,7 +67,7 @@ export class Main extends Aux{
             300)
     }
 
-    renderFooter(){
+    renderSections(){
 
         this.getById('footer').classList.remove('off');
 

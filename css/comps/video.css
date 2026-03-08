@@ -1,208 +1,141 @@
-/**/
+/* --- Auxiliares --- */
+.grayscale { filter: grayscale(100%) !important; }
+.zoom2 { transform: scale(1.2); transform-origin: center center; }
 
-
-#currentLabel{
-    position: absolute;
-    z-index: 20;
-
-    /*background: var(--fundoE);*/
-    
-    margin:  0 2vh;
-    border-radius: 1.2vh;
-    right: 0;
-    top: 0;
-
-    
-     
-
-    @media (orientation:portrait) {
-        z-index: 20;
-
-        top: unset;
-        bottom: 0;
-         
-    }
-}
-
-
-.grayscale{
-    filter: grayscale(100%) !important;
-}
-
-.videoLoading{
-
+/* --- Video Loading --- */
+.videoLoading {
     position: absolute;
     z-index: 15;
     height: 102%;
     top: -2px;
     width: 100%;
     filter: sepia(0.3);
-    
-    &.off{
+
+    &.off {
         z-index: -10;
         opacity: 0;
         transition: all 0.4s ease;
     }
-    
 }
 
+/* --- Label Atual --- */
+#currentLabel {
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    top: 2vh;
+    margin: 0 2vh;
+    border-radius: 1.2vh;
 
-#videoControl{
-    bottom: var(--topMainHeight);
-    left: 0;
-    color: var(--colorB);
-    height: max-content;
-    z-index: 12;
-    flex-flow: column-reverse;
-    right: 3vh;
-    zoom: 0.7;
-    margin: 3vh;
-    background: var(--fundoC);
-
-      @media (min-width: 950px) {
-                   bottom: calc(var(--footerHeight) + 8em);
-                   display: grid !important;
-                   left: 3vw;
-                   display: block;
-
-
-                    
-        }
-
-        @media (orientation: portrait) and (max-width: 768px) {
-            top: 1vh;
-            zoom: 0.6;
-            gap: 3vh;
-                    margin: 1vh 2vh;
-            flex-flow: nowrap;
-        }
+    @media (orientation: portrait) {
+        top: unset;
+        bottom: 2vh;
+    }
 }
 
-.zoom2{
-    transform: scale(1.2); /* 1.0 = normal, >1 = zoom */
-  transform-origin: center center; /* mantém o foco no centro */
-}
-
-
-
-#video{
-
+/* --- Bloco Principal: Video --- */
+#video {
     position: fixed;
-    
     right: 0;
     margin: 0;
     padding: 0;
     
-        
+    &.desktop{
+        top: 265px;
+        left: 30%;
+        width: 67%;
+    }
 
-    &>.video{
+    &>.video {
+  
         filter: brightness(0.7) contrast(1) saturate(1.1);
-    }
-
-    &.mobile{
-
-
-            &>#videoControl{
-                top: 1vh;
-            }
-
-            @media (orientation: portrait) {
-                left: -1px;
-                            position: relative;
-
-                            &.on{
-                                z-index: 12;
-                            }
-            
-            }
-
-            @media (orientation: landscape) {
-                height: auto;
-                left: 31%;
-                max-width: 66%;
-            }
-
-            & > .video{
-                height: calc(var(--topMainHeight) + 1em);
-                width:100vw;
-            
-                object-fit:cover; 
-
-                @media(orientation: landscape){
-                        height: 100%;
-                        width: 75vw;
-                }
-            }
-
-    }
-
-    &.tablet{
-
-        position: relative;
-        @media (orientation: landscape) {
-            
-            position: fixed;
-            top: calc(var(--bodyMainHeight) - var(--footerHeight));
-            width: 67vw;
-            left: 31%;
-            padding-top: 3vh;
-          
-        }
-
-        &>#currentLabel{
-            position: absolute;
-            z-index: 21;
-            /* background: var(--fundoE); */
-            padding: 1vh;
-            margin: 5vh 2vh;
-            border-radius: 1.2vh;
-            right: 1vw;
-            top: 0;
-        }
-
-        @media (display-mode: standalone) {
-               bottom: calc(var(--footerHeight) + 1vh);
-
-               
-        }
         
 
-        @media (max-height: 450px) {
-            height: 25vh;
+         &.mobile {
+             height: 28vh;
+            object-fit: cover;
+            width: -webkit-fill-available;
+         }
+
+          /* --- Variação: Desktop --- */
+        &.desktop {
+      
+            object-fit: cover;
+            height: 350px;  
+            width: stretch;
+            }
         }
 
+    /* --- Variação: Mobile --- */
+        &.mobile {
+        &#videoControl { display: none; }
+        
+     
+        @media (orientation: portrait) {
+            left: -1px;
+            position: relative;
+            &.on { z-index: 12; }
+        }
 
-        /*note 13*/
-        & > video{
-             position: relative;
+      
+    }
+
+    /* --- Variação: Tablet --- */
+    &.tablet {
+        position: relative;
+
+        &#video {
+            position: relative;
             width: 100%;
             height: 25vh;
             z-index: 20;
-            left: 0;
-            right: 0;
             background-color: var(--fundoD);
-            object-fit: cover;
-            margin: 5px 0;
-            padding: 0vh;
             filter: drop-shadow(2px 7px 6px black);
-            
+            margin: 5px 0;
         }
+
+        &#currentLabel {
+            z-index: 21;
+            margin: 5vh 2vh;
+            right: 1vw;
+            padding: 1vh;
+        }
+
+        @media (orientation: landscape) {
+            position: fixed;
+            left: 31%;
+            top: calc(var(--bodyMainHeight) - var(--footerHeight));
+            width: 67vw;
+            padding-top: 3vh;
+        }
+
+        @media (display-mode: standalone) { bottom: calc(var(--footerHeight) + 1vh); }
+        @media (max-height: 450px) { height: 25vh; }
     }
 
    
-       
 }
 
+/* --- Controle do Video --- */
+#videoControl {
+    z-index: 12;
+    bottom: var(--topMainHeight);
+    left: 0;
+    right: 3vh;
+    margin: 3vh;
+    height: max-content;
+    background: var(--fundoC);
+    color: var(--colorB);
+    flex-flow: column-reverse;
+    zoom: 0.7;
+top: 1vh;
 
-.video.xray{
-        filter: invert(0.6) brightness(1) contrast(4.5);
 
-        &.invertido{
-             rotate: 180deg;
+    @media (orientation: portrait) and (max-width: 768px) {
         
-                .video{
-                        transform: translateY(-30vw);
-                        height: 50vw;
-                    }
-        }
+        margin: 1vh 2vh;
+        zoom: 0.6;
+        gap: 3vh;
+        flex-flow: nowrap;
+    }
 }
