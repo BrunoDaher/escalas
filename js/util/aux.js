@@ -134,15 +134,21 @@ export class Aux {
             // 2. Orientação
             const landscape = window.matchMedia("(orientation: landscape)").matches;
 
+            
             // 3. Lógica de Categorização
             // Se for iPad ou (Android com tela larga), tratamos como Tablet
-            const isTablet = isIpad || (isAndroid && Math.min(width, height) >= 600);
+            let isTablet = isIpad || (isAndroid && Math.min(width, height) >= 600);
 
             // Se for iPhone ou (Android com tela estreita), tratamos como Mobile
             const isMobile = isIphone || (isAndroid && !isTablet);
 
             // Se não for nenhum dos acima e tiver cara de computador
-            const isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') || agent.includes('linux'));
+            let isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') || agent.includes('linux'));
+
+            if(isDesktop && !landscape){
+                isTablet = true;
+                isDesktop = false;
+            }
 
             // 4. Preenchimento do seu objeto
             this.infoNavegador = {

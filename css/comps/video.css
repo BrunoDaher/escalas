@@ -41,7 +41,9 @@
     padding: 0;
     
     &.desktop{
-        top: 265px;
+        /*top: 265px;*/
+                
+                bottom: calc(var(--footerHeight) + 1.5rem);
         left: 30%;
         width: 67%;
     }
@@ -62,9 +64,22 @@
       
             object-fit: cover;
             height: 350px;  
+            height: calc(var(--bodyMainHeight) + 4vh);
             width: stretch;
             }
         }
+
+            &.tablet{
+                @media (orientation: portrait) {
+                height: 25vh;
+                width: 100%;
+                object-fit: cover;
+                
+            }
+
+        }
+
+      
 
     /* --- Variação: Mobile --- */
         &.mobile {
@@ -72,6 +87,8 @@
         
      
         @media (orientation: portrait) {
+
+
             left: -1px;
             position: relative;
             &.on { z-index: 12; }
@@ -108,6 +125,8 @@
             width: 67vw;
             padding-top: 3vh;
         }
+
+    
 
         @media (display-mode: standalone) { bottom: calc(var(--footerHeight) + 1vh); }
         @media (max-height: 450px) { height: 25vh; }
