@@ -250,7 +250,7 @@ export class Arquivos {
             <div  class=" bgDark grid capt p-2 ">
             <div id="vg_${nome}" class='grid clicaMus'>
                 <a id="vg_${nome}"class="f2vh">${nome}</a>
-                <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterE' >
+                <img src='./img/alb.png' class='capa filterE' >
             </div>
                 <a class=""></a>
                 <div class="flex ${controlesShow}">

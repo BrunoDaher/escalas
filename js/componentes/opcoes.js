@@ -167,26 +167,45 @@ export class Opcoes extends Aux{
     '--shadowA': '#d0bc5981',
     '--colorA': '#275b8b',
     '--colorB': '#D1CCCC',
-    '--colorC': '#e3a30a',
-    '--colorD': '#1b915a',
+    '--colorC': '#0c74b9',
+    '--colorD': '#c59143e1',
     '--colorE': '#438ac5e1'
 };        
 
-const temaA = {
-    '--fundoA': '#275b8b', // Harmonizado com o novo azul
-    '--fundoB': 'black', 
-    '--fundoC': '#3c3d3e',
-    '--fundoD': '#4a4c50',
-    '--fundoG': '#656161'
-};
+        const temaA = {
+            '--fundoA': '#2d6a4f',
+            '--fundoB': '#08140f',
+            '--fundoC': '#262121',
+            '--fundoD': '#131614',
+            '--fundoE': '#08140f8c',
+            '--fundoF': '#d90429',
+            '--fundoG': '#8b5a2b85',
+            '--chroma': '#52b788',
+            '--shadowA': '#74c69d81',
+            '--colorA': '#52b788',
+            '--colorB': '#d8e2dc',
+            '--colorC': '#1b4332',
+            '--colorD': '#ffb703e1',
+            '--colorE': '#52b788e1',
+        };
 
 const temaB = {
-    '--fundoA': '#252222',
-    '--fundoB': 'black', 
-    '--fundoD': '#7E7C7C',
-    '--fundoE': 'black',
-    '--fundoG': '#656161'
+   '--fundoA': '#800000', // Bordô/Crimson escuro
+    '--fundoB': '#050505', // Preto quase puro
+    '--fundoC': '#242424', // Cinza neutro para painéis
+    '--fundoD': '#141414', // Cinza escuro
+    '--fundoE': '#0505058c',
+    '--fundoF': '#ff3333', // Vermelho vivo
+    '--fundoG': '#5c403385', // Madeira Nogueira (escura)
+    '--chroma': '#4caf50', // Verde padrão de sucesso
+    '--shadowA': '#ff4d4d81', // Brilho vermelho
+    '--colorA': '#e63946', // Vermelho principal para destaques
+    '--colorB': '#f0f0f0', // Branco bem puro para alto contraste
+    '--colorC': '#a81a1a', // Vermelho escuro para botões ativos
+    '--colorD': '#e0a96de1', // Dourado/Latão velho (remete a ferragens de guitarra)
+    '--colorE': '#e63946e1'
 };
+
 
 
         const temas = {

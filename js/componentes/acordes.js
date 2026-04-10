@@ -640,7 +640,7 @@ export class Acordes extends Aux{
        // //console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
-        if(Object.keys(estrutura).length > 0 ){
+        if(Object.keys(estrutura).length > 0 || this.dao.getDataJSON('currentSong')=='Arquivo'){
             
             this.getById('areaEstrutura').classList.remove('off')
             console.log('tem estrutura')

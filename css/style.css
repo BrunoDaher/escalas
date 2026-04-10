@@ -26,11 +26,12 @@
     --colorA: #275b8b;
     --colorB: #D1CCCC;
     --colorC: #0c74b9; /*e3a30a*/
-    --colorD: #1b915a;
+    --colorD: #c59143e1;
     --colorE: #438ac5e1;
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5);
-    --filterE: invert(1) hue-rotate(176deg) drop-shadow(2px 4px 6px var(--fundoB)) contrast(8.5) saturate(1.5) brightness(1.5);
+   --filterD:invert(1) hue-rotate(10deg) drop-shadow(2px 4px 6px var(--fundoB));
+   --filterE:  drop-shadow(2px 4px 6px var(--fundoB));
    
 
    
@@ -50,6 +51,14 @@
 }
 
 
+.boxC{
+         background: linear-gradient(145deg, var(--fundoC), transparent);
+    cursor: pointer;
+    
+    padding: 0.7vh;
+
+}
+
 
 .colorA{
     color: var(--colorA);
@@ -61,7 +70,9 @@
     color: var(--colorC);
 }
 
-
+.colorD{
+    color: var(--colorD);
+}
 
 body{
 
