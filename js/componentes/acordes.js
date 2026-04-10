@@ -143,29 +143,34 @@ export class Acordes extends Aux{
                             </div>
                             
                             <!-- Botões de Seção -->
-                        
-                        <div class="flex" 
-                            id="sectionButtons">
-                            ${this.renderSectionButtons()}
-                        </div>
-                            
-                        </div>
-                        <!-- Áreas das Seções -->
-    
-                        <div id="div-estrutura" class="bgDark p-1 textStart" 
-                                style="height: 12vh">
-                                
-                                ${this.renderEstruturaAreas()}
-                        </div>
 
-                        <div  id='trash' 
-                            class="bi-trash dragContainer  
-                            flexCenter gap1 p-2 "
-                            style='
-                                border-style: ridge;
-                                border-color: black;'
-                            >
-                        </div>
+                        <section id='areaEstrutura'>
+                        
+                            <div class="flex" 
+                                id="sectionButtons">
+                                ${this.renderSectionButtons()}
+                            </div>
+                                
+                            </div>
+                            <!-- Áreas das Seções -->
+        
+                            <div id="div-estrutura" class="bgDark p-1 textStart" 
+                                    style="height: 12vh">
+                                    
+                                    ${this.renderEstruturaAreas()}
+                            </div>
+
+                            <div  id='trash' 
+                                class="bi-trash dragContainer  
+                                flexCenter gap1 p-2 "
+                                style='
+                                    border-style: ridge;
+                                    border-color: black;'
+                                >
+                            </div>
+
+                        </section>
+
                 </article>`
     }
 
@@ -637,7 +642,7 @@ export class Acordes extends Aux{
 
         if(Object.keys(estrutura).length > 0 ){
             
-            this.getById('estrutura').classList.remove('off')
+            this.getById('areaEstrutura').classList.remove('off')
             console.log('tem estrutura')
             
             Object.entries(estrutura).forEach(([chave,valor]) => {
@@ -673,7 +678,7 @@ export class Acordes extends Aux{
         }
         else{
             console.log('sem estrutura')
-            this.getById('estrutura').classList.add('off')
+            this.getById('areaEstrutura').classList.add('off')
         }
         
         setTimeout(() => {
