@@ -118,7 +118,7 @@ export class Acordes extends Aux{
                         
                             <di v class='flex justContBetween gap1 comp filterC  p-1'> 
 
-                                    <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
+                                    <a id="btnEstrutura"  class="p-1 btn4 colorD comp bi bi-music-note-beamed flex">Estrutura</a>  
 
                                     <div id='flagVideo' class='flex ${(this.infoNavegador.portrait? 'on' : 'off')}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
@@ -292,6 +292,10 @@ export class Acordes extends Aux{
                          detail: btnCleanMode, // Dados para o método clean
                     });
                 document.dispatchEvent(event);
+            }
+
+            btnEstrutura.onclick = ()=>{
+                this.togglePainel('areaEstrutura');
             }
         
           const btnVideo = this.getById('btnVideo');
@@ -636,11 +640,13 @@ export class Acordes extends Aux{
 
         console.log('carregand estrutura')
 
+        console.log('estrutura -> ', this.dao.getDataJSON('estrutura'))
+
         this.cleanSection();
        // //console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
-        if(Object.keys(estrutura).length > 0 || this.dao.getDataJSON('currentSong')=='Arquivo'){
+        if(Object.keys(estrutura).length > 0 ){
             
             this.getById('areaEstrutura').classList.remove('off')
             console.log('tem estrutura')
