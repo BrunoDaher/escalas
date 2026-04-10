@@ -49,17 +49,17 @@ export class Arquivos {
         return `
         <div  id="daoBtns" class=" justCenter gap2 p-1 flex ">
                 <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
-                    <i class='bi-cloud-download'></i>
+                    <i class='bi-arrow-counterclockwise f2em'></i>
                     <a>Atualizar</a>
                 </div>
 
                 <div class='${controlesShow} flex'>
                     <div class="grid rad1 btn1 f2vh" id="export">
-                        <i class=' bi-arrow-down'></i>
+                        <i class=' bi-arrow-down f2em'></i>
                         <a>Exportar</a>
                     </div>
                     <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
-                        <i class=' bi-arrow-up '></i>
+                        <i class=' bi-arrow-up f2em'></i>
                         <a>Importar</a>
                     </div>
                 </div>
@@ -250,7 +250,7 @@ export class Arquivos {
             <div  class=" bgDark grid capt p-2 ">
             <div id="vg_${nome}" class='grid clicaMus'>
                 <a id="vg_${nome}"class="f2vh">${nome}</a>
-                <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterD' >
+                <img src='https://brunodaher.github.io/escalas/img/alb.png' class='capa filterE' >
             </div>
                 <a class=""></a>
                 <div class="flex ${controlesShow}">

@@ -48,8 +48,39 @@ export class Acordes extends Aux{
         return this.violao;
     }
     
+     renderPainelChords() {
+
+
+        this.refreshNav();
+        
+        return `
+
+            <!-- Bloco: Memória de Acordes & Escalas -->   
+            <section class="grid ">
+              
+                ${this.renderMusEstrutura()}
+               
+                ${this.renderSectionChords()}
+                
+                <article id="memoria" class="bgDark memoria  
+                    textCenter gap1 p-2 dragContainer">
+                </article>
+
+                <!-- Controle: Adicionar/Remover -->
+                <div class="flex abs addRem itemCenter gap2">
+                </div>
+
+            </section>
+            
+            <div class="textStart grid my-1">
+              ${this.renderFx()}
+            </div>
+        `;
+    }
+    //evento nao reativo
     renderSectionButtons() {
       
+        
         return this.sections.map(s => 
             `<span class="btnChord p-2 
                 section-btn${s.active ? " active" : ""}" 
@@ -73,24 +104,19 @@ export class Acordes extends Aux{
         ).join('');
     }
 
-    renderPainelChords() {
+    renderMusEstrutura(){
 
-        this.refreshNav();
-        
+        console.log('renderizando estrutura')
         return `
-
-            <!-- Bloco: Memória de Acordes & Escalas -->   
-            <div class="grid ">
-              
-
-                <!-- Bloco: Estrutura Musical -->
-                <div class="gap2 "
+    
+        <!-- Bloco: Estrutura Musical -->
+                <article id="estrutura"  class="gap2 "
                         style="overflow: hidden"> 
                         <legend hidden class="off" id="labelNomeSlot"></legend>       
                         <input hidden id="dataLoad" type="file"/>
                         <div class="">
                         
-                            <div class='flex justContBetween gap1 comp filterC  p-1'> 
+                            <di v class='flex justContBetween gap1 comp filterC  p-1'> 
 
                                     <a id="btnEstrutura" class="p-1 comp bi bi-music-note-beamed flex">Estrutura</a>  
 
@@ -118,10 +144,10 @@ export class Acordes extends Aux{
                             
                             <!-- Botões de Seção -->
                         
-                                <div class="flex" 
-                                    id="sectionButtons">
-                                    ${this.renderSectionButtons()}
-                                </div>
+                        <div class="flex" 
+                            id="sectionButtons">
+                            ${this.renderSectionButtons()}
+                        </div>
                             
                         </div>
                         <!-- Áreas das Seções -->
@@ -140,25 +166,10 @@ export class Acordes extends Aux{
                                 border-color: black;'
                             >
                         </div>
-                    </div>
-               
-                ${this.renderSectionChords()}
-                
-            <section id="memoria" class="bgDark memoria  
-                    textCenter gap1 p-2 dragContainer">
-                </section>
-
-                <!-- Controle: Adicionar/Remover -->
-                <div class="flex abs addRem itemCenter gap2">
-                </div>
-            </section>
-            
-            <div class="textStart grid my-1">
-              ${this.renderFx()}
-            </div>
-        `;
+                </article>`
     }
 
+   
     renderSectionChords(){
 
         let isAdm = this.dao.isStored('adm')
@@ -244,6 +255,7 @@ export class Acordes extends Aux{
     }
 
     renderAll() {
+        console.log('renderizando painel de acordes')
         this.violao.init();
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
@@ -339,42 +351,42 @@ export class Acordes extends Aux{
 
     clicaSection(btn){
         
-                        let trecho = btn.innerText.trim().toLowerCase();
+            let trecho = btn.innerText.trim().toLowerCase();
 
-                        trecho = btn.getAttribute('name');
+            trecho = btn.getAttribute('name');
 
-                        console.log('clicado ',btn)
-                        console.log(trecho)
-                
-                        const event = new CustomEvent('video-play', {
-                            detail: trecho, // Dados para o método clean
-                        });
+            console.log('clicado ',btn)
+            console.log(trecho)
+    
+            const event = new CustomEvent('video-play', {
+                detail: trecho, // Dados para o método clean
+            });
 
-                        let currentSong = sessionStorage.getItem('currentSong')
+            let currentSong = sessionStorage.getItem('currentSong')
 
-                        console.log('trecho -> ', trecho, 'currentSong -> ', currentSong)
+            console.log('trecho -> ', trecho, 'currentSong -> ', currentSong)
 
-                        if(currentSong){
-                            let id = `vg_${currentSong}`;
-                            let btnLista = this.getById(id);
+            if(currentSong){
+                let id = `vg_${currentSong}`;
+                let btnLista = this.getById(id);
 
-                            if(btnLista){
-                                console.log(btnLista)
-                                //btnLista.click();
-                            }
-                            document.dispatchEvent(event);
-                         }
-                         else{
-                            console.log('no current song')
-                           // document.dispatchEvent(event);
-                         }
-                        //funcao aux
-                        this.removeAll('section-btn','active')
-                            btn.classList.add('active');
-                             let tgt = this.getById(btn.getAttribute('data-target'));
-                        
-                        this.addAll('sectionPanel','off');
-                            tgt.classList.remove('off')
+                if(btnLista){
+                    console.log(btnLista)
+                    //btnLista.click();
+                }
+                document.dispatchEvent(event);
+                }
+                else{
+                console.log('no current song')
+                // document.dispatchEvent(event);
+                }
+            //funcao aux
+            this.removeAll('section-btn','active')
+                btn.classList.add('active');
+                    let tgt = this.getById(btn.getAttribute('data-target'));
+            
+            this.addAll('sectionPanel','off');
+                tgt.classList.remove('off')
     }
 
     setVelo(btn) {
@@ -486,74 +498,71 @@ export class Acordes extends Aux{
 
     addSlot(chordLabel,id){
             
-            // Adiciona um novo slot de acorde na memória usando template literals e reduz redundâncias
-            let mem = this.getById('memoria');
-            let curSize = mem.childElementCount;
-            let velo = this.getById('velo').value;
-            let btnId = id ? id : curSize + 1;
-            let btnLabel = chordLabel ? chordLabel : btnId;
+        // Adiciona um novo slot de acorde na memória usando template literals e reduz redundâncias
+        let mem = this.getById('memoria');
+        let curSize = mem.childElementCount;
+        let velo = this.getById('velo').value;
+        let btnId = id ? id : curSize + 1;
+        let btnLabel = chordLabel ? chordLabel : btnId;
 
-           
-            // Cria o elemento usando template e insere no innerHTML
-            mem.insertAdjacentHTML('beforeend', `
-                <span
-                    id="${btnId}" 
-                    class="btnChord bordaA painelBtn slot item" 
-                    draggable="false" 
-                    velo="${velo}" 
-                    value='${btnLabel}'
-                    style="user-select: none;"
-                >${btnLabel}</span>
-            `);
+        
+        // Cria o elemento usando template e insere no innerHTML
+        mem.insertAdjacentHTML('beforeend', `
+            <span
+                id="${btnId}" 
+                class="btnChord bordaA painelBtn slot item" 
+                draggable="false" 
+                velo="${velo}" 
+                value='${btnLabel}'
+                style="user-select: none;"
+            >${btnLabel}</span>
+        `);
 
 
-            // Recupera o elemento recém-adicionado
-            let btn = mem.lastElementChild;
-            btn.value = btnLabel;
+        // Recupera o elemento recém-adicionado
+        let btn = mem.lastElementChild;
+        btn.value = btnLabel;
 
-            // Evento de clique para executar acorde
-            btn.addEventListener('click', (btn)=>{
-                // Check if video button is checked and click it if true
-             let video = this.getById('video');
+        // Evento de clique para executar acorde
+        btn.addEventListener('click', (btn)=>{
+            // Check if video button is checked and click it if true
+            let video = this.getById('video');
 
-                
-                //console.log(btn.target)
+            
+            //console.log(btn.target)
 
-                
-                if (video && !video.classList.contains('off')) {
-                    //btnVideo.click();
-                }                                
-                    this.slotId = id;
-                    this.violao.getChord(btn);
-            });
+            
+            if (video && !video.classList.contains('off')) {
+                //btnVideo.click();
+            }                                
+                this.slotId = id;
+                this.violao.getChord(btn);
+        });
 
-            // Evento de alteração para salvar nome do acorde
-            btn.addEventListener('blur' , (btn)=> {
-                btn = btn.target;
-                btn.value = btn.textContent
-                let data = this.dao.getDataJSON('label') || {};
+        // Evento de alteração para salvar nome do acorde
+        btn.addEventListener('blur' , (btn)=> {
+            btn = btn.target;
+            btn.value = btn.textContent
+            let data = this.dao.getDataJSON('label') || {};
 
-                data[btn.id] = btn.value;
-                btn.name = btn.value;
+            data[btn.id] = btn.value;
+            btn.name = btn.value;
 
-                this.dao.setDataJSON('label', data);
-                this.dao.salvaLocal();
-            });
+            this.dao.setDataJSON('label', data);
+            this.dao.salvaLocal();
+        });
 
-            // Evento de cancelamento (opcional)
-            btn.oncancel = function () {};
-            // Pequeno delay para resetar UI
-            setTimeout(() => {
-                this.violao.reset();
-            }, 700);
+        // Evento de cancelamento (opcional)
+        btn.oncancel = function () {};
+        // Pequeno delay para resetar UI
+        setTimeout(() => {
+            this.violao.reset();
+        }, 700);
 
     }
     
     clearMemoria(){
         this.getById('memoria').innerHTML = '';
-
-    
-
     }
 
      loadSlot() {
@@ -620,14 +629,16 @@ export class Acordes extends Aux{
 
     async loadEstrutura(){    
 
-        //console.log('carregand estrutura')
+        console.log('carregand estrutura')
 
         this.cleanSection();
        // //console.log('carregando estrutura', item.innerText)
         let estrutura = this.dao.getDataJSON('estrutura') || {};
 
-        if(estrutura){
-        
+        if(Object.keys(estrutura).length > 0 ){
+            
+            this.getById('estrutura').classList.remove('off')
+            console.log('tem estrutura')
             
             Object.entries(estrutura).forEach(([chave,valor]) => {
 
@@ -659,6 +670,10 @@ export class Acordes extends Aux{
                     }
                 }
             });
+        }
+        else{
+            console.log('sem estrutura')
+            this.getById('estrutura').classList.add('off')
         }
         
         setTimeout(() => {

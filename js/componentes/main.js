@@ -27,6 +27,7 @@ export class Main extends Aux{
             {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${css}`},
             {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
             {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${css}`},
+            
         ];
     }
 

@@ -25,11 +25,14 @@
     --shadowA: #d0bc5981;
     --colorA: #275b8b;
     --colorB: #D1CCCC;
-    --colorC: #e3a30a;
+    --colorC: #0c74b9; /*e3a30a*/
     --colorD: #1b915a;
     --colorE: #438ac5e1;
    --filterB:drop-shadow(2px 4px 6px var(--fundoB));
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5);
+    --filterE: invert(1) hue-rotate(176deg) drop-shadow(2px 4px 6px var(--fundoB)) contrast(8.5) saturate(1.5) brightness(1.5);
+   
+
    
    /* medidas */
     --headerHeight:12vh;

@@ -11,6 +11,7 @@
 
     &.active {
         color: var(--colorC);
+        
     }
 }
 
@@ -27,8 +28,8 @@
     &:hover,
     &:focus {
             
-         background-color: var(--colorC);
-           
+        background: var(--colorC);
+        color: var(--colorB);
         
         
         

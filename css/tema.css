@@ -136,6 +136,14 @@ input[type="color"] {
     -moz-filter: brightness(95%) hue-rotate(80deg) saturate(354%);
 }
 
+.filterD{
+   filter:invert(1) hue-rotate(10deg) drop-shadow(2px 4px 6px var(--fundoB));
+  }
+
+  .filterE{
+    filter: invert(1) hue-rotate(176deg) drop-shadow(2px 4px 6px var(--fundoB)) contrast(8.5) saturate(1.5) brightness(1.5);
+  }
+
 /* Components */
 .comp {
     background-color: var(--fundoC);

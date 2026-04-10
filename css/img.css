@@ -15,9 +15,7 @@
     outline: none;
   }
 
-  .filterD{
-   filter:invert(1) hue-rotate(10deg) drop-shadow(2px 4px 6px var(--fundoB));
-  }
+  
 
   .trash{
     /*background-image: url(https://www.pngrepo.com/download/38906/eraser.png);
