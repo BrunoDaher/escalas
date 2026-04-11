@@ -248,8 +248,8 @@ export class Arquivos {
         // /justContBetween
         let template = ` 
             <div  class=" rad1 bgDark grid capt p-2 ">
-            <div id="vg_${nome}" class='grid clicaMus'>
-                <a id="vg_${nome}"class="f2vh">${nome}</a>
+            <div id="vg_${nome}" class='gap1 grid clicaMus'>
+                <a id="vg_${nome}"class="f2vh colorD">${nome}</a>
                 <img src='./img/alb.png' class='capa filterE' >
             </div>
                 <a class=""></a>
