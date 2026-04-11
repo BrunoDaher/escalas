@@ -106,7 +106,7 @@ export class Acordes extends Aux{
 
     renderMusEstrutura(){
 
-        console.log('renderizando estrutura')
+      //  console.log('renderizando estrutura')
         return `
     
         <!-- Bloco: Estrutura Musical -->
@@ -260,7 +260,7 @@ export class Acordes extends Aux{
     }
 
     renderAll() {
-        console.log('renderizando painel de acordes')
+      //  console.log('renderizando painel de acordes')
         this.violao.init();
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
@@ -364,8 +364,8 @@ export class Acordes extends Aux{
 
             trecho = btn.getAttribute('name');
 
-            console.log('clicado ',btn)
-            console.log(trecho)
+           // console.log('clicado ',btn)
+            //console.log(trecho)
     
             const event = new CustomEvent('video-play', {
                 detail: trecho, // Dados para o método clean
@@ -373,23 +373,24 @@ export class Acordes extends Aux{
 
             let currentSong = sessionStorage.getItem('currentSong')
 
-            console.log('trecho -> ', trecho, 'currentSong -> ', currentSong)
+            //console.log('trecho -> ', trecho, 'currentSong -> ', currentSong, event)
 
             if(currentSong){
-                let id = `vg_${currentSong}`;
-                let btnLista = this.getById(id);
+                    let id = `vg_${currentSong}`;
+                    let btnLista = this.getById(id);
 
-                if(btnLista){
-                    console.log(btnLista)
-                    //btnLista.click();
-                }
-                document.dispatchEvent(event);
+                    if(btnLista){
+                        console.log(btnLista)
+                        //btnLista.click();
+                    }
+                    document.dispatchEvent(event);
                 }
                 else{
                 console.log('no current song')
                 // document.dispatchEvent(event);
-                }
+            }
             //funcao aux
+            
             this.removeAll('section-btn','active')
                 btn.classList.add('active');
                     let tgt = this.getById(btn.getAttribute('data-target'));
@@ -638,7 +639,7 @@ export class Acordes extends Aux{
 
     async loadEstrutura(){    
 
-        console.log('carregand estrutura')
+        //console.log('carregand estrutura')
 
         console.log('estrutura -> ', this.dao.getDataJSON('estrutura'))
 

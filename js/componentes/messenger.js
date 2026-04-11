@@ -167,7 +167,7 @@ export class Messenger extends Aux{
                     const mensagensFiltradas = {};
                     const mensagensCurrentContact = {};
 
-                    console.log('filtrando mensagens para: ', this.destinatario);
+                   // console.log('filtrando mensagens para: ', this.destinatario);
 
                     const receiving = this.getById('receiving');
                     if (receiving) {
@@ -255,7 +255,7 @@ export class Messenger extends Aux{
     // trigger destino
             let contacts = this.getAllClass('contact');
 
-            console.log(this.contatos)
+         //   console.log(this.contatos)
      
             for(let contact of contacts) {
 

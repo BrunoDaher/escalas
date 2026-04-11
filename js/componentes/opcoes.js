@@ -5,7 +5,7 @@ export class Opcoes extends Aux{
     constructor() {
     
         super();
-    
+
         const containerId = 'painelOptions';
         
         this.containerId = containerId;
@@ -23,6 +23,89 @@ export class Opcoes extends Aux{
      
         this.renderAll();
         this.eventos();
+    }
+
+    initTemas(){
+    
+        this.root = document.documentElement;
+        
+
+         const temaPadrao = {
+            '--fundoA': '#275b8b', // Substituído pelo seu novo azul
+            '--fundoB': 'black',
+            '--fundoC': '#3c3d3e', 
+            '--fundoD': '#202020',
+            '--fundoE': '#1916168c',
+            '--fundoF': '#f32121',
+            '--fundoG': '#a77b6b85', // Atualizado conforme sua lista
+            '--chroma': '#8aad8a',
+            '--shadowA': '#d0bc5981',
+            '--colorA': '#275b8b',
+            '--colorB': '#D1CCCC',
+            '--colorC': '#0c74b9',
+            '--colorD': '#c59143e1',
+            '--colorE': '#438ac5e1'
+        };        
+
+        const temaA = {
+            '--fundoA': '#2d6a4f',
+            '--fundoB': '#08140f',
+            '--fundoC': '#262121',
+            '--fundoD': '#131614',
+            '--fundoE': '#08140f8c',
+            '--fundoF': '#d90429',
+            '--fundoG': '#8b5a2b85',
+            '--chroma': '#52b788',
+            '--shadowA': '#74c69d81',
+            '--colorA': '#52b788',
+            '--colorB': '#d8e2dc',
+            '--colorC': '#1b4332',
+            '--colorD': '#ffb703e1',
+            '--colorE': '#52b788e1',
+        };
+
+        const temaB = {
+        '--fundoA': '#800000', // Bordô/Crimson escuro
+            '--fundoB': '#050505', // Preto quase puro
+            '--fundoC': '#242424', // Cinza neutro para painéis
+            '--fundoD': '#141414', // Cinza escuro
+            '--fundoE': '#0505058c',
+            '--fundoF': '#ff3333', // Vermelho vivo
+            '--fundoG': '#5c403385', // Madeira Nogueira (escura)
+            '--chroma': '#4caf50', // Verde padrão de sucesso
+            '--shadowA': '#ff4d4d81', // Brilho vermelho
+            '--colorA': '#e63946', // Vermelho principal para destaques
+            '--colorB': '#f0f0f0', // Branco bem puro para alto contraste
+            '--colorC': '#a81a1a', // Vermelho escuro para botões ativos
+            '--colorD': '#e0a96de1', // Dourado/Latão velho (remete a ferragens de guitarra)
+            '--colorE': '#e63946e1'
+        };
+
+
+        const temaC = {
+            '--fundoA': '#2d6a4f', // Verde musgo
+            '--fundoB': '#08140f', // Preto esverdeado
+            '--fundoC': '#22382c', // Painéis verde acinzentado escuro
+            '--fundoD': '#16241c', 
+            '--fundoE': '#08140f8c',
+            '--fundoF': '#d90429', // Vermelho padrão
+            '--fundoG': '#8b5a2b85', // Madeira clássica (mantida neutra)
+            '--chroma': '#52b788', 
+            '--shadowA': '#74c69d81', // Brilho menta
+            '--colorA': '#52b788', // Verde menta para destaques
+            '--colorB': '#d8e2dc', // Texto verde/cinza bem claro e suave
+            '--colorC': '#1b4332', // Verde escuro para botões ativos
+            '--colorD': '#ffb703e1', // Âmbar para contraste
+            '--colorE': '#52b788e1'
+        }
+
+
+        this.temas = {
+            'Padrao': temaPadrao,
+            'TemaA': temaA,
+            'TemaB': temaB,
+            'TemaC': temaC
+        };
     }
 
     template() {
@@ -83,25 +166,23 @@ export class Opcoes extends Aux{
 
 
     renderTemas(){
+
         return `
             <div class='flexCenter gap2 p-1 justCenter '>
-                    <span class="grid itemCenter btnTema" id="temaPadrao" >
-                        <i class="bi bi-arrow-clockwise "></i>
-                        <a>Padrao</a>
-                    </span>
-                    <span class="grid itemCenter btnTema" id="temaA" >
-                        <i class="bi bi-paint-bucket "></i>
-                        <a>TemaA</a>
-                    </span>
-                    <span class="grid itemCenter btnTema" id="temaB" >
-                        <i class="bi bi-paint-bucket "></i>
-                        <a>TemaB</a>
-                    </span>
+                  
+                    ${Object.keys(this.temas).map(key => `
+                        <span class="grid itemCenter btnTema" id="${key}" >
+                            <i class="bi bi-paint-bucket"></i>
+                            <a>${key}</a>
+                        </span>
+                    `).join('')}
+
                 </div>
             `
     }
 
     renderAll() {
+        this.initTemas();
         const div = document.getElementById(this.containerId);
         if (div) {
             div.innerHTML = this.template();
@@ -150,75 +231,12 @@ export class Opcoes extends Aux{
 
     setTema(btn) {
 
-        const root = document.documentElement;
+        const selectedTheme = this.temas[btn.id];
 
-
-        
-
-         const temaPadrao = {
-    '--fundoA': '#275b8b', // Substituído pelo seu novo azul
-    '--fundoB': 'black',
-    '--fundoC': '#3c3d3e', 
-    '--fundoD': '#202020',
-    '--fundoE': '#1916168c',
-    '--fundoF': '#f32121',
-    '--fundoG': '#a77b6b85', // Atualizado conforme sua lista
-    '--chroma': '#8aad8a',
-    '--shadowA': '#d0bc5981',
-    '--colorA': '#275b8b',
-    '--colorB': '#D1CCCC',
-    '--colorC': '#0c74b9',
-    '--colorD': '#c59143e1',
-    '--colorE': '#438ac5e1'
-};        
-
-        const temaA = {
-            '--fundoA': '#2d6a4f',
-            '--fundoB': '#08140f',
-            '--fundoC': '#262121',
-            '--fundoD': '#131614',
-            '--fundoE': '#08140f8c',
-            '--fundoF': '#d90429',
-            '--fundoG': '#8b5a2b85',
-            '--chroma': '#52b788',
-            '--shadowA': '#74c69d81',
-            '--colorA': '#52b788',
-            '--colorB': '#d8e2dc',
-            '--colorC': '#1b4332',
-            '--colorD': '#ffb703e1',
-            '--colorE': '#52b788e1',
-        };
-
-const temaB = {
-   '--fundoA': '#800000', // Bordô/Crimson escuro
-    '--fundoB': '#050505', // Preto quase puro
-    '--fundoC': '#242424', // Cinza neutro para painéis
-    '--fundoD': '#141414', // Cinza escuro
-    '--fundoE': '#0505058c',
-    '--fundoF': '#ff3333', // Vermelho vivo
-    '--fundoG': '#5c403385', // Madeira Nogueira (escura)
-    '--chroma': '#4caf50', // Verde padrão de sucesso
-    '--shadowA': '#ff4d4d81', // Brilho vermelho
-    '--colorA': '#e63946', // Vermelho principal para destaques
-    '--colorB': '#f0f0f0', // Branco bem puro para alto contraste
-    '--colorC': '#a81a1a', // Vermelho escuro para botões ativos
-    '--colorD': '#e0a96de1', // Dourado/Latão velho (remete a ferragens de guitarra)
-    '--colorE': '#e63946e1'
-};
-
-
-
-        const temas = {
-            temaPadrao: temaPadrao,
-            temaA: temaA,
-            temaB: temaB
-        };
-
-        const selectedTheme = temas[btn.id];
-        
-
+        console.log(selectedTheme)
         for (const [property, value] of Object.entries(selectedTheme)) {
-            root.style.setProperty(property, value);
+            
+            this.root.style.setProperty(property, value);
         }
 
         

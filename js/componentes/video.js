@@ -29,7 +29,7 @@ export default class VideoObj {
          this.dao.persiste.listKeys()
             .then(keys => {
                 // Aqui dentro você tem acesso à array de chaves
-                console.log("Chaves encontradas:", keys);
+                //console.log("Chaves encontradas:", keys);
             // this.dao.persiste.getVideoBlob(event.detail)
             })
             .catch(err => {
@@ -65,6 +65,8 @@ export default class VideoObj {
             
             if(event.detail=='seq'){
                 //this.currentSong = null;
+
+                
                 this.playVideo('seq');
             }
             else{
@@ -232,8 +234,23 @@ export default class VideoObj {
   try {
     console.log(song)
     if (song == 'seq') {
+
+         // Busca a Signed URL
+        const urlDados = await this.getVideoUrl(`${this.currentSong.toLowerCase()}_dados`);
         
-        this.currentVideo.src = `./data/logo.mp4`;
+        if (urlDados) {
+            console.log('existe url')
+          this.currentVideo.src = urlDados;
+        }
+        else{
+this.currentVideo.src = `./data/logo.mp4`;
+        }
+        
+        //verificar antes o dados
+        
+        
+
+
     } else if (this.currentVideo && song) {
       
       // Tenta Local primeiro (IndexedDB)

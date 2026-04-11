@@ -162,7 +162,7 @@ export class Aux {
                 'mobile': isMobile
             };
 
-            console.log('Resultado:', this.infoNavegador);
+       //     console.log('Resultado:', this.infoNavegador);
         
         
     }

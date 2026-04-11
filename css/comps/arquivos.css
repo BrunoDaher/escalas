@@ -23,7 +23,7 @@
     color: white;
 
     margin: 0.5svh 0;
-    /*background: radial-gradient(var(--fundoD),var(--fundoB));*/
+        background: linear-gradient(110deg, var(--fundoA), transparent);
     text-align: start;
     height: 20svh;
     opacity: 0.7;

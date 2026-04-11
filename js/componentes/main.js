@@ -39,7 +39,7 @@ export class Main extends Aux{
     }
 
     renderPaineis() {
-        console.log(this.css)
+        
         return `
             <article id="paineis" class=" gap1 ${this.css}">
                 ${this.sections.map(obj => `
@@ -50,8 +50,6 @@ export class Main extends Aux{
     }
 
     build() {
-
-        console.log('loading')
 
         this.getById('carregandoInicio').classList.add('off');
         

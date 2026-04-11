@@ -199,7 +199,7 @@ export class Arquivos {
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
 
-                    console.log(item)
+                 
                     document.getElementById('currentLabelText').innerText = item.innerText
 
                     this.acordes.clearMemoria();
@@ -247,7 +247,7 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div  class=" bgDark grid capt p-2 ">
+            <div  class=" rad1 bgDark grid capt p-2 ">
             <div id="vg_${nome}" class='grid clicaMus'>
                 <a id="vg_${nome}"class="f2vh">${nome}</a>
                 <img src='./img/alb.png' class='capa filterE' >
