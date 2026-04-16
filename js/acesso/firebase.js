@@ -13,7 +13,6 @@ const firebaseConfig = {
 export class Fire {
   
 
-
   constructor() {
 
     if (!firebase.apps.length) {

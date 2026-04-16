@@ -12,13 +12,15 @@ import { Aux} from './util/aux.js'
 import { Main } from './componentes/main.js'
 
              
-const acordes = new Acordes();
+
 
 const dragula = new Dragula();
 const opcoes = new Opcoes();
 const acesso = new Acesso();
 
 let role = await acesso.getFire().getRole();
+
+const acordes = new Acordes();
 
 const arquivos = new Arquivos(acordes, role);
 const msg = new Messenger();
@@ -73,7 +75,7 @@ aux.refreshNav()
     msg.setFirebase(acesso.getFire())
     msg.renderMessenger();  
     opcoes.init();
-    acordes.renderAll();
+    acordes.renderAll(role);
     arquivos.renderAll(role);
     metronomo.init();  
     dragula.init();

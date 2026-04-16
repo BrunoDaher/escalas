@@ -19,6 +19,7 @@ export class Acordes extends Aux{
     constructor() {
         super(); // Chama o construtor da classe pai
 
+        
             this.dao = new Dao('acordes call');
              this.violao = new Violao(this.dao);
              
@@ -196,7 +197,7 @@ export class Acordes extends Aux{
                     <div id='blocoVelocidade' class="justContBetween p-1 flex textStart"> 
                 
                         <!-- Bloco: Velocidade -->
-                        <label for="velo" class="flex p-1 itemCenter gap2">
+                        <label for="velo" class="flex w-100 p-1 itemCenter gap2">
                             <i class="bi bi-clock colorB flex"> Velô</i>  
                             <input type="range" id="velo" max="800" value="10" class="w-100 comp" step="10"/> 
                         </label>
@@ -212,8 +213,13 @@ export class Acordes extends Aux{
 
     renderEditMode(){
 
+        
+        let controlesShow = this.role == 'adm' ? '':'off';
+        console.log('renderizando edit mode');
+        
+
           return `
-           <section class='flex'>
+           <section class='flex ${controlesShow}'>
                 <div class="gap1 flex itemCenter">
                     <a>Edit</a>
                     <label class="switch">
@@ -259,8 +265,9 @@ export class Acordes extends Aux{
         `
     }
 
-    renderAll() {
+    renderAll(role) {
       //  console.log('renderizando painel de acordes')
+      this.role = role;
         this.violao.init();
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
@@ -382,7 +389,8 @@ export class Acordes extends Aux{
                     
                      let video = document.getElementById('btnVideo');
        
-                    if(!video.checked){
+                     
+                    if(!video.checked && this.infoNavegador.portrait){
                         video.click();
                     }
 
@@ -549,8 +557,8 @@ export class Acordes extends Aux{
             //console.log(btn.target)
 
             
-            if (video && !video.classList.contains('off')) {
-                //btnVideo.click();
+            if (video && !video.classList.contains('off') && this.infoNavegador.portrait) {
+                btnVideo.click();
             }                                
                 this.slotId = id;
                 this.violao.getChord(btn);

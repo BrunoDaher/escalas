@@ -13,6 +13,7 @@ export class Arquivos {
     renderPainelFiles() {
 
         let controlesShow = this.role == 'adm' ? '':'off';
+        
         return `
     
             <div class="comp p-1 flex justContBetween textStart ">

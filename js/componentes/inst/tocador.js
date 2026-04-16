@@ -58,11 +58,6 @@ export class Tocador {
 
         //verificar se braco do violao ta ativo, se nao estiver, ativar
            
-        let video = document.getElementById('btnVideo');
-       
-        if(video.checked){
-            video.click();
-        }
 
         if(arrayNotas){
             let cont = 1;

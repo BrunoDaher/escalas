@@ -1,7 +1,6 @@
 
 import {Fire}  from './firebase.js';
 import {Aux} from '../util/aux.js'
-import { Supa } from './supa.js';
 import {Persiste} from './persiste.js'
  
 const aux = new Aux();
@@ -13,6 +12,7 @@ export class Acesso {
         this.persiste = new Persiste();
         
     }
+    
 
     async authFireSupa(){
     // Assume user is already authenticated with Firebase
@@ -47,6 +47,7 @@ export class Acesso {
       
         if (isLogged) {
           //  await this.authFireSupa();
+          console.log('Usuário logado');
             return true
         } else {
             return false
