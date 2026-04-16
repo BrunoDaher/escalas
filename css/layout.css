@@ -128,6 +128,8 @@
 .justCenter {
     justify-self: center;
     justify-content: center;
+
+    
 }
 .justContStart { justify-content: start; }
 .justContBetween { justify-content: space-between; }
@@ -137,6 +139,7 @@
 .itemCenter { align-items: center; }
 .selfCenter {
     text-align: center;
+    align-self: center;
     justify-items: center;
     justify-self: center;
 }
