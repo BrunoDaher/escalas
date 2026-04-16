@@ -241,9 +241,6 @@ export class Violao {
     }
 
     chordEdit(btn) {
-
-        console.log(btn)
-        //console.log('editando acorde')
         btn.classList.toggle('on');
         this.chordEditStatus = !this.chordEditStatus;
     }

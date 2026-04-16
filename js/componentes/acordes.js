@@ -11,8 +11,8 @@ export class Acordes extends Aux{
         { id: "seq", label: "Dados", off: false },
         { id: "intro", label: "Intro", off: true },
         { id: "verso", label: "Verso", off: true },
-        { id: "ponte", label: "Ponte", off: true },
         { id: "refrao", label: "Refrao", off: true },
+        { id: "ponte", label: "Ponte", off: true },
         { id: "solo", label: "Solo", off: true }
     ];
        
@@ -703,6 +703,7 @@ export class Acordes extends Aux{
 
                    let id = this.getById(btn.getAttribute('slot'));
                    
+                   //forcar abertura do braco do violao, se fechado
                    id.click();
                 };
             });
