@@ -379,8 +379,15 @@ export class Acordes extends Aux{
                     let id = `vg_${currentSong}`;
                     let btnLista = this.getById(id);
 
+                    
+                     let video = document.getElementById('btnVideo');
+       
+                    if(!video.checked){
+                        video.click();
+                    }
+
                     if(btnLista){
-                        console.log(btnLista)
+                     
                         //btnLista.click();
                     }
                     document.dispatchEvent(event);
