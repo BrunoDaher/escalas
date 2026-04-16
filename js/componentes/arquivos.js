@@ -25,8 +25,8 @@ export class Arquivos {
                 
             </div>
 
-            <div id="listaArq" class='my-1' >
-                <div id="salvos" class="grid2"></div>
+            <div id="listaArq" class='my-1 p-1 flexScroll' >
+                <div id="salvos" class="flex"></div>
             </div>
            
            <div class="grid my-1 p-1">

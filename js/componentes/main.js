@@ -20,7 +20,6 @@ export class Main extends Aux{
         
         this.css = css;
 
-        
                        
         this.sections = [
             {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},

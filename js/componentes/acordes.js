@@ -49,7 +49,7 @@ export class Acordes extends Aux{
         return this.violao;
     }
     
-     renderPainelChords() {
+    renderPainelChords() {
 
 
         this.refreshNav();
@@ -174,7 +174,6 @@ export class Acordes extends Aux{
 
                 </article>`
     }
-
    
     renderSectionChords(){
 
@@ -590,7 +589,7 @@ export class Acordes extends Aux{
         this.getById('memoria').innerHTML = '';
     }
 
-     loadSlot() {
+    loadSlot() {
 
         //console.log('loading slots')
         

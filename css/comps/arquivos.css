@@ -3,7 +3,7 @@
 #salvos {
     list-style-type: none;
     align-content: space-between;
-    display: grid;
+    
     gap: 1vh;
 
     @media  (orientation: landscape) {
@@ -19,11 +19,12 @@
 }
 
 #salvos > div {
+
     cursor: pointer;
     color: white;
-
+    width:31vw;
     margin: 0.5svh 0;
-        background: linear-gradient(110deg, var(--fundoA), transparent);
+        background: linear-gradient(110deg, var(--colorE), transparent);
     text-align: start;
     height: 20svh;
     opacity: 0.7;
