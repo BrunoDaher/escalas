@@ -40,7 +40,7 @@ export class Main extends Aux{
     renderPaineis() {
         
         return `
-            <article id="paineis" class=" gap1 ${this.css}">
+            <article id="paineis" class="scroll50 gap1 ${this.css}">
                 ${this.sections.map(obj => `
                     <section id="${obj.id}" class="${obj.className}"></section>
                 `).join('')}
