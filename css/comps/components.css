@@ -19,12 +19,21 @@
       @media (max-width: 500px) {
         border-radius: 0 !important;
         filter: var(--filterB);
+        
     }
+
+    @media (min-width:501px) {
+        overflow-y:visible;
+        
+    }
+
+    
 
     &.mobile{
           @media (orientation: landscape) {
             padding: 0;
             width: 30%;
+            
          }
     }
 
