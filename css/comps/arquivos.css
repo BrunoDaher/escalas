@@ -36,7 +36,7 @@
         box-sizing: border-box;
     min-width:20vh;
     margin: 0.5svh 0;
-        background: linear-gradient(110deg, var(--colorE), transparent);
+            background: linear-gradient(110deg, var(--fundoB), transparent);
     text-align: start;
     height: 20svh;
     opacity: 0.7;
@@ -45,8 +45,7 @@
 
     @media (orientation: landscape) {
       display: grid;
-        width: 20vh;
-        height: 20vh;
+        
     }
 }
 

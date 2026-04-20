@@ -20,7 +20,11 @@
     font-size: 1.8vh;
     padding: 1vh;
     color: var(--colorB);
-    background: var(--fundoE);
+
+   filter: var(--filterB);
+    border-radius: 3px;
+    border-width: 1px;
+        background: linear-gradient(185deg, black, var(--fundoC));
     transition: all 0.3s ease;
 
 

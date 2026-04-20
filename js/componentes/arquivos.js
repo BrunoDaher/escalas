@@ -56,11 +56,11 @@ export class Arquivos {
 
                 <div class='${controlesShow} flex'>
                     <div class="grid rad1 btn1 f2vh" id="export">
-                        <i class=' bi-arrow-down f2em'></i>
+                        <i class=' bi-arrow-down'></i>
                         <a>Exportar</a>
                     </div>
                     <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
-                        <i class=' bi-arrow-up f2em'></i>
+                        <i class=' bi-arrow-up '></i>
                         <a>Importar</a>
                     </div>
                 </div>
