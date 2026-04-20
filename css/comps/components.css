@@ -12,7 +12,7 @@
     
     background-color: var(--fundoD );
     padding: 1rem;
-    overflow-y: auto;
+    
   min-height: 0;
       
     
@@ -47,6 +47,8 @@
         padding: 0 ;
         @media (orientation: landscape) {
             width: 28vw;
+            overflow-y: scroll;
+            max-height: 50vh;
         }
     }
 

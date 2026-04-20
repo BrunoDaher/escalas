@@ -7,12 +7,20 @@
     gap: 1vh;
 
     @media  (orientation: landscape) {
-        grid-template-columns: repeat(2, 1fr);
+                overflow-y: scroll;
+            display: grid;
+            -webkit-text-decorations-in-effect: overline;
+            /* width: 20vh; */
+            grid-template-columns: 1fr 1fr;
+    
         
     }
 
     @media  (orientation: portrait) {
-        grid-template-columns: repeat(2, 1fr);
+        
+                
+        overflow-x: scroll;
+        max-width: 90vw;
         
     }
 
@@ -20,9 +28,13 @@
 
 #salvos > div {
 
+        
+    mix-blend-mode: difference;
+
     cursor: pointer;
     color: white;
-    width:31vw;
+        box-sizing: border-box;
+    min-width:20vh;
     margin: 0.5svh 0;
         background: linear-gradient(110deg, var(--colorE), transparent);
     text-align: start;
@@ -30,6 +42,12 @@
     opacity: 0.7;
     filter: contrast(0.8) drop-shadow(2px 4px 6px black);
     align-content: space-between;
+
+    @media (orientation: landscape) {
+      display: grid;
+        width: 20vh;
+        height: 20vh;
+    }
 }
 
 .clicaMus.active, .clicaMus:hover {

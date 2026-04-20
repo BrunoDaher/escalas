@@ -25,7 +25,7 @@ export class Arquivos {
                 
             </div>
 
-            <div id="listaArq" class='my-1 p-1 flexScroll' >
+            <div id="listaArq" class='my-1' >
                 <div id="salvos" class="flex"></div>
             </div>
            
@@ -48,9 +48,9 @@ export class Arquivos {
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-        <div  id="daoBtns" class=" justCenter gap2 p-1 flex ">
+        <div  id="daoBtns" class=" justLeft gap2 p-1 flex ">
                 <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
-                    <i class='bi-arrow-counterclockwise f2em'></i>
+                    <i class='bi-arrow-counterclockwise'></i>
                     <a>Atualizar</a>
                 </div>
 
