@@ -110,7 +110,7 @@ export class Opcoes extends Aux{
 
     template() {
         const temaInputs = this.cores.map(cor => `
-            <label class="grid gap1 itemCenter" for="${cor.id}">
+            <label class="grid gap1 itemCenter labelTema " for="${cor.id}">
                 <a>${cor.label}</a>
                 <input 
                     style="background-color: var(${cor.cssVar})" 
@@ -121,15 +121,6 @@ export class Opcoes extends Aux{
         `).join('');
 
         return `
-                <div class="flex justContBetween comp p-1 mb-1">
-                    <div class='flex itemCenter'>
-                        <i class='bi bi-music-note'>Notas</i>
-                        <label class="switch flex itemCenter">
-                            <input class='active cleanReq' id="cleanMode" type="checkbox" checked >
-                            <span class="slider round"></span>
-                        </label>    
-                    </div>
-                </div>
 
                 <div id="controls" class="flex itemCenter gap2 justCenter" style="height: fit-content;">
                     <input hidden id="playChord" type="button" class="btn1" value="Chord">
@@ -139,7 +130,7 @@ export class Opcoes extends Aux{
                 <section class="textStart grid  ">
                     <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>
                   
-                    <div class="gap2 grid3 p-2 paint-bucket justContAround">
+                    <div class="gap2 flexCenter p-2 paint-bucket justContAround">
                         ${temaInputs}
                     </div>
 
@@ -211,14 +202,7 @@ export class Opcoes extends Aux{
                 btn.addEventListener('click', () => this.setTema(btn));
             });
 
-            const btnCleanMode = document.getElementById('cleanMode');
             
-            btnCleanMode.onclick = ()=>{
-                     const event = new CustomEvent('clean-request', {
-                         detail: btnCleanMode, // Dados para o método clean
-                    });
-                document.dispatchEvent(event);
-            }
     }
 
     tema(event) {

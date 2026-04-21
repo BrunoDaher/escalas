@@ -26,25 +26,40 @@
 
 }
 
+.songTitle{
+    
+    padding: 2px;
+    border-radius: 1vh;
+        
+}
+
+.capt{
+        box-sizing: border-box;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
 #salvos > div {
 
         
-    mix-blend-mode: difference;
+    display: flex;
+    flex-direction: column;
 
     cursor: pointer;
     color: white;
-        box-sizing: border-box;
+        
     min-width:20vh;
     margin: 0.5svh 0;
-            background: linear-gradient(110deg, var(--fundoB), transparent);
+    /*background: linear-gradient(-10deg, var(--fundoB), transparent);*/
     text-align: start;
     height: 20svh;
+  
     opacity: 0.7;
-    filter: contrast(0.8) drop-shadow(2px 4px 6px black);
-    align-content: space-between;
+    backdrop-filter: brightness(0.5);
+    mix-blend-mode: exclusion;
 
     @media (orientation: landscape) {
-      display: grid;
+      
         
     }
 }
@@ -58,8 +73,9 @@
 /* Misc */
 .clicaMus {
     text-transform: capitalize;
-    font-family: ui-rounded;
+
 padding: 1vh;
+margin-top: auto;
    
 
 }

@@ -197,7 +197,7 @@ export class Acordes extends Aux{
                 
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex w-100 p-1 itemCenter gap2">
-                            <i class="bi bi-clock colorB flex"> Velô</i>  
+                            <i class="bi bi-clock colorB flex"> Tempo</i>  
                             <input type="range" id="velo" max="800" value="10" class="w-100 comp" step="10"/> 
                         </label>
                         

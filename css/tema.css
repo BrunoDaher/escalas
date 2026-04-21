@@ -16,6 +16,13 @@
    
 }
 
+.labelTema{
+    background: linear-gradient(45deg, var(--fundoA), transparent);
+    padding: 1vh;
+    border-radius: 1vh;
+    filter: var(--filterE);
+}
+
 .startLoad{
 
     @media (orientation: landscape) {

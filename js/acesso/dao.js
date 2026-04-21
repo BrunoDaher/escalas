@@ -45,6 +45,12 @@ export class Dao {
     return await this.supa.getUrlVideo(song);
   }
 
+  urlImg(nome){
+
+    return this.getLocalDataJSON('vg_' + nome).img || '../data/pratica.png';
+    //return `docu`
+  }
+
   async saveVideoUrl(url,song){
     await this.persiste.saveVideo(url,song)
   }

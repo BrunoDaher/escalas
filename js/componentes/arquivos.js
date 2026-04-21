@@ -242,23 +242,29 @@ export class Arquivos {
 
     favBuild(nome){
     
+
+        let urlImg = this.dao.urlImg(nome) ;
+        
+        console.log(urlImg)
  
+        let css = urlImg ? `background-image : url('${urlImg}')` :'';
+
         let controlesShow = this.role == 'adm' ? '':'off';
         
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div  class=" rad1 bgDark grid capt p-2 ">
-            <div id="vg_${nome}" class='gap1 grid clicaMus'>
-                <a id="vg_${nome}"class="f2vh filterB">${nome}</a>
-                <img src='./img/alb.png' class='capa filterE' >
-            </div>
-                <a class=""></a>
-                <div class="flex ${controlesShow}">
-                    <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
-                    <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
-                    <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
-                </div>
+            <div style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 ">
+                    <div  id="vg_${nome}" class='gap1 grid clicaMus '>
+                        <legend id="vg_${nome}"class="f2vh  fundoB filterB">${nome}</legend>
+                        <div class="flex ${controlesShow}">
+                        <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
+                        <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
+                        <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
+                    </div>
+                    </div>
+                    
+                
             </div>
         `;
 
