@@ -76,11 +76,14 @@ export class Arquivos {
         //iniciando supabase
         this.dao.startSupa();
 
+        
+
          this.container = document.getElementById(this.containerId);
+         console.log(this.container)
         if (this.container) {
             ////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
-            this.triggers()
+           this.update();
         }
         else{
          //  //console.log(22)
@@ -89,7 +92,6 @@ export class Arquivos {
 
 
     novoArquivo(){
-
 
         
         let dataLoad = document.getElementById('dataLoad');
@@ -115,9 +117,9 @@ export class Arquivos {
     triggers(){
 
         // Add event listener for custom video-play event
-        
             
         this.novoArquivo();
+        
 
         // Botões de ação (chroma, export, load)
         const chromaBtn = document.getElementById('chroma');
@@ -151,48 +153,59 @@ export class Arquivos {
            
         if (cloudLoadBtn) {
 
-            cloudLoadBtn.addEventListener('click', async () => {
-                    let cloudFiles = await this.dao.cloudSync();
-                    
-                    if(cloudFiles){
+                    cloudLoadBtn.addEventListener('click', async () => {
 
-                         localStorage.clear();
-                         this.dao.refreshBlob();
+                   await this.update();
 
-                         
-                        cloudFiles.forEach(async song => {
-                                let songName = song.replace('.json','');
-                                let json = await this.dao.getFile(song);
+                    // Agora sim, o restore() só roda quando o mapa inteiro terminar
+                    this.triggers();
 
-                                if(json){
-                                    let songName = song.replace('.json','');
-                                    this.dao.setLocalDataJSON('vg_' + songName, json);
-                                }
-                                
-                        });
+                    });
 
-                        this.restore();
-                        this.triggersFav();
-                    }
-
-           })
+           
         }   
 
-         const addSongBtn = document.getElementById('addSong');
-            if (addSongBtn) {
-                addSongBtn.addEventListener('click', () => {
+        const addSongBtn = document.getElementById('addSong');
+        if (addSongBtn) {
+            addSongBtn.addEventListener('click', () => {
 
-                this.addSong();
-                this.triggersFav()
-                });
-            }
+            this.addSong();
+            this.triggersFav()
+            });
+        }
 
-        this.restore();
-        this.triggersFav();
+           this.restore();
+        this.favBuild();
+       
+        
     }
+
+
+   async update(){
+         let cloudFiles = await this.dao.cloudSync();
+
+                    if(cloudFiles){
+
+                        document.getElementById('salvos').innerHTML = '';
+                        localStorage.clear();
+                        this.dao.refreshBlob();
+                       
+                        await Promise.all(cloudFiles.map(async song => {
+                            let json = await this.dao.getFile(song);
+                            if (json) {
+                            let songName = song.replace('.json', '');
+                            this.dao.setLocalDataJSON('vg_' + songName, json);
+                        }
+                       }));
+
+                       this.restore();
+                    this.triggersFav();    
+    }
+}
 
     triggersFav() {
         
+        console.log('trigger favoritos')
         let btnsClicaMus = document.querySelectorAll('.clicaMus');
             let btnsDel = document.querySelectorAll('.bi-eraser-fill');
             let btnsPencil = document.querySelectorAll('.bi-pencil');
@@ -200,27 +213,7 @@ export class Arquivos {
 
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
-                 
-                    document.getElementById('currentLabelText').innerText = item.innerText
-
-                    this.acordes.clearMemoria();
-                        this.dao.clicaMusica(item);
-                        this.acordes.loadSlot(item); 
-
-                        //document.getElementById('contexto').innerText = item
-                       
-                        setTimeout(
-                            //
-                            ()=>{
-                                //disparar um evento q aciona o acordes
-                              let btn = document.getElementById('acordes');
-                               if(btn){
-                                 btn.click();
-                               }
-                             
-                            }
-                            ,300)
-                       // this.renderVideo(item)
+                   this.clicaMusica(item);
                 })
             });
         
@@ -240,23 +233,43 @@ export class Arquivos {
         
     }
 
+    clicaMusica(item){
+         document.getElementById('currentLabelText').innerText = item.innerText
+
+                    this.acordes.clearMemoria();
+                        this.dao.clicaMusica(item);
+                        this.acordes.loadSlot(item); 
+
+                        //document.getElementById('contexto').innerText = item
+                       
+                        setTimeout(
+                            //
+                            ()=>{
+                                //disparar um evento q aciona o acordes
+                              let btn = document.getElementById('acordes');
+                               if(btn){
+                                 btn.click();
+                               }
+                             
+                            }
+                            ,300)
+    }
+
     favBuild(nome){
     
 
-
         let urlImg = this.dao.urlImg(nome) ;
 
-        console.log(urlImg)
-        
         let css = urlImg ? `background-image : url('${urlImg}')` :'';
 
         let controlesShow = this.role == 'adm' ? '':'off';
-        
+       
+    
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div  id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='gap1 grid clicaMus '>
+            <div id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
+                    <div  class='gap1 grid '>
                         <legend class="f2vh fundoB filterB">${nome}</legend>
                         <div class="flex ${controlesShow}">
                         <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
@@ -266,6 +279,7 @@ export class Arquivos {
                     </div>
             </div>
         `;
+        
 
         document.getElementById('salvos').innerHTML += template;
         
@@ -302,11 +316,12 @@ export class Arquivos {
          str = str.sort();
          //criar o arquivo 
          str.forEach(mus => {
-
                 this.favBuild(mus);
                 let btn = document.getElementById('vg_' + mus);
                 btn.click();
          });
+
+
          
     }
 
