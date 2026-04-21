@@ -84,6 +84,7 @@ export class Arquivos {
             ////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
            this.update();
+           
         }
         else{
          //  //console.log(22)
@@ -152,37 +153,39 @@ export class Arquivos {
         const cloudLoadBtn = document.getElementById('cloudLoad')
            
         if (cloudLoadBtn) {
+            console.log('ss')
+                cloudLoadBtn.addEventListener('click', async ()=>{
+                    
+                    console.log('cloudLoad')
+                    await this.update()
 
-                    cloudLoadBtn.addEventListener('click', async () => {
-
-                   await this.update();
-
-                    // Agora sim, o restore() só roda quando o mapa inteiro terminar
-                    this.triggers();
-
-                    });
-
+                    }
+                );
            
         }   
+        else{
+            console.log('no cloudLoad')   
+        }
 
         const addSongBtn = document.getElementById('addSong');
         if (addSongBtn) {
             addSongBtn.addEventListener('click', () => {
 
             this.addSong();
-            this.triggersFav()
+            this.triggersFav();
             });
         }
 
            this.restore();
-        this.favBuild();
+           this.triggersFav();
        
         
     }
 
 
    async update(){
-         let cloudFiles = await this.dao.cloudSync();
+        
+            let cloudFiles = await this.dao.cloudSync();
 
                     if(cloudFiles){
 
@@ -198,8 +201,7 @@ export class Arquivos {
                         }
                        }));
 
-                       this.restore();
-                    this.triggersFav();    
+                       this.triggers();
     }
 }
 
@@ -321,7 +323,7 @@ export class Arquivos {
                 btn.click();
          });
 
-
+         this.triggersFav();
          
     }
 
