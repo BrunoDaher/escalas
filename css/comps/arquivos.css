@@ -66,7 +66,7 @@
 
 .clicaMus.active, .clicaMus:hover {
     color: var(--colorD);    
-    filter: contrast(1.6) brightness(1.2) hue-rotate(-12deg);
+    
     opacity: 1 !important;
 }
 

@@ -159,19 +159,20 @@ export class Arquivos {
                          localStorage.clear();
                          this.dao.refreshBlob();
 
-                           cloudFiles.forEach(async song => {
+                         
+                        cloudFiles.forEach(async song => {
                                 let songName = song.replace('.json','');
                                 let json = await this.dao.getFile(song);
-                                    this.dao.setLocalDataJSON('vg_' + songName, json);
-                             });
 
-                        document.getElementById('salvos').innerHTML = '';
-                            cloudFiles.forEach( song => {
-                                let songName = song.replace('.json','');
-                                this.favBuild(songName);
-                                this.triggersFav();
+                                if(json){
+                                    let songName = song.replace('.json','');
+                                    this.dao.setLocalDataJSON('vg_' + songName, json);
+                                }
+                                
                         });
-                    
+
+                        this.restore();
+                        this.triggersFav();
                     }
 
            })
@@ -199,7 +200,6 @@ export class Arquivos {
 
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
-
                  
                     document.getElementById('currentLabelText').innerText = item.innerText
 
@@ -243,10 +243,11 @@ export class Arquivos {
     favBuild(nome){
     
 
+
         let urlImg = this.dao.urlImg(nome) ;
-        
+
         console.log(urlImg)
- 
+        
         let css = urlImg ? `background-image : url('${urlImg}')` :'';
 
         let controlesShow = this.role == 'adm' ? '':'off';
@@ -254,17 +255,15 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 ">
-                    <div  id="vg_${nome}" class='gap1 grid clicaMus '>
-                        <legend id="vg_${nome}"class="f2vh  fundoB filterB">${nome}</legend>
+            <div  id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
+                    <div  class='gap1 grid clicaMus '>
+                        <legend class="f2vh fundoB filterB">${nome}</legend>
                         <div class="flex ${controlesShow}">
                         <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
                         <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
                         <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
                     </div>
                     </div>
-                    
-                
             </div>
         `;
 
@@ -275,6 +274,7 @@ export class Arquivos {
 
     addSong(){
 
+        console.log('addSong')
         //jogar pro dao
         sessionStorage.clear();
         const elem = document.getElementById('arquivo');
@@ -295,12 +295,14 @@ export class Arquivos {
 
     restore(){
 
+        document.getElementById('salvos').innerHTML = '';
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
          str = str.sort();
          //criar o arquivo 
          str.forEach(mus => {
+
                 this.favBuild(mus);
                 let btn = document.getElementById('vg_' + mus);
                 btn.click();
