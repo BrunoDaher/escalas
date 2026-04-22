@@ -59,7 +59,7 @@ export default class VideoObj {
     onvideoplay(detail){
  
         {   
-        console.log(detail)
+        //console.log(detail)
         this.currentSong = detail.mus;
          
          this.video.onclick = ()=>{
@@ -72,27 +72,14 @@ export default class VideoObj {
             }
          }
  
-         console.log('lançando evento : ',detail, this.currentSong)
+         //console.log('lançando evento : ',detail, this.currentSong)
 
             this.currentVideo.onplaying = () => {
-                document.getElementById('videoLoading').classList.add('off');
+                this.loadingElement.classList.add('off');
             }
-            console.log(this.currentSong)
-            if(this.currentSong){
-                    if (this.video) {
-                        //deve ser a url
-                        this.playVideo(detail);
-                        //so salvar se ja nao tiver no blob
-                        // this.dao.saveVideoUrl(this.video.src, song);
-
-                    }
-                    else{
-                        console.log('no video')
-                    }
-                }
-            else{
-                    console.log('no current song')
-                }
+            
+            this.playVideo(detail);
+                 
             
         }
     }
@@ -234,7 +221,6 @@ export default class VideoObj {
             this.currentVideo.src = `./data/pratica.mp4`;
         }
     } 
-
     else if (this.currentVideo && detail.mus) {
       
       // Tenta Local primeiro (IndexedDB)
@@ -244,13 +230,16 @@ export default class VideoObj {
         
         this.currentVideo.src = localBlob;
       } else {
-        
+
         const url = await this.getVideoUrl(fileName);
 
         if (url) {
           this.currentVideo.src = url;
           this.dao.saveVideoUrl(url, fileName);
         } 
+        else{
+            this.currentVideo.src = `./data/pratica.mp4`;
+        }
       }
 
       this.currentVideo.onloadedmetadata = () => {
@@ -258,12 +247,11 @@ export default class VideoObj {
         this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
       };
     }
-  } catch (err) {
+  } catch (err) {   
     console.error('Erro ao processar vídeo:', err);
     this.loadingElement.classList.remove('off');
   }
 }
-
 
     
     async getLocalVideo(key) {
@@ -311,7 +299,7 @@ export default class VideoObj {
         let url = await this.dao.getUrlVideo(song);
 
             if(url) {
-                console.log('url encontrado na rede', song)
+               //console.log('url encontrado na rede', song)
                 
             }
             else{

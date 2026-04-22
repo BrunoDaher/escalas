@@ -3,7 +3,7 @@ import { Persiste } from './persiste.js';
 
 export class Dao {
   constructor(string) {
-    console.log('dao instanciada', string)
+   //console.log('dao instanciada', string)
 
     this.startSupa();
   }
@@ -104,9 +104,9 @@ export class Dao {
   async validateUrl(url) {
     const isValid = await checkUrl(url);
     if(isValid) {
-      console.log('Image URL is valid');
+     //console.log('Image URL is valid');
     } else {
-      console.log('Image URL is invalid');
+     //console.log('Image URL is invalid');
     }
   }
 
@@ -117,7 +117,7 @@ export class Dao {
     // Set source to trigger preload
     img.src = `img/${imagePath}`;
 
-    console.log('imgSrc')
+   //console.log('imgSrc')
     
     // Return promise that resolves when image loads
     return new Promise((resolve, reject) => {
@@ -128,12 +128,11 @@ export class Dao {
 
   clicaMusica(mus) {
 
-    let m = this.getLocalDataJSON(mus.id).currentSong;
-
+    let songName = mus.getAttribute('name');
     
     //por default dados, apresentacao do video
           const event = new CustomEvent('video-play',  {
-              detail: { secao: 'dados', mus:m, origin: 'dao' }
+              detail: { secao: 'dados', mus:songName, origin: 'dao' }
           });
 
           document.dispatchEvent(event);
@@ -190,13 +189,13 @@ export class Dao {
   }
 
   setLocalDataJSON(id, data) {
-    console.log('salvando no localstorage')
+   //console.log('salvando no localstorage')
     localStorage.setItem(id, JSON.stringify(data));
   }
 
   setDataJSON(id, data) {
 
-    console.log(id, data)
+   //console.log(id, data)
     sessionStorage.setItem(id, JSON.stringify(data));
 
      this.salvaLocal();

@@ -39,7 +39,7 @@ aux.refreshNav()
         });
         }
         else{
-            console.log('no sw')
+           // console.log('no sw')
         }
 
 

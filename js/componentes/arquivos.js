@@ -8,6 +8,7 @@ export class Arquivos {
         this.containerId ='painelFiles';
         this.role = role;
         
+        
     }
 
     renderPainelFiles() {
@@ -79,7 +80,7 @@ export class Arquivos {
         
 
          this.container = document.getElementById(this.containerId);
-         console.log(this.container)
+        //console.log(this.container)
         if (this.container) {
             ////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
@@ -154,10 +155,10 @@ export class Arquivos {
         const cloudLoadBtn = document.getElementById('cloudLoad')
            
         if (cloudLoadBtn) {
-            console.log('ss')
+           //console.log('ss')
                 cloudLoadBtn.addEventListener('click', async ()=>{
                     
-                    console.log('cloudLoad')
+                   //console.log('cloudLoad')
                     await this.update()
 
                     }
@@ -165,7 +166,7 @@ export class Arquivos {
            
         }   
         else{
-            console.log('no cloudLoad')   
+           //console.log('no cloudLoad')   
         }
 
         const addSongBtn = document.getElementById('addSong');
@@ -208,7 +209,7 @@ export class Arquivos {
 
     triggersFav() {
         
-        console.log('trigger favoritos')
+       //console.log('trigger favoritos')
         let btnsClicaMus = document.querySelectorAll('.clicaMus');
             let btnsDel = document.querySelectorAll('.bi-eraser-fill');
             let btnsPencil = document.querySelectorAll('.bi-pencil');
@@ -237,9 +238,10 @@ export class Arquivos {
     }
 
     clicaMusica(item){
-         document.getElementById('currentLabelText').innerText = item.innerText
-
-                    this.acordes.clearMemoria();
+         
+        document.getElementById('currentLabelText').innerText = item.innerText
+         
+                        this.acordes.clearMemoria();
                         this.dao.clicaMusica(item);
                         this.acordes.loadSlot(item); 
 
@@ -271,7 +273,7 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
+            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
                     <div  class='gap1 grid '>
                         <legend class="f2vh fundoB filterB">${nome}</legend>
                         <div class="flex ${controlesShow}">
@@ -291,7 +293,7 @@ export class Arquivos {
 
     addSong(){
 
-        console.log('addSong')
+       //console.log('addSong')
         //jogar pro dao
         sessionStorage.clear();
         const elem = document.getElementById('arquivo');

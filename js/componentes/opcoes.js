@@ -179,7 +179,7 @@ export class Opcoes extends Aux{
             div.innerHTML = this.template();
         }
         else{
-            console.log('tilt')
+           //console.log('tilt')
         }
 
         this.eventos();
@@ -217,7 +217,7 @@ export class Opcoes extends Aux{
 
         const selectedTheme = this.temas[btn.id];
 
-        console.log(selectedTheme)
+       //console.log(selectedTheme)
         for (const [property, value] of Object.entries(selectedTheme)) {
             
             this.root.style.setProperty(property, value);

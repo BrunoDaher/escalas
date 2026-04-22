@@ -107,7 +107,7 @@ export class Acordes extends Aux{
 
     renderMusEstrutura(){
 
-      //  console.log('renderizando estrutura')
+      // //console.log('renderizando estrutura')
         return `
     
         <!-- Bloco: Estrutura Musical -->
@@ -214,7 +214,7 @@ export class Acordes extends Aux{
 
         
         let controlesShow = this.role == 'adm' ? '':'off';
-        console.log('renderizando edit mode');
+       //console.log('renderizando edit mode');
         
 
           return `
@@ -265,7 +265,7 @@ export class Acordes extends Aux{
     }
 
     renderAll(role) {
-      //  console.log('renderizando painel de acordes')
+      // //console.log('renderizando painel de acordes')
       this.role = role;
         this.violao.init();
         const painelChords = this.getById('painelChords');
@@ -400,7 +400,7 @@ export class Acordes extends Aux{
                     document.dispatchEvent(event);
                 }
                 else{
-                console.log('no current song')
+               //console.log('no current song')
                 // document.dispatchEvent(event);
             }
             //funcao aux
@@ -655,7 +655,7 @@ export class Acordes extends Aux{
 
         //console.log('carregand estrutura')
 
-        console.log('estrutura -> ', this.dao.getDataJSON('estrutura'))
+       //console.log('estrutura -> ', this.dao.getDataJSON('estrutura'))
 
         this.cleanSection();
        // //console.log('carregando estrutura', item.innerText)
@@ -664,7 +664,7 @@ export class Acordes extends Aux{
         if(Object.keys(estrutura).length > 0 ){
             
             this.getById('areaEstrutura').classList.remove('off')
-            console.log('tem estrutura')
+           //console.log('tem estrutura')
             
             Object.entries(estrutura).forEach(([chave,valor]) => {
 
@@ -698,7 +698,7 @@ export class Acordes extends Aux{
             });
         }
         else{
-            console.log('sem estrutura')
+           //console.log('sem estrutura')
             this.getById('areaEstrutura').classList.add('off')
         }
         

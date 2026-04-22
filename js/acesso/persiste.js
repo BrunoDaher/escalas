@@ -24,7 +24,7 @@ export class Persiste {
   }
 
   async saveVideo(url, key) {
-    console.log(`[saveVideo] Iniciando para url=${url} e key=${key}`);
+   //console.log(`[saveVideo] Iniciando para url=${url} e key=${key}`);
 
     const response = await fetch(url)
     if (!response.ok) {
@@ -34,20 +34,20 @@ export class Persiste {
     }
 
     const blob = await response.blob()
-        console.log("[saveVideo] Blob recebido:", blob)
+       //console.log("[saveVideo] Blob recebido:", blob)
 
     return new Promise((resolve, reject) => {
-        console.log("[saveVideo] Abrindo transação readwrite na store:", this.storeName)
+       //console.log("[saveVideo] Abrindo transação readwrite na store:", this.storeName)
             const tx = this.db.transaction(this.storeName, 'readwrite')
             const store = tx.objectStore(this.storeName);
 
             //console.log(store)
 
-        console.log("[saveVideo] Executando store.put...", key);
+       //console.log("[saveVideo] Executando store.put...", key);
         const request = store.put(blob, key)
 
         request.onsuccess = () => {
-            console.log("[saveVideo] Blob salvo com sucesso na store. Key:", key)
+           //console.log("[saveVideo] Blob salvo com sucesso na store. Key:", key)
         }
 
         request.onerror = (event) => {
@@ -56,7 +56,7 @@ export class Persiste {
         }
 
         tx.oncomplete = () => {
-        console.log("[saveVideo] Transação completa, dado salvo.")
+       //console.log("[saveVideo] Transação completa, dado salvo.")
         resolve(true)
         }
 
@@ -112,7 +112,7 @@ async listKeys() {
                 cursor.continue();
             } else {
                 // Fim da listagem
-                console.log(`🔍 Itens reais encontrados no disco: ${keys.length}`);
+               //console.log(`🔍 Itens reais encontrados no disco: ${keys.length}`);
                 resolve(keys);
             }
         };
@@ -131,7 +131,7 @@ async listKeys() {
       const request = store.clear()
 
       request.onsuccess = () => {
-       // console.log("[resetBlob] Store limpa com sucesso")
+       ////console.log("[resetBlob] Store limpa com sucesso")
         resolve(true)
       }
 
