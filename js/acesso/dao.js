@@ -13,9 +13,17 @@ export class Dao {
     this.persiste.resetBlob();
   }
 
+
+  getAulas(){
+    return ['AcordesMaiores','AcordesMenores','CAGED', 'caged', 'PowerChords','ModosGregosC']
+  }
+
+  //retorna ids, keys od storage
   storageReadByTag(tag) {
 
     let obj = [];
+
+    
 
     Object.keys(localStorage).forEach(element => {
       if (element.startsWith(tag)) {

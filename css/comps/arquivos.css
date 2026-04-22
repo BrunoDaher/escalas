@@ -1,6 +1,6 @@
 
 /* Saved Items */
-#salvos {
+#salvos , #aulasSalvas{
     list-style-type: none;
     align-content: space-between;
     
@@ -25,7 +25,7 @@
 
 }
 
-#salvos > div {
+#salvos > div, #aulasSalvas > div {
 
 
     cursor: pointer;

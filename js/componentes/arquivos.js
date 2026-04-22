@@ -7,7 +7,11 @@ export class Arquivos {
         this.acordes = acordes;
         this.containerId ='painelFiles';
         this.role = role;
+
+        this.aulas = this.dao.getAulas();
     }
+
+    //paliativo
 
     renderPainelFiles() {
 
@@ -27,7 +31,7 @@ export class Arquivos {
 
             ${this.renderMeusArquivos()}
 
-             <div class="off comp p-1 flex justContBetween textStart ">
+             <div class=" comp p-1 flex justContBetween textStart ">
                 <div>
                     <i class="bi bi-list"></i>
                     <label class="">Aulas</label>
@@ -66,8 +70,8 @@ export class Arquivos {
         
         return`
         
-            <div id="minhasAulas" class='off p-2 my-1' >
-                <div id="aulas" class="flex"></div>
+            <div id="minhasAulas" class=' p-2 my-1' >
+                <div id="aulasSalvas" class="flex"></div>
             </div>`
     }
 
@@ -224,6 +228,7 @@ export class Arquivos {
                         this.dao.refreshBlob();
                        
                         await Promise.all(cloudFiles.map(async song => {
+                            
                             let json = await this.dao.getFile(song);
                             if (json) {
                             let songName = song.replace('.json', '');
@@ -297,6 +302,7 @@ export class Arquivos {
 
         let controlesShow = this.role == 'adm' ? '':'off';
        
+        
     
         // Cria o template HTML usando template literals
         // /justContBetween
@@ -313,8 +319,11 @@ export class Arquivos {
             </div>
         `;
         
+        
 
-        document.getElementById('salvos').innerHTML += template;
+        let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
+
+        document.getElementById(div).innerHTML += template;
         
 
     }
@@ -346,9 +355,12 @@ export class Arquivos {
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
+        
+
          str = str.sort();
          //criar o arquivo 
          str.forEach(mus => {
+            
                 this.favBuild(mus);
                 let btn = document.getElementById('vg_' + mus);
                 btn.click();
