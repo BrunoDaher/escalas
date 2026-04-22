@@ -188,7 +188,7 @@ export default class VideoObj {
                     </div>
 
                      
-                    <img src='/data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
+                    <img src='data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
 
                     <video class='video ${css}' id='currentVideo'  
                             ${controls}
@@ -196,7 +196,7 @@ export default class VideoObj {
                             preload="metadata"
                             autoplay
                             >
-                        <source src="../../data/abertura.mp4" type="video/mp4">
+                        <source src="/data/abertura.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 
@@ -231,7 +231,7 @@ export default class VideoObj {
           this.currentVideo.src = urlDados;
         }
         else{
-            this.currentVideo.src = `./data/pratica.mp4`;
+            this.currentVideo.src = `/data/pratica.mp4`;
         }
     } 
 
