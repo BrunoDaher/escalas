@@ -76,6 +76,12 @@ export default class VideoObj {
 
             this.currentVideo.onplaying = () => {
                 this.loadingElement.classList.add('off');
+                let btnVideo = document.getElementById('btnVideo');
+                
+                if(!btnVideo.checked) {
+                    btnVideo.click();
+                }
+                
             }
             
             this.playVideo(detail);
