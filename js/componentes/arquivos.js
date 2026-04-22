@@ -83,7 +83,8 @@ export class Arquivos {
         if (this.container) {
             ////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
-           this.update();
+            //this.update();
+            this.triggers();
            
         }
         else{
