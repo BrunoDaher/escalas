@@ -54,7 +54,7 @@ export class Dao {
       let url = rec ? this.getLocalDataJSON('vg_' + nome).img : false;
       
 
-      let img = url ? this.getLocalDataJSON('vg_' + nome).img : '/data/pratica.png';
+      let img = url ? this.getLocalDataJSON('vg_' + nome).img : './data/pratica.png';
 
 
     return img ;

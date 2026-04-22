@@ -188,7 +188,7 @@ export default class VideoObj {
                     </div>
 
                      
-                    <img src='data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
+                    <img src='./data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
 
                     <video class='video ${css}' id='currentVideo'  
                             ${controls}
