@@ -39,6 +39,8 @@ async cloudSync() {
 
  
 async getUrlVideo(fileName) {
+
+  console.log(fileName)
   const bucket = 'virtuaguitar';
   const path = `media/${fileName}.mp4`;
 

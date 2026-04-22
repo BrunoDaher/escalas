@@ -128,9 +128,12 @@ export class Dao {
 
   clicaMusica(mus) {
 
+    let m = this.getLocalDataJSON(mus.id).currentSong;
 
-          const event = new CustomEvent('video-play', {
-              detail: 'seq', // Dados para o método clean
+    
+    //por default dados, apresentacao do video
+          const event = new CustomEvent('video-play',  {
+              detail: { secao: 'dados', mus:m, origin: 'dao' }
           });
 
           document.dispatchEvent(event);

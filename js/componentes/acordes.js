@@ -86,7 +86,7 @@ export class Acordes extends Aux{
             `<span class="btnChord p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
-                name="${s.id}"
+                name="${s.label}"
                 id=btn_${s.id}
                 >
                 ${s.label}
@@ -366,18 +366,18 @@ export class Acordes extends Aux{
 
     clicaSection(btn){
         
-            let trecho = btn.innerText.trim().toLowerCase();
+            let secao = btn.innerText.trim().toLowerCase();
 
-            trecho = btn.getAttribute('name');
+            secao = btn.getAttribute('name');
 
-           // console.log('clicado ',btn)
-            //console.log(trecho)
+            
+            let currentSong = sessionStorage.getItem('currentSong');
+            
+            
     
             const event = new CustomEvent('video-play', {
-                detail: trecho, // Dados para o método clean
+                    detail: { secao: secao, mus: currentSong, origin: 'acordes' }
             });
-
-            let currentSong = sessionStorage.getItem('currentSong')
 
             //console.log('trecho -> ', trecho, 'currentSong -> ', currentSong, event)
 

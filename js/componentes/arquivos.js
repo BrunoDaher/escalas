@@ -19,7 +19,7 @@ export class Arquivos {
             <div class="comp p-1 flex justContBetween textStart ">
                 <div>
                     <i class="bi bi-list"></i>
-                    <label class="">Lista </label>
+                    <label class="">Meus Arquivos </label>
                 </div>
                 <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
                 

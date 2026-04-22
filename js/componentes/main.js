@@ -10,6 +10,8 @@ export class Main extends Aux{
 
         this.videoObj = new VideoObj(dao);
 
+        
+
         this.header = this.getById('header');
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
@@ -95,7 +97,7 @@ export class Main extends Aux{
                 btn.onclick = () => {
                     //estetica do botao
                     if(btn.id=='acordes'){
-                        let src = 'seq'
+                        let src = 'dados'
                     }
                     this.chooseTab(btn);
                 };
@@ -114,9 +116,10 @@ export class Main extends Aux{
     triggers(){
 
          this.videoObj.triggers();
-        //document.getElementById('btn_seq').click();
+        
             setTimeout(()=>{
                 this.videoObj.setVideoId('currentVideo');
+                this.videoObj.play();
             }
         ,300);
 

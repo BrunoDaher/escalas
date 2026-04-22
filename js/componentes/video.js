@@ -11,6 +11,7 @@ export default class VideoObj {
         this.state = 'pause';
         this.dao = dao;
        
+        this.loadingElement = document.getElementById('videoLoading');
     }
 
     botoesControle (){
@@ -24,77 +25,76 @@ export default class VideoObj {
                 ] ;
     }
 
+
+    seletores(){
+        this.loadingElement = document.getElementById('videoLoading');
+        this.video = document.getElementById('currentVideo');
+        this.currentSong = document.getElementById('currentLabelText');
+        this.currentVideo = document.getElementById('currentVideo');    
+    }
+
     triggers(){
 
          this.dao.persiste.listKeys()
             .then(keys => {
                 // Aqui dentro você tem acesso à array de chaves
-                //console.log("Chaves encontradas:", keys);
+                //console.4("Chaves encontradas:", keys);
             // this.dao.persiste.getVideoBlob(event.detail)
             })
             .catch(err => {
                 console.error("Erro ao listar:", err);
             });
-        
-            
-            
-        
-   
-    
-    document.addEventListener('video-play', (event) => {
-        
+                
+            document.addEventListener('video-play', async event => {
+                
+                await this.seletores();
+                
+                this.onvideoplay(event.detail);
+            });  
 
-         this.currentVideo = aux.getById('currentVideo');
-         this.currentSong = aux.getById('currentLabelText').innerText.trim();
+    this.triggerControles();
 
+    }
+
+    onvideoplay(detail){
+ 
+        {   
+        console.log(detail)
+        this.currentSong = detail.mus;
+         
          this.video.onclick = ()=>{
             const isPlaying = !this.currentVideo.paused;
+            this.currentVideo.classList.toggle('grayscale');
             if (isPlaying) {
                 this.currentVideo.pause();
-                this.currentVideo.classList.add('grayscale');
-                
             } else {
-                this.currentVideo.classList.remove('grayscale');
                 this.currentVideo.play();
             }
          }
  
-         console.log('lançando evento : ',event.detail, this.currentSong)
-         
+         console.log('lançando evento : ',detail, this.currentSong)
 
             this.currentVideo.onplaying = () => {
                 document.getElementById('videoLoading').classList.add('off');
             }
-            
-            if(event.detail=='seq'){
-                //this.currentSong = null;
+            console.log(this.currentSong)
+            if(this.currentSong){
+                    if (this.video) {
+                        //deve ser a url
+                        this.playVideo(detail);
+                        //so salvar se ja nao tiver no blob
+                        // this.dao.saveVideoUrl(this.video.src, song);
 
-                
-                this.playVideo('seq');
-            }
+                    }
+                    else{
+                        console.log('no video')
+                    }
+                }
             else{
-                if(this.currentSong){
-                    let song = this.currentSong.toLowerCase() + '_'+ event.detail;
-
-                        if (this.video) {
-                            this.playVideo(song);
-                           // console.log('tocando', event.detail, this.url);
-                            
-                            //so salvar se ja nao tiver no blob
-                           // this.dao.saveVideoUrl(this.video.src, song);
-
-                        }
-                    }
-                else{
-                        console.log('no current song')
-                    }
-            }
-        });  
-
-          
-        this.triggerControles();
-       
-
+                    console.log('no current song')
+                }
+            
+        }
     }
 
     triggerControles(){
@@ -162,17 +162,6 @@ export default class VideoObj {
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
         let showVideo = aux.infoNavegador.landscape;
-
-
-        //cenarios video
-
-        /*
-            mostra braco e video
-            mobile-landscape, tablet-landscape e desktop
-
-            alterna braco e video
-            mobile-portrait e tablet-portrait
-        */
     
              
         return `
@@ -193,24 +182,21 @@ export default class VideoObj {
                      }                
                 </div>
 
-              <div class='flex itemCenter boxC colorD' id='currentLabel'>
-              <a class='bi bi-play-btn-fill   f2em  ' >
-                <a id="currentLabelText" class="f2vh "> </a>
-               
-            </div>
-              
-                
-                    <img src='./data/loading.gif' id='videoLoading'  width="" class='videoLoading off'>
-                
+                    <div class='flex itemCenter boxC colorD' id='currentLabel'>
+                        <a class='bi bi-play-btn-fill f2em'></a>
+                        <a id="currentLabelText" class="f2vh"> </a>
+                    </div>
 
-                    <video class='video ${css}' id='currentVideo' ; 
-                        
+                     
+                    <img src='/data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
+
+                    <video class='video ${css}' id='currentVideo'  
                             ${controls}
                             playsinline
                             preload="metadata"
                             autoplay
                             >
-                        <source src="../data/abertura.mp4" type="video/mp4">
+                        <source src="../../data/abertura.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 
@@ -218,87 +204,63 @@ export default class VideoObj {
             `
     }
 
- async playVideo(song) {
-  // 1. Reset e Feedback Visual Imediato
-  this.currentVideo.pause();
-  const loadingElement = document.getElementById('videoLoading');
+ async playVideo(detail) {
 
-   loadingElement.src = `./data/loading.gif`;
-  if(song !== 'seq') {
-    loadingElement.classList.remove('off');
-  }
+  this.loadingElement.classList.remove('off');
+  // 1. Reset e Feedback Visual Imediato
+
+  
+  this.currentVideo.pause();
 
   // 2. Limpeza de Cache de Memória (Essencial para não travar o browser)
   if (this.currentVideo.src.startsWith('blob:')) {
     //oculta loading 
-    loadingElement.classList.add('off');
+    this.loadingElement.classList.add('off');
     URL.revokeObjectURL(this.currentVideo.src);
   }
 
   try {
-    console.log(song)
-    if (song == 'seq') {
-
+    let fileName = `${detail.mus}_${detail.secao}`;
+    
+    //apresentacao do video local ou online
+    if (detail.secao == 'dados') {
          // Busca a Signed URL
-        const urlDados = await this.getVideoUrl(`${this.currentSong.toLowerCase()}_dados`);
-        
+        const urlDados = await this.getVideoUrl(fileName);
+
         if (urlDados) {
-            console.log('existe url')
           this.currentVideo.src = urlDados;
         }
         else{
-this.currentVideo.src = `./data/logo.mp4`;
+            this.currentVideo.src = `./data/pratica.mp4`;
         }
-        
-        //verificar antes o dados
-        
-        
+    } 
 
-
-    } else if (this.currentVideo && song) {
+    else if (this.currentVideo && detail.mus) {
       
       // Tenta Local primeiro (IndexedDB)
-      let localBlob = await this.getLocalVideo(song);
+      let localBlob = await this.getLocalVideo(fileName);
 
       if (localBlob) {
-        //oculta loading 
         
         this.currentVideo.src = localBlob;
       } else {
-   
         
-        // Busca a Signed URL
-        const url = await this.getVideoUrl(song);
+        const url = await this.getVideoUrl(fileName);
 
         if (url) {
-            console.log('existe url')
           this.currentVideo.src = url;
-          // Dispara o salvamento no IndexedDB sem 'await' 
-          // para não segurar o início do vídeo
-          this.dao.saveVideoUrl(url, song);
-        } else {
-            console.log('n existe url')
-            loadingElement.src = `./data/emBreve.gif`;
-            loadingElement.classList.remove('off');
-
-            console.log(loadingElement)
-
-         // this.currentVideo.src = `./data/emBreve.mp4`;
-        }
+          this.dao.saveVideoUrl(url, fileName);
+        } 
       }
 
-      // 3. Força o carregamento e aguarda apenas os metadados (rápido)
-      //this.currentVideo.load();
-      
-      // 'loadedmetadata' dispara assim que o browser sabe o tamanho/tempo do vídeo
       this.currentVideo.onloadedmetadata = () => {
-        loadingElement.classList.add('off');
+        this.loadingElement.classList.add('off');
         this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
       };
     }
   } catch (err) {
     console.error('Erro ao processar vídeo:', err);
-    loadingElement.classList.add('off');
+    this.loadingElement.classList.remove('off');
   }
 }
 
@@ -345,10 +307,11 @@ this.currentVideo.src = `./data/logo.mp4`;
 
     async getVideoUrl(song) {
     
+        song = song.toLowerCase();
         let url = await this.dao.getUrlVideo(song);
 
             if(url) {
-                //console.log('url encontrado na rede', song)
+                console.log('url encontrado na rede', song)
                 
             }
             else{
