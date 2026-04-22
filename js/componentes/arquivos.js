@@ -29,7 +29,7 @@ export class Arquivos {
                 <div id="salvos" class="flex"></div>
             </div>
            
-           <div class="grid my-1 p-1">
+           <div class="grid my-1 ">
                 <a class="bi bi-tools colorB comp my-1 p-1 textStart"> Tools
                
                 </a>

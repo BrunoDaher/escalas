@@ -36,6 +36,9 @@ export default class VideoObj {
                 console.error("Erro ao listar:", err);
             });
         
+            
+            
+        
    
     
     document.addEventListener('video-play', (event) => {
@@ -201,12 +204,13 @@ export default class VideoObj {
                 
 
                     <video class='video ${css}' id='currentVideo' ; 
+                        
                             ${controls}
                             playsinline
                             preload="metadata"
                             autoplay
                             >
-                        <source src="" type="video/mp4">
+                        <source src="../data/abertura.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 
