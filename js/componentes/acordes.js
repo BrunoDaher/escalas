@@ -271,10 +271,12 @@ export class Acordes extends Aux{
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
-        this.triggers();
+        
           document.addEventListener('estrutura', (e) => {
             this.salvaEstrutura(e.detail);
         });   
+
+        this.triggers();
     }
 
     fx(event) {

@@ -217,21 +217,29 @@ export class Violao {
 
     cleanMode(btn) {
     //    btn.classList.toggle('active');
+    console.log(btn)
         
-        btn.checked = !btn.checked;
+        
 
         let notas = document.querySelectorAll('.nota');
+
+        
+
         if(!this.isCleanMode) {
+            console.log('removendo notas')
            aux.arrayRemoveClass(notas,'off');
         } else {
             notas.forEach(nota => {
                 let classes = Object.values(nota.classList);
                 if(!classes.includes('on') && !classes.includes('cordaSolta')) {
-                    nota.classList.toggle('off');
+                    nota.classList.add('off');
                 }
             });
         }
-        this.isCleanMode = !this.isCleanMode;
+
+        btn.checked = !btn.checked;
+        this.isCleanMode = btn.checked;
+        
     }
 
     arrayRemoveClass(array, classe) {
