@@ -185,7 +185,7 @@ export default class VideoObj {
                     <div  id='videoLoading' class='videoLoading flex justCenter off itemCenter  colorD'>
 
                         <div class="pick">
-                            <img  src='./img/alb.png' width="" class=''>
+                            <img  src='./img/alb.png' width="16vh" height='16vh' class=''>
                             
                         </div>
                  

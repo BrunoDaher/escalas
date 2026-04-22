@@ -46,9 +46,7 @@ export class Arquivos {
             
            
            <div class="grid my-1 ">
-                <a class="bi bi-tools colorB comp my-1 p-1 textStart"> Tools
-               
-                </a>
+                
                  
                 ${this.renderDaoBtns()}
 
@@ -82,8 +80,8 @@ export class Arquivos {
 
         return `
         <div  id="daoBtns" class=" justLeft gap2 p-1 flex ">
-                <div class="grid rad1 btn1 gap1 f2vh" id="cloudLoad">
-                    <i class='bi-arrow-counterclockwise'></i>
+                <div class=" grid rad1 btn1 gap1 f2vh" id="cloudLoad">
+                    <img src="./img/ico/icoApp.png" style='width:6vh height:6vh' class='mini pick' alt="" srcset="">
                     <a>Atualizar</a>
                 </div>
 
@@ -307,7 +305,7 @@ export class Arquivos {
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
+            <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
                     <div  class='gap1 grid '>
                         <legend class="f2vh fundoB filterE">${nome}</legend>
                         <div class="flex ${controlesShow}">

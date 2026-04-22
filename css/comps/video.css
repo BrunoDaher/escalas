@@ -4,9 +4,10 @@
 
 
 .pick > img{
-      width: 8vh;
   animation: palheta 2s linear infinite; 
 }
+
+
 
 /* --- Video Loading --- */
 .videoLoading {
@@ -30,10 +31,10 @@
 #currentLabel {
     position: absolute;
     z-index: 20;
-    right: 0;
+    right: 2vh;
     padding: 0 1vh;
     top: 2vh;
-    margin: 0 3vh;
+    
     border-radius: 1.2vh;
 
     @media (orientation: portrait) {
