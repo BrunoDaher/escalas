@@ -1,0 +1,37 @@
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--fundoA); 
+  border-top: 5px solid var(--fundoB); 
+  border-radius: 50%;
+  position: absolute;
+  animation: palheta 2s linear infinite; 
+}
+
+
+
+@keyframes rodando {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg)  drop-shadow(1px 1px 6px var(--fundoA)); /* Começa na cor original */
+    
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg) drop-shadow(1px 1px 6px var(--fundoB)); /* Gira pelas cores e volta para a original */
+    
+  }
+}
+
+@keyframes palheta {
+   0% {
+    transform: rotateY(0deg);
+    filter: hue-rotate(0deg)  drop-shadow(1px 1px 6px var(--fundoA)); /* Começa na cor original */
+    
+  }
+  100% {
+    transform: rotateY(360deg);
+    filter: hue-rotate(360deg) drop-shadow(1px 1px 6px var(--fundoB)); /* Gira pelas cores e volta para a original */
+    
+  }
+}

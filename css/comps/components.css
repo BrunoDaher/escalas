@@ -12,9 +12,18 @@
     
     background-color: var(--fundoD );
     padding: 1rem;
+
+    overflow-y: auto;
+display: flex;
+  flex-direction: column; /* Coloca os itens em pé (um em cima do outro) */
+  
     
-  min-height: 0;
-      
+    flex: 1;
+
+    height: 100%;
+        
+    @media (orientation: portrait) {
+    }
     
       @media (max-width: 500px) {
         border-radius: 0 !important;
@@ -24,12 +33,13 @@
 
     @media (min-width:501px) {
         overflow-y:visible;
-        
+        height: 50vh;
     }
 
-    
+
 
     &.mobile{
+        
           @media (orientation: landscape) {
             padding: 0;
             width: 30%;
@@ -39,7 +49,7 @@
 
 
     @media (min-width: 501px) {
-                padding: 0 2vh
+        padding: 0 2vh
     }
 
 }
@@ -47,6 +57,9 @@
 .painel {
     color: var(--colorB);
     font-size: 1.7vh;
+
+    flex: 1;
+    overflow: auto;
 
     &.mobile {
         width: 100%;
@@ -56,8 +69,7 @@
         padding: 0 ;
         @media (orientation: landscape) {
             width: 28vw;
-            overflow-y: scroll;
-            max-height: 50vh;
+
         }
     }
 

@@ -10,8 +10,6 @@ export class Main extends Aux{
 
         this.videoObj = new VideoObj(dao);
 
-        
-
         this.header = this.getById('header');
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
@@ -42,7 +40,7 @@ export class Main extends Aux{
     renderPaineis() {
         
         return `
-            <article id="paineis" class="scroll50 gap1 ${this.css}">
+            <article id="paineis" class="gap1 ${this.css}">
                 ${this.sections.map(obj => `
                     <section id="${obj.id}" class="${obj.className}"></section>
                 `).join('')}
@@ -95,6 +93,8 @@ export class Main extends Aux{
 
             navBtns.forEach((btn) => {
                 btn.onclick = () => {
+
+                    console.log(btn);
                     //estetica do botao
                     if(btn.id=='acordes'){
                         let src = 'dados'
@@ -105,12 +105,27 @@ export class Main extends Aux{
     }
 
     chooseTab(btn){
-
         
         this.removeAll(`navBtn`,'active');
         btn.classList.add('active');
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
+
+        if(!this.infoNavegador.desktop){
+
+            let cont = this.getById('btnVideo').checked ? 'video' : 'braco';
+
+            if(['arquivos','opcoes','clock'].includes(btn.id)){
+                this.getById(cont).classList.add('off');
+                }
+            else{
+                this.getById(cont).classList.remove('off');
+                
+                
+            }
+        }
+
+       
     }
 
     triggers(){

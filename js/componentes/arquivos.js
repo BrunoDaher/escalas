@@ -7,8 +7,6 @@ export class Arquivos {
         this.acordes = acordes;
         this.containerId ='painelFiles';
         this.role = role;
-        
-        
     }
 
     renderPainelFiles() {
@@ -22,13 +20,26 @@ export class Arquivos {
                     <i class="bi bi-list"></i>
                     <label class="">Meus Arquivos </label>
                 </div>
+
                 <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
                 
             </div>
 
-            <div id="listaArq" class='my-1' >
-                <div id="salvos" class="flex"></div>
+            ${this.renderMeusArquivos()}
+
+             <div class="off comp p-1 flex justContBetween textStart ">
+                <div>
+                    <i class="bi bi-list"></i>
+                    <label class="">Aulas</label>
+                </div>
+
+                <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
+                
             </div>
+
+            ${this.renderMinhasAulas()}
+            
+            
            
            <div class="grid my-1 ">
                 <a class="bi bi-tools colorB comp my-1 p-1 textStart"> Tools
@@ -42,6 +53,23 @@ export class Arquivos {
         `;
     }
 
+    renderMeusArquivos(){
+
+        return`
+        
+            <div id="listaArq" class='p-2 my-1' >
+                <div id="salvos" class="flex"></div>
+            </div>`
+    }
+
+    renderMinhasAulas(){
+        
+        return`
+        
+            <div id="minhasAulas" class='off p-2 my-1' >
+                <div id="aulas" class="flex"></div>
+            </div>`
+    }
 
     renderDaoBtns(){
 
@@ -275,12 +303,12 @@ export class Arquivos {
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
                     <div  class='gap1 grid '>
-                        <legend class="f2vh fundoB filterB">${nome}</legend>
+                        <legend class="f2vh fundoB filterE">${nome}</legend>
                         <div class="flex ${controlesShow}">
-                        <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
-                        <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
-                        <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
-                    </div>
+                            <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
+                            <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
+                            <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
+                        </div>
                     </div>
             </div>
         `;

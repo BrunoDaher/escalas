@@ -16,7 +16,7 @@ body {
 
 main{
   display: grid;
-  grid-template-rows: auto 1fr;
+  
       background: var(--fundoD);
   height: 100%; /* preenche o espaço disponível */
   overflow: hidden;

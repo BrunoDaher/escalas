@@ -159,7 +159,7 @@ export class Opcoes extends Aux{
     renderTemas(){
 
         return `
-            <div class='flexCenter gap2 p-1 justCenter '>
+            <div class='flexCenter scroll25 gap2 p-1 justCenter '>
                   
                     ${Object.keys(this.temas).map(key => `
                         <span class="grid itemCenter btnTema" id="${key}" >

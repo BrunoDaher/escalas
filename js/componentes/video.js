@@ -149,7 +149,8 @@ export default class VideoObj {
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
         let showVideo = aux.infoNavegador.landscape;
-    
+
+       
              
         return `
         
@@ -175,7 +176,16 @@ export default class VideoObj {
                     </div>
 
                      
-                    <img src='./data/loading.gif' id='videoLoading'  width="" class='off videoLoading '>
+                    <div  id='videoLoading' class='videoLoading flex justCenter off itemCenter  colorD'>
+
+                        <div class="pick">
+                            <img  src='./img/alb.png' width="" class=''>
+                            
+                        </div>
+                 
+                    <!--<img  src='./data/loading.gif' width="" class='off videoLoading '>-->
+                        
+                    </div>
 
                     <video class='video ${css}' id='currentVideo'  
                             ${controls}
@@ -218,6 +228,8 @@ export default class VideoObj {
           this.currentVideo.src = urlDados;
         }
         else{
+
+              this.loadingElement.classList.add('off');
             this.currentVideo.src = `./data/pratica.mp4`;
         }
     } 
