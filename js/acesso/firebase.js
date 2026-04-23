@@ -33,8 +33,6 @@ export class Fire {
     
     
     await this.verificaAcesso();
-    
-    
     return this.role;
   }
 
@@ -54,6 +52,7 @@ export class Fire {
   }
 
   getRef(base){
+
     return firebase.database().ref(`/${base}`);
   }
 
@@ -65,7 +64,6 @@ export class Fire {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => userCredential.user)
       .catch((error) => {
-       
         throw error;
       });
   }

@@ -217,14 +217,16 @@ export class Violao {
 
     cleanMode(btn) {
     //    btn.classList.toggle('active');
-    console.log(btn)
         
-        
-
         let notas = document.querySelectorAll('.nota');
 
-        
+        btn.checked = !btn.checked;
 
+        let criterio1 = aux.getById('87.27').classList.contains('off');
+        let criterio2 = aux.getById('btnVideo').checked
+
+
+        console.log(criterio1,criterio2)
         if(!this.isCleanMode) {
             console.log('removendo notas')
            aux.arrayRemoveClass(notas,'off');
@@ -237,7 +239,7 @@ export class Violao {
             });
         }
 
-        btn.checked = !btn.checked;
+        
         this.isCleanMode = btn.checked;
         
     }

@@ -135,7 +135,7 @@ export class Acordes extends Aux{
                                     <div class='flex itemCenter'>
                                         <i class='bi bi-music-note'>Notas</i>
                                         <label class="switch flex itemCenter">
-                                            <input class='active cleanReq' id="cleanMode2" type="checkbox" checked >
+                                            <input class='active cleanReq' id="cleanMode2" type="checkbox" checked='false' >
                                             <span class="slider round"></span>
                                         </label>    
                                     </div>

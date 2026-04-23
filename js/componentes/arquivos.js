@@ -317,7 +317,7 @@ export class Arquivos {
             </div>
         `;
         
-        
+        console.log(nome)
 
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 
