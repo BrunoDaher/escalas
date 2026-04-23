@@ -317,8 +317,9 @@ export class Arquivos {
             </div>
         `;
         
+        
+        console.log(this.aulas)
         console.log(nome)
-
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 
         document.getElementById(div).innerHTML += template;
@@ -350,6 +351,7 @@ export class Arquivos {
     restore(){
 
         document.getElementById('salvos').innerHTML = '';
+        document.getElementById('aulasSalvas').innerHTML = '';
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
