@@ -280,7 +280,7 @@ export class Arquivos {
                 //
                 ()=>{
                     //disparar um evento q aciona o acordes
-                    let btn = document.getElementById('acordes');
+                    let btn = document.getElementById('pratica');
                     if(btn){
                         btn.click();
                     }

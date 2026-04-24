@@ -97,7 +97,7 @@ export class Main extends Aux{
 
                     console.log(btn);
                     //estetica do botao
-                    if(btn.id=='acordes'){
+                    if(btn.id=='pratica'){
                         let src = 'dados'
                     }
                     this.chooseTab(btn);
