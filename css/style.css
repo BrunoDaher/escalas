@@ -51,6 +51,13 @@
 
 }
 
+*{
+    box-sizing: border-box;
+}
+
+.itemsCenter{
+    align-items: center;
+}
 
 
 .boxC{

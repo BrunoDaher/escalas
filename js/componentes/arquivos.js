@@ -42,10 +42,8 @@ export class Arquivos {
             </div>
 
             ${this.renderMinhasAulas()}
-            
-            
            
-           <div class="grid my-1 ">
+           <div class="grid my-1 justCenter ">
                 
                  
                 ${this.renderDaoBtns()}
@@ -80,18 +78,18 @@ export class Arquivos {
 
         return `
         <div  id="daoBtns" class=" justLeft gap2 p-1 flex ">
-                <div class=" grid rad1 btn1 gap1 f2vh" id="cloudLoad">
+                <div class=" grid rad1 btn1 gap1 " id="cloudLoad">
                     <img src="./img/ico/icoApp.png" style='width:6vh height:6vh' class='mini pick' alt="" srcset="">
                     <a>Atualizar</a>
                 </div>
 
                 <div class='${controlesShow} flex'>
-                    <div class="grid rad1 btn1 f2vh" id="export">
-                        <i class=' bi-arrow-down'></i>
+                    <div class="grid itemsCenter  btn1" id="export">
+                        <i class='bi-file-earmark-arrow-down  f3vh colorD '></i>
                         <a>Exportar</a>
                     </div>
-                    <div class="grid rad1 btn1 f2vh" id="load" target="dataLoad">
-                        <i class=' bi-arrow-up '></i>
+                    <div class="grid itemsCenter  btn1 " id="load" target="dataLoad">
+                        <i class=' bi-file-earmark-arrow-up  f3vh colorD  '></i>
                         <a>Importar</a>
                     </div>
                 </div>
@@ -272,23 +270,23 @@ export class Arquivos {
          
         document.getElementById('currentLabelText').innerText = item.innerText
          
-                        this.acordes.clearMemoria();
-                        this.dao.clicaMusica(item);
-                        this.acordes.loadSlot(item); 
+            this.acordes.clearMemoria();
+            this.dao.clicaMusica(item);
+            this.acordes.loadSlot(item); 
 
-                        //document.getElementById('contexto').innerText = item
-                       
-                        setTimeout(
-                            //
-                            ()=>{
-                                //disparar um evento q aciona o acordes
-                              let btn = document.getElementById('acordes');
-                               if(btn){
-                                 btn.click();
-                               }
-                             
-                            }
-                            ,300)
+            //document.getElementById('contexto').innerText = item
+            
+            setTimeout(
+                //
+                ()=>{
+                    //disparar um evento q aciona o acordes
+                    let btn = document.getElementById('acordes');
+                    if(btn){
+                        btn.click();
+                    }
+                    
+                }
+                ,300)
     }
 
     favBuild(nome){
@@ -299,16 +297,14 @@ export class Arquivos {
         let css = urlImg ? `background-image : url('${urlImg}')` :'';
 
         let controlesShow = this.role == 'adm' ? '':'off';
-       
-        
     
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='gap1 grid '>
+                    <div  class='abs btn fundoE  gap2 grid w-100 p-2 justCenter textCenter  ' style="bottom:0">
                         <legend class="f2vh fundoB filterE">${nome}</legend>
-                        <div class="flex ${controlesShow}">
+                        <div class="flexCenter gap2  ${controlesShow}">
                             <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
@@ -318,8 +314,6 @@ export class Arquivos {
         `;
         
         
-        console.log(this.aulas)
-        console.log(nome)
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 
         document.getElementById(div).innerHTML += template;

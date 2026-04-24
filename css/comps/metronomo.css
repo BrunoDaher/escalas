@@ -103,7 +103,7 @@
 }
 
 .subdivision{
-        background: var(--fundoD);
+    background: linear-gradient(45deg, var(--fundoA), transparent);
     height: unset;
     margin: 1vh;
     font-size: 3vh !important;

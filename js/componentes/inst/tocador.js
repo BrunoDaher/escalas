@@ -10,6 +10,7 @@ export class Tocador {
 
         this.timer = null;
         this.audioContext = new AudioContext();
+        
         this.sustain = 0.01;
 
         this.efeitos = new Efeitos(this.audioContext);

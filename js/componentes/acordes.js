@@ -5,6 +5,8 @@ import {Violao} from './inst/violao.js'
 import {Tocador} from './inst/tocador.js'
 
 
+
+
 export class Acordes extends Aux{
      
     sections = [

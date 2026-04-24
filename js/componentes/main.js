@@ -22,10 +22,11 @@ export class Main extends Aux{
 
                        
         this.sections = [
-            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
+            
             {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${css}`},
-            {name:'acordes', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
+            {name:'pratica', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
             {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${css}`},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
             
         ];
     }
