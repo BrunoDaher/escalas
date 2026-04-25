@@ -37,11 +37,9 @@ export class Messenger extends Aux{
                 contatosDiv.innerHTML = '';
                 contatosDiv.className='gap2 flex p-2 scroll25 my-1 off'
                 this.contatos.forEach(contato => {
-
-
                     
                     const span = document.createElement('span');
-                    span.className = 'bi bi-person colorA contact btn1 capt flex gap1';
+                    span.className = 'bi bi-person colorA contact btnPerson capt gridCenter gap1';
                
                     span.textContent = contato.split('@')[0];    
                     span.id = contato;        
@@ -61,14 +59,15 @@ export class Messenger extends Aux{
         let css = this.role == 'adm' ? '' : 'off';
 
          this.messengerHTML = `
-                <section>
+                <section class='w-100 p-1'>
               
                     <div class="flex ${css} itemCenter justContBetween" style="color: white;">
                         <a id='msgr'class="colorE p-2 bi-chat "> Mensagens </a>
-                        <a id='btnContatos'class="btn1 p-2 bi-person"> Contatos </a>
+                        <span id='btnContatos' class="colorE px-2 bi-person"> Contatos </span>
                     </div>  
                     
                     <div id="receiving" class="p-2"></div>
+
                     <div id="sending" class="fundoE colorA">
                         <input type="text"
                             id="inputMensagem"
@@ -137,6 +136,10 @@ export class Messenger extends Aux{
         
     }
 
+    //implementar chegada de novas mensagens
+    //listen to new messages
+      
+
      //retrieve contatcs
       getContatos() {
        
@@ -179,12 +182,17 @@ export class Messenger extends Aux{
     let msgsRecebidas = {};
     let msgsEnviadas = {};
 
+  
+
     // 2. Função que junta as mensagens, ordena por tempo e desenha na tela
     const renderizarChat = () => {
         const receiving = this.getById('receiving');
         if (receiving) {
             receiving.innerHTML = '';
         }
+
+        
+        
 
         // Junta tudo num objeto só
         const todasMensagens = { ...msgsRecebidas, ...msgsEnviadas };
@@ -216,13 +224,14 @@ export class Messenger extends Aux{
                             <div class='contact' style="font-size: 0.8em; color: ${cor};">
                                 ${mensagem.autor ? mensagem.autor : ''}
                             </div>
-                            <span class='colorA'>${mensagem.conteudo}</span>
+                            <span class='msgtext colorA'>${mensagem.conteudo}</span>
                         </div>
                     `;
 
                     let tempDiv = document.createElement('div');
                     tempDiv.innerHTML = html;
                     receiving.appendChild(tempDiv.firstElementChild);
+                    
                 }
             });
         } else {
@@ -233,6 +242,7 @@ export class Messenger extends Aux{
     // 5. Escuta as mensagens onde você é o DESTINO (Recebidas)
     mensagensRef.orderByChild('destino').equalTo(userMail).on('value', (snapshot) => {
         msgsRecebidas = snapshot.val() || {};
+        this.getById('btnMsgr').classList.add('filterA');
         renderizarChat(); // Atualiza a tela sempre que chegar algo novo
     }, (error) => {
         console.error("Erro ao escutar mensagens recebidas:", error);
@@ -240,6 +250,7 @@ export class Messenger extends Aux{
 
     // 6. Escuta as mensagens onde você é o AUTOR (Enviadas)
     mensagensRef.orderByChild('autor').equalTo(userMail).on('value', (snapshot) => {
+        
         msgsEnviadas = snapshot.val() || {};
         renderizarChat(); // Atualiza a tela sempre que mandar algo novo
     }, (error) => {
@@ -268,9 +279,9 @@ export class Messenger extends Aux{
 
     }
 
-    setContacts(){
+setContacts(){
 
-      //  console.log(this)
+    
     // trigger destino
             let contacts = this.getAllClass('contact');
 
@@ -306,6 +317,7 @@ export class Messenger extends Aux{
             let msg = document.getElementById('btnMsgr');
                 msg.onclick = ()=>{
                     //heranca de classe
+                    msg.classList.remove('filterA');
                     this.togglePainel('messenger');
                 }
             
@@ -319,6 +331,8 @@ export class Messenger extends Aux{
 
             this.getContatos();
             this.escutarMinhasMensagens();
+
+            
 
 
             let btnContatos = this.getById('btnContatos');

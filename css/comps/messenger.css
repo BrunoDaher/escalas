@@ -9,17 +9,17 @@
     & > section {
         z-index: 7;
         filter: drop-shadow(2px 4px 6px black);
-        margin: 2em;
+
         position: absolute;
-        width: 75%;
-        right: 2em;
+
+        
         background-color: var(--fundoD);
         backdrop-filter: blur(14em);
-        border-radius: 1vh;
-        top: 5rem;
+        
+        top: 12svh;
 
         @media (max-width:500px) and (orientation: portrait) {
-            width: 85%;
+            
             right: unset;
         }
     }
@@ -40,6 +40,12 @@
     max-height: 40vh;
     min-height: 40vh;
     overflow-y: scroll;
+}
+
+.msgtext{
+        word-break: break-word;
+    overflow-x: revert;
+    max-width: 80vw;
 }
 
 .camera{
@@ -65,3 +71,11 @@
 
 }
 
+.btnPerson{
+        background: var(--colorD);
+    padding: 1vh;
+    color: var(--fundoB);
+    font-weight: 500;
+    border-radius: 5px;
+    filter: var(--filterD);
+}

@@ -21,11 +21,11 @@ export class Arquivos {
     
             <div class="comp p-1 flex justContBetween textStart ">
                 <div>
-                    <i class="bi bi-list"></i>
+                    <i class="bi bi-play-btn"></i>
                     <label class="">Meus Arquivos </label>
                 </div>
 
-                <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
+                
                 
             </div>
 
@@ -33,7 +33,7 @@ export class Arquivos {
 
              <div class=" comp p-1 flex justContBetween textStart ">
                 <div>
-                    <i class="bi bi-list"></i>
+                    <i class="bi bi-laptop"></i>
                     <label class="">Aulas</label>
                 </div>
 
@@ -302,13 +302,14 @@ export class Arquivos {
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='abs btn fundoE  gap2 grid w-100 p-2 justCenter textCenter  ' style="bottom:0">
-                        <legend class="f2vh fundoB filterE">${nome}</legend>
-                        <div class="flexCenter gap2  ${controlesShow}">
+                    <div  class='abs btn fundoGrad gap2 grid w-100 p-2 justCenter textCenter  ' style="bottom:0">
+                    <div class="flexCenter gap2  ${controlesShow}">
                             <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
-                        </div>
+                        </div>    
+                    <legend class="f2vh fundoB filterE">${nome}</legend>
+                        
                     </div>
             </div>
         `;

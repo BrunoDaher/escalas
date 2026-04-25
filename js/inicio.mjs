@@ -50,10 +50,6 @@ aux.refreshNav()
  function init() {
 
 
-     
-
-
-
       acesso.fire.auth.onAuthStateChanged(async (user) => {
           if (user) {
              role = await acesso.getFire().getRole();

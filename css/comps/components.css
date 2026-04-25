@@ -23,6 +23,7 @@ display: flex;
     height: 100%;
         
     @media (orientation: portrait) {
+        
     }
     
       @media (max-width: 500px) {
@@ -33,7 +34,7 @@ display: flex;
 
     @media (min-width:501px) {
         overflow-y:visible;
-        height: 50vh;
+
     }
 
 

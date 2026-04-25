@@ -7,6 +7,14 @@
   animation: palheta 2s linear infinite; 
 }
 
+.opening{
+        flex-flow: column;
+    justify-content: center;
+    align-self: center;
+    margin-top: auto;
+    background-color: black;
+    z-index: 10;
+}
 
 
 /* --- Video Loading --- */
@@ -31,7 +39,7 @@
 #currentLabel {
     position: absolute;
     z-index: 20;
-    right: 2vh;
+    right: 10vw;
     padding: 0 1vh;
     top: 2vh;
     

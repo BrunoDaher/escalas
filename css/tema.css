@@ -40,6 +40,15 @@ label{
     cursor: unset;
 }
 
+.fundoC{
+    background-color: var(--fundoC);
+}
+
+.fundoGrad{
+        background: linear-gradient(45deg, black, transparent);
+}
+
+
 .fundoE{
     background-color: var(--fundoE);
 }
