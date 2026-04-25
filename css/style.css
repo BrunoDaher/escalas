@@ -183,7 +183,7 @@ body{
 
 .active {
     
-    color:currentColor;
+        color: var(--colorD) !important;
 }
 
 

@@ -193,7 +193,7 @@ export default class VideoObj {
                         
                     </div>
 
-                    <video class='video ${css}' id='currentVideo'  
+                    <video class='video ${css} w-full' id='currentVideo'  
                             ${controls}
                             playsinline
                             preload="metadata"

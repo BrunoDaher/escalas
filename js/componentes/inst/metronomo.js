@@ -109,7 +109,7 @@ export class Metronomo{
                         ${[1, 2, 3, 4].map(i => `
                             <div id='p${i}' value="${i}" class="pulse  justContBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
-                                    `<div class="subdivision rad1  btn1">
+                                    `<div class="subdivision rad1 btn3">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
@@ -199,12 +199,12 @@ mark(index) {
     // remove active de todos
     for (let i = 1; i <= 4; i++) {
         const el = document.getElementById("p" + i);
-        if (el) el.classList.remove('btn1');
+        if (el) el.classList.remove('btn3');
     }
 
     // aplica só no pulso atual
     const el = document.getElementById("p" + index);
-    if (el) el.classList.add('btn1');
+    if (el) el.classList.add('btn3');
 }
 
 
@@ -228,7 +228,7 @@ mark(index) {
             return `
                 <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision rad1 btn1">
+                        `<div class="subdivision rad1 btn3">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;
