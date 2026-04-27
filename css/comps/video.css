@@ -78,7 +78,7 @@
         
 
          &.mobile {
-             height: 28vh;
+             height: 25svh;
             object-fit: cover;
             width: -webkit-fill-available;
          }

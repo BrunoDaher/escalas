@@ -25,7 +25,7 @@
 #paineis {
     
     background-color: var(--fundoD );
-    padding: 1rem;
+    
 
     overflow-y: auto;
     display: flex;
@@ -76,9 +76,7 @@
     flex: 1;
     
 
-    &.mobile {
-        width: 100%;
-    }
+    overflow-x: hidden;
 
     &.tablet , &.desktop {
         padding: 0 ;

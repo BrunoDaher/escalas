@@ -47,6 +47,9 @@ label{
         background: linear-gradient(45deg, black, transparent);
 }
 
+.fundoGrad2{
+    background:linear-gradient(-219deg,var(--fundoD), var(--colorA), transparent);
+}
 
 .fundoE{
     background-color: var(--fundoE);

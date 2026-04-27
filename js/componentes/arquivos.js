@@ -34,7 +34,7 @@ export class Arquivos extends Aux{
                 ${this.renderMinhasAulas()}
             </fieldset  >
            
-           <div class="grid my-1 justCenter ">
+           <div class="grid my-1 justCenter w-full fundoGrad2 p-1">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -44,7 +44,7 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flexCenter p-1 justCenter gap1 f2vh'>
+        return `<menu class='flexCenter fundoGrad2 w-100 p-1 justCenter gap1 f2vh'>
 
                 <span class='btn3 p-1 active menuFiles' target='meusArqs'>
                     <i class="bi bi-play-btn"></i>
@@ -65,15 +65,14 @@ export class Arquivos extends Aux{
     renderMeusArquivos(){
 
         return`
-            <div id="listaArq" class='p-1 ' >
-                <div id="salvos" class="grid2"></div>
-            </div>`
+                <div id="salvos" class="grid2 p-2"></div>
+            `
     }
 
     renderMinhasAulas(){
         
         return`
-            <div id="aulasSalvas" class="grid2"></div>
+            <div id="aulasSalvas" class="grid2 p-2"></div>
             `
     }
 
@@ -83,22 +82,24 @@ export class Arquivos extends Aux{
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-        <div  id="daoBtns" class=" flex ">
-                <div class="gridCenter itemCenter  btnPerson  " id="cloudLoad">
-                    <img src="./img/ico/icoApp.png" style='width:6vh height:6vh' class='mini pick' alt="" srcset="">
+            <div  id="daoBtns" class="flex gap2">
+                
+                <div class="gridCenter itemCenter  " id="cloudLoad">
+                    <img src="./img/ico/icoApp.png" 
+                        style='width:6vh height:6vh' class='mini pick justCenter' alt="" srcset="">
                     <a>Atualizar</a>
                 </div>
 
-                <div class='${controlesShow} flex '>
-                    <div class="gridCenter itemCenter btnPerson" id="export">
+                <div class='${controlesShow} flex gap2'>
+                    <div class="gridCenter itemCenter " id="export">
                         <i class='bi-file-earmark-arrow-down  f3vh colorD '></i>
                         <a>Exportar</a>
                     </div>
-                    <div class="gridCenter itemCenter  btnPerson " id="load" target="dataLoad">
+                    <div class="gridCenter itemCenter   " id="load" target="dataLoad">
                         <i class=' bi-file-earmark-arrow-up  f3vh colorD  '></i>
                         <a>Importar</a>
                     </div>
-                    <div class="${controlesShow} itemCenter gridCenter btnPerson" id="addSong">
+                    <div class="${controlesShow} itemCenter gridCenter " id="addSong">
                         <i class=' bi-music-note  f3vh colorD  '></i>
                         <a>Add Song</a>
                     </div>
@@ -331,15 +332,12 @@ export class Arquivos extends Aux{
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='abs fundoD grid p-1 justCenter textCenter' style="bottom:0">
-                    <legend class="f2vh fundoB filterE">${nome}</legend>
-                    <div class="flexCenter gap2  ${controlesShow}">
-                            <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
-                            <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
-                            <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
-                        </div>    
-                    
-                        
+                    <div  class='abs fundoC grid p-1 w-full justCenter textCenter' style="bottom:0">
+                    <legend class=" f2vh fundoB filterE">${nome}</legend>
+                    <div class=" flexCenter p-1 gap2 justContBetween  ${controlesShow}">
+                            <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-eraser-fill "></span>
+                            <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-pencil "></span>
+                    </div>    
                     </div>
             </div>
         `;
