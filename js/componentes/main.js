@@ -95,6 +95,10 @@ export class Main extends Aux{
             navBtns.forEach((btn) => {
                 btn.onclick = () => {
 
+                     if (window.navigator.vibrate) {
+                            navigator.vibrate(100);
+                        }
+
                     console.log(btn);
                     //estetica do botao
                     if(btn.id=='pratica'){

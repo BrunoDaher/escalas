@@ -65,7 +65,7 @@ export class Metronomo{
 
             figurasHtml += 
             
-            `<button class="btnChord f2em figura-btn ${classe}  figritm" 
+            `<button class="btnChord btn3 f2em figura-btn ${classe}  figritm" 
                 data-value="${fig.value}" 
                 title="${fig.title}">
                 ${fig.text}

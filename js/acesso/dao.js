@@ -16,7 +16,7 @@ export class Dao {
 
   getAulas(){
     
-    return ['AcordesMaiores','AcordesMenores', 'EscalaMaior', ,'EscalaMenor', 'Caged', 'PowerChords','ModosGregosC']
+    return ['AcordesMaiores','AcordesMenores', 'EscalaMaior', 'EscalaMenor', 'Caged', 'PowerChords','ModosGregosC','TriadesTetrades']
   }
 
   //retorna ids, keys od storage

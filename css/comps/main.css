@@ -40,11 +40,13 @@ footer {
   display: flex;
   align-items: center;
 
+  
+          padding-block: 1vh 2vh;
     justify-content: center;
 
     text-align: center;
   background-color: var(--fundoE);
-  padding: 1rem 0;
+  
 
   
 
