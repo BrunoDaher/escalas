@@ -65,14 +65,14 @@ export class Arquivos extends Aux{
     renderMeusArquivos(){
 
         return`
-                <div id="salvos" class="grid2 p-2"></div>
+                <div id="salvos" class="grid2 p-2 justCenter"></div>
             `
     }
 
     renderMinhasAulas(){
         
         return`
-            <div id="aulasSalvas" class="grid2 p-2"></div>
+            <div id="aulasSalvas" class="grid2 p-2 justCenter"></div>
             `
     }
 
