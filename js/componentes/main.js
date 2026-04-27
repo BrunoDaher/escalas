@@ -75,7 +75,6 @@ export class Main extends Aux{
         let buttons = this.sections.map(btn => `
             <span id=${btn.name}  
                 class="navBtn w-100 grid colorB f2vh" 
-               
                 data-panel="${btn.id}">
                 <i class="${btn.icon}"></i>
                 <a style='text-transform:capitalize'>${btn.name}</a>

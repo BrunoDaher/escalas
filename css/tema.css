@@ -83,6 +83,7 @@ label{
 
 ::-webkit-scrollbar {
 
+    -webkit-appearance: none !important;
     -webkit-overflow-scrolling: touch; 
     
         width: 4px;
@@ -94,6 +95,7 @@ label{
     background: var(--colorC) !important;
     cursor:grabbing;
     border-radius: 10px;
+    -webkit-appearance: none !important;
 }
 
 input:focus, button:focus {

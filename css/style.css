@@ -47,7 +47,7 @@
 }
 
 *{
-    box-sizing: border-box;
+    
 }
 
 .itemsCenter{
@@ -163,7 +163,19 @@ body{
     filter:var(--filterB) , hue-rotate(351deg);
 }
 
+span,div{
+     -webkit-appearance: none; /* Remove estilos nativos */
+    user-select: none;  
+    outline: none;
+       -webkit-tap-highlight-color: transparent;
+}
 
+
+
+*:focus-visible{
+
+    
+}
 
 .controle{    
     display: flexbox;
