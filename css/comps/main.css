@@ -59,6 +59,17 @@ footer {
   
 }
 
+
+.navBtn{
+  
+  padding-top:7px;
+}
+
+.navBtn.active, .navBtn:hover{
+  cursor: pointer;
+  border-top: 1px var(--colorD) solid;
+}
+
 #navegacao {
     display: flex;
     

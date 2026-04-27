@@ -84,11 +84,12 @@
         padding: 0 ;
                 padding: 0;
         overflow-y: scroll;
-        max-height: 40vh;
+        max-height: 60vh;
     
 
         @media (orientation: landscape) {
-            width: 28vw;
+            width: 30%;
+                max-height: 48vh;
 
         }
     }

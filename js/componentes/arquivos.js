@@ -1,8 +1,12 @@
 import { Dao } from  '../acesso/dao.js'
+import {Aux} from '../util/aux.js'
 
-export class Arquivos {
+export class Arquivos extends Aux{
 
     constructor(acordes, role) {
+
+        super();
+
         this.dao = acordes.dao;
         this.acordes = acordes;
         this.containerId ='painelFiles';
@@ -18,57 +22,59 @@ export class Arquivos {
         let controlesShow = this.role == 'adm' ? '':'off';
         
         return `
+
+
+            ${this.renderFilesMenu()}
     
-            <div class="comp p-1 flex justContBetween textStart ">
-                <div>
-                    <i class="bi bi-play-btn"></i>
-                    <label class="">Meus Arquivos </label>
-                </div>
+            <fieldset id='meusArqs' class="filesPanel rad1 bordaA textStart ">
+                ${this.renderMeusArquivos()}
+            </fieldset  >
 
-                
-                
-            </div>
-
-            ${this.renderMeusArquivos()}
-
-             <div class=" comp p-1 flex justContBetween textStart ">
-                <div>
-                    <i class="bi bi-laptop"></i>
-                    <label class="">Aulas</label>
-                </div>
-
-                <span  class="${controlesShow} bgDark btn" id="addSong"><i class="bi bi-plus"></i>Nova Música</span>
-                
-            </div>
-
-            ${this.renderMinhasAulas()}
+            <fieldset id='minhasAulas' class="off filesPanel rad1 bordaA  textStart ">
+                ${this.renderMinhasAulas()}
+            </fieldset  >
            
            <div class="grid my-1 justCenter ">
-                
-                 
                 ${this.renderDaoBtns()}
-
             </div>
         
         `;
     }
 
+
+
+    renderFilesMenu(){
+        return `<menu class='flexCenter p-1 justCenter gap1 f2vh'>
+
+                <span class='btn3 p-1 active menuFiles' target='meusArqs'>
+                    <i class="bi bi-play-btn"></i>
+                    <label class="">Meus Arquivos </label>
+                </span>
+
+                <span class='btn3 p-1 menuFiles' target='minhasAulas'>
+                    <i class="bi bi-play-btn"></i>
+                    <label class="">Aulas </label>
+                </span>
+
+            </menu>`;
+
+       
+        
+    }
+
     renderMeusArquivos(){
 
         return`
-        
-            <div id="listaArq" class='p-2 my-1' >
-                <div id="salvos" class="flex"></div>
+            <div id="listaArq" class='p-1 ' >
+                <div id="salvos" class="grid2"></div>
             </div>`
     }
 
     renderMinhasAulas(){
         
         return`
-        
-            <div id="minhasAulas" class=' p-2 my-1' >
-                <div id="aulasSalvas" class="flex"></div>
-            </div>`
+            <div id="aulasSalvas" class="grid2"></div>
+            `
     }
 
     renderDaoBtns(){
@@ -77,22 +83,28 @@ export class Arquivos {
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-        <div  id="daoBtns" class=" justLeft gap2 p-1 flex ">
-                <div class=" grid rad1 btn1 gap1 " id="cloudLoad">
+        <div  id="daoBtns" class=" flex ">
+                <div class="gridCenter itemCenter  btnPerson  " id="cloudLoad">
                     <img src="./img/ico/icoApp.png" style='width:6vh height:6vh' class='mini pick' alt="" srcset="">
                     <a>Atualizar</a>
                 </div>
 
-                <div class='${controlesShow} flex'>
-                    <div class="grid itemsCenter  btn1" id="export">
+                <div class='${controlesShow} flex '>
+                    <div class="gridCenter itemCenter btnPerson" id="export">
                         <i class='bi-file-earmark-arrow-down  f3vh colorD '></i>
                         <a>Exportar</a>
                     </div>
-                    <div class="grid itemsCenter  btn1 " id="load" target="dataLoad">
+                    <div class="gridCenter itemCenter  btnPerson " id="load" target="dataLoad">
                         <i class=' bi-file-earmark-arrow-up  f3vh colorD  '></i>
                         <a>Importar</a>
                     </div>
+                    <div class="${controlesShow} itemCenter gridCenter btnPerson" id="addSong">
+                        <i class=' bi-music-note  f3vh colorD  '></i>
+                        <a>Add Song</a>
+                    </div>
                 </div>
+
+                
 
             </div>
         `
@@ -107,7 +119,7 @@ export class Arquivos {
 
         
 
-         this.container = document.getElementById(this.containerId);
+         this.container = this.getById(this.containerId);
         //console.log(this.container)
         if (this.container) {
             ////console.log('Renderizando painel de arquivos');
@@ -125,7 +137,7 @@ export class Arquivos {
     novoArquivo(){
 
         
-        let dataLoad = document.getElementById('dataLoad');
+        let dataLoad = this.getById('dataLoad');
 
         if(dataLoad){
             dataLoad.addEventListener('change', async ()=>{
@@ -134,7 +146,7 @@ export class Arquivos {
                 //aguarda a persistencia (sessionStorage)
                 await this.dao.upload();
                 if(this.dao.upload){
-                    const elem = document.getElementById('arquivo');
+                    const elem = this.getById('arquivo');
                      this.favBuild(elem.innerText.trim());
                 }
              }) 
@@ -150,17 +162,34 @@ export class Arquivos {
         // Add event listener for custom video-play event
             
         this.novoArquivo();
-        
+
+
+               //menuFiles
+         const menuFilesBtn = this.getAllClass('menuFiles') || false;
+            if (menuFilesBtn) {
+                
+                menuFilesBtn.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if(!btn.classList.contains('active')){
+                            this.toggleAll('menuFiles','active')
+                            this.toggleAll('filesPanel','off')
+                        }
+                        
+                    });
+                });
+
+        }
+      
 
         // Botões de ação (chroma, export, load)
-        const chromaBtn = document.getElementById('chroma');
+        const chromaBtn = this.getById('chroma');
         if (chromaBtn) {
             chromaBtn.addEventListener('click', () => {
                 this.acordes.getViolao().chroma(chromaBtn);
             });
         }
 
-        const exportBtn = document.getElementById('export');
+        const exportBtn = this.getById('export');
         if (exportBtn) {
             exportBtn.addEventListener('click', () => {
                // alert('Exportar arquivo');
@@ -170,7 +199,7 @@ export class Arquivos {
         }
 
         //load
-        const loadBtn = document.getElementById('load')
+        const loadBtn = this.getById('load')
         let target = loadBtn.getAttribute('target')
         if (loadBtn) {
             loadBtn.addEventListener('click', () => {
@@ -180,7 +209,7 @@ export class Arquivos {
         }
 
         //cloudLoad
-        const cloudLoadBtn = document.getElementById('cloudLoad')
+        const cloudLoadBtn = this.getById('cloudLoad')
            
         if (cloudLoadBtn) {
            //console.log('ss')
@@ -197,7 +226,7 @@ export class Arquivos {
            //console.log('no cloudLoad')   
         }
 
-        const addSongBtn = document.getElementById('addSong');
+        const addSongBtn = this.getById('addSong');
         if (addSongBtn) {
             addSongBtn.addEventListener('click', () => {
 
@@ -219,7 +248,7 @@ export class Arquivos {
 
                     if(cloudFiles){
 
-                        document.getElementById('salvos').innerHTML = '';
+                        this.getById('salvos').innerHTML = '';
                         localStorage.clear();
                         this.dao.refreshBlob();
                        
@@ -268,19 +297,19 @@ export class Arquivos {
 
     clicaMusica(item){
          
-        document.getElementById('currentLabelText').innerText = item.innerText
+        this.getById('currentLabelText').innerText = item.innerText
          
             this.acordes.clearMemoria();
             this.dao.clicaMusica(item);
             this.acordes.loadSlot(item); 
 
-            //document.getElementById('contexto').innerText = item
+            //this.getById('contexto').innerText = item
             
             setTimeout(
                 //
                 ()=>{
                     //disparar um evento q aciona o acordes
-                    let btn = document.getElementById('pratica');
+                    let btn = this.getById('pratica');
                     if(btn){
                         btn.click();
                     }
@@ -302,22 +331,24 @@ export class Arquivos {
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='abs btn fundoGrad gap2 grid w-100 p-2 justCenter textCenter  ' style="bottom:0">
+                    <div  class='abs fundoD grid p-1 justCenter textCenter' style="bottom:0">
+                    <legend class="f2vh fundoB filterE">${nome}</legend>
                     <div class="flexCenter gap2  ${controlesShow}">
                             <span data-target='vg_${nome}' role="button" class="btn1  bi-arrow-clockwise "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-eraser-fill "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 bi-pencil "></span>
                         </div>    
-                    <legend class="f2vh fundoB filterE">${nome}</legend>
+                    
                         
                     </div>
             </div>
         `;
         
+        console.log(nome)
         
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 
-        document.getElementById(div).innerHTML += template;
+        this.getById(div).innerHTML += template;
         
 
     }
@@ -327,10 +358,10 @@ export class Arquivos {
        //console.log('addSong')
         //jogar pro dao
         sessionStorage.clear();
-        const elem = document.getElementById('arquivo');
+        const elem = this.getById('arquivo');
               elem.innerText = 'arquivo';
         this.favBuild(elem.innerText)
-        const salvos = document.getElementById('salvos');
+        const salvos = this.getById('salvos');
               salvos.append(elem)
       
     //const nome = fileName.toLowerCase();
@@ -345,8 +376,8 @@ export class Arquivos {
 
     restore(){
 
-        document.getElementById('salvos').innerHTML = '';
-        document.getElementById('aulasSalvas').innerHTML = '';
+        this.getById('salvos').innerHTML = '';
+        this.getById('aulasSalvas').innerHTML = '';
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
@@ -357,7 +388,7 @@ export class Arquivos {
          str.forEach(mus => {
             
                 this.favBuild(mus);
-                let btn = document.getElementById('vg_' + mus);
+                let btn = this.getById('vg_' + mus);
                 btn.click();
          });
 

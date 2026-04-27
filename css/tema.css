@@ -17,8 +17,7 @@
 }
 
 .labelTema{
-    background: linear-gradient(45deg, var(--fundoA), transparent);
-    padding: 1vh;
+    
     border-radius: 1vh;
     filter: var(--filterE);
 }
@@ -95,6 +94,7 @@ label{
 }
 
 
+
 ::-webkit-scrollbar-thumb {
 
     background-color: var(--colorC);
@@ -106,20 +106,20 @@ input:focus, button:focus {
     outline-width: 0;
 }
 input[type="color"] {
-     border-radius: 1vh; 
+        border-radius: 1vh;
     /* appearance: none; */
-        filter: drop-shadow(1px 1px 1px var(--fundoB) );
+    filter: drop-shadow(1px 1px 1px var(--fundoB));
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     backdrop-filter: opacity(0);
     color: transparent;
     /* background-color: transparent; */
     border-color: unset;
-    border-width: 12px;
+    border-width: 22px;
     border-style: dashed;
     background: unset;
-    height: 0px;
-    width: 40px;
+    height: 10vh;
+    width: 44px;
   }
   input[type="color"]::-webkit-color-swatch-wrapper {
       padding: 0;

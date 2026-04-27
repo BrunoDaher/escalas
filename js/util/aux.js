@@ -1,4 +1,4 @@
-export class Aux {
+export  class Aux {
     // Elimina uma classe de todos os elementos do array
     
     
@@ -99,7 +99,7 @@ export class Aux {
     }
     // Alterna a classe 'off' no elemento com o id fornecido
     togglePainel(id) {
-        console.log(id)
+        
         this.getById(id).classList.toggle('off');
     }
 
@@ -108,6 +108,15 @@ export class Aux {
        let btns = this.getAllClass(`${grupo}`);
            btns.forEach(btn => {
             btn.classList.remove(classe);
+        }); 
+
+    }
+
+    toggleAll(grupo,classe){
+
+       let btns = this.getAllClass(`${grupo}`);
+           btns.forEach(btn => {
+            btn.classList.toggle(classe);
         }); 
 
     }

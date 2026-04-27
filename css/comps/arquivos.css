@@ -4,45 +4,37 @@
     list-style-type: none;
     align-content: space-between;
     
-    gap: 3vh;
+    gap: 2vh;
 
     @media  (orientation: landscape) {
-                overflow-y: scroll;
+            overflow-y: scroll;
             display: grid;
             -webkit-text-decorations-in-effect: overline;
             /* width: 20vh; */
             grid-template-columns: 1fr 1fr;
-    
-        
+
+             @media (min-width:998px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
     }
 
+   
+
     @media  (orientation: portrait) {
-        overflow-x: scroll;
-        max-width: 90vw;
-        
-        
+        overflow-x: hidden;
+        max-height: 58vh;
     }
+
+    
 
 }
 
 #salvos > div, #aulasSalvas > div {
 
-
-    cursor: pointer;
-    color: white;
-
-    place-content: end;
-    margin-top: auto;
-    min-width:20vh;
-    
-    /*background: linear-gradient(-10deg, var(--fundoB), transparent);*/
-    text-align: start;
-    height: 20svh;
-  
+    width:9em;
+    height: 9em;
     opacity: 0.7;
-
-
-
+    
     @media (orientation: landscape) {
       
         
@@ -57,7 +49,7 @@
 }
 
 .capt{
-        box-sizing: border-box;
+
     background-size: cover !important;
     background-repeat: no-repeat !important;
 }
