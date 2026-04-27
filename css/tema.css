@@ -81,21 +81,25 @@ label{
     font-family: fantasy;
 }
 
-::-webkit-scrollbar {
 
-    -webkit-appearance: none !important;
-    -webkit-overflow-scrolling: touch; 
+
+*>::-webkit-scrollbar {
+ position: relative;
+    z-index: 1; /* Garante que o conteúdo fique abaixo ou acima da barra conforme desejado */
+    -webkit-transform: translate3d(0,0,0);
     
-        width: 4px;
-    height: 0.3em;
+    width: 4px !important;
+    height: 0.3em !important;
+    display: block !important; /* Força o WebKit a renderizar */
 
 }
 
+
 ::-webkit-scrollbar-thumb {
-    background: var(--colorC) !important;
-    cursor:grabbing;
+
+    background-color: var(--colorC);
     border-radius: 10px;
-    -webkit-appearance: none !important;
+    
 }
 
 input:focus, button:focus {
