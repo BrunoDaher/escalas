@@ -72,10 +72,10 @@
 }
 
 .btnPerson{
-        background: var(--colorD);
+        background: var(--fundoE);
+        color:var(--colorB);
     padding: 1vh;
-    color: var(--fundoB);
     font-weight: 500;
     border-radius: 5px;
-    filter: var(--filterD);
+
 }

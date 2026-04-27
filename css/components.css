@@ -1,10 +1,24 @@
-@import url(./acordes.css);
-@import url(./arquivos.css);
-@import url(./messenger.css);
-@import url(./metronomo.css);
-@import url(./video.css);
-@import url(./main.css);
-@import url(./violao.css);
+
+
+/*artefatos*/
+
+@import url(./artefatos/animate.css);
+@import url(./artefatos/botoes.css);
+@import url(./artefatos/drag.css);
+@import url(./artefatos/img.css);
+@import url(./artefatos/input.css);
+@import url(./artefatos/slider.css);
+
+/*tema*/
+@import url(./tema.css);
+@import url(./comps/acordes.css);
+@import url(./comps/arquivos.css);
+@import url(./comps/messenger.css);
+@import url(./comps/metronomo.css);
+@import url(./comps/video.css);
+@import url(./comps/main.css);
+@import url(./comps/violao.css);
+
 
 /* Layout & Positioning */
 

@@ -103,9 +103,16 @@
 }
 
 .subdivision{
-    background: linear-gradient(45deg, var(--fundoA), transparent);
-    height: unset;
+    background: var(--fundoD);
+    height: 6vh;
     margin: 1vh;
+    text-align: center;
+    align-content: center;
     font-size: 3vh !important;
+
+    &.active{
+        background-color: var(--colorD);
+        color: var(--fundoB) !important;
+    }
 
 }

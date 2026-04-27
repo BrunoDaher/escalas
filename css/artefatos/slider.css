@@ -2,6 +2,7 @@
  
   
   .slider {
+    
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -12,6 +13,7 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
+
   
   .slider:before {
     position: absolute;

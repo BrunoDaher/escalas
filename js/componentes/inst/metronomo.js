@@ -65,7 +65,7 @@ export class Metronomo{
 
             figurasHtml += 
             
-            `<button class="bordaA figura-btn f3vh rad1 btn1 ${classe}  figritm" 
+            `<button class="btnChord f2em figura-btn ${classe}  figritm" 
                 data-value="${fig.value}" 
                 title="${fig.title}">
                 ${fig.text}
@@ -109,7 +109,7 @@ export class Metronomo{
                         ${[1, 2, 3, 4].map(i => `
                             <div id='p${i}' value="${i}" class="pulse  justContBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
-                                    `<div class="subdivision rad1 btn3">
+                                    `<div class="subdivision">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
@@ -228,7 +228,7 @@ mark(index) {
             return `
                 <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision rad1 btn3">
+                        `<div class="subdivision ">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;

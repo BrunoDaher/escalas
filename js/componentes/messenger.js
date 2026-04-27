@@ -8,8 +8,6 @@ export class Messenger extends Aux{
 
         super();
 
-        
-
 
         this.role = 'user';
         this.contatos = [];
@@ -36,13 +34,22 @@ export class Messenger extends Aux{
              if (contatosDiv) {
                 contatosDiv.innerHTML = '';
                 contatosDiv.className='gap2 flex p-2 scroll25 my-1 off'
+                
                 this.contatos.forEach(contato => {
-                    
                     const span = document.createElement('span');
-                    span.className = 'bi bi-person colorA contact btnPerson capt gridCenter gap1';
+                    span.className = 'bi bi-person contact btnPerson  grid gap1';
                
                     span.textContent = contato.split('@')[0];    
                     span.id = contato;        
+
+                    span.addEventListener('click', () => {
+
+                        this.arrayRemoveClass(Array.from(contatosDiv.children),'active')
+                        span.classList.add('active');
+                        
+                        this.setDestino(span.id);
+                        
+                    })
                      contatosDiv.appendChild(span);
                 });
             }
@@ -165,34 +172,32 @@ export class Messenger extends Aux{
 }
         
   escutarMinhasMensagens(string) {
-    const user = this.firebase.getAuth().currentUser;
-    if (!user) {
-        console.error("Usuário não autenticado.");
-        return;
-    }
+      
+        const user = this.firebase.getAuth().currentUser;
+            if (!user) {
+                console.error("Usuário não autenticado.");
+                return;
+            }
 
-    const userMail = user.email;
+        const userMail = user.email;
 
-    // Mantido seu código de Role
+        // Mantido seu código de Role
 
 
-    const mensagensRef = this.firebase.getRef('/mensagens');
+        const mensagensRef = this.firebase.getRef('/mensagens');
 
-    // 1. Variáveis para guardar os dois lados da conversa
-    let msgsRecebidas = {};
-    let msgsEnviadas = {};
+        // 1. Variáveis para guardar os dois lados da conversa
+        let msgsRecebidas = {};
+        let msgsEnviadas = {};
 
-  
+    
 
-    // 2. Função que junta as mensagens, ordena por tempo e desenha na tela
-    const renderizarChat = () => {
+        // 2. Função que junta as mensagens, ordena por tempo e desenha na tela
+        const renderizarChat = () => {
         const receiving = this.getById('receiving');
         if (receiving) {
             receiving.innerHTML = '';
         }
-
-        
-        
 
         // Junta tudo num objeto só
         const todasMensagens = { ...msgsRecebidas, ...msgsEnviadas };
@@ -279,7 +284,7 @@ export class Messenger extends Aux{
 
     }
 
-setContacts(){
+    setContacts(){
 
     
     // trigger destino

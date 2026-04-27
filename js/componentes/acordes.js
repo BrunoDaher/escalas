@@ -127,7 +127,7 @@ export class Acordes extends Aux{
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
-                                                    <input id="btnVideo" target='video' type="checkbox" checked=false/>
+                                                    <input id="btnVideo" target='video' type="checkbox" checked=true/>
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <a>Braço</a>
@@ -135,10 +135,10 @@ export class Acordes extends Aux{
                                     </div>
 
                                     <div class='flex itemCenter'>
-                                        <i class='bi bi-music-note'>Notas</i>
+                                        <i class='bi bi-music-note'>Clear</i>
                                         <label class="switch flex itemCenter">
                                             <input class='active cleanReq' id="cleanMode2" type="checkbox" checked='false' >
-                                            <span class="slider round"></span>
+                                            <span class="active slider round"></span>
                                         </label>    
                                     </div>
                             
@@ -259,9 +259,9 @@ export class Acordes extends Aux{
             <a class="bi-radioactive comp filterC p-1"> Efeitos</a  >
             <div class="comp flexCenter gap1 p-2">
                 <span id='contexto'></span>
-                <span class="efeito btn1 " id="chorus" value="false">Chorus</span>
-                <span class="efeito btn1 active" id="reverb" value="true">Reverb</span>
-                <span class="efeito btn1" id="delay" value="false">Delay</span>
+                <span class="efeito btn3 " id="chorus" value="false">Chorus</span>
+                <span class="efeito btn3 active" id="reverb" value="true">Reverb</span>
+                <span class="efeito btn3" id="delay" value="false">Delay</span>
             </div>
         `
     }

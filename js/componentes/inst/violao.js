@@ -43,7 +43,11 @@ export class Violao {
    //event trigger 
     trigger(){
          document.addEventListener('clean-request', (event) => {
-           let btn = event.detail;
+           
+           
+            console.log('clean request recebido')
+            let btn = event.detail;
+           
            this.cleanMode(btn);
 
            //ermover classes dos botoes, ativar ou desativar
@@ -216,7 +220,7 @@ export class Violao {
     }
 
     cleanMode(btn) {
-    //    btn.classList.toggle('active');
+        
         
         let notas = document.querySelectorAll('.nota');
 
