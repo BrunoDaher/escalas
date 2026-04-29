@@ -12,7 +12,7 @@
     justify-content: center;
     align-self: center;
     margin-top: auto;
-    background-color: black;
+
     z-index: 10;
 }
 
@@ -46,8 +46,7 @@
     border-radius: 1.2vh;
 
     @media (orientation: portrait) {
-        top: unset;
-        bottom: 2vh;
+        top: 1vh;
     }
 }
 

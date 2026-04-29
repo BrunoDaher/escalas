@@ -62,6 +62,10 @@
          }
     }
 
+    &.off{
+        opacity: 0;
+    }
+
 
     @media (min-width: 501px) {
         padding: 0 2vh

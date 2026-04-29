@@ -14,16 +14,16 @@
 }
 
 .item {
-  
   padding: 1vh;
-  align-content: center;
-  text-align: center;
-  background: var(--fundoC);
-  color: white;
-  cursor: pointer;
-
-   &.active{
-    background-color: var(--fundoA);
+    align-content: center;
+    text-align: center;
+    border-color: var(--colorA) !important;
+    background: var(--fundoC);
+    color: white;
+    cursor: pointer;
+   
+    &.active, &.on{
+     background-color: var(--colorC);
   }
 
   &.voando {

@@ -64,11 +64,14 @@ export default class VideoObj {
          
          this.video.onclick = ()=>{
             const isPlaying = !this.currentVideo.paused;
-            this.currentVideo.classList.toggle('grayscale');
+            
             if (isPlaying) {
+                this.currentVideo.classList.add('grayscale');
                 this.currentVideo.pause();
             } else {
                 this.currentVideo.play();
+                this.currentVideo.classList.remove('grayscale');
+
             }
          }
  
@@ -236,7 +239,7 @@ export default class VideoObj {
         else{
 
               this.loadingElement.classList.add('off');
-            this.currentVideo.src = `./data/pratica.mp4`;
+            this.currentVideo.src = `./data/pratica2.mp4`;
         }
     } 
     else if (this.currentVideo && detail.mus) {
@@ -256,7 +259,7 @@ export default class VideoObj {
           this.dao.saveVideoUrl(url, fileName);
         } 
         else{
-            this.currentVideo.src = `./data/pratica.mp4`;
+            this.currentVideo.src = `./data/pratica2.mp4`;
         }
       }
 

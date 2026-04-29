@@ -34,7 +34,7 @@ export class Arquivos extends Aux{
                 ${this.renderMinhasAulas()}
             </fieldset  >
            
-           <div class="grid my-1 justCenter w-full fundoGrad2 p-1">
+           <div class="grid justCenter w-full fundoGrad2 p-1">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -42,37 +42,33 @@ export class Arquivos extends Aux{
     }
 
 
-
     renderFilesMenu(){
         return `<menu class='flexCenter fundoGrad2 w-100 p-1 justCenter gap1 f2vh'>
 
-                <span class='btn3 p-1 active menuFiles' target='meusArqs'>
+                <span class='btnPerson p-1 active menuFiles' target='meusArqs'>
                     <i class="bi bi-play-btn"></i>
                     <label class="">Meus Arquivos </label>
                 </span>
 
-                <span class='btn3 p-1 menuFiles' target='minhasAulas'>
+                <span class='btnPerson p-1 menuFiles' target='minhasAulas'>
                     <i class="bi bi-play-btn"></i>
                     <label class="">Aulas </label>
                 </span>
 
             </menu>`;
-
-       
-        
     }
 
     renderMeusArquivos(){
 
         return`
-                <div id="salvos" class="grid2 p-2 justCenter"></div>
+                <div id="salvos" class="grid2 py-1 justCenter"></div>
             `
     }
 
     renderMinhasAulas(){
         
         return`
-            <div id="aulasSalvas" class="grid2 p-2 justCenter"></div>
+            <div id="aulasSalvas" class="grid2 py-1 justCenter"></div>
             `
     }
 
@@ -217,7 +213,15 @@ export class Arquivos extends Aux{
                 cloudLoadBtn.addEventListener('click', async ()=>{
                     
                    //console.log('cloudLoad')
-                    await this.update()
+
+                    this.togglePainel('paineis');
+                    this.activePainel('carregandoInicio');
+                    
+                    await this.update();
+                    
+                    this.togglePainel('paineis');
+                    this.deactivePainel('carregandoInicio');
+
 
                     }
                 );
@@ -332,8 +336,8 @@ export class Arquivos extends Aux{
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
-                    <div  class='abs fundoC grid p-1 w-full justCenter textCenter' style="bottom:0">
-                    <legend class=" f2vh fundoB filterE">${nome}</legend>
+                    <div  class='abs fundoE grid p-1 w-full justCenter textCenter' style="bottom:0">
+                    <legend class=" f2vh  filterE">${nome}</legend>
                     <div class=" flexCenter p-1 gap2 justContBetween  ${controlesShow}">
                             <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-eraser-fill "></span>
                             <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-pencil "></span>

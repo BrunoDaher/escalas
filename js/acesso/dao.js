@@ -16,7 +16,7 @@ export class Dao {
 
   getAulas(){
     
-    return ['AcordesMaiores','AcordesMenores', 'EscalaMaior', 'EscalaMenor', 'Caged', 'PowerChords','ModosGregosC','TriadesTetrades']
+    return ['AcordesMaiores','AcordesMenores', 'EscalaMaior', 'EscalaMenor', 'Caged', 'PowerChords','ModosGregos','TriadesTetrades']
   }
 
   //retorna ids, keys od storage
@@ -63,7 +63,7 @@ export class Dao {
       let url = rec ? this.getLocalDataJSON('vg_' + nome).img : false;
       
 
-      let img = url ? this.getLocalDataJSON('vg_' + nome).img : './data/pratica.png';
+      let img = url ? this.getLocalDataJSON('vg_' + nome).img : './data/aulas.png';
 
 
     return img ;
