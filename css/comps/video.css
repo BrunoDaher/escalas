@@ -77,7 +77,7 @@
         
 
          &.mobile {
-             height: 25svh;
+             height: 23svh;
             object-fit: cover;
             width: -webkit-fill-available;
          }
@@ -86,7 +86,8 @@
         &.desktop {
       
             object-fit: cover;
-            height: 350px;  
+
+            margin-left:5vw;
             height: calc(var(--bodyMainHeight) + 4vh);
             width: stretch;
             }

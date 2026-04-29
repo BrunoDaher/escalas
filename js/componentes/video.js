@@ -160,13 +160,8 @@ export default class VideoObj {
         let showVideo = aux.infoNavegador.landscape;
 
        
-             
-        return `
-        
-               
-             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop ? 'on' : 'off'}' >
-
-                <div id='videoControl' 
+        /*
+        <div id='videoControl' 
                     class='${showVideo ? 'on':'on'} 
                     gap2 p-2 flexCenter abs w-fit' >
                          ${this.botoesControle().map(btn => `
@@ -179,6 +174,14 @@ export default class VideoObj {
                      }                
                 </div>
 
+        */
+             
+        return `
+        
+               
+             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop ? 'on' : 'off'}' >
+
+                
                     <div class='flex itemCenter boxC colorD' id='currentLabel'>
                         <a class='bi bi-play-btn-fill f2em'></a>
                         <a id="currentLabelText" class="f2vh"> </a>

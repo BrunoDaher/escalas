@@ -2,7 +2,6 @@
 /* Saved Items */
 #salvos , #aulasSalvas{
     list-style-type: none;
-    align-content: space-between;
     
     gap: 2vh;
 
@@ -12,9 +11,14 @@
             -webkit-text-decorations-in-effect: overline;
             /* width: 20vh; */
             grid-template-columns: 1fr 1fr;
+        justify-content: start;
+        gap: 1vh;
+            
 
              @media (min-width:998px) {
-                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: space-around;
+                gap: 2vh;
+                grid-template-columns: 2fr 2fr 2fr;
             }
     }
 
@@ -27,14 +31,22 @@
 
 #salvos > div, #aulasSalvas > div {
 
-    width:10em;
-    height:11em;
-    opacity: 0.7;
+    width:18svh;
+    height:18svh;
+
     
     @media (orientation: landscape) {
-      
+         width:15svh;
+    height:15svh;
+
         
     }
+
+   
+}
+
+.desktop>.clicaMus {
+    width: 8em;
 }
 
 .songTitle{
