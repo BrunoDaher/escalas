@@ -180,87 +180,65 @@ export class Messenger extends Aux{
             }
 
         const userMail = user.email;
-
-        // Mantido seu código de Role
-
-
         const mensagensRef = this.firebase.getRef('/mensagens');
 
-        // 1. Variáveis para guardar os dois lados da conversa
-        let msgsRecebidas = {};
-        let msgsEnviadas = {};
+        // Função que renderiza o chat em ordem cronológica baseada em timestamp
+        const renderizarChat = (todasMensagens) => {
+            const receiving = this.getById('receiving');
+            if (receiving) {
+                receiving.innerHTML = '';
+            }
 
-    
+            // Transforma o objeto num Array e filtra SÓ a conversa entre Você e o Destinatário
+            let conversa = Object.keys(todasMensagens)
+                .map(key => ({ key, ...todasMensagens[key] }))
+                .filter(msg => 
+                    (msg.autor === userMail && msg.destino === this.destinatario) || 
+                    (msg.autor === this.destinatario && msg.destino === userMail)
+                );
 
-        // 2. Função que junta as mensagens, ordena por tempo e desenha na tela
-        const renderizarChat = () => {
-        const receiving = this.getById('receiving');
-        if (receiving) {
-            receiving.innerHTML = '';
-        }
+            // ORDENAÇÃO CORRETA: usar timestamp para ordem cronológica real
+            conversa.sort((a, b) => a.timestamp - b.timestamp);
 
-        // Junta tudo num objeto só
-        const todasMensagens = { ...msgsRecebidas, ...msgsEnviadas };
+            // Desenha as mensagens ordenadas
+            if (conversa.length > 0) {
+                conversa.forEach(mensagem => {
+                    if (mensagem.autor !== 1) {
+                        let cor = (mensagem.autor !== userMail) ? '#4caf50' : '#888';
+                        let pos = (mensagem.autor !== userMail) ? 'justify-content: end;' : '';
 
-        // Transforma o objeto num Array e filtra SÓ a conversa entre Você e o Destinatário
-        let conversa = Object.keys(todasMensagens)
-            .map(key => ({ key, ...todasMensagens[key] }))
-            .filter(msg => 
-                (msg.autor === userMail && msg.destino === this.destinatario) || 
-                (msg.autor === this.destinatario && msg.destino === userMail)
-            );
-
-        // 3. O SEGREDO DA CRONOLOGIA
-        // Os IDs gerados pelo Firebase (push keys) já são baseados em tempo!
-        // Basta ordená-los alfabeticamente para ter a ordem cronológica perfeita.
-        // Se você tiver um campo de data, poderia usar: a.timestamp - b.timestamp
-        conversa.sort((a, b) => a.key.localeCompare(b.key));
-
-        // 4. Desenha as mensagens ordenadas
-        if (conversa.length > 0) {
-            conversa.forEach(mensagem => {
-                if (mensagem.autor !== 1) { // Mantido o seu filtro existente
-                    
-                    let cor = (mensagem.autor !== userMail) ? '#4caf50' : '#888';
-                    let pos = (mensagem.autor !== userMail) ? 'justify-content: end;' : '';
-
-                    let html = `
-                        <div class='grid' style="margin-bottom: 10px; ${pos}">
-                            <div class='contact' style="font-size: 0.8em; color: ${cor};">
-                                ${mensagem.autor ? mensagem.autor : ''}
+                        let html = `
+                            <div class='grid' style="margin-bottom: 10px; ${pos}">
+                                <div class='contact' style="font-size: 0.8em; color: ${cor};">
+                                    ${mensagem.autor ? mensagem.autor : ''}
+                                </div>
+                                <span class='msgtext colorA'>${mensagem.conteudo}</span>
                             </div>
-                            <span class='msgtext colorA'>${mensagem.conteudo}</span>
-                        </div>
-                    `;
+                        `;
 
-                    let tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = html;
-                    receiving.appendChild(tempDiv.firstElementChild);
-                    
-                }
-            });
-        } else {
-            console.log('Nenhuma mensagem entre você e', this.destinatario);
-        }
-    };
+                        let tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = html;
+                        receiving.appendChild(tempDiv.firstElementChild);
+                    }
+                });
+            } else {
+                console.log('Nenhuma mensagem entre você e', this.destinatario);
+            }
+        };
 
-    // 5. Escuta as mensagens onde você é o DESTINO (Recebidas)
-    mensagensRef.orderByChild('destino').equalTo(userMail).on('value', (snapshot) => {
-        msgsRecebidas = snapshot.val() || {};
-        this.getById('btnMsgr').classList.add('filterA');
-        renderizarChat(); // Atualiza a tela sempre que chegar algo novo
-    }, (error) => {
-        console.error("Erro ao escutar mensagens recebidas:", error);
-    });
-
-    // 6. Escuta as mensagens onde você é o AUTOR (Enviadas)
-    mensagensRef.orderByChild('autor').equalTo(userMail).on('value', (snapshot) => {
-        
-        msgsEnviadas = snapshot.val() || {};
-        renderizarChat(); // Atualiza a tela sempre que mandar algo novo
-    }, (error) => {
-        console.error("Erro ao escutar mensagens enviadas:", error);
-    });
+        // Uma única listener que escuta TODAS as mensagens e filtra as relevantes
+        // Ordena por timestamp no Firebase para maior eficiência
+        mensagensRef.orderByChild('timestamp').on('value', (snapshot) => {
+            const todasMensagens = snapshot.val() || {};
+            
+            if (Object.keys(todasMensagens).length > 0) {
+                this.getById('btnMsgr').classList.add('filterA');
+            }
+            
+            renderizarChat(todasMensagens);
+        }, (error) => {
+            console.error("Erro ao escutar mensagens:", error);
+        });
 }
 
     setDestino(_dest){

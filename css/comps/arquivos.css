@@ -27,8 +27,8 @@
 
 #salvos > div, #aulasSalvas > div {
 
-    width:9em;
-    height: 9em;
+    width:10em;
+    height:11em;
     opacity: 0.7;
     
     @media (orientation: landscape) {
@@ -46,7 +46,7 @@
 
 .capt{
 
-    background-size: cover !important;
+    background-size: contain !important;
     background-repeat: no-repeat !important;
 }
 
