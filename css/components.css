@@ -57,8 +57,7 @@
         
           @media (orientation: landscape) {
             padding: 0;
-            width: 30%;
-            
+            width: 32vw;
          }
     }
 
@@ -90,7 +89,8 @@
     
 
         @media (orientation: landscape) {
-            width: 33%;
+            width: 32vw;
+            margin-left: 2vh;
                 max-height: 48vh;
 
         }

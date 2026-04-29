@@ -21,7 +21,7 @@
 .videoLoading {
     position: absolute;
     z-index: 15;
-    height: 102%;
+    height: 100%;
     top: -2px;
     width: 100%;
     left: 0;
@@ -92,12 +92,14 @@
             margin-left:5vw;
             height: calc(var(--bodyMainHeight) + 4vh);
             width: stretch;
+
+            &>.videoLoading{
+                margin-left:3vw;
+            }
             }
         }
 
-        &>.videoLoading{
-            margin-left:5vw;
-        }
+        
 
             &.tablet{
                 @media (orientation: portrait) {
