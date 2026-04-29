@@ -31,8 +31,8 @@
 
 #salvos > div, #aulasSalvas > div {
 
-    width:18svh;
-    height:18svh;
+    width:10em;
+    height:10em;
 
     
     @media (orientation: landscape) {
