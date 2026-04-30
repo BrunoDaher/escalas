@@ -10,6 +10,20 @@
 
 
 
+@keyframes cor {
+  0% {
+    
+    filter: saturate(0);
+    
+  }
+  100% {
+
+    filter: saturate(1);
+    
+  }
+}
+
+
 @keyframes rodando {
   0% {
     transform: rotate(0deg);

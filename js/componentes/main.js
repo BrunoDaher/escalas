@@ -18,8 +18,15 @@ export class Main extends Aux{
 
         let css = this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
+
+        if(this.infoNavegador.tablet && this.infoNavegador.portrait){
+            css = 'mobile';
+        }
+
         this.css = css;
 
+
+        console.log(this.css, this.infoNavegador)
                        
         this.sections = [
             
@@ -94,9 +101,7 @@ export class Main extends Aux{
             navBtns.forEach((btn) => {
                 btn.onclick = () => {
 
-                     if (window.navigator.vibrate) {
-                            navigator.vibrate(100);
-                        }
+                    
 
                     console.log(btn);
                     //estetica do botao
@@ -115,7 +120,7 @@ export class Main extends Aux{
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
 
-        if(!this.infoNavegador.desktop){
+        if(!this.infoNavegador.desktop && !this.infoNavegador.tablet){
 
             let cont = this.getById('btnVideo').checked ? 'video' : 'braco';
 

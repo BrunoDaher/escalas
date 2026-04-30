@@ -2,7 +2,7 @@
 import { Tocador } from "./tocador.js";   
 import { Dao } from  '../../acesso/dao.js'
 import { Aux } from '../../util/aux.js'
-
+import { ChordFactory } from "./chordFactory.js";
 
 const aux = new Aux();
 
@@ -14,6 +14,7 @@ export class Violao {
 
         //console.log('instanciando violao')
         
+        this.cf = new ChordFactory();
         this.dao = dao;
         this.tocador = new Tocador();
         this.editMode = false;
@@ -169,6 +170,8 @@ export class Violao {
             btnTom.id = oitava.freq.toFixed(2);
             btnTom.append(oitava.tom);
             btnTom.onclick = () => {
+                console.log(btnTom.innerText)
+                //console.log(this.cf.getChord(btnTom.innerText,'major','' ))
                 this.tocador.playNote(btnTom.id,'square');
                 btnTom.classList.toggle('on');
                 if(Object.values(btnTom.classList).includes('off')){

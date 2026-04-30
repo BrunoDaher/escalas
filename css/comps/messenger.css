@@ -71,11 +71,3 @@
 
 }
 
-.btnPerson{
-        background: var(--fundoE);
-        color:var(--colorB);
-    padding: 1vh;
-    font-weight: 500;
-    border-radius: 5px;
-
-}

@@ -3,7 +3,20 @@
 #salvos , #aulasSalvas{
     list-style-type: none;
     
+    
     gap: 2vh;
+
+     &.mobile
+    {   
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+
+    &.tablet
+    {   
+        display: flex;
+        flex-wrap: wrap;
+    }
 
     @media  (orientation: landscape) {
             overflow-y: scroll;
@@ -31,9 +44,9 @@
 
 #salvos > div, #aulasSalvas > div {
 
-    width:10em;
-    height:10em;
-
+    width:10rem;
+    height:10rem;
+    
     
     @media (orientation: landscape) {
          width:15svh;
@@ -46,7 +59,8 @@
 }
 
 .desktop>.clicaMus {
-    width: 8em;
+    width: 10em !important;
+    height: 11em !important;
 }
 
 .songTitle{

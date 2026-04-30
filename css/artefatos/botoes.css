@@ -15,6 +15,24 @@
     }
 }
 
+.rad0{
+        border-radius: 0;
+}
+
+.btnPerson{
+        background: var(--fundoE);
+        color:var(--colorB);
+    font-weight: 500;
+
+
+    &.active{
+        filter:var(--filterB) !important;
+         animation:cor 2s infinite;
+        
+    }
+
+}
+
 .btn1 {
     cursor: pointer;
     font-size: 1.8vh;

@@ -34,7 +34,7 @@ export class Tocador {
     }
 
     nota() {
-        this.playNote(this.getNota(), 'triangle');
+        this.playNote(this.getNota(), 'square');
     }
 
     fx(event) {

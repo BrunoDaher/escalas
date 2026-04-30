@@ -128,6 +128,14 @@ export  class Aux {
         }); 
     }
 
+    getDispositivo(){
+        let getDispositivo =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
+        
+        
+        
+        return getDispositivo;
+    }
+
     refreshNav(){
 
                 const agent = navigator.userAgent.toLowerCase();

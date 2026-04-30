@@ -54,8 +54,8 @@
 }
 .grid3 {
     display: grid; 
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+
 }
 .gridCenter {
     display: grid;    
@@ -85,7 +85,7 @@
     position: relative;
 }
 .scroll50 {
-    max-height: 50vh;
+    max-height: 47vh;
     overflow-y: scroll;
     position: relative;
 }

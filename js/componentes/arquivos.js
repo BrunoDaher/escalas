@@ -34,7 +34,7 @@ export class Arquivos extends Aux{
                 ${this.renderMinhasAulas()}
             </fieldset  >
            
-           <div class="grid justCenter w-full fundoGrad2 p-1">
+           <div class="grid fundoC justCenter w-full  p-1">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -43,32 +43,36 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flexCenter fundoGrad2 w-100 p-1 justCenter gap1 f2vh'>
+        return `<menu class='flexCenter  w-100 justContAround f2vh'>
 
-                <span class='btnPerson p-1 active menuFiles' target='meusArqs'>
-                    <i class="bi bi-play-btn"></i>
-                    <label class="">Meus Arquivos </label>
-                </span>
+                    <span class='btnPerson fundoC rad0 p-2 w-100 active menuFiles' target='meusArqs'>
+                        <i class="bi bi-play-btn"></i>
+                        <label class="">Meus Arquivos </label>
+                    </span>
 
-                <span class='btnPerson p-1 menuFiles' target='minhasAulas'>
-                    <i class="bi bi-play-btn"></i>
-                    <label class="">Aulas </label>
-                </span>
+                    <span class='btnPerson fundoC rad0 p-2 w-100 menuFiles' target='minhasAulas'>
+                        <i class="bi bi-play-btn"></i>
+                        <label class="">Aulas </label>
+                    </span>
 
             </menu>`;
     }
 
     renderMeusArquivos(){
 
+        this.refreshNav();
+
+        
+
         return`
-                <div id="salvos" class="grid2 py-1 justCenter"></div>
+                <div id="salvos" class="${this.getDispositivo()} scrollY py-1 "></div>
             `
     }
 
     renderMinhasAulas(){
         
         return`
-            <div id="aulasSalvas" class="grid2 py-1 justCenter"></div>
+            <div id="aulasSalvas" class="${this.getDispositivo()} scrollY py-1 "></div>
             `
     }
 

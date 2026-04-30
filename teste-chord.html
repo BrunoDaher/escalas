@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste ChordFactory</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        #output {
+            background: #252526;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #3e3e42;
+        }
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            background: #1e1e1e;
+            border-left: 3px solid #007acc;
+        }
+        input, button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: 1px solid #3e3e42;
+            background: #252526;
+            color: #d4d4d4;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3e3e42;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎸 Teste ChordFactory</h1>
+    
+    <div>
+        <h3>Teste getChord</h3>
+        <input id="nota" type="text" placeholder="Nota (C, C#, D...)" value="C">
+        <input id="escala" type="text" placeholder="Escala (major, minor, harmonic_minor)" value="major">
+        <input id="variacao" type="text" placeholder="Variação (triade, tetrade, pentablues)" value="triade">
+        <button onclick="testeGetChord()">getChord</button>
+    </div>
+
+    <div>
+        <h3>Teste getVariation</h3>
+        <input id="escala2" type="text" placeholder="Escala" value="major">
+        <input id="variacao2" type="text" placeholder="Variação" value="triade">
+        <button onclick="testeGetVariation()">getVariation</button>
+    </div>
+
+    <div>
+        <h3>Teste getHarmonics</h3>
+        <input id="nota3" type="text" placeholder="Nota" value="A">
+        <input id="graus" type="text" placeholder="Graus" value="harmonic">
+        <input id="escala3" type="text" placeholder="Escala" value="minor">
+        <button onclick="testeGetHarmonics()">getHarmonics</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script type="module">
+        import { ChordFactory } from './js/componentes/inst/chordFactory.js';
+
+        const cf = new ChordFactory();
+        window.cf = cf;
+
+        window.testeGetChord = function() {
+            const nota = document.getElementById('nota').value;
+            const escala = document.getElementById('escala').value;
+            const variacao = document.getElementById('variacao').value;
+            
+            const result = cf.getChord(nota, escala, variacao);
+            mostrarResultado(`getChord('${nota}', '${escala}', '${variacao}')`, result);
+        };
+
+        window.testeGetVariation = function() {
+            const escala = document.getElementById('escala2').value;
+            const variacao = document.getElementById('variacao2').value;
+            
+            const result = cf.getVariation(escala, variacao);
+            mostrarResultado(`getVariation('${escala}', '${variacao}')`, result);
+        };
+
+        window.testeGetHarmonics = function() {
+            const nota = document.getElementById('nota3').value;
+            const graus = document.getElementById('graus').value;
+            const escala = document.getElementById('escala3').value;
+            
+            const result = cf.getHarmonics(nota, graus, escala);
+            mostrarResultado(`getHarmonics('${nota}', '${graus}', '${escala}')`, result);
+        };
+
+        window.mostrarResultado = function(metodo, resultado) {
+            const output = document.getElementById('output');
+            const div = document.createElement('div');
+            div.className = 'result';
+            div.innerHTML = `<strong>${metodo}</strong><br/>→ ${JSON.stringify(resultado)}`;
+            output.appendChild(div);
+        };
+
+        // Teste automático ao carregar
+        setTimeout(() => {
+            testeGetChord();
+        }, 500);
+    </script>
+</body>
+</html>

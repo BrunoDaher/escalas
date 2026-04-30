@@ -99,8 +99,6 @@
             }
         }
 
-        
-
             &.tablet{
                 @media (orientation: portrait) {
                 height: 25vh;
@@ -134,13 +132,21 @@
         position: relative;
 
         &#video {
-            position: relative;
-            width: 100%;
-            height: 25vh;
+            
+            padding: 1vh 6vh;
+            width: 94%;
+            height: 54vh;
             z-index: 20;
-            background-color: var(--fundoD);
+            
             filter: drop-shadow(2px 7px 6px black);
             margin: 5px 0;
+
+            & > #currentVideo{
+                    height: 50vh;
+                    width: 66%;
+                    object-fit: cover;
+
+            }
         }
 
         &#currentLabel {
@@ -154,7 +160,7 @@
             position: fixed;
             left: 31%;
             top: calc(var(--bodyMainHeight) - var(--footerHeight));
-            width: 67vw;
+
             padding-top: 3vh;
         }
 

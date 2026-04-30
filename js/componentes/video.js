@@ -159,6 +159,13 @@ export default class VideoObj {
 
         let showVideo = aux.infoNavegador.landscape;
 
+         if(aux.infoNavegador.tablet && aux.infoNavegador.portrait){
+            css = 'mobile';
+        }
+
+
+        console.log(showVideo)
+
        
         /*
         <div id='videoControl' 
@@ -178,8 +185,7 @@ export default class VideoObj {
              
         return `
         
-               
-             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop ? 'on' : 'off'}' >
+             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on' : 'off'}' >
 
                 
                     <div class='flex itemCenter boxC colorD' id='currentLabel'>
