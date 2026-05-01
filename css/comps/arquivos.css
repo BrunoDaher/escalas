@@ -92,6 +92,9 @@
     filter: saturate(0.3);
     border-radius: 4px;
     padding: 1vh;
+
+    display: grid;
+    grid-template-rows: 1fr 0fr 0fr;
    
 
 }

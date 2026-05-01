@@ -338,14 +338,16 @@ export class Arquivos extends Aux{
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1  songAlb  grid capt p-1 clicaMus">
-                    <div  class='abs fundoE grid p-1 w-full justCenter textCenter' style="bottom:0">
-                    <legend class=" f2vh  filterE">${nome}</legend>
-                    <div class=" flexCenter p-1 gap2 justContBetween  ${controlesShow}">
-                            <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-eraser-fill "></span>
-                            <span data-target='vg_${nome}' role="button" class="btn1 f2em bi-pencil "></span>
-                    </div>    
-                    </div>
+            <div name=${nome} id="vg_${nome}" style="${css}" 
+                 class=" rad1  songAlb  grid capt p-1 clicaMus">
+            <legend class=" f2vh fundoGrad2">${nome}</legend>        
+            
+                    
+                <div class=" flexCenter f1rem p-1 gap2 justCenter  ${controlesShow}">
+                    <span data-target='vg_${nome}' role="button" class="btn1  fundoC bi-eraser-fill "></span>
+                    <span data-target='vg_${nome}' role="button" class="btn1 fundoC bi-pencil "></span>
+                </div>    
+
             </div>
         `;
         
