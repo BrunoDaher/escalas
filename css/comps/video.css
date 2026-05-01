@@ -38,37 +38,31 @@
 }
 
 /* --- Label Atual --- */
+
 #currentLabel {
     position: absolute;
-    z-index: 20;
-    right: 3vw;
-    padding: 0 1vh;
-    top: 2vh;
-    
-    border-radius: 1.2vh;
-
-    @media (orientation: portrait) {
-        top: 1vh;
-    }
+    top: 3vh;
+    z-index: 10;
+    right: 3vh;
+    border-radius: 1vh;
 }
-
+ 
 /* --- Bloco Principal: Video --- */
 #video {
     position: fixed;
     right: 0;
     margin: 0;
     padding: 0;
-    
-    &.desktop{
-        bottom: 90px;
 
+    
+    
+    &.desktop {
+        bottom: 90px;
         position: absolute;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 1;
-                
-                
+        right: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
         left: 30%;
         width: 67%;
     }
@@ -99,12 +93,12 @@
             }
         }
 
-            &.tablet{
-                @media (orientation: portrait) {
-                height: 25vh;
-                width: 100%;
-                object-fit: cover;
-                
+        &.tablet{
+            @media (orientation: portrait) {
+
+            width: 100%;
+            object-fit: cover;
+            
             }
 
         }
@@ -132,36 +126,27 @@
         position: relative;
 
         &#video {
-            
-            padding: 1vh 6vh;
-            width: 94%;
-            height: 54vh;
-            z-index: 20;
-            
-            filter: drop-shadow(2px 7px 6px black);
-            margin: 5px 0;
 
+            z-index: 20;
+            filter: drop-shadow(2px 7px 6px black);
+            
             & > #currentVideo{
-                    height: 50vh;
-                    width: 66%;
-                    object-fit: cover;
+                bottom: 70px;
+                left: 5vh;
+                height: 55vh;
+                width: 60vw;
+                object-fit: cover;
 
             }
         }
 
-        &#currentLabel {
-            z-index: 21;
-            margin: 5vh 2vh;
-            right: 1vw;
-            padding: 1vh;
-        }
+           
 
         @media (orientation: landscape) {
-            position: fixed;
-            left: 31%;
-            top: calc(var(--bodyMainHeight) - var(--footerHeight));
-
-            padding-top: 3vh;
+            position: absolute;
+                left: 31%;
+              bottom: 12vh;
+                left: 35%;
         }
 
     

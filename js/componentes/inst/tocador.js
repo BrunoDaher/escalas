@@ -102,6 +102,7 @@ export class Tocador {
             let btnChorus = document.getElementById('chorus');
             let btnReverb = document.getElementById('reverb');
             let btnDelay = document.getElementById('delay');
+            let btnTremolo = document.getElementById('tremolo');
 
             if (btnChorus.getAttribute('value') == 'true') {
                 this.efeitos.conectChorus( type, frequency, now, eq);
@@ -110,8 +111,13 @@ export class Tocador {
               //  console.log(this.audioContext)
                 this.efeitos.conectReverb( type, frequency, now, eq);
             }
+            let delayNode;
             if (btnDelay.getAttribute('value') == 'true') {
-                this.efeitos.conectDelay( type, frequency, now, eq);
+                delayNode = this.efeitos.conectDelay( type, frequency, now, eq);
+            }
+            let tremoloGain;
+            if (btnTremolo.getAttribute('value') == 'true') {
+                tremoloGain = this.efeitos.conectTremolo( type, frequency, now, eq);
             }
 
             oscillator.type = type;
@@ -122,6 +128,15 @@ export class Tocador {
 
             oscillator.connect(gainNode);
             gainNode.connect(eq.low);
+            if (delayNode) {
+                gainNode.connect(delayNode.delayGain);
+                delayNode.delayGain.connect(delayNode.delayNode);
+                delayNode.delayNode.connect(eq.low);
+            }
+            if (tremoloGain) {
+                gainNode.connect(tremoloGain);
+                tremoloGain.connect(eq.low);
+            }
             eq.low.connect(eq.mid);
             eq.mid.connect(eq.high);
             eq.high.connect(this.audioContext.destination);

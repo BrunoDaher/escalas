@@ -19,13 +19,22 @@
         border-radius: 0;
 }
 
+.currentLabelText{
+    filter:drop-shadow(1px 4px 4px black);
+}
+
 .btnPerson{
         background: var(--fundoE);
         color:var(--colorB);
     font-weight: 500;
 
 
-    &.active{
+    &:hover{
+        cursor: pointer;
+    }
+
+
+    &.active, &:hover{
         filter:var(--filterB) !important;
          animation:cor 2s infinite;
         

@@ -339,7 +339,7 @@ export class Arquivos extends Aux{
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div name=${nome} id="vg_${nome}" style="${css}"  class=" filterC rad1 bgDark songAlb filterB grid capt p-1 clicaMus">
+            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1  songAlb filterB grid capt p-1 clicaMus">
                     <div  class='abs fundoE grid p-1 w-full justCenter textCenter' style="bottom:0">
                     <legend class=" f2vh  filterE">${nome}</legend>
                     <div class=" flexCenter p-1 gap2 justContBetween  ${controlesShow}">

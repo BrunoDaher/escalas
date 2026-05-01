@@ -37,7 +37,7 @@ export class Messenger extends Aux{
                 
                 this.contatos.forEach(contato => {
                     const span = document.createElement('span');
-                    span.className = 'bi bi-person contact btnPerson  grid gap1';
+                    span.className = 'bi bi-person bordaA boxC colorE contact grid';
                
                     span.textContent = contato.split('@')[0];    
                     span.id = contato;        

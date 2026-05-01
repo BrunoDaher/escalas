@@ -3,7 +3,7 @@
 #salvos , #aulasSalvas{
     list-style-type: none;
     
-    
+    justify-content: center;
     gap: 2vh;
 
      &.mobile
@@ -44,7 +44,7 @@
 
 #salvos > div, #aulasSalvas > div {
 
-    width:10rem;
+    width:9rem;
     height:10rem;
     
     
@@ -59,8 +59,8 @@
 }
 
 .desktop>.clicaMus {
-    width: 10em !important;
-    height: 11em !important;
+    width: 9em !important;
+    height: 10em !important;
 }
 
 .songTitle{

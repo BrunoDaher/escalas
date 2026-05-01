@@ -41,7 +41,7 @@ footer {
   align-items: center;
 
   
-          padding-block: 2vh;
+      padding-block: 5px 1em;
     justify-content: center;
 
     text-align: center;
@@ -53,7 +53,7 @@ footer {
   @media (orientation: landscape) {
       justify-content: flex-start;
       width: 28vw;
-      padding: 1rem;
+
       background: none;
   }  
   

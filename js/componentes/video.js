@@ -188,7 +188,7 @@ export default class VideoObj {
              <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on' : 'off'}' >
 
                 
-                    <div class='flex itemCenter boxC colorD' id='currentLabel'>
+                    <div class='flex itemCenter filterB colorD' id='currentLabel'>
                         <a class='bi bi-play-btn-fill f2em'></a>
                         <a id="currentLabelText" class="f2vh"> </a>
                     </div>

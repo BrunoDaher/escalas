@@ -77,15 +77,21 @@ p {
   }
   
   button.cordaSolta{    
-    background:none !important;
+    background:none;
     font-size: 1svh;
-    padding: 6px;
+    
     font-weight: bold;
     transition: all 0.3s;
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    left: 2vw;
+    padding: 5px;
 
     &.on, &:hover{
         color:#ffffff !important;
-        text-shadow: 2px 2px 2px #cca13c;
+        text-shadow: 2px 2px 2px var(--fundoA) !important;
+                background: linear-gradient(45deg, var(--colorC), transparent) !important;
         transition: all 0.3s;
     }
 

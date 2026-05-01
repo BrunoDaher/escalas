@@ -262,6 +262,7 @@ export class Acordes extends Aux{
                 <span class="efeito btn3 " id="chorus" value="false">Chorus</span>
                 <span class="efeito btn3 active" id="reverb" value="true">Reverb</span>
                 <span class="efeito btn3" id="delay" value="false">Delay</span>
+                <span class="efeito btn3" id="tremolo" value="false">Tremolo</span>
             </div>
         `
     }

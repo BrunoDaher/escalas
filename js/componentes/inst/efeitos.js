@@ -112,28 +112,36 @@ export class Efeitos {
     }
 
     conectDelay(type, frequency, now, eq) {
-      
         const delayNode = this.audioContext.createDelay();
-        delayNode.delayTime.setValueAtTime(0.6, now);
+        delayNode.delayTime.setValueAtTime(0.5, now);
 
         const feedbackGain = this.audioContext.createGain();
-        feedbackGain.gain.setValueAtTime(0.4, now);
+        feedbackGain.gain.setValueAtTime(0.3, now);
 
         const delayGain = this.audioContext.createGain();
-        delayGain.gain.setValueAtTime(0.1, now);
+        delayGain.gain.setValueAtTime(0.3, now);
 
-        const delayOsc = this.audioContext.createOscillator();
-        delayOsc.type = type;
-        delayOsc.frequency.value = frequency;
-        delayOsc.detune.value = 0;
-
-        delayOsc.connect(delayGain);
-        delayGain.connect(delayNode);
-        feedbackGain.connect(delayNode);
         delayNode.connect(feedbackGain);
-        delayNode.connect(eq.mid);
+        feedbackGain.connect(delayNode);
 
-        delayOsc.start(now);
-        delayOsc.stop(now + 0.2);
+        return { delayNode, delayGain };
     }
+
+    conectTremolo(type, frequency, now, eq) {
+        const tremoloOsc = this.audioContext.createOscillator();
+        tremoloOsc.type = 'sine';
+        tremoloOsc.frequency.value = 3.5;
+
+        const tremoloGain = this.audioContext.createGain();
+        tremoloGain.gain.setValueAtTime(0.5, now);
+        tremoloGain.gain.setValueAtTime(0.5, now, 2);
+
+        tremoloOsc.connect(tremoloGain.gain);
+
+        tremoloOsc.start(now);
+        tremoloOsc.stop(now + 2);
+
+        return tremoloGain;
+    }
+    
 }
