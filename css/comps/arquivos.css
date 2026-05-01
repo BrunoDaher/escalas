@@ -72,24 +72,26 @@
 
 .capt{
 
-    background-size: contain !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
 }
 
 
 
 .clicaMus.active, .clicaMus:hover {
-    color: var(--colorD);    
     
-    opacity: 1 !important;
+    
+    filter: drop-shadow(2px 3px 7px var(--colorA));
+
+
 }
 
 /* Misc */
 .clicaMus {
     text-transform: capitalize;
-    
+    filter: saturate(0.3);
+    border-radius: 4px;
     padding: 1vh;
-    
    
 
 }

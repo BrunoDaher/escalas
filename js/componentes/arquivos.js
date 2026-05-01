@@ -26,12 +26,14 @@ export class Arquivos extends Aux{
 
             ${this.renderFilesMenu()}
     
-            <fieldset id='meusArqs' class="filesPanel rad1 bordaA textStart ">
-                ${this.renderMeusArquivos()}
+          
+
+            <fieldset id='minhasAulas' class=" filesPanel rad1 bordaA  textStart ">
+                ${this.renderMinhasAulas()}
             </fieldset  >
 
-            <fieldset id='minhasAulas' class="off filesPanel rad1 bordaA  textStart ">
-                ${this.renderMinhasAulas()}
+              <fieldset id='meusArqs' class="off filesPanel rad1 bordaA textStart ">
+                ${this.renderMeusArquivos()}
             </fieldset  >
            
            <div class="grid fundoC justCenter w-full  p-1">
@@ -44,15 +46,12 @@ export class Arquivos extends Aux{
 
     renderFilesMenu(){
         return `<menu class='flexCenter  w-100 justContAround f2vh'>
-
-                    <span class='btnPerson fundoC rad0 p-2 w-100 active menuFiles' target='meusArqs'>
-                        <i class="bi bi-play-btn"></i>
-                        <label class="">Meus Arquivos </label>
+                    <span class='active p-2 fundoC rad0 w-100 menuFiles' target='minhasAulas'>
+                        <label class="">Aulas </label>
                     </span>
 
-                    <span class='btnPerson fundoC rad0 p-2 w-100 menuFiles' target='minhasAulas'>
-                        <i class="bi bi-play-btn"></i>
-                        <label class="">Aulas </label>
+                    <span class='p-2 fundoC rad0 w-100 menuFiles' target='meusArqs'>
+                        <label class="">Meus Arquivos </label>
                     </span>
 
             </menu>`;
@@ -62,14 +61,14 @@ export class Arquivos extends Aux{
 
         this.refreshNav();
 
-        
-
         return`
                 <div id="salvos" class="${this.getDispositivo()} scrollY py-1 "></div>
             `
     }
 
     renderMinhasAulas(){
+
+         this.refreshNav();
         
         return`
             <div id="aulasSalvas" class="${this.getDispositivo()} scrollY py-1 "></div>
@@ -339,7 +338,7 @@ export class Arquivos extends Aux{
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
-            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1  songAlb filterB grid capt p-1 clicaMus">
+            <div name=${nome} id="vg_${nome}" style="${css}"  class=" rad1  songAlb  grid capt p-1 clicaMus">
                     <div  class='abs fundoE grid p-1 w-full justCenter textCenter' style="bottom:0">
                     <legend class=" f2vh  filterE">${nome}</legend>
                     <div class=" flexCenter p-1 gap2 justContBetween  ${controlesShow}">

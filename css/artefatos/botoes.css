@@ -15,6 +15,18 @@
     }
 }
 
+.menuFiles.active::before{
+
+    content: "\f4f0"; /* Unicode da bi-music-note */
+    font-family: "bootstrap-icons";
+     padding-right: 1vh;
+     padding-bottom: 2px;
+     font-size:3vh;
+    
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .rad0{
         border-radius: 0;
 }
@@ -34,9 +46,12 @@
     }
 
 
-    &.active, &:hover{
-        filter:var(--filterB) !important;
-         animation:cor 2s infinite;
+    &.active{
+        
+         border-color: var(--fundoD);
+         border-width: 2px;
+         border-style: inset;
+         color: var(--colorB);
         
     }
 

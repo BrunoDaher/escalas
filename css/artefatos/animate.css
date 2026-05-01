@@ -8,6 +8,35 @@
   animation: palheta 2s linear infinite; 
 }
 
+@keyframes pisca {
+  0% {
+    filter: drop-shadow(0px 1px 1px var(--colorD));
+  }
+  12.5% {
+    filter: drop-shadow(1px 1px 1px var(--colorD));
+  }
+  25% {
+    filter: drop-shadow(1px 0px 1px var(--colorD));
+  }
+  37.5% {
+    filter: drop-shadow(1px -1px 1px var(--colorD));
+  }
+  50% {
+    filter: drop-shadow(0px -1px 1px var(--colorD));
+  }
+  62.5% {
+    filter: drop-shadow(-1px -1px 1px var(--colorD));
+  }
+  75% {
+    filter: drop-shadow(-1px 0px 1px var(--colorD));
+  }
+  87.5% {
+    filter: drop-shadow(-1px 1px 1px var(--colorD));
+  }
+  100% {
+    filter: drop-shadow(0px 1px 1px var(--colorD));
+  }
+}
 
 
 @keyframes cor {

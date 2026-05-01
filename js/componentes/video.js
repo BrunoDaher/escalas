@@ -192,14 +192,13 @@ export default class VideoObj {
                         <a class='bi bi-play-btn-fill f2em'></a>
                         <a id="currentLabelText" class="f2vh"> </a>
                     </div>
-
                      
-                    <div  id='videoLoading' class='videoLoading flex justCenter off itemCenter  colorD'>
+                    <div  id='videoLoading' class='${css} videoLoading flex justCenter off itemCenter  colorD'>
 
                         <div class="pick">
                             <img  src='./img/alb.png' width="16vh" height='16vh' class=''>
                             
-                        </div>
+                    </div>
                  
                     <!--<img  src='./data/loading.gif' width="" class='off videoLoading '>-->
                         
