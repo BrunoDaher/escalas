@@ -15,16 +15,32 @@
     }
 }
 
-.menuFiles.active::before{
 
-    content: "\f4f0"; /* Unicode da bi-music-note */
+.menuFiles{
+    width: 20vh;
+    justify-content: end;
+    display: flex;
+    align-items: center;    
+    margin-right: 7vh;
+    text-wrap-mode: nowrap;
+
+    &.active{
+        color: var(--colorD)
+        
+    }
+
+}
+
+.menuFiles.active::before{
+    content: "\f403";
+    display: flex;
     font-family: "bootstrap-icons";
-     padding-right: 1vh;
-     padding-bottom: 2px;
-     font-size:3vh;
+    font-size: 3vh;
+    padding-inline: 1vh;
+    color: var(--fundoA);
+    transform: scaleX(1) rotate(90deg);
+
     
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .rad0{

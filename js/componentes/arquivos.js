@@ -45,13 +45,13 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flexCenter  w-100 justContAround f2vh'>
-                    <span class='active p-2 fundoC rad0 w-100 menuFiles' target='minhasAulas'>
-                        <label class="">Aulas </label>
+        return `<menu class='flex fundoA w-100 py-1 f2vh'>
+                    <span class='active p-1 menuFiles' target='minhasAulas'>
+                        <label class="">Conceitos </label>
                     </span>
 
-                    <span class='p-2 fundoC rad0 w-100 menuFiles' target='meusArqs'>
-                        <label class="">Meus Arquivos </label>
+                    <span class=' p-1 menuFiles' target='meusArqs'>
+                        <label class="">Práticas </label>
                     </span>
 
             </menu>`;
@@ -62,7 +62,7 @@ export class Arquivos extends Aux{
         this.refreshNav();
 
         return`
-                <div id="salvos" class="${this.getDispositivo()} scrollY py-1 "></div>
+            <div id="salvos" class="${this.getDispositivo()} scrollY py-1 "></div>
             `
     }
 
@@ -341,8 +341,6 @@ export class Arquivos extends Aux{
             <div name=${nome} id="vg_${nome}" style="${css}" 
                  class=" rad1  songAlb  grid capt p-1 clicaMus">
             <legend class=" f2vh fundoGrad2">${nome}</legend>        
-            
-                    
                 <div class=" flexCenter f1rem p-1 gap2 justCenter  ${controlesShow}">
                     <span data-target='vg_${nome}' role="button" class="btn1  fundoC bi-eraser-fill "></span>
                     <span data-target='vg_${nome}' role="button" class="btn1 fundoC bi-pencil "></span>
