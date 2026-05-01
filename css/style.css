@@ -81,7 +81,15 @@ body{
     filter: brightness(0.9) contrast(1);
     
 
-        background: linear-gradient(45deg, var(--fundoC), var(--fundoB));
+            background: linear-gradient(180deg, 
+                black,    
+                var(--colorE),
+                var(--fundoC), 
+                black
+                );
+
+
+
         
         /* Camada 1: Linhas da Colmeia (Hexágonos) 
         /* Usamos a --colorA com 10% de opacidade para um brilho sutil

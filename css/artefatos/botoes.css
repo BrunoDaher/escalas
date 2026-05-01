@@ -59,19 +59,19 @@
 
 .btn1 {
     cursor: pointer;
-
     
     color: var(--colorB);
 
     border-radius: 3px;
     border-width: 1px;
+    display: grid;
     
     padding: 1vh;
     box-sizing: border-box;
     height: fit-content;
     vertical-align: middle;
 
-        background: var(--colorD);
+        background: var(--colorE);
     transition: all 0.3s ease;
 
 
@@ -134,7 +134,7 @@
     height: fit-content;
     border-radius: 1vh;
     padding: 4px;
-    
+
 }
 
 
