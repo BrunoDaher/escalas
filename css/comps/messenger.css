@@ -37,8 +37,8 @@
 
 #receiving{
      background: color-mix(in srgb, var(--fundoA), black 90%);
-    max-height: 40vh;
-    min-height: 40vh;
+    
+     min-height: stretch;
     overflow-y: scroll;
 }
 
@@ -46,6 +46,12 @@
         word-break: break-word;
     overflow-x: revert;
     max-width: 80vw;
+}
+
+#contatos{
+    top: 4rem;
+    right: 0;
+    
 }
 
 .camera{

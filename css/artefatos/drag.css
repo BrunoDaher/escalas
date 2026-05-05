@@ -31,7 +31,7 @@ font-family: bootstrap-icons;
     font-size: 2vh;
     margin:0;
     bottom: 0;
-    position: absolute;
+    
     color: var(--colorB);
     
     transition: all 0.3s;

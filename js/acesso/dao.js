@@ -16,14 +16,13 @@ export class Dao {
 
   getAulas(){
     
-    return ['AcordesMaiores','AcordesMenores', 'EscalaMaior', 'EscalaMenor', 'Caged', 'PowerChords','ModosGregos','TriadesTetrades']
+    return ['AcordesMaiores','AcordesMenores','EscalaMaior', 'EscalaMenor', 'Caged', 'PowerChords','ModosGregos','TriadesTetrades']
   }
 
   //retorna ids, keys od storage
   storageReadByTag(tag) {
 
     let obj = [];
-
     
 
     Object.keys(localStorage).forEach(element => {

@@ -351,6 +351,7 @@ export class Arquivos extends Aux{
             </div>
         `;
         
+        
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 
         this.getById(div).innerHTML += template;

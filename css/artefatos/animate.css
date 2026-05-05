@@ -41,13 +41,11 @@
 
 @keyframes cor {
   0% {
-    
    filter: hue-rotate(45deg);
-    
   }
   100% {
 
-    filter: hue-rotate(45deg);
+    filter: hue-rotate(0deg);
     
   }
 }

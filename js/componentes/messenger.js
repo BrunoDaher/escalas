@@ -33,11 +33,11 @@ export class Messenger extends Aux{
             
              if (contatosDiv) {
                 contatosDiv.innerHTML = '';
-                contatosDiv.className='gap2 flex p-2 scroll25 my-1 off'
+                //contatosDiv.className='gap2 flex p-2 scroll25 my-1 off'
                 
                 this.contatos.forEach(contato => {
                     const span = document.createElement('span');
-                    span.className = 'bi bi-person bordaA boxC colorE contact grid';
+                    span.className = 'bi bi-person contact btnPerson';
                
                     span.textContent = contato.split('@')[0];    
                     span.id = contato;        
@@ -66,14 +66,14 @@ export class Messenger extends Aux{
         let css = this.role == 'adm' ? '' : 'off';
 
          this.messengerHTML = `
-                <section class='w-100 p-1'>
+                <section class='w-100 h-75'>
               
-                    <div class="flex ${css} itemCenter justContBetween" style="color: white;">
-                        <a id='msgr'class="colorE p-2 bi-chat "> Mensagens </a>
-                        <span id='btnContatos' class="colorE px-2 bi-person"> Contatos </span>
+                    <div class="flex p-1 ${css} itemCenter justContBetween" style="color: white;">
+                        <a id='msgr' class="bi-chat "> Mensagens </a>
+                        <span id='btnContatos' class="p-1 b0 bi-person"> Contatos </span>
                     </div>  
                     
-                    <div id="receiving" class="p-2"></div>
+                    <div id="receiving" class="p-2 h-100"></div>
 
                     <div id="sending" class="fundoE colorA">
                         <input type="text"
@@ -82,7 +82,7 @@ export class Messenger extends Aux{
                             placeholder="Digite sua mensagem...">
                     </div>
 
-                      <div id='contatos' class='off ${css}  flex scroll25 my-1'>  
+                      <div id='contatos' class='off ${css} abs grid fundoGrad2 scrollY'>  
                             
                         </div>
                 </section>
@@ -208,7 +208,7 @@ export class Messenger extends Aux{
                         let pos = (mensagem.autor !== userMail) ? 'justify-content: end;' : '';
 
                         let html = `
-                            <div class='grid' style="margin-bottom: 10px; ${pos}">
+                            <div class='grid'style="margin-bottom: 10px; ${pos}">
                                 <div class='contact' style="font-size: 0.8em; color: ${cor};">
                                     ${mensagem.autor ? mensagem.autor : ''}
                                 </div>
@@ -232,7 +232,7 @@ export class Messenger extends Aux{
             const todasMensagens = snapshot.val() || {};
             
             if (Object.keys(todasMensagens).length > 0) {
-                this.getById('btnMsgr').classList.add('filterA');
+                //this.getById('btnMsgr').classList.add('active');
             }
             
             renderizarChat(todasMensagens);
@@ -300,7 +300,7 @@ export class Messenger extends Aux{
             let msg = document.getElementById('btnMsgr');
                 msg.onclick = ()=>{
                     //heranca de classe
-                    msg.classList.remove('filterA');
+                    msg.classList.toggle('active');
                     this.togglePainel('messenger');
                 }
             
@@ -320,6 +320,7 @@ export class Messenger extends Aux{
 
             let btnContatos = this.getById('btnContatos');
                 btnContatos.onclick = ()=>{
+                    btnContatos.classList.toggle('active');
                     this.togglePainel('contatos');
                 }
 

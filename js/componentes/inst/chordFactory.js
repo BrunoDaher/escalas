@@ -29,9 +29,6 @@ export class ChordFactory extends Aux {
     }
 
     leituraAcorde(){
-       
-        
-        
          
     }
 

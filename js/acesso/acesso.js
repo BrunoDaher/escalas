@@ -87,7 +87,7 @@ export class Acesso {
                
                 <div class=' itemCenter flex gap2'>
                     <span id='btnMsgr'  
-                        class="bi-chat colorE f3vh grid" 
+                        class="bi-chat btnTema f3vh grid" 
                         data-target="messenger">
                          
                     </span>

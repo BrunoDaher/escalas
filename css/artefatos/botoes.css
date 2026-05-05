@@ -1,4 +1,73 @@
 
+.btnChord{
+       
+      font-size: 1.8vh;
+  
+  align-content: flex-start;
+  text-align: justify;
+
+    display: grid;
+    overflow-wrap: break-word;
+    justify-items: center;
+
+    transition: all 0.3s;
+
+    &.edit{
+      font-style: italic;
+      filter: brightness(0.9) hue-rotate(160deg) saturate(124%);
+      transition: all 0.3s;
+    }   
+
+
+
+}
+
+.btnChord.active::after{
+  
+font-family: bootstrap-icons;
+    content: "\f49f";
+    padding: 0;
+    font-size: 2vh;
+    margin:0;
+    bottom: 0;
+    
+    color: var(--colorB);
+    
+    transition: all 0.3s;
+    
+}
+
+.item {
+  padding: 1vh;
+    align-content: center;
+    text-align: center;
+    border-color: var(--colorA) !important;
+    background: var(--fundoC);
+    color: white;
+    cursor: pointer;
+
+      @media (hover:hover) {
+        &:focus {
+          transform: scale(1.1);
+            background-color: var(--colorE);
+        }
+      
+     }
+   
+    &.active, &.on{
+     background-color: var(--colorC);
+
+   
+  }
+
+  &.voando {
+    background-color: var(--colorA) !important;
+    animation: bgPulse 0.2s infinite alternate;
+}
+
+}
+
+
 .btn{
     cursor: pointer;
 
@@ -38,26 +107,37 @@
 }
 
 .btnPerson{
-        background: var(--fundoE);
-        color:var(--colorB);
-    font-weight: 500;
 
 
-    &:hover{
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        padding: 2vh;
+        gap: 1vh;
+        
+        color: var(--colorB);
+
+
+    &:focus{
         cursor: pointer;
+        border-color: var(--colorD);
+        border-width: 0px 0 2px 0px;
+        border-style: inset;
+        background: var(--colorD);
     }
 
 
-    &.active{
+     &.active {
+       color: var(--colorD);
+       border-color: var(--colorD);
+        border-width: 0px 0 1px 0px;
         
-         border-color: var(--fundoD);
-         border-width: 2px;
-         border-style: inset;
-         color: var(--colorB);
-        
+        border-style: dashed;
     }
 
 }
+
+
 
 .btn1 {
     cursor: pointer;
@@ -77,22 +157,28 @@
     transition: all 0.3s ease;
 
 
-    
-
     @media (hover:hover) {
-        &:hover {
+        &:focus {
             background: var(--colorC);
             color: var(--colorB);
         }
     }
     
-    &.active,
-    &:hover,
-    &:focus {
-        transform: scale(1.1);    
+    &.active{
         background: var(--colorC);
         color: var(--colorB);
+        transform: scale(1.1);    
         
+    }
+}
+
+.b0{
+    border: none;
+    background-color: none;
+    
+
+    &.active{
+        color: var(--colorD);
     }
 }
 
@@ -121,7 +207,7 @@
     color: white;
 
     @media (hover: hover)  {}
-        &:hover {
+        &:focus {
             color: white;
             background-color: var(--colorD);
             transform: scale(1.1);
@@ -182,6 +268,23 @@
     padding: 1vh;
     border-radius: 3px;
     color: color-mix(in srgb, var(--fundoA), white 90%);
+
+    &.active {
+            background: linear-gradient(145deg, var(--fundoA), transparent);
+            color: var(--fundoA);
+        }
+
+    @media (hover:hover) {
+        &:focus, &.active {
+            background: linear-gradient(145deg, var(--fundoA), transparent);
+            color: var(--fundoA);
+        }
+    }
+
+    &:focus {
+        background: linear-gradient(145deg, var(--fundoA), transparent);
+        color: var(--fundoA);
+    }
 }
 
 .addRem {
