@@ -163,9 +163,6 @@ export default class VideoObj {
             css = 'mobile';
         }
 
-
-        console.log(showVideo)
-
        
         /*
         <div id='videoControl' 

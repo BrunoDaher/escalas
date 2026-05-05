@@ -3,14 +3,39 @@
 .btnChord{
        
       font-size: 1.8vh;
-  transition: all 0.3s;
+  
   align-content: flex-start;
+  text-align: justify;
+
+    display: grid;
+    overflow-wrap: break-word;
+    justify-items: center;
+
+    transition: all 0.3s;
 
     &.edit{
       font-style: italic;
       filter: brightness(0.9) hue-rotate(160deg) saturate(124%);
       transition: all 0.3s;
     }   
+
+
+
+}
+
+.btnChord.active::after{
+  
+font-family: bootstrap-icons;
+    content: "\f49f";
+    padding: 0;
+    font-size: 2vh;
+    margin:0;
+    bottom: 0;
+    position: absolute;
+    color: var(--colorB);
+    
+    transition: all 0.3s;
+    
 }
 
 .item {
@@ -21,14 +46,24 @@
     background: var(--fundoC);
     color: white;
     cursor: pointer;
+
+      @media (hover:hover) {
+        &:hover {
+          transform: scale(1.1);
+            background-color: var(--colorE);
+        }
+      
+     }
    
     &.active, &.on{
      background-color: var(--colorC);
+
+   
   }
 
   &.voando {
-  background-color: var(--colorA) !important;
-  animation: bgPulse 0.2s infinite alternate;
+    background-color: var(--colorA) !important;
+    animation: bgPulse 0.2s infinite alternate;
 }
 
 }

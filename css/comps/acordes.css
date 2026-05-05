@@ -26,7 +26,7 @@
     text-align: center;
 
     &.active, &:hover{
-        background: linear-gradient(190deg, var(--fundoD), var(--fundoC));
+        background: linear-gradient(190deg, var(--fundoD), var(--colorC));
         backdrop-filter: contrast(0.8);
     }
 }

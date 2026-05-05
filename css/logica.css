@@ -2,7 +2,7 @@
 .on{
     
     color: white;
-    filter: var(--filterB);
+
     transition: all 0.1s;
     z-index: unset;
 }

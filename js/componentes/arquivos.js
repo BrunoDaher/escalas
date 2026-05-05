@@ -45,12 +45,14 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flex fundoA w-100 py-1 f2vh'>
-                    <span class='active p-1 menuFiles' target='minhasAulas'>
+        return `<menu class='flex justCenter gap2 fundoA w-100 py-1 f2vh'>
+                    <span class='active p-1 flex gap1 menuFiles' target='minhasAulas'>
+                        <i  class='bi-hand-index-thumb ind'></i>
                         <label class="">Conceitos </label>
                     </span>
 
-                    <span class=' p-1 menuFiles' target='meusArqs'>
+                    <span class='flex gap1 p-1 menuFiles' target='meusArqs'>
+                        <i class='bi-hand-index-thumb ind'></i>
                         <label class="">Práticas </label>
                     </span>
 
@@ -348,8 +350,6 @@ export class Arquivos extends Aux{
 
             </div>
         `;
-        
-        console.log(nome)
         
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';
 

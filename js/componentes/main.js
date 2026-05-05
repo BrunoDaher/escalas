@@ -26,7 +26,7 @@ export class Main extends Aux{
         this.css = css;
 
 
-        console.log(this.css, this.infoNavegador)
+
                        
         this.sections = [
             
@@ -100,10 +100,6 @@ export class Main extends Aux{
 
             navBtns.forEach((btn) => {
                 btn.onclick = () => {
-
-                    
-
-                    console.log(btn);
                     //estetica do botao
                     if(btn.id=='pratica'){
                         let src = 'dados'

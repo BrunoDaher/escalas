@@ -120,12 +120,10 @@ export class Opcoes extends Aux{
             </label>
         `).join('');
 
+
         return `
 
-                <div id="controls" class="flex itemCenter gap2 justCenter" style="height: fit-content;">
-                    <input hidden id="playChord" type="button" class="btn1" value="Chord">
-                    <input hidden id="reset" type="button" class="btn1 bordaA" value="Reset">
-                </div>
+                
 
                 <section class="textStart grid  ">
                     <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>

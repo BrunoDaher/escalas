@@ -47,7 +47,9 @@
     }
 
     @media (min-width:501px) {
-        overflow-y:visible;
+        
+                overflow-y: visible;
+        max-height: 50vh;
 
     }
 

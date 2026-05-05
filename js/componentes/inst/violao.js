@@ -34,6 +34,37 @@ export class Violao {
     }
 
 
+    scrollTrigger(){
+        const container = document.getElementById('braco');
+        const frets = document.querySelectorAll('.nota');
+
+        frets.forEach(fret => {
+        fret.addEventListener('click', () => {
+            // 1. Pega a distância da casa em relação ao início do braço
+            const fretPosition = fret.offsetLeft;
+            
+            // 2. Opcional: Centralizar a casa na tela em vez de apenas encostar na esquerda
+            const containerWidth = container.offsetWidth;
+            const fretWidth = fret.offsetWidth;
+
+            let fretNumber = fret.parentElement.id.split(':')[0];
+
+            let scrollN = (fretNumber, (containerWidth/fretNumber));
+
+            
+            const scrollTarget = fretNumber * fretWidth
+
+            // 3. Executa a rolagem suave
+
+            
+            container.scrollTo({
+                left: scrollTarget, // Use fretPosition se quiser apenas encostar na esquerda
+                behavior: 'smooth'
+            });
+        });
+        });
+    }
+
     init(){
          this.montaBraco();
 
@@ -61,6 +92,8 @@ export class Violao {
 
 
         });
+
+       // this.scrollTrigger();
     }
     
     getTocador(){
@@ -170,7 +203,7 @@ export class Violao {
             btnTom.id = oitava.freq.toFixed(2);
             btnTom.append(oitava.tom);
             btnTom.onclick = () => {
-                console.log(btnTom.innerText)
+                
                 //console.log(this.cf.getChord(btnTom.innerText,'major','' ))
                 this.tocador.playNote(btnTom.id,'square');
                 btnTom.classList.toggle('on');
@@ -233,9 +266,9 @@ export class Violao {
         let criterio2 = aux.getById('btnVideo').checked
 
 
-        console.log(criterio1,criterio2)
+        
         if(!this.isCleanMode) {
-            console.log('removendo notas')
+        
            aux.arrayRemoveClass(notas,'off');
         } else {
             notas.forEach(nota => {

@@ -54,12 +54,6 @@ export class Tocador {
 
     async playChord(notas, velo, arrayNotas) {
 
-
-        console.log('tocando acorde ')
-
-        //verificar se braco do violao ta ativo, se nao estiver, ativar
-           
-
         if(arrayNotas){
             let cont = 1;
             arrayNotas.forEach(element => {           
