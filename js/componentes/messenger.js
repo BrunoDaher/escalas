@@ -73,7 +73,7 @@ export class Messenger extends Aux{
                         <span id='btnContatos' class="p-1 b0 bi-person"> Contatos </span>
                     </div>  
                     
-                    <div id="receiving" class="p-2 h-100"></div>
+                    <div id="receiving" class="p-2 h-75"></div>
 
                     <div id="sending" class="fundoE colorA">
                         <input type="text"
@@ -82,7 +82,7 @@ export class Messenger extends Aux{
                             placeholder="Digite sua mensagem...">
                     </div>
 
-                      <div id='contatos' class='off ${css} abs grid fundoGrad2 scrollY'>  
+                      <div id='contatos' class='off ${css}h-75 p-2 abs grid fundoGrad2 scrollY'>  
                             
                         </div>
                 </section>

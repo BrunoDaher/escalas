@@ -15,7 +15,7 @@ body {
 }
 
 main{
-  display: grid;
+  width: stretch;
   
       background: var(--fundoD);
   height: 100%; /* preenche o espaço disponível */

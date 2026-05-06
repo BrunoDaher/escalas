@@ -4,7 +4,8 @@
     height: 100vh;
     width: 100vw;
     z-index: 16;
-    backdrop-filter: brightness(0.2) blur(5px);
+
+        backdrop-filter: blur(4px) brightness(1);
     
     & > section {
         z-index: 7;
@@ -49,7 +50,7 @@
 }
 
 #contatos{
-    top: 4rem;
+    top: 7svh;
     right: 0;
     
 }

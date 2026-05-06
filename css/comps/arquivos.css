@@ -5,39 +5,9 @@
     
     justify-content: center;
     gap: 2vh;
-
-     &.mobile
-    {   
-        display: grid;
-        grid-template-columns: 0fr 0fr ;
-    }
-
-    &.tablet
-    {   
+        
         display: flex;
         flex-wrap: wrap;
-    }
-
-    @media  (orientation: landscape) {
-            overflow-y: scroll;
-            display: grid;
-            -webkit-text-decorations-in-effect: overline;
-            /* width: 20vh; */
-            grid-template-columns: 1fr 1fr;
-        justify-content: start;
-        gap: 1vh;
-            
-
-             @media (min-width:998px) {
-                justify-content: space-around;
-                gap: 2vh;
-                grid-template-columns: 2fr 2fr 2fr;
-            }
-    }
-
-   
-
-
     
 
 }

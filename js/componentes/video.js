@@ -182,7 +182,7 @@ export default class VideoObj {
              
         return `
         
-             <div id='video' class='${css} ${aux.infoNavegador.portrait || aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on' : 'off'}' >
+             <div id='video' class='${css} rel ${aux.infoNavegador.portrait || aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on' : 'off'}' >
 
                 
                     <div class='flex itemCenter filterB colorD' id='currentLabel'>

@@ -98,7 +98,7 @@ p {
 }
 
 .intA{
-    padding-inline: 2rem !important;
+    padding-inline: 2.2rem !important;
 
 }
 
@@ -264,9 +264,9 @@ p {
     overflow-x: auto;
 
     justify-items: start;
-    padding: 2svh;
+    padding: 1svh;
     /*considera 2svh por ser bottom e top*/
-    height: calc(var(--topMainHeight) - 2svh);
+    height: calc(var(--topMainHeight) - 3svh);
 
     transition: all 1s;
 

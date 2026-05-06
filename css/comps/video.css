@@ -46,8 +46,10 @@
 /* --- Label Atual --- */
 
 #currentLabel {
+    
     position: absolute;
     top: 1vh;
+    gap:1vh;
     z-index: 10;
     right: 2vh;
     border-radius: 1vh;
@@ -57,12 +59,11 @@
 
     box-sizing: border-box; 
 
-
     &.desktop, &.tablet{
-        width: 58vw;
-        right: 4svw;
+        width: 61vw;
+        right: 3svw;
         position: absolute;
-        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 1svh);
+        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 3svh);
     }
 
       &.mobile{
@@ -73,7 +74,7 @@
 }
  
 /* --- Bloco Principal: Video --- */
-#currentVideo, .videoLoading {
+#currentVideo {
 
     box-sizing: border-box;
 
@@ -83,9 +84,12 @@
       height: var(--bodyMainHeight);
     /*altura mobile*/
 
+    &.mobile {
+        height: var(--topMainHeight);
+    }
 
     &.desktop {
-        height: var(--bodyMainHeight);
+        height: calc(var(--bodyMainHeight) + 4svh);
     }
 }
 
