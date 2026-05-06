@@ -59,8 +59,8 @@
     right: 0;
     margin: 0;
     padding: 0;
-
-    
+    height: calc(var(--topMainHeight) + 6vh);
+    box-sizing: border-box;
     
     &.desktop {
         bottom: 90px;
@@ -79,9 +79,11 @@
         
 
          &.mobile {
-             height: 23svh;
+            
+
+                        height: 100%;
+            width: 100%;
             object-fit: cover;
-            width: -webkit-fill-available;
          }
 
           /* --- Variação: Desktop --- */

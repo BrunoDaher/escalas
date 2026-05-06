@@ -231,8 +231,8 @@ p {
 }
 
 #braco{
-
-        transition: all 1s;
+    box-sizing: border-box;
+        
     position: relative;
     max-width: 100vw;
     overflow-x: auto;
@@ -240,6 +240,8 @@ p {
     justify-items: start;
     padding: 1svh 2svw;
     /*height: calc(var(--topMainHeight) + 2vh);*/
+
+    transition: all 1s;
 
     &.on{
             z-index: 3;

@@ -45,6 +45,7 @@ font-family: bootstrap-icons;
     background: var(--fundoC);
     color: white;
     cursor: pointer;
+    flex: 20px 1 1;
 
       @media (hover:hover) {
         &:focus {
