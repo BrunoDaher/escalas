@@ -35,8 +35,8 @@
     }
 
     &.desktop, &.tablet {
-        left: 5vw;
-        width: 93%;
+    
+        width: 100%;
         transition: all 0.4s ease;
     }
     
@@ -52,118 +52,41 @@
     right: 2vh;
     border-radius: 1vh;
 }
+
+#video{
+
+    box-sizing: border-box; 
+
+
+    &.desktop, &.tablet{
+        width: 58vw;
+        right: 4svw;
+        position: absolute;
+        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 1svh);
+    }
+
+      &.mobile{
+        width: 100%;
+        height: var(--topMainHeight);
+        
+    }
+}
  
 /* --- Bloco Principal: Video --- */
-#video {
-    position: fixed;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    height: calc(var(--topMainHeight) + 6vh);
+#currentVideo, .videoLoading {
+
     box-sizing: border-box;
-    
+
+    object-fit: cover;
+    width: 100%;
+
+      height: var(--bodyMainHeight);
+    /*altura mobile*/
+
+
     &.desktop {
-        bottom: 90px;
-        position: absolute;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        z-index: 1;
-        left: 30%;
-        width: 67%;
+        height: var(--bodyMainHeight);
     }
-
-    &>.video {
-  
-        filter: brightness(0.7) contrast(1) saturate(1.1);
-        
-
-         &.mobile {
-            
-
-                        height: 100%;
-            width: 100%;
-            object-fit: cover;
-         }
-
-          /* --- Variação: Desktop --- */
-        &.desktop {
-      
-            object-fit: cover;
-
-            margin-left:5vw;
-            height: calc(var(--bodyMainHeight) + 4vh);
-            width: stretch;
-
-            &>.videoLoading{
-                margin-left:3vw;
-            }
-            }
-        }
-
-        &.tablet{
-            @media (orientation: portrait) {
-
-            width: 100%;
-            object-fit: cover;
-            
-            }
-
-        }
-
-      
-
-    /* --- Variação: Mobile --- */
-        &.mobile {
-        &#videoControl { display: none; }
-        
-     
-        @media (orientation: portrait) {
-
-
-            left: -1px;
-            position: relative;
-            &.on { z-index: 12; }
-        }
-
-      
-    }
-
-    /* --- Variação: Tablet --- */
-    &.tablet {
-        position: relative;
-
-        &#video {
-
-            z-index: 20;
-            filter: drop-shadow(2px 7px 6px black);
-            
-            & > #currentVideo{
-                bottom: 70px;
-                left: 5vh;
-                height: 55vh;
-                width: 60vw;
-                object-fit: cover;
-
-            }
-        }
-
-           
-
-        @media (orientation: landscape) {
-            position: absolute;
-                left: 31%;
-              bottom: 12vh;
-                left: 35%;
-        }
-
-    
-
-        @media (display-mode: standalone) { bottom: calc(var(--footerHeight) + 1vh); }
-        @media (max-height: 450px) { height: 25vh; }
-    }
-
-   
 }
 
 /* --- Controle do Video --- */
@@ -178,7 +101,7 @@
     color: var(--colorB);
     flex-flow: column-reverse;
     zoom: 0.7;
-top: 1vh;
+    top: 1vh;
 
 
     @media (orientation: portrait) and (max-width: 768px) {

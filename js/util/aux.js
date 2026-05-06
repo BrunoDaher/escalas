@@ -128,6 +128,14 @@ export  class Aux {
         }); 
     }
 
+    camelToSpace(nome){
+        const str = nome;
+        const resultado = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+    return resultado;
+
+    }
+
     getDispositivo(){
         let getDispositivo =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         

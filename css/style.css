@@ -38,11 +38,11 @@
     /*soma*/
     --headfooter:calc(var(--headerHeight) + var(--footerHeight));
     
-    --topMainHeight: 22vh;
-    --bodyMainHeight: calc(var(--headfooter) + var(--topMainHeight) );
+    --topMainHeight: 30vh;
+    --bodyMainHeight: calc(100vh - var(--headfooter) - var(--topMainHeight)); 
 
     /*soma*/
-    --mainHeight: calc(var(--topMainHeight) + var(--bodyMainHeight));
+    --mainHeight: calc(100vh - var(--headfooter));
 
 }
 

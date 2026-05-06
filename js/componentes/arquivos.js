@@ -45,7 +45,7 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flex justCenter gap2 fundoA w-100 py-1 f2vh'>
+        return `<menu class='flex justCenter gap2 fundoC w-100 f2vh'>
                     <span class='active p-1 flex gap1 menuFiles' target='minhasAulas'>
                         <i  class='bi-hand-index-thumb ind'></i>
                         <label class="">Conceitos </label>
@@ -337,12 +337,14 @@ export class Arquivos extends Aux{
 
         let controlesShow = this.role == 'adm' ? '':'off';
     
+        //transforma camelCase pra espaço
+        let legend = this.camelToSpace(nome);
         // Cria o template HTML usando template literals
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}" 
                  class=" rad1  songAlb  grid capt p-1 clicaMus">
-            <legend class=" f2vh fundoGrad2">${nome}</legend>        
+            <legend class=" f2vh fundoGrad2">${legend}</legend>        
                 <div class=" flexCenter f1rem p-1 gap2 justCenter  ${controlesShow}">
                     <span data-target='vg_${nome}' role="button" class="btn1  fundoC bi-eraser-fill "></span>
                     <span data-target='vg_${nome}' role="button" class="btn1 fundoC bi-pencil "></span>
@@ -350,6 +352,8 @@ export class Arquivos extends Aux{
 
             </div>
         `;
+
+  
         
         
         let div =  this.aulas.includes(nome)? 'aulasSalvas' : 'salvos';

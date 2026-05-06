@@ -190,7 +190,7 @@ export default class VideoObj {
                         <a id="currentLabelText" class="f2vh"> </a>
                     </div>
                      
-                    <div  id='videoLoading' class='${css} videoLoading flex justCenter off itemCenter  colorD'>
+                    <div  id='videoLoading' class='${css} abs videoLoading flex justCenter off itemCenter  colorD'>
 
                         <div class="pick">
                             <img  src='./img/alb.png' width="16vh" height='16vh' class=''>
@@ -201,7 +201,7 @@ export default class VideoObj {
                         
                     </div>
 
-                    <video class='video ${css} w-full' id='currentVideo'  
+                    <video class='video ${css}' id='currentVideo'  
                             ${controls}
                             playsinline
                             preload="metadata"

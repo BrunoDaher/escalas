@@ -81,15 +81,13 @@
 
     &.tablet , &.desktop {
         padding: 0 ;
-                padding: 0;
         overflow-y: scroll;
         max-height: 50vh;
     
 
         @media (orientation: landscape) {
-            width: 32vw;
+            width: 34vw;
             margin-left: 4vh;
-                
 
         }
     }

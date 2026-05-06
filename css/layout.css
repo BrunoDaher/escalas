@@ -24,7 +24,7 @@
 /* Flex Classes */
 .flex {
     display: flex;
-    gap: 1vh;
+    
 }
 .flexScroll {
     display: flex;

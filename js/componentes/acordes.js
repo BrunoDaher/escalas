@@ -539,12 +539,12 @@ export class Acordes extends Aux{
         mem.insertAdjacentHTML('beforeend', `
             <span
                 id="${btnId}" 
-                class="bi-music-note btnChord bordaA painelBtn slot item" 
+                class="btnChord bordaA painelBtn slot item" 
                 draggable="false" 
                 velo="${velo}" 
                 value='${btnLabel}'
                 style="user-select: none;"
-            >${btnLabel}</span>
+            >${this.camelToSpace(btnLabel)}</span>
         `);
 
 

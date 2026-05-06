@@ -15,19 +15,10 @@
     transition: all 0.3s;
    
 }
-
 .labelTema{
     
     border-radius: 1vh;
     filter: var(--filterE);
-}
-
-.startLoad{
-
-    @media (orientation: landscape) {
-        
-    }
-
 }
     
 .bgClean{
@@ -83,8 +74,6 @@ label{
     font-family: fantasy;
 }
 
-
-
 *>::-webkit-scrollbar {
  position: relative;
     z-index: 1; /* Garante que o conteúdo fique abaixo ou acima da barra conforme desejado */
@@ -96,15 +85,10 @@ label{
 
 }
 
-
-
 ::-webkit-scrollbar-thumb {
-
-    background-color: var(--colorC);
+    background-color: var(--fundoA);
     border-radius: 10px;
-    
 }
-
 input:focus, button:focus {
     outline-width: 0;
 }
@@ -124,12 +108,12 @@ input[type="color"] {
     height: 10vh;
     width: 44px;
   }
-  input[type="color"]::-webkit-color-swatch-wrapper {
-      padding: 0;
-  }
-  input[type="color"]::-webkit-color-swatch {
-      border: none;
-  }
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
 .bordaA{
     border-style:solid;
     border-color: var(--fundoD);
@@ -160,12 +144,12 @@ input[type="color"] {
 }
 
 .filterD{
-   filter:var(--filterD)
-  }
+filter:var(--filterD)
+}
 
-  .filterE{
+.filterE{
     filter: var(--filterE)
-  }
+}
 
 /* Components */
 .comp {

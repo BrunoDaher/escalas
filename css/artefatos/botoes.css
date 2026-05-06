@@ -6,7 +6,7 @@
   align-content: flex-start;
   text-align: justify;
 
-    display: grid;
+    
     overflow-wrap: break-word;
     justify-items: center;
 
@@ -89,11 +89,13 @@ font-family: bootstrap-icons;
 .menuFiles{
     cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;    
     text-wrap-mode: nowrap;
 
-    &.active{
-        color: var(--colorD)
+    &.active{   
+        color: var(--colorD);
+        
     }
 
 }
@@ -240,7 +242,7 @@ font-family: bootstrap-icons;
 
 .active > .ind{
     opacity: 1;
-    color: var(--fundoA);
+    color: var(--colorD);
     transition: all 0.3s ease;
 }
 
@@ -259,6 +261,8 @@ font-family: bootstrap-icons;
     height: fit-content;
     border-radius: 1vh;
     padding: 4px;
+    font-size: 1em;
+    overflow-wrap: break-word;
 
 }
 
