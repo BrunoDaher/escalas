@@ -218,6 +218,11 @@ export class Violao {
             btnTom.classList.add('nota');
             //}
 
+            const classes = ['intA', 'intB', 'intC', 'intD'];
+            const limites = [6, 13, 19, 25]; // Casa < 6, Casa < 13, etc.
+
+            const cls = classes[limites.findIndex(l => casa < l)];
+            cel.classList.add(cls);
             
 
             if(casa >0 && ncorda!=='borda'){

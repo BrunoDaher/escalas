@@ -97,6 +97,26 @@ p {
 
 }
 
+.intA{
+        padding-inline: 2rem !important;
+
+}
+
+.intB{
+        padding-inline: 1.9rem !important;
+    
+}
+
+.intC{
+        padding-inline: 1.8rem !important;
+    
+}
+
+.intD{
+        padding-inline: 1.4rem !important;
+    
+}
+
 
 .corda > div{
     
@@ -106,6 +126,9 @@ p {
     
     border-right-width: 5px;
     border-right-style: ridge;         
+
+
+ 
     
     @media (min-width:900px) {
         padding: 2svh 2svw 10px;
@@ -225,6 +248,9 @@ p {
     border-top: #c59206;
     border-top-style: ridge;
 
+
+
+
      @media (min-width:500px) {
         width: fit-content
     }
@@ -240,6 +266,9 @@ p {
     justify-items: start;
     padding: 1svh 2svw;
     /*height: calc(var(--topMainHeight) + 2vh);*/
+
+
+
 
     transition: all 1s;
 

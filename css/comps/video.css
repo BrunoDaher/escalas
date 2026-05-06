@@ -22,7 +22,7 @@
     position: absolute;
     z-index: 15;
     height: 100%;
-    top: -2px;
+
     width: 100%;
     left: 0;
     background: radial-gradient(var(--fundoC), var(--fundoB));
