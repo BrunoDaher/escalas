@@ -98,7 +98,7 @@ p {
 }
 
 .intA{
-    padding-inline: 2.2rem !important;
+    padding-inline: 2.1rem !important;
 
 }
 
@@ -108,12 +108,12 @@ p {
 }
 
 .intC{
-    padding-inline: 1.8rem !important;
+    padding-inline: 1.7rem !important;
     
 }
 
 .intD{
-    padding-inline: 1.4rem !important;
+    padding-inline: 1.5rem !important;
     
 }
 
@@ -259,7 +259,8 @@ p {
 #braco{
     box-sizing: border-box;
         
-    align-content: center;
+    align-content: center
+    ;
     position: relative;
     max-width: 100dvw;
     overflow-x: auto;

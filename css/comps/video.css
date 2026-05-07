@@ -64,7 +64,7 @@
         width: 61vw;
         right: 3svw;
         position: absolute;
-        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 3dvh);
+        top: calc( var(--topMainHeight));
     }
 
       &.mobile{
