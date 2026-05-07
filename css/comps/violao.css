@@ -260,13 +260,13 @@ p {
     box-sizing: border-box;
         
     position: relative;
-    max-width: 100vw;
+    max-width: 100dvw;
     overflow-x: auto;
 
     justify-items: start;
     padding: 1svh;
     /*considera 2svh por ser bottom e top*/
-    height: calc(var(--topMainHeight) - 3svh);
+    height: calc(var(--topMainHeight) );
 
     transition: all 1s;
 
@@ -278,6 +278,10 @@ p {
             z-index: 3;
     }
   
+    &.mobile{
+        padding: 2dvh;
+
+    }
 
     
 }

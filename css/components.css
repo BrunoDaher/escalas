@@ -61,13 +61,20 @@
 /*todos menos painel chords,pq tem video*/
 #painelFiles, #painelClock, #painelOptions {
     
-    max-height: calc(var(--mainHeight));
+
+        max-height: calc(var(--mainHeight));
 
     }
 
-    #painelChords{
-        max-height: var(--bodyMainHeight);
-    }
+#painelChords{
+
+    
+    overflow-y: auto;
+    /* Isso impede que elementos internos (como legend) "vazem" para fora da área de pintura */
+    contain: paint;
+
+    max-height: var(--bodyMainHeight);
+}
 
 
 .painel {

@@ -121,7 +121,11 @@ export class Acordes extends Aux{
                         
                             <di v class='flex justContBetween gap1 comp filterC  p-1'> 
 
-                                    <a id="btnEstrutura"  class="p-1 btn4 colorD comp bi bi-music-note-beamed flex">Estrutura</a>  
+                                    <a id="btnEstrutura" class="p-1 colorD comp flex">
+                                        Estrutura
+                                        <i class='arrowCol bi-arrow-up'></i>
+                                        <i class='off arrowCol bi-arrow-down'></i>
+                                    </a>  
 
                                     <div id='flagVideo' class='flex ${(this.infoNavegador.portrait? 'on' : 'off')}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
@@ -306,6 +310,9 @@ export class Acordes extends Aux{
             }
 
             btnEstrutura.onclick = ()=>{
+                btnEstrutura.classList.toggle('collpased');
+
+                this.toggleAll('arrowCol','off')
                 this.togglePainel('areaEstrutura');
             }
         

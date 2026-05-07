@@ -38,17 +38,17 @@ html{
 
    
    /* medidas */
-    --headerHeight:12vh;
-    --footerHeight:10vh;
+    --headerHeight:12dvh;
+    --footerHeight:10dvh;
     
     /*soma*/
     --headfooter:calc(var(--headerHeight) + var(--footerHeight));
     
-    --topMainHeight: 30vh;
-    --bodyMainHeight: calc(100vh - var(--headfooter) - var(--topMainHeight)); 
+    --topMainHeight: 30dvh;
+    --bodyMainHeight: calc(100dvh - var(--headfooter) - var(--topMainHeight)); 
 
     /*soma*/
-    --mainHeight: calc(100vh - var(--headfooter));
+    --mainHeight: calc(100dvh - var(--headfooter));
 
 }
 

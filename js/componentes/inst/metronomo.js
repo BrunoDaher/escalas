@@ -32,7 +32,7 @@ export class Metronomo{
         painelClock.innerHTML = '';
 
         painelClock.innerHTML += `
-            <label class="comp p-1 flexList">
+            <label class="comp p-2 flexList">
                 <a><i class="bi bi-clock"></i> Metrônomo </a>
                 <label class="switch">
                     <input type="checkbox" id="metroToggle" checked>
@@ -53,7 +53,7 @@ export class Metronomo{
         let figurasHtml = 
             `<label class='card-header bg-dark m-2' for='bpm'>
                 Batidas por Tempo</label>
-                <div class="flex gap1" id="figuraBtns">
+                <div class="flex gap2" id="figuraBtns">
             `;
         
       
@@ -65,7 +65,7 @@ export class Metronomo{
 
             figurasHtml += 
             
-            `<button class="btnChord  f2em figura-btn ${classe}  figritm" 
+            `<button class="btnChord f2em figura-btn ${classe}  figritm" 
                 data-value="${fig.value}" 
                 title="${fig.title}">
                 ${fig.text}
@@ -89,21 +89,29 @@ export class Metronomo{
         
         painelClock.innerHTML += `
             <div class="card bpm bgDark">
-                    <div class="comp p-1 flex justContAround">
-                        <div class='flex w-50'>
+                    
+                    <article class="comp flexcol justContAround">
+                        
+                        <section class='lista flexrow w-100 gap2 justCenter itemCenter p-2'>
+                            <input class="w-75 bpm" type="range" min="1" max="240" value="120" id="bpm">    
                             <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
-                            <input class="w-100 bpm" type="range" min="1" max="240" value="120" id="bpm">
+                        </section>
+                        
+                        <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
+                            <legend class='f1rem colorD p-1' id='lbpm' for='bpm'>Pulsos</legend>
+                            <div class="comp justContBetween w-full px-2 flexrow gap2 ">
+                                
+                                ${[1, 2, 3, 4].map(i => `
+                                        <span count="${i}" class="compCount btnPerson f1rem  p-1 ${i === 4 ? 'active' : ''}">
+                                            <i class='ind bi-hand-index-thumb f3vh'></i>
+                                            ${i}
+                                        </span>
+                                `).join('')}
+                            </div>
                         </div>
+                        
 
-                          <div class="comp flex ">
-                            <a class='card-header flex' id='lbpm' for='bpm'></a>
-                             ${[1, 2, 3, 4].map(i => `
-                                    <span count="${i}" class="compCount btn3 f1rem  p-1 ${i === 4 ? 'active' : ''}">
-                                    ${i}
-                                </span>
-                        `).join('')}
-                         </div>
-                    </div>
+                    </article>
                     
                     <div id="compasso" class="compasso p-2 ">
                         ${[1, 2, 3, 4].map(i => `
@@ -145,7 +153,10 @@ export class Metronomo{
 
     stop() {
         aux.getAllClass('button').forEach(btn => btn.classList.remove('active'));
-        if (!this.toggleBtn.classList.contains('active')) this.toggleBtn.click();
+        console.log(this.toggleBtn)
+        if (!this.toggleBtn.classList.contains('active')==true) {
+            this.toggleBtn.click();
+        }
         clearInterval(this.metronomo);
     } 
 
@@ -245,6 +256,7 @@ mark(index) {
         // Alterna o estado visual do botão toggle
         // Se estava rodando, remove active; se estava parado, adiciona active
         this.toggleBtn.classList.toggle('btn1', !this.isRunning);
+        this.toggleBtn.classList.toggle('active', !this.isRunning);
         
         // Se o metrônomo estava parado (!isRunning é true)
         if (!this.isRunning) {

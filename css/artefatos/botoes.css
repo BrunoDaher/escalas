@@ -1,12 +1,18 @@
 
+
+*{
+    outline: none !important;
+}
+
 .btnChord{
        
-      font-size: 1.8vh;
+      font-size: 1.8dvh;
   
   align-content: flex-start;
   text-align: justify;
+  
+  border-radius: 1vh;
 
-    
     overflow-wrap: break-word;
     justify-items: center;
 
@@ -18,24 +24,18 @@
       transition: all 0.3s;
     }   
 
+    &:focus, &.active{
+        outline: none;
+        
+        border-color: transparent;
+        background: var(--colorD);
+                color:var(--colorB);
+        transition: all 0.3s;
+    }
 
 
 }
 
-.btnChord.active::after{
-  
-font-family: bootstrap-icons;
-    content: "\f49f";
-    padding: 0;
-    font-size: 2vh;
-    margin:0;
-    bottom: 0;
-    
-    color: var(--colorB);
-    
-    transition: all 0.3s;
-    
-}
 
 .item {
   padding: 1vh;
@@ -45,7 +45,7 @@ font-family: bootstrap-icons;
     background: var(--fundoC);
     color: white;
     cursor: pointer;
-    flex: 20px 1 1;
+    flex: 10vh 1 1;
 
       @media (hover:hover) {
         &:focus {
@@ -110,8 +110,6 @@ font-family: bootstrap-icons;
 }
 
 .btnPerson{
-
-
         font-weight: 500;
         display: flex;
         align-items: center;

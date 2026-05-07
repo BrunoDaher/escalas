@@ -160,6 +160,18 @@
 }
 
 
+.flexrow{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.flexcol{
+    display: flex;
+    flex-direction: column;
+}
+
 /* Other Classes */
 .flow { display: flow; }
 

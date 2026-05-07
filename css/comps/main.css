@@ -11,10 +11,20 @@ html, body {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100%;
+  
+}
+
+main {
+  position: relative; /* Habilita o uso de z-index */
+  z-index: 1;         /* Garante que ele fique acima de elementos sem z-index */
+  overflow-y: auto;   /* Onde a barra de rolagem nasce */
+  
+  /* Força o navegador a tratar o main como uma camada separada */
+  isolation: isolate; 
 }
 
 main{
+  box-sizing: border-box;
   width: stretch;
   
       background: var(--fundoD);
@@ -48,8 +58,6 @@ footer {
   background-color: var(--fundoE);
   
 
-  
-
   @media (orientation: landscape) {
       justify-content: flex-start;
       width: 28vw;
@@ -73,5 +81,5 @@ footer {
 #navegacao {
     display: flex;
     
-    padding: 0 2svh;
+    padding: 0 2dvh;
 }

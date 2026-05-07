@@ -2,7 +2,10 @@
 .memoria {
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
+
+    z-index: -2;
+    z-index: 1;
 
     align-content: baseline;
 }

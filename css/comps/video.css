@@ -8,11 +8,12 @@
 }
 
 .opening{
-        flex-flow: column;
+    flex-flow: column;
+    align-items: center;
     justify-content: center;
     align-self: center;
     margin-top: auto;
-
+    text-align: center;
     z-index: 10;
 }
 
@@ -63,7 +64,7 @@
         width: 61vw;
         right: 3svw;
         position: absolute;
-        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 3svh);
+        top: calc(100vh - var(--bodyMainHeight) - var(--footerHeight) - 3dvh);
     }
 
       &.mobile{
