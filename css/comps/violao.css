@@ -259,12 +259,13 @@ p {
 #braco{
     box-sizing: border-box;
         
+    align-content: center;
     position: relative;
     max-width: 100dvw;
     overflow-x: auto;
 
     justify-items: start;
-    padding: 1svh;
+    padding: 1vh;
     /*considera 2svh por ser bottom e top*/
     height: calc(var(--topMainHeight) );
 
@@ -279,7 +280,11 @@ p {
     }
   
     &.mobile{
-        padding: 2dvh;
+        
+        padding:1em;
+        
+        
+
 
     }
 
