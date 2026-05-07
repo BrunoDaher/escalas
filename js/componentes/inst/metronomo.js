@@ -34,7 +34,7 @@ export class Metronomo{
         painelClock.innerHTML += `
             <label class="comp p-2 flexList">
                 <a><i class="bi bi-clock"></i> Metrônomo </a>
-                <label class="switch">
+                <label for="metroToggle" class="switch">
                     <input type="checkbox" id="metroToggle" checked>
                     <span class="slider round"></span>
                 </label>
@@ -80,7 +80,7 @@ export class Metronomo{
   
         let wrap =   `  <label class="itemCenter my-1 flexList">
                 <a><i class="bi bi-grid"></i> Layout </a>
-                <label class="switch">
+                <label for="wrap" class="switch">
                     <input type="checkbox" id="wrap" checked>
                     <span class="slider round"></span>
                 </label>
@@ -100,12 +100,11 @@ export class Metronomo{
                         <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
                             <legend class='f1rem colorD p-1' id='lbpm' for='bpm'>Pulsos</legend>
                             <div class="comp justContBetween w-full px-2 flexrow gap2 ">
-                                
                                 ${[1, 2, 3, 4].map(i => `
-                                        <span count="${i}" class="compCount btnPerson f1rem  p-1 ${i === 4 ? 'active' : ''}">
+                                        <button id="pls${i}" count="${i}" class="compCount flexCenter f1rem  p-1 ${i === 4 ? 'active' : ''}">
                                             <i class='ind bi-hand-index-thumb f3vh'></i>
                                             ${i}
-                                        </span>
+                                        </button>
                                 `).join('')}
                             </div>
                         </div>

@@ -67,7 +67,10 @@
 
 .compCount{
     border:none;
-            
+    background: none;
+    align-items: center;
+    gap: 1vh;        
+
     transition: all 0.3s;
 
     &.active{
