@@ -40,7 +40,10 @@ export class Main extends Aux{
 
     renderBracoViolao() {
 
+        this.refreshNav()
         let disp = this.getDispositivo();
+
+        
 
         return `<div id="braco" class='${disp} ${this.infoNavegador.landscape ? 'on' : 'off'}'></div>`;
     }

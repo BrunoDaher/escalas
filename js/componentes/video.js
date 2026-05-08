@@ -151,17 +151,17 @@ export default class VideoObj {
 
     renderVideo(){
 
-            aux.refreshNav();
+        
 
-            let css = aux.infoNavegador.mobile ? 'mobile' : aux.infoNavegador.tablet ? 'tablet' : 'desktop';
 
+
+        
+        let css = aux.getDispositivo();
+
+                    
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
         let showVideo = aux.infoNavegador.landscape;
-
-         if(aux.infoNavegador.tablet && aux.infoNavegador.portrait){
-            css = 'mobile';
-        }
 
        
         /*

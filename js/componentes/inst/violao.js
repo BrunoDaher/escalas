@@ -164,9 +164,10 @@ export class Violao {
     montaBraco() {
         aux.getById('braco').innerHTML ='';
 
-        if(aux.infoNavegador.mobile && aux.infoNavegador.landscape){
-             aux.getById('braco').classList.add('mobile');
-        }
+
+        aux.refreshNav();
+
+
 
         this.nCordas.forEach(ncorda => {
             aux.getById('braco').append(this.braco(ncorda));

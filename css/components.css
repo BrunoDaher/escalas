@@ -87,13 +87,14 @@
     overflow-x: hidden;
 
     &.tablet , &.desktop {
-        padding: 0 ;
+        padding-right: 4vh ;
         overflow-y: scroll;
         
-        max-height: 50vh !important;
+        
+        max-height: 48vh !important;
     
         @media (orientation: landscape) {
-            width: 34vw;
+            width: 30vw;
             margin-left: 4vh;
         }
     }

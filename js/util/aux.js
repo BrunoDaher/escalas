@@ -137,6 +137,8 @@ export  class Aux {
     }
 
     getDispositivo(){
+        
+        this.refreshNav();
         let getDispositivo =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
         
