@@ -91,7 +91,7 @@ export class Acesso {
                         data-target="messenger">
                          
                     </span>
-                    <span id='btnSignOut' class="colorA btnTema f3vh btn bi bi-person-walking "></span>
+                    <span id='btnSignOut' class="btnTema f3vh btn bi bi-person-walking "></span>
                 </div>
                  
             </section>

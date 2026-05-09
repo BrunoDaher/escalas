@@ -271,24 +271,26 @@
     background: linear-gradient(145deg, var(--fundoC), transparent);
     padding: 1vh;
     border-radius: 3px;
-    color: color-mix(in srgb, var(--fundoA), white 90%);
+    color: white;
+
+    align-items: center;
 
     &.active {
-            background: linear-gradient(145deg, var(--fundoA), transparent);
-            color: var(--fundoA);
+            color: var(--colorD);
+        border-style: inset;
+        border-color: var(--colorC);
+    }
         }
 
     @media (hover:hover) {
         &:focus, &.active {
-            background: linear-gradient(145deg, var(--fundoA), transparent);
-            color: var(--fundoA);
+            transform: scale(1.1);
+            color: var(--colorB);
+        border-style: inset;
+        border-color: var(--colorC);
+    
         }
-    }
-
-    &:focus {
-        background: linear-gradient(145deg, var(--fundoA), transparent);
-        color: var(--fundoA);
-    }
+    
 }
 
 .addRem {

@@ -29,8 +29,10 @@
     text-align: center;
 
     &.active, &:hover{
-        background: linear-gradient(190deg, var(--fundoD), var(--colorC));
+
         backdrop-filter: contrast(0.8);
+        filter: drop-shadow(2px 9px 23px var(--colorC));
+        mix-blend-mode: color;
     }
 }
 

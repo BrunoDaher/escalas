@@ -36,7 +36,7 @@ export class Arquivos extends Aux{
                 ${this.renderMeusArquivos()}
             </fieldset  >
            
-           <div class="grid fundoC justCenter w-full  p-1">
+           <div class="grid fundoE justCenter w-full  p-1">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -45,7 +45,7 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flex justCenter gap2 fundoC w-100 f2vh'>
+        return `<menu class='flex justCenter gap2 fundoE w-100 f2vh'>
                     <span class='active p-1 flex gap1 menuFiles' target='minhasAulas'>
                         <i  class='bi-hand-index-thumb ind'></i>
                         <label class="">Conceitos </label>

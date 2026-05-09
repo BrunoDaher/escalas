@@ -85,7 +85,7 @@ export class Acordes extends Aux{
       
         
         return this.sections.map(s => 
-            `<span class="btnChord p-2 
+            `<span class="p-2 
                 section-btn${s.active ? " active" : ""}" 
                 data-target="div-${s.id}"
                 name="${s.label}"
