@@ -4,9 +4,10 @@ body{
     
     
 
-            background: linear-gradient(123deg, 
+            background: linear-gradient(-223deg, 
              var(--colorD),  
-                black,    
+                var(--colorA), 
+             black,    
                 var(--colorE) 
                 );
 

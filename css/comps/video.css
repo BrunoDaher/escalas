@@ -26,7 +26,7 @@
 
     width: 100%;
     left: 0;
-    background: radial-gradient(var(--fundoC), var(--fundoB));
+
     filter: sepia(0.3);
 
     &.off {
@@ -49,11 +49,21 @@
 #currentLabel {
     
     position: absolute;
-    top: 1vh;
+    
     gap:1vh;
     z-index: 10;
-    right: 2vh;
+
+    top: 1vh;
+    left: 1vh;
+    
     border-radius: 1vh;
+
+    
+}
+
+#video.mobile > #currentLabel{
+      top: 1vh;
+    right: 2vh;
 }
 
 #video{
@@ -64,7 +74,7 @@
         width: 61vw;
         right: 3svw;
         position: absolute;
-        top: calc( var(--topMainHeight));
+        top: calc( var(--topMainHeight) - 1shv);
     }
 
       &.mobile{

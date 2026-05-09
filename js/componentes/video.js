@@ -185,15 +185,15 @@ export default class VideoObj {
              <div id='video' class='${css} rel ${aux.infoNavegador.portrait || aux.infoNavegador.desktop || aux.infoNavegador.tablet  ? 'on' : 'off'}' >
 
                 
-                    <div class='flex itemCenter filterB colorD' id='currentLabel'>
+                    <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>
                         <a class='bi bi-play-btn-fill f2em'></a>
-                        <a id="currentLabelText" class="f2vh"> </a>
+                        <a id="currentLabelText" class="f2vh filterB"> </a>
                     </div>
                      
                     <div  id='videoLoading' class='${css} abs videoLoading flex justCenter off itemCenter  colorD'>
 
                         <div class="pick">
-                            <img  src='./img/alb.png' width="16vh" height='16vh' class=''>
+                            <img  src='./img/alb.png'  width="64px">
                             
                     </div>
                  
