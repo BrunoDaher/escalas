@@ -139,18 +139,23 @@ export  class Aux {
     getDispositivo(){
         
         this.refreshNav();
-        let getDispositivo =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
+
+        console.log(this.infoNavegador)
+
+        let disp =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
+        console.log(disp)
         
-        
-        return getDispositivo;
+        return disp;
     }
 
     refreshNav(){
 
-                const agent = navigator.userAgent.toLowerCase();
+            let agent = navigator.userAgent.toLowerCase();
             const width = window.innerWidth;
             const height = window.innerHeight;
+
+            agent = (agent.split('(')[1].split(';')[0])
 
             // 1. Detecções de Hardware/SO específicas
             const isIphone = agent.includes('iphone');

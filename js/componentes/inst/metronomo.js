@@ -103,7 +103,7 @@ export class Metronomo{
                                 ${[1, 2, 3, 4].map(i => `
                                         <button id="pls${i}" count="${i}" class="compCount flexCenter f1rem  p-1 ${i === 4 ? 'active' : ''}">
                                             <i class='ind bi-hand-index-thumb f3vh'></i>
-                                            ${i}
+                                            <a class='f2vh colorB'>${i}</a>
                                         </button>
                                 `).join('')}
                             </div>

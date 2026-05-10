@@ -30,6 +30,7 @@
 
 
 #sending > input{
+    font-size: 1em;
     width: -webkit-fill-available;
     background: linear-gradient(15deg, var(--fundoD), var(--fundoC));
     color: var(--colorB);

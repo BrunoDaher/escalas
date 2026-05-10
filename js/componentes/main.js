@@ -16,24 +16,22 @@ export class Main extends Aux{
 
         this.refreshNav();
 
-        let css = this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
+        //let css = this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
 
-        if(this.infoNavegador.tablet && this.infoNavegador.portrait){
-            css = 'mobile';
-        }
+        let css = this.getDispositivo();
 
-        this.css = css;
 
+        this.css = this.getDispositivo();
 
 
                        
         this.sections = [
             
-            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${css}`},
-            {name:'pratica', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${css}`},
-            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${css}`},
-            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${css}`},
+            {name:'arquivos', icon:'bi bi-file-earmark-music', id: 'painelFiles', className: `painel ${this.css}`},
+            {name:'pratica', icon:'bi bi-headphones', id: 'painelChords', className: `painel ${this.css}`},
+            {name:'clock', icon:'bi bi-clock', id: 'painelClock', className: `painel ${this.css}`},
+            {name:'opcoes', icon:'bi bi-gear',  id: 'painelOptions', className: `painel ${this.css}`},
             
         ];
     }
@@ -42,10 +40,8 @@ export class Main extends Aux{
 
         this.refreshNav()
         let disp = this.getDispositivo();
-
-        
-
-        return `<div id="braco" class='${disp} ${this.infoNavegador.landscape ? 'on' : 'off'}'></div>`;
+        disp = disp == 'desktop' ? 'on' : 'off';
+        return `<div id="braco" class='${disp}'></div>`;
     }
 
     renderPaineis() {
@@ -119,7 +115,9 @@ export class Main extends Aux{
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
 
-        if(!this.infoNavegador.desktop && !this.infoNavegador.tablet){
+        console.log(this.getDispositivo())
+
+        if(!this.infoNavegador.desktop){
 
             let cont = this.getById('btnVideo').checked ? 'video' : 'braco';
 
@@ -128,8 +126,6 @@ export class Main extends Aux{
                 }
             else{
                 this.getById(cont).classList.remove('off');
-                
-                
             }
         }
 

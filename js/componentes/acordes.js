@@ -127,7 +127,7 @@ export class Acordes extends Aux{
                                         <i class='off arrowCol bi-arrow-down'></i>
                                     </a>  
 
-                                    <div id='flagVideo' class='flex ${(this.infoNavegador.portrait? 'on' : 'off')}'>
+                                    <div id='flagVideo' class='flex ${(!this.infoNavegador.desktop ? 'on' : 'off')}'>
                                         <label for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">

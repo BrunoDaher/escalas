@@ -35,7 +35,7 @@
         transition: all 0.4s ease;
     }
 
-    &.desktop, &.tablet {
+    &.desktop {
     
         width: 100%;
         transition: all 0.4s ease;
@@ -47,37 +47,44 @@
 /* --- Label Atual --- */
 
 #currentLabel {
+
+
+        border-radius: 0 1vh 1vh 0;
+    background: var(--fundoA);
+    filter: drop-shadow(2px 4px 6px black);
     
     position: absolute;
     
     gap:1vh;
-    z-index: 10;
-
-    top: 1vh;
-    left: 1vh;
     
+   
     border-radius: 1vh;
 
     
 }
 
 #video.mobile > #currentLabel{
-      top: 1vh;
-    right: 2vh;
+      top: 0vh;
+    left: 0vh;
+}
+
+#video.tablet > #currentLabel{
+      top: 0vh;
+    left: 0vh;
 }
 
 #video{
 
     box-sizing: border-box; 
 
-    &.desktop, &.tablet{
+    &.desktop{
         width: 61vw;
         right: 3svw;
         position: absolute;
         top: calc( var(--topMainHeight) - 1shv);
     }
 
-      &.mobile{
+      &.mobile, &.tablet{
         width: 100%;
         height: var(--topMainHeight);
         
@@ -95,7 +102,7 @@
       height: var(--bodyMainHeight);
     /*altura mobile*/
 
-    &.mobile {
+    &.mobile, &.tablet{ 
         height: var(--topMainHeight);
     }
 

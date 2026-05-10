@@ -60,10 +60,7 @@
 
 /*todos menos painel chords,pq tem video*/
 #painelFiles, #painelClock, #painelOptions {
-    
-
         max-height: calc(var(--mainHeight));
-
     }
 
 #painelChords{
@@ -86,7 +83,7 @@
 
     overflow-x: hidden;
 
-    &.tablet , &.desktop {
+    &.desktop {
         padding-right: 4vh ;
         overflow-y: scroll;
         
