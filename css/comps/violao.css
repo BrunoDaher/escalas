@@ -97,23 +97,25 @@ p {
 
 }
 
+
+
 .intA{
-    padding-inline: 2.1rem !important;
+    padding-inline: calc(2.1 * var(--casa))  !important;
 
 }
 
 .intB{
-    padding-inline: 1.9rem !important;
+    padding-inline: calc(1.9 * var(--casa))  !important;
     
 }
 
 .intC{
-    padding-inline: 1.7rem !important;
+    padding-inline: calc(1.7 * var(--casa)) !important;
     
 }
 
 .intD{
-    padding-inline: 1.5rem !important;
+    padding-inline: calc(1.2 * var(--casa)) !important;
     
 }
 
