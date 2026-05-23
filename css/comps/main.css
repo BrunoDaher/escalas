@@ -9,8 +9,9 @@ html, body {
 }
 
 body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   
 }
 
@@ -37,6 +38,13 @@ menu {
     margin: 0;
 }
 
+#enter{
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #hMenu {
     padding: 0;
     margin: 0;
@@ -44,6 +52,7 @@ menu {
 
 header {
     z-index: 20;
+
 }
 
 footer {

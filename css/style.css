@@ -14,6 +14,8 @@ html{
     scrollbar-width: thin;
 }
 
+
+
 :root{
     --vh: 100%;
     --fundoA: var(--colorA); 

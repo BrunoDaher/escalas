@@ -47,18 +47,13 @@
 /* --- Label Atual --- */
 
 #currentLabel {
-
-
-        border-radius: 0 1vh 1vh 0;
-    background: var(--fundoA);
+        
+    background: var(--fundoG);
     filter: drop-shadow(2px 4px 6px black);
     
     position: absolute;
     
     gap:1vh;
-    
-   
-    border-radius: 1vh;
 
     
 }

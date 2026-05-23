@@ -12,10 +12,17 @@
 
 }
 
+#userInfo{
+    
+    position: absolute;
+    margin: 1vh -1vh;
+}
+
 #salvos > div, #aulasSalvas > div {
 
-    width:9rem;
-    height:10rem;
+   width: 33vw;
+    height: 33vw;
+
     
     
     @media (orientation: landscape) {
