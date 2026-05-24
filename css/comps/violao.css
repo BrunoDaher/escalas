@@ -266,29 +266,24 @@ p {
     border-top: #c59206;
     border-top-style: ridge;
 
-
-
-
      @media (min-width:500px) {
         width: fit-content
     }
 }
 
 .contBraco{
-    padding: 1vh;
+    
+        height: var(--topMainHeight);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
        max-width: 100dvw;
     overflow-x: auto;
 }
 
-#braco{
+#contBraco{
 
-    background: linear-gradient(306deg, black, var(--fundoG), transparent);
-    
-    box-sizing: border-box;
-        
-    align-content: center;
-    position: relative;
- 
+   
     
     /*considera 2svh por ser bottom e top*/
     
@@ -325,6 +320,12 @@ p {
     background: rgb(0, 255, 0);
     border-radius: 4px;
     transition: all 1s;
+   
+}
+
+#braco{
+    
+     background: linear-gradient(306deg, black, var(--fundoG), transparent);
    
 }
 

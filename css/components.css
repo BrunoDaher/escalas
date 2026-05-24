@@ -27,10 +27,12 @@
     background-color: var(--fundoD );
     overflow-y: auto;
     
-    height: 100%;
+
     display: flex;
     flex-direction: column; 
     flex: 1;
+
+    max-height: 100%;
         
     @media (orientation: portrait) {
         z-index: 1;
@@ -48,10 +50,10 @@
             padding: 0;
             width: 30%;
 
-               display: flex;
-    flex-direction: column;
-    
-    justify-content: space-between;
+                    display: flex;
+            flex-direction: column;
+            
+            justify-content: space-between;
          }
     }
 
@@ -75,10 +77,24 @@
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
+            
+            max-height: calc(var(--mainHeight));
 
-            /*
-        max-height: calc(var(--mainHeight));
-        */
+       &.desktop{
+        max-height: calc(var(--bodyMainHeight) );
+       }     
+       
+       &.mobile{
+
+
+        @media (orientation: landscape) {
+         max-height: calc(var(--bodyMainHeight) - 5vh);
+       }
+
+       }     
+            
+       
+        
     }
 
 #painelChords{

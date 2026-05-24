@@ -36,7 +36,7 @@ export class Arquivos extends Aux{
                 ${this.renderMeusArquivos()}
             </fieldset  >
            
-           <div class="grid fundoE justCenter w-full  p-1">
+           <div class="grid fundoC justCenter w-full  p-1">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -45,7 +45,7 @@ export class Arquivos extends Aux{
 
 
     renderFilesMenu(){
-        return `<menu class='flex justCenter gap2 fundoE w-100 f2vh'>
+        return `<menu class='flex justCenter gap2 fundoC w-100 f2vh'>
                     <span class='active p-1 flex gap1 menuFiles' target='minhasAulas'>
                         <i  class='bi-hand-index-thumb ind'></i>
                         <label class="">Conceitos </label>
@@ -83,9 +83,9 @@ export class Arquivos extends Aux{
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-            <div  id="daoBtns" class="flex gap2">
+            <div id="daoBtns" class="flex gap2">
                 
-                <div class="gridCenter itemCenter  " id="cloudLoad">
+                <div class="gridCenter itemCenter" id="cloudLoad">
                     <img src="./img/ico/icoApp.png" 
                         style='width:6vh height:6vh' class='mini pick justCenter' alt="" srcset="">
                     <a>Atualizar</a>

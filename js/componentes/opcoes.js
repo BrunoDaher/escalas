@@ -137,10 +137,10 @@ export class Opcoes extends Aux{
                     
                 </section>
 
-                <div class="p-1"> 
+                <section class=""> 
                      <legend class="comp filterC p-1 bi bi-paint-bucket flex gap1">Opções</legend>
                     ${this.renderTemas()}
-                    <div>
+                <section>
 
                 <div id="currentItem" class="off flexCenter gap2 itemCenter justCenter my-2 filterB">
                     <span id="arquivo">Arquivo</span>

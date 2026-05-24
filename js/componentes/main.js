@@ -47,7 +47,7 @@ export class Main extends Aux{
 
         
         
-        return `<div class='contBraco' ><div id="braco" class='${show} ${disp}'></div></div>`;
+        return `<div id='contBraco' class='contBraco ${show} ' ><div id="braco" class='${disp}'></div></div>`;
     }
 
     renderPaineis() {
@@ -125,7 +125,7 @@ export class Main extends Aux{
 
         if(!this.infoNavegador.desktop && !this.infoNavegador.landscape){
 
-            let cont = this.getById('btnVideo').checked ? 'video' : 'braco';
+            let cont = this.getById('btnVideo').checked ? 'video' : 'contBraco';
 
             if(['arquivos','opcoes','clock'].includes(btn.id)){
                 this.getById(cont).classList.add('off');

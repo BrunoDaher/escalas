@@ -320,7 +320,7 @@ export class Acordes extends Aux{
                 btnVideo.onclick = ()=>{
                     //logica reversa
                     let video = this.getById(btnVideo.getAttribute('target'));
-                    let braco = this.getById('braco');
+                    let braco = this.getById('contBraco');
 
                     if(video.classList.contains('off')){
                         video.classList.remove('off');

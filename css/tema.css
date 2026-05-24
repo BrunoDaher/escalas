@@ -2,7 +2,7 @@
 body{
 
     
-    
+        justify-content: space-between;
 
             background: linear-gradient(-223deg, 
              var(--colorD),  

@@ -25,12 +25,12 @@ main {
 }
 
 main{
-  box-sizing: border-box;
-  width: stretch;
-  
-      background: var(--fundoD);
-  height: 100%; /* preenche o espaço disponível */
-  overflow: hidden;
+    box-sizing: border-box;
+    width: stretch;
+    
+        background: var(--fundoD);
+    height: 100%; /* preenche o espaço disponível */
+    overflow: hidden;
 }
 
 menu {
