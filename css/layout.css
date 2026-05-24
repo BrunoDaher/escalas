@@ -85,7 +85,7 @@
     position: relative;
 }
 .scroll50 {
-    max-height: 47vh;
+    max-height: 50vh;
     overflow-y: scroll;
     position: relative;
 }

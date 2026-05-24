@@ -27,6 +27,7 @@
     background-color: var(--fundoD );
     overflow-y: auto;
     
+    height: 100%;
     display: flex;
     flex-direction: column; 
     flex: 1;
@@ -43,10 +44,14 @@
     &.mobile {
         overflow-y: visible;
         
-        
           @media (orientation: landscape) {
             padding: 0;
-            width: 32vw;
+            width: 30%;
+
+               display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
          }
     }
 
@@ -57,20 +62,43 @@
 
 }
 
+#controls > {
+
+}
+
 
 /*todos menos painel chords,pq tem video*/
 #painelFiles, #painelClock, #painelOptions {
+
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+
+            /*
         max-height: calc(var(--mainHeight));
+        */
     }
 
 #painelChords{
 
+ 
     
     overflow-y: auto;
     /* Isso impede que elementos internos (como legend) "vazem" para fora da área de pintura */
     contain: paint;
 
     max-height: var(--bodyMainHeight);
+
+    &.mobile{
+        @media (orientation: landscape) {
+            
+            height: 100%;
+            max-height: 100%;
+        }
+    }
+    
 }
 
 
@@ -93,6 +121,18 @@
         @media (orientation: landscape) {
             width: 30vw;
             margin-left: 4vh;
+        }
+    }
+
+    &.mobile{
+        @media (orientation: landscape) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 1vh;
+            box-shadow: 1px 1px 12px 1px black;
+
         }
     }
 

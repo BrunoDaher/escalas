@@ -36,7 +36,8 @@ html{
    --filterC:drop-shadow(2px 2px 3px #c80101) contrast(1.5);
    --filterD:invert(1) hue-rotate(10deg) drop-shadow(2px 4px 6px var(--fundoB));
    --filterE:  drop-shadow(2px 4px 6px var(--fundoB));
-   --casa:1rem;
+   --casa:0.8rem;
+   
    
 
    

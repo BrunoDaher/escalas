@@ -152,13 +152,16 @@ export default class VideoObj {
     renderVideo(){
 
         
+        aux.refreshNav();
         let css = aux.getDispositivo();
+
+        
                     
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
 
-        let showVideo = aux.infoNavegador.landscape;
+        let showVideo = aux.infoNavegador.landscape || aux.infoNavegador.desktop ? 'on' : 'off';
 
-       
+        
         /*
         <div id='videoControl' 
                     class='${showVideo ? 'on':'on'} 
@@ -177,12 +180,10 @@ export default class VideoObj {
                 //condicoes pra mostrar video
                 //--mobile
                 //--desktop
-
-
              
         return `
 
-             <div id='video' class='${css} rel ${ aux.infoNavegador.desktop? 'on' : 'off'}' >
+             <div id='video' class="${css} rel ${ showVideo}" >
 
                 
                     <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>

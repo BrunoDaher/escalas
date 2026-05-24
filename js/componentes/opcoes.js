@@ -128,16 +128,19 @@ export class Opcoes extends Aux{
                 <section class="textStart grid  ">
                     <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>
                   
-                    <div class="gap2 flexCenter p-2 paint-bucket justContAround">
+                    <div class="gap2 flexWrap p-2 paint-bucket justBetween">
                         ${temaInputs}
                     </div>
 
-                    <legend class="comp filterC p-1 bi bi-paint-bucket flex gap1">Opções</legend>
+                   
                 
-                    <div class="p-1"> 
+                    
+                </section>
+
+                <div class="p-1"> 
+                     <legend class="comp filterC p-1 bi bi-paint-bucket flex gap1">Opções</legend>
                     ${this.renderTemas()}
                     <div>
-                </section>
 
                 <div id="currentItem" class="off flexCenter gap2 itemCenter justCenter my-2 filterB">
                     <span id="arquivo">Arquivo</span>

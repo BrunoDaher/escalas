@@ -9,11 +9,14 @@
 
 #borda{
     border-top-left-radius: 4px;
+    /*
     border-top-color:rgb(62, 52, 8);
+    */
+    border-top-color: transparent;
 }
 
 #borda > div{
-    padding-top: 5px;            
+    padding-top: 1px;            
 }
 
 .playing{
@@ -123,10 +126,10 @@ p {
 .corda > div{
     
     position: relative;
-    padding: 1.4svh 3svh;
-    border-right-color: #a3a7ab;
+    padding: 1.6svh 3svh;
+        border-right-color: #7c848c;
     
-    border-right-width: 5px;
+    border-right-width: 7px;
     border-right-style: ridge;         
 
 
@@ -259,6 +262,9 @@ p {
 }
 
 #braco{
+
+    background: linear-gradient(306deg, black, var(--fundoG), transparent);
+    
     box-sizing: border-box;
         
     align-content: center;
@@ -267,14 +273,14 @@ p {
     overflow-x: auto;
 
     
-    padding: 1vh;
+    
     /*considera 2svh por ser bottom e top*/
-    height: calc(var(--topMainHeight) );
+    
 
     transition: all 1s;
 
     &.desktop{
-        padding: 1svh;
+
         justify-items: center;
     }
 
@@ -284,9 +290,16 @@ p {
   
     &.mobile{
         
-        padding:1em;
         
-        
+        @media (orientation: landscape) {
+
+            bottom: 0vh;
+            padding: 0;
+            width: 69%;
+            
+            right: 1vh;
+            position: absolute;
+        }
 
 
     }
@@ -303,7 +316,7 @@ p {
 
 
 .braco , .corda > div{
-    background-color: var(--fundoG);                        
+    /*background-color: var(--fundoG);  */                      
     
 }
    

@@ -23,8 +23,6 @@ export class Main extends Aux{
 
 
         this.css = this.getDispositivo();
-
-
                        
         this.sections = [
             
@@ -39,9 +37,17 @@ export class Main extends Aux{
     renderBracoViolao() {
 
         this.refreshNav()
+
+        console.log(this.infoNavegador.landscape)
         let disp = this.getDispositivo();
-        disp = disp == 'desktop' ? 'on' : 'off';
-        return `<div id="braco" class='${disp}'></div>`;
+
+        
+        
+        let show = disp == 'desktop' || this.infoNavegador.landscape? 'on' : 'off';
+
+        
+        
+        return `<div class='contBraco'><div id="braco" class='${show} ${disp}'></div></div>`;
     }
 
     renderPaineis() {
@@ -117,7 +123,7 @@ export class Main extends Aux{
 
         console.log(this.getDispositivo())
 
-        if(!this.infoNavegador.desktop){
+        if(!this.infoNavegador.desktop && !this.infoNavegador.landscape){
 
             let cont = this.getById('btnVideo').checked ? 'video' : 'braco';
 
