@@ -48,11 +48,11 @@
 }
 
 #E{
-    border-top-width: 6px;
+    border-top-width: 4px;
 }
 
 #A{
-    border-top-width: 4px;
+    border-top-width: 3px;
 }
 
 #G{
@@ -86,8 +86,10 @@ p {
     font-weight: bold;
     transition: all 0.3s;
     width: 20px;
-    height: 20px;
-    margin-top: 3px;
+    
+        height: fit-content;
+    margin-top: -1.8em;
+
     left: 2vw;
     padding: 5px;
 
@@ -129,7 +131,7 @@ p {
     padding: 1.6svh 3svh;
         border-right-color: #7c848c;
     
-    border-right-width: 7px;
+    border-right-width: 4px;
     border-right-style: ridge;         
 
 
@@ -166,21 +168,26 @@ p {
         /*corrigindo offset
             margin-top: -24px;
     */
-    margin-left: -2.2svh !important;
-    margin-top: -4svh;
+
+    
     color: var(--colorA) !important;
     font-size: 2.2svh;
     z-index: 10;
-    filter: drop-shadow(2px 4px 6px var(--shadowC));
-    font-weight: bolder;
+    
+        box-shadow: 1px 1px 1px 1px black;
+    background: #ffffffc2;
+    text-shadow: 0px -1px 11px var(--fundoA);
+
+    
 
         @media (orientation: portrait) {
-                margin-left: -1.8svh !important;
-    margin-top: -3.5svh;
+                margin-left: -0.8svh !important;
+                margin-top: -4svh;
+                height: fit-content;
         }
 
         @media (max-width:500px) {
-                margin-top: -4.5svh;
+                margin-top: -4svh;
             
         }
 
@@ -202,34 +209,40 @@ p {
 /*nota */
 .nota{
 
-    /*
-     margin-top: -20px;
-    margin-left: calc(-5px - 0.8rem);
-    width: 3em;
-    */
-    height: auto;
+       height: auto;
     width: 2em;
     margin-top: -3svh;
     margin-left: -2svh;
+    background-color: var(--fundoA);
+
+
     
-    background-color: var(--fundoE);
+    background-color: #275b8b99;
+
+    filter: contrast(1.2) saturate(1.5);
+
+    
+
+    box-shadow: 1px 1px 11px 1px black;
+
     position: absolute;
     color: wheat;
-    
-    
     cursor: pointer;
-    border-radius: 7px;
+    border-radius: 5px;
     border: none;
     font-size: 1.7svh;
-    transition: all 0.05s;
-
+    
     font-family: Math;
+    transition: all 0.05s;
+    
+
+
 
     &.on{
 
         background: linear-gradient(45deg, var(--fundoE), var(--colorC));
         color: white;
-        filter: var(--filterB);
+
         transition: all 0.1s;
 
     }
@@ -261,6 +274,12 @@ p {
     }
 }
 
+.contBraco{
+    padding: 1vh;
+       max-width: 100dvw;
+    overflow-x: auto;
+}
+
 #braco{
 
     background: linear-gradient(306deg, black, var(--fundoG), transparent);
@@ -269,10 +288,7 @@ p {
         
     align-content: center;
     position: relative;
-    max-width: 100dvw;
-    overflow-x: auto;
-
-    
+ 
     
     /*considera 2svh por ser bottom e top*/
     
@@ -289,8 +305,6 @@ p {
     }
   
     &.mobile{
-        
-        
         @media (orientation: landscape) {
 
             bottom: 0vh;

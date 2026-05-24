@@ -112,16 +112,16 @@
     overflow-x: hidden;
 
     &.desktop {
-        padding-right: 4vh ;
+        
         overflow-y: scroll;
         
         
-        max-height: 48vh !important;
+
     
-        @media (orientation: landscape) {
-            width: 30vw;
-            margin-left: 4vh;
-        }
+        
+            width: 35vw;
+        
+        
     }
 
     &.mobile{

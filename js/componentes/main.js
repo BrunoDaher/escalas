@@ -47,7 +47,7 @@ export class Main extends Aux{
 
         
         
-        return `<div class='contBraco'><div id="braco" class='${show} ${disp}'></div></div>`;
+        return `<div class='contBraco' ><div id="braco" class='${show} ${disp}'></div></div>`;
     }
 
     renderPaineis() {
