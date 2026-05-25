@@ -76,7 +76,7 @@ export class Metronomo{
 
         figurasHtml += `</div>`;
 
-        painelClock.innerHTML += `<div class="flexCenter gap2 itemCenter my-1 p-1">${figurasHtml}</div>`;
+        painelClock.innerHTML += `<div class="flexcol gap2 h-100 itemCenter justCenter my-1 p-1 w-100">${figurasHtml}</div>`;
   
         let wrap =   `  <label class="itemCenter my-1 flexList">
                 <a><i class="bi bi-grid"></i> Layout </a>
@@ -98,7 +98,7 @@ export class Metronomo{
                         </section>
                         
                         <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
-                            <legend class='f1rem colorD p-1' id='lbpm' for='bpm'>Pulsos</legend>
+                            <legend class='colorD f3vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
                             <div class="comp justContBetween w-full px-2 flexrow gap2 ">
                                 ${[1, 2, 3, 4].map(i => `
                                         <button id="pls${i}" count="${i}" class="compCount flexCenter f1rem  p-1 ${i === 4 ? 'active' : ''}">

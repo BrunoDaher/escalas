@@ -25,6 +25,7 @@
 .flex {
     display: flex;
     
+    
 }
 .flexScroll {
     display: flex;
@@ -145,10 +146,16 @@
     justify-self: center;
 }
 
+.flexColBetween {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* Size Classes */
 .mini {
-    width: 32px;
-    height: 32px;
+    width: 3vh;
+    height: 3vh;
 }
 .micro {
     width: 24px;
@@ -204,3 +211,7 @@
     }
 }
 
+
+div, section, article{
+    box-sizing: border-box;
+}

@@ -22,136 +22,111 @@
 
 /* Layout & Positioning */
 
+#userInfo{
+    font-size: 0.7em;
+}
+
 #paineis {
     
+   flex: inherit;
+    display: inherit;
+    flex-direction: inherit;
     background-color: var(--fundoD );
-    overflow-y: auto;
+
     
+    height: 100%;
+    overflow: auto;
 
-    display: flex;
-    flex-direction: column; 
-    flex: 1;
+        color: var(--colorE);
 
-    max-height: 100%;
-        
-    @media (orientation: portrait) {
-        z-index: 1;
+
+    /*desktop */    
+    @media (orientation: landscape) {
+                max-height: calc(var(--bodyMainHeight) + 2vh );
+
+
     }
-    
-    @media (max-width: 500px) {
-        border-radius: 0 !important;
-        filter: var(--filterB);
-    }
-
-    &.mobile {
-        overflow-y: visible;
-        
-          @media (orientation: landscape) {
-            padding: 0;
-            width: 30%;
-
-                    display: flex;
-            flex-direction: column;
-            
-            justify-content: space-between;
-         }
-    }
-
-    &.off{
-        opacity: 0;
-    }
-
-
-}
-
-#controls > {
-
-}
-
-
-/*todos menos painel chords,pq tem video*/
-#painelFiles, #painelClock, #painelOptions {
-
-
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
-            
-            max-height: calc(var(--mainHeight));
-
-       &.desktop{
-        max-height: calc(var(--bodyMainHeight) );
-       }     
-       
-       &.mobile{
-
-
-        @media (orientation: landscape) {
-         max-height: calc(var(--bodyMainHeight) - 5vh);
-       }
-
-       }     
-            
-       
-        
-    }
-
-#painelChords{
-
- 
-    
-    overflow-y: auto;
-    /* Isso impede que elementos internos (como legend) "vazem" para fora da área de pintura */
-    contain: paint;
-
-    max-height: var(--bodyMainHeight);
 
     &.mobile{
         @media (orientation: landscape) {
-            
-            height: 100%;
+                box-shadow: 0px 3px 10px 1px var(--colorA);
+                max-height: calc(var(--topMainHeight) + var(--footerHeight) + 3vh);
+            }
+    }
+    
+    
+}
+
+
+@media (orientation: portrait) {
+    
+
+    body:has(footer > #navegacao > #pratica.active)  {
+
+        #paineis{
+            max-height: var(--bodyMainHeight);
+        }   
+
+        #bodyMainDiv{
+            flex-direction: column-reverse;
+        }
+
+        #currentVideo{
+            height: var(--topMainHeight);
+        }
+        
+    }
+}
+
+
+#bodyMainDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: inherit;
+
+
+    & > article{
+        flex: 1;
+
+        @media (orientation: portrait) {
+            flex: auto;
+        }
+    }
+
+
+}
+
+#topMainDiv{
+        flex-shrink: 0;
+    flex-grow: 0;
+}
+
+
+.painel{
+    font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: stretch;
+     height: var(--bodyHeight);
+
+
+      @media (orientation: landscape) {
+            overflow: auto;
+            max-height: 100%;
+            width: 40vw;
+        }
+
+    &.mobile{
+        @media (orientation: portrait) {
+            overflow: auto;
             max-height: 100%;
         }
     }
-    
-}
 
-
-.painel {
-    color: var(--colorB);
-    font-size: 1.7vh;
-
-    flex: 1;
-    
-
-    overflow-x: hidden;
-
-    &.desktop {
-        
-        overflow-y: scroll;
-        
-        
-
-    
-        
-            width: 35vw;
-        
-        
-    }
-
-    &.mobile{
-        @media (orientation: landscape) {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            padding: 1vh;
-            box-shadow: 1px 1px 12px 1px black;
-
-        }
-    }
-
+   
+   
 }
 
 .rel {

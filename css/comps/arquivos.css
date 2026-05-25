@@ -9,15 +9,48 @@
         display: flex;
         flex-wrap: wrap;
 
+    
+    &.desktop{
         
-        
+            gap: 3vh;
+        box-sizing: border-box;
+        overflow-y: hidden;
+        justify-content: space-around;
+
+
+    }    
+    
     @media (orientation: portrait) {
         overflow-y: scroll;
-    max-height: calc(var(--bodyMainHeight) + var(--headerHeight));
+        max-height: calc(var(--bodyMainHeight) + var(--headerHeight));
     }
     
 
 }
+
+.desktop > .clicaMus , .tablet > .clicaMus{
+    width: 9em;
+    height: 7em;
+
+    &:active, &:focus, &:hover{
+       
+       filter: drop-shadow(2px 3px 7px var(--colorA)); 
+        
+    }
+    
+}
+
+/* Misc */
+.clicaMus {
+    text-transform: capitalize;
+    filter: saturate(0.3);
+    border-radius: 4px;
+    padding: 1vh;
+
+        flex: 0;
+    width: 18vh;
+}
+
 
 #userInfo{
     
@@ -29,28 +62,6 @@
     }
 }
 
-#salvos > div, #aulasSalvas > div {
-
-    
-
-   width: 33vw;
-    height: 33vw;
-    
-    @media (orientation: landscape) {
-         width:100%;
-        height:35svh;
-        
-            
-    background: var(--fundoD);
-    }
-
-   
-}
-
-.desktop>.clicaMus {
-    width: 11em !important;
-    height: 10em !important;
-}
 
 .songTitle{
     
@@ -66,24 +77,3 @@
 }
 
 
-
-.clicaMus.active, .clicaMus:hover {
-    
-    
-    filter: drop-shadow(2px 3px 7px var(--colorA));
-
-
-}
-
-/* Misc */
-.clicaMus {
-    text-transform: capitalize;
-    filter: saturate(0.3);
-    border-radius: 4px;
-    padding: 1vh;
-
-    display: grid;
-    grid-template-rows: 1fr 0fr 0fr;
-   
-
-}

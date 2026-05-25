@@ -27,13 +27,19 @@
     cursor: pointer;
     width: 100%;
     text-align: center;
+    font-size: 2vh;
+    color: var(--colorD);
 
     &.active, &:hover{
 
-        backdrop-filter: contrast(0.8);
-        filter: drop-shadow(2px 9px 23px var(--colorC));
-        mix-blend-mode: color;
+        background-color: var(--fundoA);
+
+
     }
+}
+
+.bi-trash{
+    color: rgba(255, 0, 0, 0.523);
 }
 
 

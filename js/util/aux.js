@@ -140,11 +140,11 @@ export  class Aux {
         
         this.refreshNav();
 
-        console.log(this.infoNavegador)
+        
 
         let disp =  this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
         
-        console.log(disp)
+        
         
         return disp;
     }
@@ -155,13 +155,30 @@ export  class Aux {
             const width = window.innerWidth;
             const height = window.innerHeight;
 
-            agent = (agent.split('(')[1].split(';')[0])
+
+            let ag1 = agent.split('(')[1].split(';')[1];
+            
+            
+
+            agent = (agent.split('(')[1].split(';')[0   ])
+
+
+            if(agent.includes('linux') && ag1.includes('android')){
+                agent = 'android'
+            }
+
+            if(navigator.platform.toLowerCase().includes('mac') && agent == 'android'){
+                agent = 'desktop'
+            }
+                
+            
+            
 
             // 1. Detecções de Hardware/SO específicas
             const isIphone = agent.includes('iphone');
             const isAndroid = agent.includes('android');
             // iPadOS 13+ se identifica como Macintosh, mas tem touch. 
-            const isIpad = agent.includes('ipad') || (agent.includes('macintosh') && navigator.maxTouchPoints > 1);
+            const isIpad = agent.includes('ipad') || (agent.includes('macintosh'));
 
             // 2. Orientação
             const landscape = window.matchMedia("(orientation: landscape)").matches;
@@ -175,7 +192,7 @@ export  class Aux {
             const isMobile = isIphone || (isAndroid && !isTablet);
 
             // Se não for nenhum dos acima e tiver cara de computador
-            let isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') || agent.includes('linux'));
+            let isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') ||  agent.includes('linux'));
 
             if(isDesktop && !landscape){
                 isTablet = true;
@@ -193,6 +210,8 @@ export  class Aux {
                 'desktop': isDesktop,
                 'mobile': isMobile
             };
+
+            console.log(this.infoNavegador)
 
        //     console.log('Resultado:', this.infoNavegador);
         

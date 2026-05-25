@@ -10,6 +10,7 @@ export class Arquivos extends Aux{
         this.dao = acordes.dao;
         this.acordes = acordes;
         this.containerId ='painelFiles';
+
         this.role = role;
 
         this.aulas = this.dao.getAulas();
@@ -22,11 +23,7 @@ export class Arquivos extends Aux{
         let controlesShow = this.role == 'adm' ? '':'off';
         
         return `
-
-
             ${this.renderFilesMenu()}
-    
-          
 
             <fieldset id='minhasAulas' class=" filesPanel rad1 bordaA  textStart ">
                 ${this.renderMinhasAulas()}
@@ -36,7 +33,7 @@ export class Arquivos extends Aux{
                 ${this.renderMeusArquivos()}
             </fieldset  >
            
-           <div class="grid fundoC justCenter w-full  p-1">
+           <div class="fundoC justCenter w-full">
                 ${this.renderDaoBtns()}
             </div>
         
@@ -63,8 +60,11 @@ export class Arquivos extends Aux{
 
         this.refreshNav();
 
+
+        console.log(this.getDispositivo())
+
         return`
-            <div id="salvos" class="${this.getDispositivo()} scrollY py-1 "></div>
+            <div id="salvos" class="${this.getDispositivo()}  "></div>
             `
     }
 
@@ -73,7 +73,7 @@ export class Arquivos extends Aux{
          this.refreshNav();
         
         return`
-            <div id="aulasSalvas" class="${this.getDispositivo()} scrollY py-1 "></div>
+            <div id="aulasSalvas" class="${this.getDispositivo()} scrollY"></div>
             `
     }
 
@@ -83,27 +83,27 @@ export class Arquivos extends Aux{
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-            <div id="daoBtns" class="flex gap2">
+            <div id="daoBtns" class="flexBtns justContBetween w-100">
                 
-                <div class="gridCenter itemCenter" id="cloudLoad">
+                <button class="itemCenter" id="cloudLoad">
                     <img src="./img/ico/icoApp.png" 
                         style='width:6vh height:6vh' class='mini pick justCenter' alt="" srcset="">
                     <a>Atualizar</a>
-                </div>
+                </button>
 
-                <div class='${controlesShow} flex gap2'>
-                    <div class="gridCenter itemCenter " id="export">
+                <div class='${controlesShow} gap2 flexBtns'>
+                    <button class="itemCenter " id="export">
                         <i class='bi-file-earmark-arrow-down  f3vh colorD '></i>
                         <a>Exportar</a>
-                    </div>
-                    <div class="gridCenter itemCenter   " id="load" target="dataLoad">
+                    </button>
+                    <button class=" itemCenter  " id="load" target="dataLoad">
                         <i class=' bi-file-earmark-arrow-up  f3vh colorD  '></i>
                         <a>Importar</a>
-                    </div>
-                    <div class="${controlesShow} itemCenter gridCenter " id="addSong">
+                    </button>
+                    <button class=" ${controlesShow} itemCenter " id="addSong">
                         <i class=' bi-music-note  f3vh colorD  '></i>
                         <a>Add Song</a>
-                    </div>
+                    </button>
                 </div>
 
                 

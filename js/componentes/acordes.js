@@ -58,8 +58,8 @@ export class Acordes extends Aux{
         
         return `
 
-            <!-- Bloco: Memória de Acordes & Escalas -->   
-            <section class="grid ">
+            
+            <section class="">
               
                 ${this.renderMusEstrutura()}
                
@@ -190,7 +190,7 @@ export class Acordes extends Aux{
                     <div>    
                         <div class="comp filterC flex justContBetween p-1"> 
                             
-                        <span class=' bi-music-note-list'> Acordes & Escalas </span>
+                        <span class='f2vh bi-music-note-list'> Acordes & Escalas </span>
                         
                         <div class="flex itemCenter gap1 f2vh">
                             <span id="addMem" class="btn1 f2vh bi bi-plus filter"></span>
@@ -203,7 +203,7 @@ export class Acordes extends Aux{
                 
                         <!-- Bloco: Velocidade -->
                         <label for="velo" class="flex w-100 p-1 itemCenter gap2">
-                            <i class="bi bi-clock colorB flex"> Tempo</i>  
+                            <i class="bi bi-clock colorB gridCenter"> Tempo</i>  
                             <input type="range" id="velo" max="800" value="10" class="w-100 comp" step="10"/> 
                         </label>
                         
@@ -224,7 +224,7 @@ export class Acordes extends Aux{
         
 
           return `
-           <section class='flex ${controlesShow}'>
+           <section class='flex ${controlesShow} colorD'>
                 <div class="gap1 flex itemCenter">
                     <a>Edit</a>
                     <label class="switch">
@@ -320,15 +320,22 @@ export class Acordes extends Aux{
                 btnVideo.onclick = ()=>{
                     //logica reversa
                     let video = this.getById(btnVideo.getAttribute('target'));
-                    let braco = this.getById('contBraco');
+                    let braco = this.getById('topMainDiv');
 
                     if(video.classList.contains('off')){
+                        
                         video.classList.remove('off');
+                        video.classList.add('on');
+
                         braco.classList.add('off');
+                        braco.classList.remove('on');
                     }
                     else{
                         video.classList.add('off');
+                        video.classList.remove('on');
+
                         braco.classList.remove('off');
+                        braco.classList.add('on');
                     }
 
                 }

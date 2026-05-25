@@ -2,7 +2,7 @@
 body{
 
     
-        justify-content: space-between;
+        
 
             background: linear-gradient(-223deg, 
              var(--colorD),  
@@ -38,6 +38,9 @@ body{
 .rev{
     transform: scaleX(-1);
 }
+
+.grayscale { filter: grayscale(100%) !important; }
+.zoom2 { transform: scale(1.2); transform-origin: center center; }
 
 
 .vinheta{
@@ -133,7 +136,8 @@ input:focus, button:focus {
     outline-width: 0;
 }
 input[type="color"] {
-        border-radius: 1vh;
+
+    border-radius: 1vh;
     /* appearance: none; */
     filter: drop-shadow(1px 1px 1px var(--fundoB));
     -moz-appearance: none !important;
@@ -142,11 +146,12 @@ input[type="color"] {
     color: transparent;
     /* background-color: transparent; */
     border-color: unset;
-    border-width: 22px;
+    border-width: 5vh;
     border-style: dashed;
-    background: unset;
-    height: 10vh;
-    width: 44px;
+    background: none;
+    height: 0;
+    width: 0;
+
   }
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
@@ -196,6 +201,7 @@ filter:var(--filterD)
     background-color: var(--fundoC);
     color: var(--colorB);
     height: fit-content;
+    font-size: 2vh;
     border-radius: 1px 1px 0 0;
     align-items: center;
 }

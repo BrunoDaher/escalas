@@ -53,13 +53,13 @@
 
 @keyframes rodando {
   0% {
-    transform: rotate(0deg);
-    filter: hue-rotate(0deg)  drop-shadow(1px 1px 6px var(--fundoA)); /* Começa na cor original */
+    transform: rotateY(0deg);
+    
     
   }
   100% {
-    transform: rotate(360deg);
-    filter: hue-rotate(360deg) drop-shadow(1px 1px 6px var(--fundoB)); /* Gira pelas cores e volta para a original */
+    transform: rotateY(360deg);
+    
     
   }
 }

@@ -15,6 +15,10 @@ html{
 }
 
 
+*{
+    
+}
+
 
 :root{
     --vh: 100%;
@@ -49,7 +53,7 @@ html{
     --headfooter:calc(var(--headerHeight) + var(--footerHeight));
     
     --topMainHeight: 30dvh;
-    --bodyMainHeight: calc(100dvh - var(--headfooter) - var(--topMainHeight)); 
+    --bodyMainHeight: calc(100dvh - var(--headfooter) - var(--topMainHeight) + 1vh); 
 
     /*soma*/
     --mainHeight: calc(100dvh - var(--headfooter));
@@ -57,9 +61,13 @@ html{
 }
 
 
-@media (min-width:1024px) {
+@media (min-width:1024px) and (orientation: landscape){
     :root{
-        --casa:1.2vw;
+   --casa: 2vw;
+        --footerHeight: 4dvh;
+        --alturavideo: calc(var(--bodyMainHeight) + var(--footerHeight));
+        
+        
     }
     
 }
@@ -84,7 +92,9 @@ html{
     color: var(--colorA);
 }
 
-
+a{
+    
+}
 
 .colorC{
     color: var(--colorC);

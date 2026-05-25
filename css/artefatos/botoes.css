@@ -5,11 +5,16 @@
 }
 
 .btnChord{
-       
+    
+  height: 2em;
+    width: 2em;
+    
+    text-align: center;
+
       font-size: 1.8dvh;
   
-  align-content: flex-start;
-  text-align: justify;
+
+  text-align: center;
   
   border-radius: 1vh;
 
@@ -26,6 +31,8 @@
 
     &:focus, &.active{
         outline: none;
+
+        
         
         border-color: transparent;
         background: var(--colorD);
@@ -91,9 +98,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;    
+    color:var(--colorB);
     text-wrap-mode: nowrap;
 
-    &.active{   
+    &.active, &:focus, &:hover{   
         color: var(--colorD);
         
     }
@@ -255,7 +263,36 @@
     cursor: pointer;
 }
 
+.flexBtns {
+
+    display: flex;
+    flex-direction: row;
+
+& 
+ > button{
+
+    
+    background: transparent;
+    color: var(--colorD);
+    border: none;
+    font-size: 1vh;
+    
+    /* padding: 1vh; */
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+
+    &:focus, &:hover{
+        cursor: pointer;
+        box-shadow: 1px 1px 5px 1px black;
+        background-color: var(--colorA);
+    }
+}
+
+}
+
 .songAlb > legend{
+        color: var(--colorB);
     height: fit-content;
     border-radius: 1vh;
     padding: 4px;

@@ -6,6 +6,7 @@ html, body {
   padding: 0;
   height: 100%; /* não 100vh */
   overflow: hidden;
+
 }
 
 body {
@@ -22,17 +23,17 @@ main {
   
   /* Força o navegador a tratar o main como uma camada separada */
   isolation: isolate; 
-}
+   overflow: hidden;
 
-main{
-    box-sizing: border-box;
+       box-sizing: border-box;
     width: stretch;
     
-        background: var(--fundoD);
+    background: var(--fundoD);
     height: 100%; /* preenche o espaço disponível */
-    overflow: hidden;
+    flex: 1;;
 }
 
+ 
 menu {
     padding: 0;
     margin: 0;
@@ -84,6 +85,8 @@ footer {
 
 .navBtn.active, .navBtn:hover{
   cursor: pointer;
+      color: var(--colorD);
+      filter: saturate(1.5);
   border-top: 1px var(--colorD) solid;
 }
 

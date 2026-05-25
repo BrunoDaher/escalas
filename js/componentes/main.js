@@ -11,16 +11,14 @@ export class Main extends Aux{
         this.videoObj = new VideoObj(dao);
 
         this.header = this.getById('header');
+        
         this.mainDiv = document.createElement('main');
         this.mainDiv.id = 'main';
-
+        this.mainDiv.className = 'flexColBetween';
+        
         this.refreshNav();
 
-        //let css = this.infoNavegador.mobile ? 'mobile' : this.infoNavegador.tablet ? 'tablet' : 'desktop';
-        
-
         let css = this.getDispositivo();
-
 
         this.css = this.getDispositivo();
                        
@@ -38,16 +36,16 @@ export class Main extends Aux{
 
         this.refreshNav()
 
-        console.log(this.infoNavegador.landscape)
+        
         let disp = this.getDispositivo();
 
-        
+
         
         let show = disp == 'desktop' || this.infoNavegador.landscape? 'on' : 'off';
 
         
         
-        return `<div id='contBraco' class='contBraco ${show} ' ><div id="braco" class='${disp}'></div></div>`;
+        return `<section id='topMainDiv' class='contBraco ${show} ${disp}' ><div id="braco" class='${disp}'></div></section>`;
     }
 
     renderPaineis() {
@@ -61,13 +59,22 @@ export class Main extends Aux{
         `;
     }
 
+    renderBodyDiv() {
+        return `        
+            <section id="bodyMainDiv" class='flexrow'>
+                ${this.renderPaineis()}
+                ${this.videoObj.renderVideo()}
+            </section>
+        `
+    }
+
     build() {
 
         this.getById('carregandoInicio').classList.add('off');
         
         this.mainDiv.insertAdjacentHTML('beforeend',this.renderBracoViolao());
-        this.mainDiv.insertAdjacentHTML('beforeend',this.videoObj.renderVideo());
-        this.mainDiv.insertAdjacentHTML('beforeend', this.renderPaineis());
+        
+        this.mainDiv.insertAdjacentHTML('beforeend',this.renderBodyDiv());
 
         this.header.insertAdjacentElement('afterend', this.mainDiv);
         
@@ -121,17 +128,16 @@ export class Main extends Aux{
         this.addAll(`painel`,'off');
         this.activePainel(btn.getAttribute('data-panel'));
 
-        console.log(this.getDispositivo())
-
         if(!this.infoNavegador.desktop && !this.infoNavegador.landscape){
 
-            let cont = this.getById('btnVideo').checked ? 'video' : 'contBraco';
+            let cont = this.getById('btnVideo').checked ? 'video' : 'topMainDiv';
 
             if(['arquivos','opcoes','clock'].includes(btn.id)){
-                this.getById(cont).classList.add('off');
+                    this.getById(cont).classList.add('off');
                 }
             else{
                 this.getById(cont).classList.remove('off');
+
             }
         }
 

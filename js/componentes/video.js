@@ -183,7 +183,7 @@ export default class VideoObj {
              
         return `
 
-             <div id='video' class="${css} rel ${ showVideo}" >
+             <article id='video' class="${css} rel ${ showVideo}" >
 
                 
                     <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>
@@ -191,7 +191,7 @@ export default class VideoObj {
                         <a id="currentLabelText" class="f2vh filterB"> </a>
                     </div>
                      
-                    <div  id='videoLoading' class='${css} abs videoLoading flex justCenter off itemCenter  colorD'>
+                    <div  id='videoLoading' class='${css} abs videoLoading flex  fundoGrad2 justCenter off itemCenter  colorD'>
 
                         <div class="pick">
                             <img  src='./img/alb.png'  width="64px">
@@ -212,7 +212,7 @@ export default class VideoObj {
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 
-                </div>
+                </article>
             `
     }
 

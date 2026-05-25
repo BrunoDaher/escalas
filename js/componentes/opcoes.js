@@ -128,7 +128,7 @@ export class Opcoes extends Aux{
                 <section class="textStart grid  ">
                     <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>
                   
-                    <div class="gap2 flexWrap p-2 paint-bucket justBetween">
+                    <div class="gap2 flexWrap p-2 paint-bucket justCenter">
                         ${temaInputs}
                     </div>
 
@@ -160,7 +160,7 @@ export class Opcoes extends Aux{
     renderTemas(){
 
         return `
-            <div class='flexCenter scroll25 gap2 p-1 justCenter '>
+            <div class='flexCenter gap2 p-2 justCenter '>
                   
                     ${Object.keys(this.temas).map(key => `
                         <span class="grid itemCenter btnTema" id="${key}" >
