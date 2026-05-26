@@ -90,8 +90,27 @@ padding-bottom: env(safe-area-inset-bottom, 20px);
   border-top: 1px var(--colorD) solid;
 }
 
+.opening{
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: auto;
+    text-align: center;
+    z-index: 5;
+
+    height: 100%; width: 100%;
+}
+
 #navegacao {
     display: flex;
     
     padding: 2svh;
+}
+
+
+
+img.startLoad{
+  width: 15vh;
+   height: 15vh ;
 }

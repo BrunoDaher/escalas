@@ -3,6 +3,8 @@
 #salvos , #aulasSalvas{
     list-style-type: none;
     
+    
+    
 
 justify-content: start;
     
@@ -11,9 +13,10 @@ justify-content: start;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-
     
     &.desktop{
+
+        padding: 0 30vh;
 
             flex-direction: row;
         flex-wrap: nowrap;
@@ -22,10 +25,7 @@ justify-content: start;
         max-width: 40em;
 
             gap: 3svh;
-
-        
-
-
+            padding: 0;
     }    
     
     @media (orientation: portrait) {
@@ -36,23 +36,19 @@ justify-content: start;
 
 }
 #aulasSalvas, #salvos{
-    
-padding: 0 10vh;
 
      .songAlb {
+        margin-right: -15vh;
             flex: none;
             width: 15em;
             height: 30svh;
-            
-
-                    
 
             transform:  skew(2deg) rotateY(25deg);
 
             filter: saturate(0.2) brightness(1);
 
              &.clicaMus{
-                margin-right: -15vh;
+                
 
                 transition: transform 0.7s ease;
 
@@ -67,8 +63,6 @@ padding: 0 10vh;
 
             }
         }
-
-       
     }
 
 /* Misc */

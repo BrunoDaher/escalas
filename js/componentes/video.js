@@ -180,6 +180,22 @@ export default class VideoObj {
                 //condicoes pra mostrar video
                 //--mobile
                 //--desktop
+
+
+                let capa = sessionStorage.getItem('img') || false;
+
+                console.log(sessionStorage.getItem('img') || false)
+
+                if(capa){
+                    capa = `<img src="${capa}" class="imgCapa" />`
+                }
+                else{
+                    capa = `
+                     <a class='bi bi-play-btn-fill f2em'>
+
+                    </a>`
+                }
+                
              
         return `
 
@@ -187,7 +203,7 @@ export default class VideoObj {
 
                 
                     <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>
-                        <a class='bi bi-play-btn-fill f2em'></a>
+                          ${capa}
                         <a id="currentLabelText" class="f2vh filterB"> </a>
                     </div>
                      
@@ -270,6 +286,8 @@ export default class VideoObj {
       }
 
       this.currentVideo.onloadedmetadata = () => {
+        
+        console.log(this.curr)
         this.loadingElement.classList.add('off');
         this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
       };

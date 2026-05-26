@@ -5,14 +5,8 @@
   animation: palheta 2s linear infinite; 
 }
 
-.opening{
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    margin-top: auto;
-    text-align: center;
-    z-index: 10;
+.imgCapa{
+    width: 32px;
 }
 
 /* --- Video Loading --- */
