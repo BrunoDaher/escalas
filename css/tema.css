@@ -1,39 +1,20 @@
 
 body{
-
-    
-        
-
-            background: linear-gradient(-223deg, 
-             var(--colorD),  
-                var(--colorA), 
-             black,    
-                var(--colorE) 
-                );
-
-
-
-        
-        /* Camada 1: Linhas da Colmeia (Hexágonos) 
-        /* Usamos a --colorA com 10% de opacidade para um brilho sutil
-        linear-gradient(120deg, rgba(39, 91, 139, 0.1) 25%, transparent 25% 75%, rgba(39, 91, 139, 0.1) 75%),
-        linear-gradient(60deg, rgba(39, 91, 139, 0.1) 25%, transparent 25% 75%, rgba(39, 91, 139, 0.1) 75%),
-        
-        radial-gradient(var(--fundoA), var(--fundoB));
-        
-        */
-
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+    background: linear-gradient(-223deg, 
+        var(--colorD),  
+        var(--colorA), 
+        black,    
+        var(--colorE) 
+        );
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     @media (display-mode: standalone) {
-        
         background-color: #000000 !important;
-
     }
-     
-  
 }
+
+
+
 
 .rev{
     transform: scaleX(-1);
@@ -45,7 +26,7 @@ body{
 
 .vinheta{
     background-color: var(--main-bg-color);
-    filter: blur(12vh);
+    filter: blur(12svh);
     backdrop-filter: brightness(0.5);
 }
 
@@ -58,7 +39,7 @@ body{
 }
 .labelTema{
     
-    border-radius: 1vh;
+    border-radius: 1svh;
     filter: var(--filterE);
 }
     
@@ -146,7 +127,7 @@ input[type="color"] {
     color: transparent;
     /* background-color: transparent; */
     border-color: unset;
-    border-width: 5vh;
+    border-width: 5svh;
     border-style: dashed;
     background: none;
     height: 0;
@@ -165,7 +146,7 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 4px;
 }
 .rad1{
-    border-radius: 1vh;
+    border-radius: 1svh;
 }
 
 .legenda{
@@ -201,7 +182,7 @@ filter:var(--filterD)
     background-color: var(--fundoC);
     color: var(--colorB);
     height: fit-content;
-    font-size: 2vh;
+    font-size: 2svh;
     border-radius: 1px 1px 0 0;
     align-items: center;
 }

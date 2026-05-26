@@ -178,11 +178,13 @@ export  class Aux {
             const isIphone = agent.includes('iphone');
             const isAndroid = agent.includes('android');
             // iPadOS 13+ se identifica como Macintosh, mas tem touch. 
-            const isIpad = agent.includes('ipad') || (agent.includes('macintosh'));
+            const isIpad = agent.includes('ipad');
 
             // 2. Orientação
             const landscape = window.matchMedia("(orientation: landscape)").matches;
 
+            console.log(agent)
+            console.log(isAndroid)
             
             // 3. Lógica de Categorização
             // Se for iPad ou (Android com tela larga), tratamos como Tablet
@@ -194,10 +196,7 @@ export  class Aux {
             // Se não for nenhum dos acima e tiver cara de computador
             let isDesktop = !isMobile && !isTablet && (agent.includes('windows') || agent.includes('macintosh') ||  agent.includes('linux'));
 
-            if(isDesktop && !landscape){
-                isTablet = true;
-                isDesktop = false;
-            }
+          
 
             // 4. Preenchimento do seu objeto
             this.infoNavegador = {

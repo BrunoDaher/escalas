@@ -73,7 +73,7 @@ export class Arquivos extends Aux{
          this.refreshNav();
         
         return`
-            <div id="aulasSalvas" class="${this.getDispositivo()} scrollY"></div>
+            <div id="aulasSalvas" class="${this.getDispositivo()} "></div>
             `
     }
 
@@ -83,7 +83,7 @@ export class Arquivos extends Aux{
         let controlesShow = this.role == 'adm' ? '':'off';
 
         return `
-            <div id="daoBtns" class="flexBtns justContBetween w-100">
+            <div id="daoBtns" class="flexBtns justContBetween p-1">
                 
                 <button class="itemCenter" id="cloudLoad">
                     <img src="./img/ico/icoApp.png" 
@@ -343,7 +343,7 @@ export class Arquivos extends Aux{
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}" 
-                 class=" rad1  songAlb  grid capt p-1 clicaMus">
+                 class=" rad1  songAlb  capt p-1 clicaMus">
             <legend class=" f2vh fundoGrad2">${legend}</legend>        
                 <div class=" flexCenter f1rem p-1 gap2 justCenter  ${controlesShow}">
                     <span data-target='vg_${nome}' role="button" class="btn1  fundoC bi-eraser-fill "></span>

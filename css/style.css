@@ -140,13 +140,14 @@ a{
 
 .l2{
 
-   backdrop-filter: brightness(0.5);
-   height: fit-content;
-   text-shadow: #fc0 1px 0 10px;
-   background: #00000061;
-   border-radius: 4px;
-   color: white;
-   margin: 0;
+    backdrop-filter: brightness(0.5);
+    height: fit-content;
+    text-shadow: #fc0 1px 0 10px;
+    background: #00000061;
+    border-radius: 4px;
+    color: white;
+    height: 6vh;
+    margin: 0;
 }
 
 .showOff{
@@ -205,3 +206,27 @@ span,div{
 }
 
 
+#body {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#bodyMainDiv {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* Onde os ícones amarelos moram */
+#navegacao {
+    flex-shrink: 2;
+    
+
+    /* Aqui usamos a variável somada à Safe Area do iOS */
+
+    
+    /* Garante que o fundo do menu acompanhe o preenchimento */
+    background: #1a1a1a; 
+}

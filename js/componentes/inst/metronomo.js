@@ -32,7 +32,7 @@ export class Metronomo{
         painelClock.innerHTML = '';
 
         painelClock.innerHTML += `
-            <label class="comp p-2 flexList">
+            <label class="comp p-2 ">
                 <a><i class="bi bi-clock"></i> Metrônomo </a>
                 <label for="metroToggle" class="switch">
                     <input type="checkbox" id="metroToggle" checked>
@@ -51,46 +51,36 @@ export class Metronomo{
         ];
 
         let figurasHtml = 
-            `<label class='card-header bg-dark m-2' for='bpm'>
-                Batidas por Tempo</label>
-                <div class="flex gap2" id="figuraBtns">
-            `;
+            `<label class='card-header bg-dark' for='bpm' style="text-align: center;">
+                Batidas por Tempo
+            </label>
+            
+            <div class="flexrow gap2 justCenter" id="figuraBtns" >
+        `;
         
-      
-            let classe = '';
+        let classe = '';
 
-        for (const fig of figuras) {
-
+            for (const fig of figuras) {
             classe = fig.value === 1 ? 'active' : '';
 
             figurasHtml += 
-            
-            `<button class="btnChord f2em figura-btn ${classe}  figritm" 
-                data-value="${fig.value}" 
-                title="${fig.title}">
-                ${fig.text}
-            </button>`;
+                    `<button class="btnChord f2em figura-btn ${classe}  figritm" 
+                        data-value="${fig.value}" 
+                        title="${fig.title}">
+                        ${fig.text}
+                    </button>`
+                ;
+            }
 
-            
-        }
+            figurasHtml += `</div>`;
 
-        figurasHtml += `</div>`;
+        painelClock.innerHTML += `<div class="flexcol gap2 h-100  p-2 ">${figurasHtml}</div>`;
 
-        painelClock.innerHTML += `<div class="flexcol gap2 h-100 itemCenter justCenter my-1 p-1 w-100">${figurasHtml}</div>`;
-  
-        let wrap =   `  <label class="itemCenter my-1 flexList">
-                <a><i class="bi bi-grid"></i> Layout </a>
-                <label for="wrap" class="switch">
-                    <input type="checkbox" id="wrap" checked>
-                    <span class="slider round"></span>
-                </label>
-            </label>
-            `; 
         
         painelClock.innerHTML += `
-            <div class="card bpm bgDark">
+            <div class=" bpm bgDark">
                     
-                    <article class="comp flexcol justContAround">
+                    <article class="comp justContAround">
                         
                         <section class='lista flexrow w-100 gap2 justCenter itemCenter p-2'>
                             <input class="w-75 bpm" type="range" min="1" max="240" value="120" id="bpm">    

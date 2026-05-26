@@ -16,7 +16,7 @@
 
   text-align: center;
   
-  border-radius: 1vh;
+    border-radius: 1svh;
 
     overflow-wrap: break-word;
     justify-items: center;
@@ -45,14 +45,14 @@
 
 
 .item {
-  padding: 1vh;
+    padding: 1svh;
     align-content: center;
     text-align: center;
     border-color: var(--colorA) !important;
     background: var(--fundoC);
     color: white;
     cursor: pointer;
-    flex: 10vh 1 1;
+    flex: 10svh 1 1;
 
       @media (hover:hover) {
         &:focus {
@@ -121,8 +121,8 @@
         font-weight: 500;
         display: flex;
         align-items: center;
-        padding: 2vh;
-        gap: 1vh;
+        padding: 2svh;
+        gap: 1svh;
         
         color: var(--colorB);
 
@@ -157,7 +157,7 @@
     border-width: 1px;
     display: grid;
     
-    padding: 1vh;
+    padding: 1svh;
     box-sizing: border-box;
     height: fit-content;
     vertical-align: middle;
@@ -208,9 +208,9 @@
 
 .btn3 {
     cursor: pointer;
-    border-radius: 0.5vh;
+    border-radius: 0.5svh;
     font-size: 1em;
-    padding: 0.7vh;
+    padding: 0.7svh;
     background: var(--fundoC);
     align-content: center;
     color: white;
@@ -237,7 +237,7 @@
     background-color: var(--fundoC);
     cursor: pointer;
     
-    padding: 0.7vh;
+    padding: 0.7svh;
     transition: background-color 0.3s ease;
 }
 
@@ -275,10 +275,10 @@
     background: transparent;
     color: var(--colorD);
     border: none;
-    font-size: 1vh;
+    font-size: 1svh;
     
     /* padding: 1vh; */
-    padding: 1vh;
+    padding: 1svh;
     display: flex;
     flex-direction: column;
 
@@ -294,7 +294,7 @@
 .songAlb > legend{
         color: var(--colorB);
     height: fit-content;
-    border-radius: 1vh;
+    border-radius: 1svh;
     padding: 4px;
     
     overflow-wrap: break-word;
@@ -304,9 +304,9 @@
 
 .btnTema{
     cursor: pointer;
-        height: 4vh;
+        height: 4svh;
     background: linear-gradient(145deg, var(--fundoC), transparent);
-    padding: 1vh;
+    padding: 1svh;
     border-radius: 3px;
     color: white;
 
@@ -333,7 +333,7 @@
 .addRem {
     bottom: 0;
     right: 0;
-    padding: 1vh;
+    padding: 1svh;
 }
 
 

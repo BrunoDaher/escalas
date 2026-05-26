@@ -1,8 +1,8 @@
 /*msg*/
 #messenger{
    position: absolute;
-    height: 100vh;
-    width: 100vw;
+    height: 100svh;
+    width: 100svw;
     z-index: 16;
 
         backdrop-filter: blur(4px) brightness(1);
@@ -47,7 +47,7 @@
 .msgtext{
         word-break: break-word;
     overflow-x: revert;
-    max-width: 80vw;
+    max-width: 80svw;
 }
 
 #contatos{
@@ -63,7 +63,7 @@
     align-items: center;
     position: relative;
         
-    height:30vh;
+    height:30svh;
     justify-content: center; 
     flex-direction: column;
 

@@ -12,9 +12,11 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100svh;
   
 }
+
+
 
 main {
   position: relative; /* Habilita o uso de z-index */
@@ -25,9 +27,6 @@ main {
   isolation: isolate; 
    overflow: hidden;
 
-       box-sizing: border-box;
-    width: stretch;
-    
     background: var(--fundoD);
     height: 100%; /* preenche o espaço disponível */
     flex: 1;;
@@ -52,17 +51,19 @@ menu {
 }
 
 header {
-    z-index: 20;
+    z-index: 10;
 
 }
+
+
 
 footer {
   display: flex;
   align-items: center;
-
+padding-bottom: env(safe-area-inset-bottom, 20px);
   
-      padding-block: 5px 1em;
-    justify-content: center;
+      
+
 
     text-align: center;
   background-color: var(--fundoE);
@@ -70,8 +71,7 @@ footer {
 
   @media (orientation: landscape) {
       justify-content: flex-start;
-      width: 28vw;
-
+      
       background: none;
   }  
   
@@ -93,5 +93,5 @@ footer {
 #navegacao {
     display: flex;
     
-    padding: 0 2dvh;
+    padding: 2svh;
 }

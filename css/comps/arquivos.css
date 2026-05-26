@@ -3,19 +3,27 @@
 #salvos , #aulasSalvas{
     list-style-type: none;
     
-    justify-content: center;
-    gap: 2vh;
+
+justify-content: start;
+    
+    gap: 2svh;
         
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
 
     
     &.desktop{
+
+            flex-direction: row;
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+        max-width: 40em;
+
+            gap: 3svh;
+
         
-            gap: 3vh;
-        box-sizing: border-box;
-        overflow-y: hidden;
-        justify-content: space-around;
 
 
     }    
@@ -27,35 +35,57 @@
     
 
 }
-
-.desktop > .clicaMus , .tablet > .clicaMus{
-    width: 9em;
-    height: 7em;
-
-    &:active, &:focus, &:hover{
-       
-       filter: drop-shadow(2px 3px 7px var(--colorA)); 
-        
-    }
+#aulasSalvas, #salvos{
     
-}
+     .songAlb {
+            flex: none;
+            width: 15em;
+            height: 30svh;
+
+            transform:  skew(2deg) rotateY(25deg);
+
+            filter: saturate(0.2) brightness(1);
+
+             &.clicaMus{
+                margin-right: -12vh;
+
+                transition: transform 0.7s ease;
+
+                &:focus, &:hover{
+                    
+                    filter: contrast(1) brightness(1.2);
+                    
+                        
+                        transform:  translateX(-10vh);
+                        transition: transform 0.7s ease;
+                }
+
+            }
+        }
+
+       
+    }
 
 /* Misc */
 .clicaMus {
     text-transform: capitalize;
-    filter: saturate(0.3);
+    
+        box-shadow: -4px -1px 12px 3px black;
     border-radius: 4px;
-    padding: 1vh;
+    padding: 1svh;
 
         flex: 0;
-    width: 18vh;
+
+
+    flex: 30%;
+    height: 18svh;
 }
 
 
 #userInfo{
     
     position: absolute;
-    margin: 1vh -1vh;
+    margin: 1svh -1svh;
 
     @media (orientation: landscape) {
         position: relative;
@@ -66,7 +96,7 @@
 .songTitle{
     
     padding: 2px;
-    border-radius: 1vh;
+    border-radius: 1svh;
         
 }
 
