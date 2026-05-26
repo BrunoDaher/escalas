@@ -37,17 +37,22 @@ justify-content: start;
 }
 #aulasSalvas, #salvos{
     
+padding: 0 10vh;
+
      .songAlb {
             flex: none;
             width: 15em;
             height: 30svh;
+            
+
+                    
 
             transform:  skew(2deg) rotateY(25deg);
 
             filter: saturate(0.2) brightness(1);
 
              &.clicaMus{
-                margin-right: -12vh;
+                margin-right: -15vh;
 
                 transition: transform 0.7s ease;
 
