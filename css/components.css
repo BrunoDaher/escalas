@@ -104,6 +104,10 @@
     flex-grow: 0;
 }
 
+#painelClock>section{
+        display: flex;
+        flex:auto;
+    }
 
 .painel{
     font-size: 2svh;

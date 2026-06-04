@@ -55,13 +55,7 @@ justify-content: start;
                 &:focus, &:hover{
                
                         filter: contrast(1) brightness(1.2);
-                        position: absolute;
-                        transition: transform 0.7s ease;
-                        top: 32%;
-                        left: 22%;
-                        backdrop-filter: blur(10vh) brightness(0.1);
-                        z-index: 20;
-
+                     
                         transition: transform 0.7s ease;
                 }
 

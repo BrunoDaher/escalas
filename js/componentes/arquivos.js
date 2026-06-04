@@ -61,7 +61,7 @@ export class Arquivos extends Aux{
         this.refreshNav();
 
 
-        console.log(this.getDispositivo())
+        //console.log(this.getDispositivo())
 
         return`
             <div id="salvos" class="${this.getDispositivo()}  "></div>
@@ -122,16 +122,16 @@ export class Arquivos extends Aux{
         
 
          this.container = this.getById(this.containerId);
-        //console.log(this.container)
+        ////console.log(this.container)
         if (this.container) {
-            ////console.log('Renderizando painel de arquivos');
+            //////console.log('Renderizando painel de arquivos');
             this.container.innerHTML = this.renderPainelFiles();
             //this.update();
             this.triggers();
            
         }
         else{
-         //  //console.log(22)
+         //  ////console.log(22)
         }
     }
 
@@ -143,7 +143,7 @@ export class Arquivos extends Aux{
 
         if(dataLoad){
             dataLoad.addEventListener('change', async ()=>{
-                ////console.log('uplad de arquivo')
+                //////console.log('uplad de arquivo')
 
                 //aguarda a persistencia (sessionStorage)
                 await this.dao.upload();
@@ -154,7 +154,7 @@ export class Arquivos extends Aux{
              }) 
         }
         else{
-            //console.log('no upload')
+            ////console.log('no upload')
         }
     }
 
@@ -214,10 +214,10 @@ export class Arquivos extends Aux{
         const cloudLoadBtn = this.getById('cloudLoad')
            
         if (cloudLoadBtn) {
-           //console.log('ss')
+           ////console.log('ss')
                 cloudLoadBtn.addEventListener('click', async ()=>{
                     
-                   //console.log('cloudLoad')
+                   ////console.log('cloudLoad')
 
                     this.togglePainel('paineis');
                     this.activePainel('carregandoInicio');
@@ -233,7 +233,7 @@ export class Arquivos extends Aux{
            
         }   
         else{
-           //console.log('no cloudLoad')   
+           ////console.log('no cloudLoad')   
         }
 
         const addSongBtn = this.getById('addSong');
@@ -277,7 +277,7 @@ export class Arquivos extends Aux{
 
     triggersFav() {
         
-       //console.log('trigger favoritos')
+       ////console.log('trigger favoritos')
         let btnsClicaMus = document.querySelectorAll('.clicaMus');
             let btnsDel = document.querySelectorAll('.bi-eraser-fill');
             let btnsPencil = document.querySelectorAll('.bi-pencil');
@@ -365,7 +365,7 @@ export class Arquivos extends Aux{
 
     addSong(){
 
-       //console.log('addSong')
+       ////console.log('addSong')
         //jogar pro dao
         sessionStorage.clear();
         const elem = this.getById('arquivo');

@@ -183,8 +183,8 @@ export  class Aux {
             // 2. Orientação
             const landscape = window.matchMedia("(orientation: landscape)").matches;
 
-            console.log(agent)
-            console.log(isAndroid)
+            //console.log(agent)
+            //console.log(isAndroid)
             
             // 3. Lógica de Categorização
             // Se for iPad ou (Android com tela larga), tratamos como Tablet
@@ -210,9 +210,9 @@ export  class Aux {
                 'mobile': isMobile
             };
 
-            console.log(this.infoNavegador)
+            //console.log(this.infoNavegador)
 
-       //     console.log('Resultado:', this.infoNavegador);
+       //     //console.log('Resultado:', this.infoNavegador);
         
         
     }

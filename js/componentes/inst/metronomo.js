@@ -29,10 +29,11 @@ export class Metronomo{
 
     buildPainelClock() {
         const painelClock = aux.getById('painelClock');
+        painelClock.classList.add('flexColBetween');
         painelClock.innerHTML = '';
 
         painelClock.innerHTML += `
-            <label class="comp p-2 ">
+            <label class="comp p-2">
                 <a><i class="bi bi-clock"></i> Metrônomo </a>
                 <label for="metroToggle" class="switch">
                     <input type="checkbox" id="metroToggle" checked>
@@ -74,20 +75,26 @@ export class Metronomo{
 
             figurasHtml += `</div>`;
 
-        painelClock.innerHTML += `<div class="flexcol gap2 h-100  p-2 ">${figurasHtml}</div>`;
+        painelClock.innerHTML += `
+                <div class="flexcol gap2 p-2">
+                    ${figurasHtml}
+                </div>`;
 
         
         painelClock.innerHTML += `
-            <div class=" bpm bgDark">
-                    
-                    <article class="comp justContAround">
+            <section class=" bpm  flexColBetween" >
+                    <article class="comp bgDark justContAround">
                         
                         <section class='lista flexrow w-100 gap2 justCenter itemCenter p-2'>
                             <input class="w-75 bpm" type="range" min="1" max="240" value="120" id="bpm">    
                             <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
                         </section>
                         
-                        <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
+                       
+                        
+
+                    </article>
+                     <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
                             <legend class='colorD f3vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
                             <div class="comp justContBetween w-full px-2 flexrow gap2 ">
                                 ${[1, 2, 3, 4].map(i => `
@@ -98,20 +105,16 @@ export class Metronomo{
                                 `).join('')}
                             </div>
                         </div>
-                        
-
-                    </article>
-                    
-                    <div id="compasso" class="compasso p-2 ">
+                </section>
+                 <section id="compasso" class="compasso p-2 h-50">
                         ${[1, 2, 3, 4].map(i => `
-                            <div id='p${i}' value="${i}" class="pulse  justContBetween">
+                            <div id='p${i}' value="${i}" class="pulse flexColBetween">
                                 ${Array(this.figuraCount).fill().map((_, j) => 
                                     `<div class="subdivision">
                                     ${j + 1}</div>`).join('')}
                             </div>
                         `).join('')}
-                    </div>
-                </div>
+                    </section>
         `;
     }
 
@@ -226,9 +229,9 @@ mark(index) {
         aux.getById('compasso').innerHTML = [1, 2, 3, 4].map(i => {
             const isVisible = i <= this.pulsos ? '' : 'none';
             return `
-                <div id='p${i}' value="${i}" class="pulse w-75 justCenter drag-container ${isVisible}">
+                <div id='p${i}' value="${i}" class="pulse w-75 flexColBetween drag-container ${isVisible}">
                     ${Array(parseInt(this.figuraCount)).fill().map((_, j) => 
-                        `<div class="subdivision ">
+                        `<div class="subdivision">
                         ${j + 1}</div>`).join('')}
                 </div>
             `;

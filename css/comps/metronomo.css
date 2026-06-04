@@ -86,7 +86,7 @@
 }
 
 .pulse{
-    display: unset;
+    
     gap: 2px;
     width: 100%;
     padding: 4px;
@@ -94,10 +94,10 @@
     filter: drop-shadow(1px 1px 1px var(--fundoC));
 
         &.active{
-        background-color: var(--fundoA);
-        color: unset;
+            background-color: var(--fundoA);
+            color: unset;
         
-    }
+        }
      
     @media (max-width: 768px) {
         width: 100% !important; 
@@ -107,7 +107,11 @@
 
 .subdivision{
     background: var(--fundoD);
-    height: 5svh;
+    /*
+      pra atingir a altura maxima e cumprir o papel
+      de comprimento em tempo, da pulsacao
+    */
+    height: 100%;
     margin: 1svh;
     text-align: center;
     align-content: center;
