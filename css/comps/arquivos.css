@@ -43,7 +43,7 @@ justify-content: start;
             width: 15em;
             height: 30svh;
 
-            transform:  skew(2deg) rotateY(25deg);
+            
 
             filter: saturate(0.2) brightness(1);
 
@@ -53,11 +53,15 @@ justify-content: start;
                 transition: transform 0.7s ease;
 
                 &:focus, &:hover{
-                    
-                    filter: contrast(1) brightness(1.2);
-                    
-                        
-                        transform:  translateX(-10vh);
+               
+                        filter: contrast(1) brightness(1.2);
+                        position: absolute;
+                        transition: transform 0.7s ease;
+                        top: 32%;
+                        left: 22%;
+                        backdrop-filter: blur(10vh) brightness(0.1);
+                        z-index: 20;
+
                         transition: transform 0.7s ease;
                 }
 
@@ -73,6 +77,8 @@ justify-content: start;
     border-radius: 4px;
     padding: 1svh;
 
+    background-position: right;
+    background-size: 100% !important;
         flex: 0;
 
 
