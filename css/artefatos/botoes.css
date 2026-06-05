@@ -266,26 +266,25 @@
     display: flex;
     flex-direction: row;
 
-& 
- > button{
+    & > button{
 
-    
-    background: transparent;
-    color: var(--colorD);
-    border: none;
-    font-size: 1svh;
-    
-    /* padding: 1vh; */
-    padding: 1svh;
-    display: flex;
-    flex-direction: column;
+        
+        background: transparent;
+        color: var(--colorD);
+        border: none;
+        font-size: 2svh;
+        
+        /* padding: 1vh; */
+        padding: 1svh;
+        display: flex;
+        flex-direction: column;
 
-    &:focus, &:hover{
-        cursor: pointer;
-        box-shadow: 1px 1px 5px 1px black;
-        background-color: var(--colorA);
+        &:focus, &:hover{
+            cursor: pointer;
+            box-shadow: 1px 1px 5px 1px black;
+            background-color: var(--colorA);
+        }
     }
-}
 
 }
 
