@@ -266,6 +266,9 @@ setCapa(capa){
         if(capa){
             this.setCapa(capa)
         }
+        else{
+            this.setCapa(`./data/aulas.png`)
+        }
     } catch (error) {
         // Retorna como string pura se não for JSON
         console.log(error)

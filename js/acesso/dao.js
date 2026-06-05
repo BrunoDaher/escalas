@@ -138,8 +138,6 @@ export class Dao {
 
     let songName = mus.getAttribute('name');
 
-    let urlImg = (mus.style.backgroundImage);
-
     sessionStorage.clear();
 
     let chave = mus.id;
