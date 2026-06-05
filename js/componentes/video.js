@@ -231,7 +231,7 @@ setCapa(capa){
     let imgCapa = document.getElementById('imgCapa');
 
     imgCapa.classList.remove('bi-play-btn-fill');
-    imgCapa.classList.add('minicapa');
+    imgCapa.classList.add('miniCapa');
 
     imgCapa.style.backgroundImage = `url(${capa})`;
 
