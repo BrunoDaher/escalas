@@ -137,15 +137,9 @@ export class Dao {
   clicaMusica(mus) {
 
     let songName = mus.getAttribute('name');
-    
-    //por default dados, apresentacao do video
-          const event = new CustomEvent('video-play',  {
-              detail: { secao: 'dados', mus:songName, origin: 'dao' }
-          });
 
-          document.dispatchEvent(event);
+    let urlImg = (mus.style.backgroundImage);
 
-    
     sessionStorage.clear();
 
     let chave = mus.id;
@@ -167,6 +161,16 @@ export class Dao {
     mus.classList.add('active');
 
     document.getElementById('seq').innerHTML = '';
+        
+    //por default dados, apresentacao do video
+          const event = new CustomEvent('video-play',  {
+              detail: { secao: 'dados', mus:songName, origin: 'dao' }
+          });
+
+          
+          document.dispatchEvent(event);
+
+    
   }
 
   removeSlot(slotId) {

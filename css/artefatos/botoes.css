@@ -259,9 +259,7 @@
     transition: all 0.3s ease;
 }
 
-.songAlb{
-    cursor: pointer;
-}
+
 
 .flexBtns {
 
@@ -292,14 +290,16 @@
 }
 
 .songAlb > legend{
-        color: var(--colorB);
+      color: var(--colorB);
     height: fit-content;
+    text-align: center;
     border-radius: 1svh;
-    padding: 4px;
-    
+    padding-block: 4px;
+    line-height: 3vh;
+    width: 100%;
     overflow-wrap: break-word;
-
 }
+
 
 
 .btnTema{

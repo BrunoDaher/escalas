@@ -50,6 +50,8 @@ export default class VideoObj {
                 await this.seletores();
                 
                 this.onvideoplay(event.detail);
+
+                
             });  
 
     this.triggerControles();
@@ -58,6 +60,8 @@ export default class VideoObj {
 
     onvideoplay(detail){
  
+        
+
         {   
         //console.log(detail)
         this.currentSong = detail.mus;
@@ -69,6 +73,7 @@ export default class VideoObj {
                 this.currentVideo.classList.add('grayscale');
                 this.currentVideo.pause();
             } else {
+
                 this.currentVideo.play();
                 this.currentVideo.classList.remove('grayscale');
 
@@ -149,12 +154,13 @@ export default class VideoObj {
         this.video.play();
     }
 
+
     renderVideo(){
 
+        let x = sessionStorage.getItem('imgSrc'); 
         
         aux.refreshNav();
         let css = aux.getDispositivo();
-
         
                     
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
@@ -181,21 +187,9 @@ export default class VideoObj {
                 //--mobile
                 //--desktop
 
-
-                let capa = sessionStorage.getItem('img') || false;
-
-                console.log(sessionStorage.getItem('img') || false)
-
-                if(capa){
-                    capa = `<img src="${capa}" class="imgCapa" />`
-                }
-                else{
-                    capa = `
-                     <a class='bi bi-play-btn-fill f2em'>
-
+                    let capa = `
+                     <a id='imgCapa' class='bi bi-play-btn-fill f4vh'>
                     </a>`
-                }
-                
              
         return `
 
@@ -232,11 +226,24 @@ export default class VideoObj {
             `
     }
 
+setCapa(capa){
+
+    let imgCapa = document.getElementById('imgCapa');
+
+    imgCapa.classList.remove('bi-play-btn-fill');
+    imgCapa.classList.add('minicapa');
+
+    imgCapa.style.backgroundImage = `url(${capa})`;
+
+    // /imgCapa.style.before.content = `url(${capa})`;
+
+
+}
+
  async playVideo(detail) {
 
   this.loadingElement.classList.remove('off');
   // 1. Reset e Feedback Visual Imediato
-
   
   this.currentVideo.pause();
 
@@ -249,9 +256,22 @@ export default class VideoObj {
 
   try {
     let fileName = `${detail.mus}_${detail.secao}`;
-    
     //apresentacao do video local ou online
     if (detail.secao == 'dados') {
+
+        
+         try {
+        // Tenta converter caso seja um objeto JSON estruturado
+        let capa = sessionStorage.getItem('img') || false;
+        if(capa){
+            this.setCapa(capa)
+        }
+    } catch (error) {
+        // Retorna como string pura se não for JSON
+        console.log(error)
+    }
+    
+
          // Busca a Signed URL
         const urlDados = await this.getVideoUrl(fileName);
 
@@ -276,6 +296,7 @@ export default class VideoObj {
 
         const url = await this.getVideoUrl(fileName);
 
+    
         if (url) {
           this.currentVideo.src = url;
           this.dao.saveVideoUrl(url, fileName);
@@ -286,8 +307,6 @@ export default class VideoObj {
       }
 
       this.currentVideo.onloadedmetadata = () => {
-        
-        console.log(this.curr)
         this.loadingElement.classList.add('off');
         this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
       };
@@ -297,9 +316,7 @@ export default class VideoObj {
     this.loadingElement.classList.remove('off');
   }
 }
-
-    
-    async getLocalVideo(key) {
+async getLocalVideo(key) {
         return new Promise((resolve, reject) => {
         const request = indexedDB.open("virtuaguitar");
 

@@ -5,62 +5,66 @@
   border-top: 5px solid var(--fundoB); 
   border-radius: 50%;
   position: absolute;
+  -webkit-animation: palheta 2s linear infinite;
   animation: palheta 2s linear infinite; 
 }
 
-@keyframes pisca {
-  0% {
-    filter: drop-shadow(0px 1px 1px var(--colorD));
-  }
-  12.5% {
-    filter: drop-shadow(1px 1px 1px var(--colorD));
-  }
-  25% {
-    filter: drop-shadow(1px 0px 1px var(--colorD));
-  }
-  37.5% {
-    filter: drop-shadow(1px -1px 1px var(--colorD));
-  }
-  50% {
-    filter: drop-shadow(0px -1px 1px var(--colorD));
-  }
-  62.5% {
-    filter: drop-shadow(-1px -1px 1px var(--colorD));
-  }
-  75% {
-    filter: drop-shadow(-1px 0px 1px var(--colorD));
-  }
-  87.5% {
-    filter: drop-shadow(-1px 1px 1px var(--colorD));
-  }
-  100% {
-    filter: drop-shadow(0px 1px 1px var(--colorD));
-  }
+@-webkit-keyframes pisca {
+  0% { -webkit-filter: drop-shadow(0px 1px 1px var(--colorD)); filter: drop-shadow(0px 1px 1px var(--colorD)); }
+  12.5% { -webkit-filter: drop-shadow(1px 1px 1px var(--colorD)); filter: drop-shadow(1px 1px 1px var(--colorD)); }
+  25% { -webkit-filter: drop-shadow(1px 0px 1px var(--colorD)); filter: drop-shadow(1px 0px 1px var(--colorD)); }
+  37.5% { -webkit-filter: drop-shadow(1px -1px 1px var(--colorD)); filter: drop-shadow(1px -1px 1px var(--colorD)); }
+  50% { -webkit-filter: drop-shadow(0px -1px 1px var(--colorD)); filter: drop-shadow(0px -1px 1px var(--colorD)); }
+  62.5% { -webkit-filter: drop-shadow(-1px -1px 1px var(--colorD)); filter: drop-shadow(-1px -1px 1px var(--colorD)); }
+  75% { -webkit-filter: drop-shadow(-1px 0px 1px var(--colorD)); filter: drop-shadow(-1px 0px 1px var(--colorD)); }
+  87.5% { -webkit-filter: drop-shadow(-1px 1px 1px var(--colorD)); filter: drop-shadow(-1px 1px 1px var(--colorD)); }
+  100% { -webkit-filter: drop-shadow(0px 1px 1px var(--colorD)); filter: drop-shadow(0px 1px 1px var(--colorD)); }
 }
 
+@keyframes pisca {
+  0% { filter: drop-shadow(0px 1px 1px var(--colorD)); }
+  12.5% { filter: drop-shadow(1px 1px 1px var(--colorD)); }
+  25% { filter: drop-shadow(1px 0px 1px var(--colorD)); }
+  37.5% { filter: drop-shadow(1px -1px 1px var(--colorD)); }
+  50% { filter: drop-shadow(0px -1px 1px var(--colorD)); }
+  62.5% { filter: drop-shadow(-1px -1px 1px var(--colorD)); }
+  75% { filter: drop-shadow(-1px 0px 1px var(--colorD)); }
+  87.5% { filter: drop-shadow(-1px 1px 1px var(--colorD)); }
+  100% { filter: drop-shadow(0px 1px 1px var(--colorD)); }
+}
+
+@-webkit-keyframes cor {
+  0% { -webkit-filter: hue-rotate(45deg); filter: hue-rotate(45deg); }
+  100% { -webkit-filter: hue-rotate(0deg); filter: hue-rotate(0deg); }
+}
 
 @keyframes cor {
-  0% {
-   filter: hue-rotate(45deg);
-  }
-  100% {
-
-    filter: hue-rotate(0deg);
-    
-  }
+  0% { filter: hue-rotate(45deg); }
+  100% { filter: hue-rotate(0deg); }
 }
 
+@-webkit-keyframes rodando {
+  0% { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
+  100% { -webkit-transform: rotateY(360deg); transform: rotateY(360deg); }
+}
 
 @keyframes rodando {
-  0% {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@-webkit-keyframes palheta {
+   0% {
+    -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    
-    
+    -webkit-filter: hue-rotate(0deg) drop-shadow(1px 1px 6px var(--fundoA));
+    filter: hue-rotate(0deg) drop-shadow(1px 1px 6px var(--fundoA));
   }
   100% {
+    -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
-    
-    
+    -webkit-filter: hue-rotate(360deg) drop-shadow(1px 1px 6px var(--fundoB));
+    filter: hue-rotate(360deg) drop-shadow(1px 1px 6px var(--fundoB));
   }
 }
 

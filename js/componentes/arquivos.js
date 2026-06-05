@@ -246,7 +246,7 @@ export class Arquivos extends Aux{
         }
 
            this.restore();
-           this.triggersFav();
+
        
         
     }
@@ -277,7 +277,7 @@ export class Arquivos extends Aux{
 
     triggersFav() {
         
-       ////console.log('trigger favoritos')
+       console.log('trigger favoritos')
         let btnsClicaMus = document.querySelectorAll('.clicaMus');
             let btnsDel = document.querySelectorAll('.bi-eraser-fill');
             let btnsPencil = document.querySelectorAll('.bi-pencil');
@@ -285,6 +285,7 @@ export class Arquivos extends Aux{
 
             btnsClicaMus.forEach(item => {
                 item.addEventListener('click', ()=>{
+                    console.log('clicando no btn musica')
                    this.clicaMusica(item);
                 })
             });
@@ -311,10 +312,14 @@ export class Arquivos extends Aux{
          
             this.acordes.clearMemoria();
             this.dao.clicaMusica(item);
+
+            //
+
             this.acordes.loadSlot(item); 
 
             //this.getById('contexto').innerText = item
             
+            //ativa div pratica
             setTimeout(
                 //
                 ()=>{
@@ -333,6 +338,8 @@ export class Arquivos extends Aux{
 
         let urlImg = this.dao.urlImg(nome) ;
 
+        
+
         let css = urlImg ? `background-image : url('${urlImg}')` :'';
 
         let controlesShow = this.role == 'adm' ? '':'off';
@@ -343,7 +350,7 @@ export class Arquivos extends Aux{
         // /justContBetween
         let template = ` 
             <div name=${nome} id="vg_${nome}" style="${css}" 
-                 class=" rad1  songAlb  capt p-1 clicaMus">
+                 class=" rad1 flexColBetween  songAlb  capt p-1 clicaMus">
             <legend class=" f2vh fundoGrad2">${legend}</legend>        
                 <div class=" flexCenter f1rem p-1 gap2 justCenter  ${controlesShow}">
                     <span data-target='vg_${nome}' role="button" class="btn1  fundoC bi-eraser-fill "></span>
@@ -385,6 +392,8 @@ export class Arquivos extends Aux{
     }
 
     restore(){
+
+        console.log('restore')
 
         this.getById('salvos').innerHTML = '';
         this.getById('aulasSalvas').innerHTML = '';

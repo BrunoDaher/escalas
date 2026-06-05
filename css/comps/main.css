@@ -93,6 +93,7 @@ padding-bottom: env(safe-area-inset-bottom, 20px);
 .opening{
     flex-flow: column;
     align-items: center;
+        background: var(--fundoD);
     justify-content: center;
     align-self: center;
     margin-top: auto;

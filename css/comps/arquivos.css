@@ -1,84 +1,52 @@
-
 /* Saved Items */
-#salvos , #aulasSalvas{
-    list-style-type: none;
-    
-    
-    
-
-justify-content: start;
-    
-    gap: 2svh;
-        
+#salvos,
+    #aulasSalvas {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-    
-    &.desktop{
+        justify-content: start;
+        gap: 2svh;
+        list-style-type: none;
 
-        padding: 0 30vh;
-
-            flex-direction: row;
-        flex-wrap: nowrap;
-
-        overflow-x: auto;
-        max-width: 40em;
-
-            gap: 3svh;
+        &.desktop {
             padding: 0;
-    }    
-    
-    @media (orientation: portrait) {
-        overflow-y: scroll;
-        max-height: calc(var(--bodyMainHeight) + var(--headerHeight));
-    }
-    
-
-}
-#aulasSalvas, #salvos{
-
-     .songAlb {
-        margin-right: -15vh;
-            flex: none;
-            width: 15em;
-            height: 30svh;
-
-            
-
-            filter: saturate(0.2) brightness(1);
-
-             &.clicaMus{
-                
-
-                transition: transform 0.7s ease;
-
-                &:focus, &:hover{
-               
-                        filter: contrast(1) brightness(1.2);
-                     
-                        transition: transform 0.7s ease;
-                }
-
-            }
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            max-width: 40em;
+            gap: 3svh;
         }
-    }
+
+        @media (orientation: portrait) {
+            overflow-y: scroll;
+            max-height: calc(var(--bodyMainHeight) + var(--headerHeight));
+        }
+
+     
+}
 
 /* Misc */
 .clicaMus {
     text-transform: capitalize;
     
         box-shadow: -4px -1px 12px 3px black;
+   text-transform: capitalize;
+    box-shadow: -4px -1px 12px 3px black;
     border-radius: 4px;
-    padding: 1svh;
+    min-width: 24vh;
+    max-width: 24vh;
+    height: 24vh;
+    max-height: 24vh;
+    transition: transform 0.7s ease;
+    flex: auto;
 
-    background-position: right;
-    background-size: 100% !important;
-        flex: 0;
-
-
-    flex: 30%;
-    height: 18svh;
+     transition: transform 0.7s ease;
+                &:focus,
+                &:hover {
+                    filter: contrast(1) brightness(1.2);
+                }
+    
 }
+
 
 
 #userInfo{
@@ -104,5 +72,3 @@ justify-content: start;
     background-size: cover !important;
     background-repeat: no-repeat !important;
 }
-
-

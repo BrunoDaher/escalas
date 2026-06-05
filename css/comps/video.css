@@ -5,6 +5,14 @@
   animation: palheta 2s linear infinite; 
 }
 
+.miniCapa{
+        width: 32px;
+    height: 32px;
+    background-size: 32px;
+    
+
+}
+
 .imgCapa{
     width: 32px;
 }
@@ -39,12 +47,12 @@
 
 #currentLabel {
         
-    background: var(--fundoG);
+    background: var(--fundoC);
     filter: drop-shadow(2px 4px 6px black);
     
     margin: 1svh;
     position: absolute;
-    border-radius: 2svh;
+    border-radius: 4px;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
     gap:1svh;
 
