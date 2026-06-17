@@ -65,7 +65,7 @@ export class Metronomo{
             classe = fig.value === 1 ? 'active' : '';
 
             figurasHtml += 
-                    `<button class="btnChord f2em figura-btn ${classe}  figritm" 
+                    `<button class="btnChord  figura-btn ${classe}  figritm" 
                         data-value="${fig.value}" 
                         title="${fig.title}">
                         ${fig.text}
@@ -76,7 +76,7 @@ export class Metronomo{
             figurasHtml += `</div>`;
 
         painelClock.innerHTML += `
-                <div class="flexcol gap2 p-2">
+                <div id="figritm" class="flexCenter gap2 justCenter p-2 w-100">
                     ${figurasHtml}
                 </div>`;
 
