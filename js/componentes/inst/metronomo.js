@@ -98,9 +98,8 @@ export class Metronomo{
                             <legend class='colorD f3vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
                             <div class="comp justContBetween w-full px-2 flexrow gap2 ">
                                 ${[1, 2, 3, 4].map(i => `
-                                        <button id="pls${i}" count="${i}" class="compCount flexCenter f1rem  p-1 ${i === 4 ? 'active' : ''}">
-                                            <i class='ind bi-hand-index-thumb f3vh'></i>
-                                            <a class='f2vh colorB'>${i}</a>
+                                        <button  id="pls${i}" count="${i}" class="compCount flexColBetween f1rem  p-1 ${i === 4 ? 'active' : ''}">
+                                            ${i}
                                         </button>
                                 `).join('')}
                             </div>

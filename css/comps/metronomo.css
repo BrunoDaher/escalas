@@ -67,16 +67,25 @@
 
 .compCount{
     border:none;
-    background: none;
     align-items: center;
-    gap: 1svh;        
-
+    gap: 1svh;  
+    flex:auto;
+    background: none;
     transition: all 0.3s;
 
-    &.active{
+    &.active::after{
+        content: "\f402";
+        font-family: bootstrap-icons;
+        rotate: 180deg;
+        color:var(--colorB)
+    }
+
+    &.active, &:hover{
+        
+        cursor:pointer;
         border-color: var(--fundoC) !important;
-                border: none;
-                transition: all 0.3s;
+        border: none;
+        transition: all 0.3s;
     }
 
 }

@@ -248,7 +248,7 @@
 
 .active > .ind{
     opacity: 1;
-    color: var(--colorD);
+    color: var(--colorA);
     transition: all 0.3s ease;
 }
 
