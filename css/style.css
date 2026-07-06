@@ -63,7 +63,7 @@ html{
 
 @media (min-width:1024px) and (orientation: landscape){
     :root{
-   --casa: 2vw;
+   --casa: 1.4vw;
         --footerHeight: 4dvh;
         --alturavideo: calc(var(--bodyMainHeight) + var(--footerHeight));
         

@@ -7,7 +7,7 @@
 .btnChord{
     
   height: 6vh;
-    width: 6vh;
+    max-width: 6vh;
     
     text-align: center;
 

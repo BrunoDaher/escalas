@@ -13,7 +13,7 @@
             flex-wrap: nowrap;
             justify-content: start;
             overflow-x: auto;
-            max-width: 40em;
+            max-width: 55%;
             gap: 3svh;
         }
 
@@ -33,10 +33,10 @@
    text-transform: capitalize;
     box-shadow: -4px -1px 12px 3px black;
     border-radius: 4px;
-    min-width: 24vh;
-    max-width: 24vh;
-    height: 24vh;
-    max-height: 24vh;
+       min-width: 18vh;
+    max-width: 18vh;
+    height: 20vh;
+    max-height: 20vh;
     transition: transform 0.7s ease;
     flex: auto;
 
