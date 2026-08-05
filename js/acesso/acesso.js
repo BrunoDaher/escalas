@@ -65,7 +65,7 @@ export class Acesso {
             <div id="acesso" class="grid p-2  gap1  selfCenter me2">
                 <input type="text" id="login" placeholder="Login" class="btn2 bgDark2">
                 <input type="password" id="senha" placeholder="Senha" class="bgDark2 btn2">
-                 <button id="btnSignIn" class="btn3 bi bi-door bordaA m1">Entrar</button>
+                 <button id="btnSignIn" class="mt-2 btn3 bi bi-door bordaA m1">Entrar</button>
             <div id='logReturn' class='colorA'></div>
             </div>
            
@@ -108,21 +108,31 @@ export class Acesso {
         btnSignin.onclick = async () => {
             const login = aux.getById('login').value;
             const senha = aux.getById('senha').value;
+            
             try {
+                aux.getById('authLoad').classList.remove('off');
                 await this.fire.signIn(login, senha);
-                this.renderUser();
-                this.showUser();
+                
+                    this.renderUser();
+                    this.showUser();
+                
+                aux.getById('authLoad').classList.add('off');
+                
             } catch (error) {
-
+                
                 aux.getById('logReturn').innerHTML = 'e-mail ou senha inválidos';
                 
 
                 //alert('Erro ao entrar no app: ' + error.message);
             }
+            
         }
     }
 
     showUser() {
+
+        //esconde o loading
+        
         aux.getById('hMenu').innerHTML = this.renderUser();
         let btnSignOut = aux.getById('btnSignOut');
 

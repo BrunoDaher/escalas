@@ -6,12 +6,12 @@
 
 .btnChord{
     
-  height: 6vh;
-    max-width: 6vh;
+  height: 4vh;
+ max-width: 25%;
     
     text-align: center;
 
-      font-size: 2.7dvh;
+      font-size: auto;
   
 
   text-align: center;
@@ -45,7 +45,7 @@
 
 
 .item {
-    padding: 1svh;
+    
     align-content: center;
     text-align: center;
     border-color: var(--colorA) !important;
@@ -53,6 +53,7 @@
     color: white;
     cursor: pointer;
     flex: auto;
+    border-width: 1px;
 
       @media (hover:hover) {
         &:focus {
@@ -289,13 +290,13 @@
 }
 
 .songAlb > legend{
-      color: var(--colorB);
+         color: var(--colorB);
     height: fit-content;
-    text-align: center;
-    border-radius: 1svh;
-    padding-block: 4px;
-    line-height: 3vh;
-    width: 100%;
+    text-align: start;
+    border-radius: 4px;
+    width: max-content;
+    padding-inline: 2vh;
+    line-height: 5vh;
     overflow-wrap: break-word;
 }
 

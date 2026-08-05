@@ -15,16 +15,14 @@ export default class VideoObj {
     }
 
     botoesControle (){
-        return    [
-                    //{id: 'video-pause', icon: 'bi-pause-circle', desc: 'Pausar vídeo'},
-                    //{id: 'video-play', icon: 'bi-play-circle', desc: 'Reproduzir vídeo'},
-                    {id: 'video-slow', icon: 'bi-clock-history', desc: 'Velocidade lenta', extraClass: 'rev'},
-                    {id: 'video-normal', icon: 'bi-clock', desc: 'Velocidade normal'},
-                 //   {id: 'video-filter', icon: 'bi-image', desc: 'Aplicar filtro'},
-                    
-                ] ;
+        return  [
+            //{id: 'video-pause', icon: 'bi-pause-circle', desc: 'Pausar vídeo'},
+            //{id: 'video-play', icon: 'bi-play-circle', desc: 'Reproduzir vídeo'},
+            {id: 'video-slow', icon: 'bi-clock-history', desc: 'Velocidade lenta', extraClass: 'rev'},
+            {id: 'video-normal', icon: 'bi-clock', desc: 'Velocidade normal'},
+            //   {id: 'video-filter', icon: 'bi-image', desc: 'Aplicar filtro'},
+        ] ;
     }
-
 
     seletores(){
         this.loadingElement = document.getElementById('videoLoading');
@@ -46,21 +44,15 @@ export default class VideoObj {
             });
                 
             document.addEventListener('video-play', async event => {
-                
                 await this.seletores();
-                
                 this.onvideoplay(event.detail);
-
-                
             });  
 
-    this.triggerControles();
+        this.triggerControles();
 
     }
 
     onvideoplay(detail){
- 
-        
 
         {   
         //console.log(detail)
@@ -142,7 +134,6 @@ export default class VideoObj {
     }
 
     setUrl(url){
-
         this.url = url;
     }
 
@@ -154,227 +145,175 @@ export default class VideoObj {
         this.video.play();
     }
 
-
     renderVideo(){
-
         let x = sessionStorage.getItem('imgSrc'); 
-        
         aux.refreshNav();
-        let css = aux.getDispositivo();
         
-                    
+        let css = aux.getDispositivo();
         let controls = aux.infoNavegador.desktop ? 'controls' : 'no-controls';
-
         let showVideo = aux.infoNavegador.landscape || aux.infoNavegador.desktop ? 'on' : 'off';
 
-        
-        /*
-        <div id='videoControl' 
-                    class='${showVideo ? 'on':'on'} 
-                    gap2 p-2 flexCenter abs w-fit' >
-                         ${this.botoesControle().map(btn => `
-                            <span id='${btn.id}' 
-                                title='${btn.desc}'
-                                class='vControl f2em btn bi rel 
-                                ${btn.icon} ${btn.extraClass || ''}'>
-                            </span>
-                        `).join('')
-                     }                
-                </div>
-        */
-
-                //condicoes pra mostrar video
-                //--mobile
-                //--desktop
-
-                    let capa = `
-                     <a id='imgCapa' class='bi bi-play-btn-fill f4vh'>
-                    </a>`
+        let capa = `<a id='imgCapa' class='bi bi-play-btn-fill f4vh'></a>`
              
         return `
-
              <article id='video' class="${css} rel ${ showVideo}" >
-
-                
-                    <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>
-                          ${capa}
-                        <a id="currentLabelText" class="f2vh filterB"> </a>
+                <div class='flex itemCenter w-fit filterB colorD p-1 ' id='currentLabel'>
+                        ${capa}
+                    <a id="currentLabelText" class="f2vh filterB"> </a>
+                </div>
+                <div  id='videoLoading' class='${css} abs videoLoading flex  fundoGrad2 justCenter off itemCenter  colorD'>
+                    <div class="">
+                    <img  src='./img/loading.gif'  width="64px">
                     </div>
-                     
-                    <div  id='videoLoading' class='${css} abs videoLoading flex  fundoGrad2 justCenter off itemCenter  colorD'>
-
-                        <div class="pick">
-                            <img  src='./img/alb.png'  width="64px">
-                            
-                    </div>
-                 
-                    <!--<img  src='./data/loading.gif' width="" class='off videoLoading '>-->
-                        
-                    </div>
-
-                    <video class='video ${css}' id='currentVideo'  
-                            ${controls}
-                            playsinline
-                            preload="metadata"
-                            autoplay
-                            >
-                        <source src="./data/abertura.mp4" type="video/mp4">
-                        Seu navegador não suporta a tag de vídeo.
-                    </video>
-                
-                </article>
-            `
+                </div>
+                <video class='video ${css}' id='currentVideo'  
+                        ${controls}
+                        playsinline
+                        preload="metadata"
+                        autoplay
+                        >
+                    <source src="./data/abertura.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </article>`
     }
 
-setCapa(capa){
+    setCapa(capa){
 
-    let imgCapa = document.getElementById('imgCapa');
-
-    imgCapa.classList.remove('bi-play-btn-fill');
-    imgCapa.classList.add('miniCapa');
-
-    imgCapa.style.backgroundImage = `url(${capa})`;
-
-    // /imgCapa.style.before.content = `url(${capa})`;
-
-
-}
-
- async playVideo(detail) {
-
-  this.loadingElement.classList.remove('off');
-  // 1. Reset e Feedback Visual Imediato
-  
-  this.currentVideo.pause();
-
-  // 2. Limpeza de Cache de Memória (Essencial para não travar o browser)
-  if (this.currentVideo.src.startsWith('blob:')) {
-    //oculta loading 
-    this.loadingElement.classList.add('off');
-    URL.revokeObjectURL(this.currentVideo.src);
-  }
-
-  try {
-    let fileName = `${detail.mus}_${detail.secao}`;
-    //apresentacao do video local ou online
-    if (detail.secao == 'dados') {
-
-        
-         try {
-        // Tenta converter caso seja um objeto JSON estruturado
-        let capa = sessionStorage.getItem('img') || false;
-        if(capa){
-            this.setCapa(capa)
-        }
-        else{
-            this.setCapa(`./data/aulas.png`)
-        }
-    } catch (error) {
-        // Retorna como string pura se não for JSON
-        console.log(error)
+        let imgCapa = document.getElementById('imgCapa');
+        imgCapa.classList.remove('bi-play-btn-fill');
+        imgCapa.classList.add('miniCapa');
+        imgCapa.style.backgroundImage = `url(${capa})`;
+        // /imgCapa.style.before.content = `url(${capa})`;
     }
-    
 
-         // Busca a Signed URL
-        const urlDados = await this.getVideoUrl(fileName);
+    async playVideo(detail) {
 
-        if (urlDados) {
-          this.currentVideo.src = urlDados;
-        }
-        else{
-
-              this.loadingElement.classList.add('off');
-            this.currentVideo.src = `./data/pratica2.mp4`;
-        }
-    } 
-    else if (this.currentVideo && detail.mus) {
-      
-      // Tenta Local primeiro (IndexedDB)
-      let localBlob = await this.getLocalVideo(fileName);
-
-      if (localBlob) {
-        
-        this.currentVideo.src = localBlob;
-      } else {
-
-        const url = await this.getVideoUrl(fileName);
-
-    
-        if (url) {
-          this.currentVideo.src = url;
-          this.dao.saveVideoUrl(url, fileName);
-        } 
-        else{
-            this.currentVideo.src = `./data/pratica2.mp4`;
-        }
-      }
-
-      this.currentVideo.onloadedmetadata = () => {
-        this.loadingElement.classList.add('off');
-        this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
-      };
-    }
-  } catch (err) {   
-    console.error('Erro ao processar vídeo:', err);
     this.loadingElement.classList.remove('off');
-  }
-}
-async getLocalVideo(key) {
-        return new Promise((resolve, reject) => {
-        const request = indexedDB.open("virtuaguitar");
+    // 1. Reset e Feedback Visual Imediato
+    
+    this.currentVideo.pause();
 
-        request.onerror = (event) => {
-            console.error("Erro ao abrir o banco IndexedDB:", event.target.error);
-            reject(event.target.error);
+    // 2. Limpeza de Cache de Memória (Essencial para não travar o browser)
+    if (this.currentVideo.src.startsWith('blob:')) {
+        //oculta loading 
+        this.loadingElement.classList.add('off');
+        URL.revokeObjectURL(this.currentVideo.src);
+    }
+
+    try {
+        let fileName = `${detail.mus}_${detail.secao}`;
+        //apresentacao do video local ou online
+        if (detail.secao == 'dados') {
+            try {
+            // Tenta converter caso seja um objeto JSON estruturado
+            let capa = sessionStorage.getItem('img') || false;
+            if(capa){
+                this.setCapa(capa)
+            }
+            else{
+                this.setCapa(`./data/aulas.png`)
+            }
+        } catch (error) {
+            // Retorna como string pura se não for JSON
+            console.log(error)
+        }
+        
+
+            // Busca a Signed URL
+            const urlDados = await this.getVideoUrl(fileName);
+
+            if (urlDados) {
+            this.currentVideo.src = urlDados;
+            }
+            else{
+
+                this.loadingElement.classList.add('off');
+                this.currentVideo.src = `./data/pratica2.mp4`;
+            }
+        } 
+        else if (this.currentVideo && detail.mus) {
+        
+        // Tenta Local primeiro (IndexedDB)
+        let localBlob = await this.getLocalVideo(fileName);
+
+        if (localBlob) {
+            this.currentVideo.src = localBlob;
+        } else {
+            const url = await this.getVideoUrl(fileName);
+            if (url) {
+            this.currentVideo.src = url;
+            this.dao.saveVideoUrl(url, fileName);
+            } 
+            else{
+                this.currentVideo.src = `./data/pratica2.mp4`;
+            }
+        }
+
+        this.currentVideo.onloadedmetadata = () => {
+            this.loadingElement.classList.add('off');
+            this.currentVideo.play().catch(e => console.warn("Play automático bloqueado"));
         };
+        }
+    } catch (err) {   
+        console.error('Erro ao processar vídeo:', err);
+        this.loadingElement.classList.remove('off');
+    }
+    }
 
-        request.onsuccess = (event) => {
-            const db = event.target.result;
-            const transaction = db.transaction(['videos'], 'readonly');
-            const objectStore = transaction.objectStore('videos');
+    async getLocalVideo(key) {
+            return new Promise((resolve, reject) => {
+            const request = indexedDB.open("virtuaguitar");
 
-            objectStore.openCursor().onsuccess = (event) => {
-            const cursor = event.target.result;
-            if (!cursor) {
-                // Fim dos registros
-                resolve(null);
-                return;
-            }
-
-            if (cursor.key === key) {
-                const blob = cursor.value;
-                const url = URL.createObjectURL(blob);
-                resolve(url); // ✅ retorna a URL
-            } else {
-                cursor.continue();
-            }
+            request.onerror = (event) => {
+                console.error("Erro ao abrir o banco IndexedDB:", event.target.error);
+                reject(event.target.error);
             };
 
-            objectStore.openCursor().onerror = (event) => {
-            console.error("Erro ao iterar o object store:", event.target.error);
-            reject(event.target.error);
+            request.onsuccess = (event) => {
+                const db = event.target.result;
+                const transaction = db.transaction(['videos'], 'readonly');
+                const objectStore = transaction.objectStore('videos');
+
+                objectStore.openCursor().onsuccess = (event) => {
+                const cursor = event.target.result;
+                if (!cursor) {
+                    // Fim dos registros
+                    resolve(null);
+                    return;
+                }
+
+                if (cursor.key === key) {
+                    const blob = cursor.value;
+                    const url = URL.createObjectURL(blob);
+                    resolve(url); // ✅ retorna a URL
+                } else {
+                    cursor.continue();
+                }
+                };
+
+                objectStore.openCursor().onerror = (event) => {
+                console.error("Erro ao iterar o object store:", event.target.error);
+                reject(event.target.error);
+                };
             };
-        };
-        });
+            });
     }
 
     async getVideoUrl(song) {
-    
-        song = song.toLowerCase();
-        let url = await this.dao.getUrlVideo(song);
-
-            if(url) {
-               //console.log('url encontrado na rede', song)
-                
-            }
-            else{
-                //console.log('video nao encontrado')
-            }
-                
-        return url
-            
-    }
         
-  
+            song = song.toLowerCase();
+            let url = await this.dao.getUrlVideo(song);
 
+                if(url) {
+                //console.log('url encontrado na rede', song)
+                    
+                }
+                else{
+                    //console.log('video nao encontrado')
+                }
+                    
+            return url
+                
+    }
 }

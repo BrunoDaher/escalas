@@ -11,9 +11,6 @@ import { Metronomo } from './componentes/inst/metronomo.js'
 import { Aux} from './util/aux.js'
 import { Main } from './componentes/main.js'
 
-             
-
-
 const dragula = new Dragula();
 const opcoes = new Opcoes();
 const acesso = new Acesso();
@@ -41,18 +38,17 @@ aux.refreshNav()
         else{
            // console.log('no sw')
         }
-
-
-  init();
-
   
-      
+        init();
+  
  function init() {
-
-
+    
       acesso.fire.auth.onAuthStateChanged(async (user) => {
           if (user) {
+            //mostrar o loading
+            
              role = await acesso.getFire().getRole();
+             
              
              acesso.showUser();
               main.build();

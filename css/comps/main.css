@@ -81,13 +81,16 @@ padding-bottom: env(safe-area-inset-bottom, 20px);
 .navBtn{
   
   padding-top:7px;
+  
+   
 }
 
 .navBtn.active, .navBtn:hover{
   cursor: pointer;
       color: var(--colorD);
-      filter: saturate(1.5);
-  border-top: 1px var(--colorD) solid;
+
+  border-color: var(--colorD);
+  transition: border-width 1s ease;
 }
 
 .opening{
@@ -112,6 +115,6 @@ padding-bottom: env(safe-area-inset-bottom, 20px);
 
 
 img.startLoad{
-  width: 15vh;
-   height: 15vh ;
+  width: 25vh;
+   height: 25vh;
 }

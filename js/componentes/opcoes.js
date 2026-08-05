@@ -3,7 +3,6 @@ import { Aux } from "../util/aux.js";
 export class Opcoes extends Aux{
     
     constructor() {
-    
         super();
 
         const containerId = 'painelOptions';
@@ -16,11 +15,9 @@ export class Opcoes extends Aux{
             { id: "corSecundaria", label: "Cor B", cssVar: "--colorB", name: "colorB" },
             { id: "corPaineis", label: "Paineis", cssVar: "--fundoD", name: "fundoD" }
         ];
-        
     }
 
     init(){
-     
         this.renderAll();
         this.eventos();
     }
@@ -120,20 +117,13 @@ export class Opcoes extends Aux{
             </label>
         `).join('');
 
-
         return `
-
-                
-
                 <section class="textStart grid  ">
                     <legend class="comp filterC p-1 textStart bi bi-paint-bucket">Tema</legend>
                   
                     <div class="gap2 flexWrap p-2 paint-bucket justCenter">
                         ${temaInputs}
                     </div>
-
-                   
-                
                     
                 </section>
 

@@ -20,7 +20,7 @@ export class Efeitos {
         // 2. O CORTE "ESTILO IMAGEM" (Peaking) - Limpeza total da "escrotidão"
         const mid = this.audioContext.createBiquadFilter();
         mid.type = 'peaking';
-        mid.frequency.value = 1400; // Onde mora o som de "lata" do MIDI
+        mid.frequency.value = 1000; // Onde mora o som de "lata" do MIDI
         mid.Q.value = 0.2;          // Q ULTRA BAIXO: Isso faz a curva suave da sua imagem
         mid.gain.value = -24;       // Corte agressivo para o som ficar "hi-fi"
 
@@ -29,7 +29,7 @@ export class Efeitos {
         high.type = 'highshelf';
         high.Q.value = 0.5;      
         high.frequency.value = 3000; // Onde o brilho do violão MIDI começa a brilhar
-        high.gain.value = 4;        // Cristalino, estilo produção de estúdio
+        high.gain.value = 1;        // Cristalino, estilo produção de estúdio
 
         return { low, mid, high };
     }

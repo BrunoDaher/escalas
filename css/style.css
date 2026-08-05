@@ -3,20 +3,11 @@
 @import url(./logica.css);
 @import url(./tema.css);
 @import url(./components.css);
-
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
-
-
 
 html{
     scrollbar-width: thin;
-}
-
-
-*{
-    
 }
 
 
@@ -42,9 +33,6 @@ html{
    --filterE:  drop-shadow(2px 4px 6px var(--fundoB));
    --casa:0.8rem;
    
-   
-
-   
    /* medidas */
     --headerHeight:12dvh;
     --footerHeight:10dvh;
@@ -66,14 +54,7 @@ html{
    --casa: 1.4vw;
         --footerHeight: 4dvh;
         --alturavideo: calc(var(--bodyMainHeight) + var(--footerHeight));
-        
-        
     }
-    
-}
-
-*{
-
 }
 
 .itemsCenter{
