@@ -1,8 +1,17 @@
-const CACHE_NAME = 'meu-pwa-v2';
+const CACHE_NAME = 'meu-pwa-v3';
 
-// sw.js
-self.addEventListener("install", (event) => {
-  // Pula a espera para ativar o worker imediatamente
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll([
+        './',
+        './index.html',
+        './main.js',
+        './manifest.json'
+      ]);
+    })
+  );
+
   self.skipWaiting();
 });
 
@@ -12,16 +21,38 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName); // Deleta a versão antiga
+            return caches.delete(cacheName);
           }
+
+          return Promise.resolve();
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
-// OBRIGATÓRIO para PWA: Um evento de fetch, mesmo que vazio.
-self.addEventListener("fetch", (event) => {
-  // Não faz cache. Apenas deixa o navegador seguir o fluxo normal de rede.
-  return;
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      const fetchPromise = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.ok) {
+            const responseClone = networkResponse.clone();
+
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+          }
+
+          return networkResponse;
+        })
+        .catch(() => cachedResponse);
+
+      return cachedResponse || fetchPromise;
+    })
+  );
 });
