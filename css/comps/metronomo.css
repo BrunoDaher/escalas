@@ -74,7 +74,7 @@
 
 #figritm{
     align-items: center;
-
+    min-height: 18vh;
 }
 
 .compCount{
@@ -123,6 +123,7 @@
      
     @media (max-width: 768px) {
         width: 100% !important; 
+                min-height: 30vh;
     }
 
 }
