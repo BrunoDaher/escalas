@@ -28,6 +28,13 @@
 
 .figritm{
     font-family: 'Hymnus FG';
+        font-size: 3vh;
+        border:none;
+
+        &.active{
+            background-color: var(--colorC);
+
+        }
 }
 
 .compasso{
@@ -76,6 +83,7 @@
     gap: 1svh;  
     flex:auto;
     background: none;
+    color: var(--colorD);
     transition: all 0.3s;
 
     &.active::after{

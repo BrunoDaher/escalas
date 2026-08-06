@@ -33,7 +33,7 @@ export class Metronomo{
         painelClock.innerHTML = '';
 
         painelClock.innerHTML += `
-            <label class="comp p-2">
+            <label class="comp flexList  p-2">
                 <a><i class="bi bi-clock"></i> Metrônomo </a>
                 <label for="metroToggle" class="switch">
                     <input type="checkbox" id="metroToggle" checked>
@@ -65,7 +65,7 @@ export class Metronomo{
             classe = fig.value === 1 ? 'active' : '';
 
             figurasHtml += 
-                    `<button class="btnChord  figura-btn ${classe}  figritm" 
+                    `<button class=" figura-btn ${classe}  figritm" 
                         data-value="${fig.value}" 
                         title="${fig.title}">
                         ${fig.text}
@@ -92,10 +92,10 @@ export class Metronomo{
                         
                     </article>
                      <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
-                            <legend class='colorD f3vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
+                            <legend class='colorD f2vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
                             <div class="comp justContBetween w-full px-2 flexrow gap2 ">
                                 ${[1, 2, 3, 4].map(i => `
-                                        <button  id="pls${i}" count="${i}" class="compCount flexColBetween f1rem  p-1 ${i === 4 ? 'active' : ''}">
+                                        <button  id="pls${i}" count="${i}" class="compCount flexColBetween f3vh  p-1 ${i === 4 ? 'active' : ''}">
                                             ${i}
                                         </button>
                                 `).join('')}
