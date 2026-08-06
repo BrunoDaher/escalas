@@ -52,7 +52,7 @@ export class Metronomo{
         ];
 
         let figurasHtml = 
-            `<label class='card-header bg-dark' for='bpm' style="text-align: center;">
+            `<label class='card-header flexWrap w-20 bg-dark' for='bpm' style="text-align: center;">
                 Batidas por Tempo
             </label>
             
