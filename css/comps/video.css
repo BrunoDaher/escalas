@@ -58,7 +58,7 @@
 
     
 }
-.video{
+.video , #video{
 
    @media (orientation: portrait) {
         height: var(--topMainHeight);

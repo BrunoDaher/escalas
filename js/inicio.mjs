@@ -28,7 +28,7 @@ const main = new Main(acordes.dao);
 aux.refreshNav()
 
    //sw//
-        if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
             navigator.serviceWorker.register("./service-worker.js")
             .then(reg => console.log("PWA pronto para instalação"))

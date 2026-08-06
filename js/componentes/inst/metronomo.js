@@ -90,9 +90,6 @@ export class Metronomo{
                             <div class='card-header bg-dark ' id='lbpm' for='bpm'>120 BPM</div>
                         </section>
                         
-                       
-                        
-
                     </article>
                      <div id='pulsos' class="flexcol w-100 justCenter itemCenter">
                             <legend class='colorD f3vh flexCenter justCenter p-1' id='lbpm' for='bpm'>Pulsos</legend>
