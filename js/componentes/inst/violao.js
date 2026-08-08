@@ -10,8 +10,9 @@ const aux = new Aux();
 
 export class Violao {
     
-    constructor(dao) {
+    constructor(dao, tune) {
 
+        console.log('iniciando violao')
         //console.log('instanciando violao')
         
         this.cf = new ChordFactory();
@@ -21,18 +22,33 @@ export class Violao {
         this.chordEditStatus = false;
         this.slotId = 1;
         this.isCleanMode = false;
-        this.notas = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#'];
-        this.freq = { 'E':82.407,'A':110.00,'D':146.83,'G':195.99,'B':246.93,'e':329.63 };
+        this.setTune(tune);
+        
+
+       
+    }
+
+    setTune(tune){
+        if(tune == 'dropD'){
+            this.notas = ['D','D#','E','F','F#','G','G#','A','A#','B','C','C#'];
+            this.freq = { 'D':73.42,'A':110.00,'d':146.83,'G':195.99,'B':246.93,'e':329.63 };
+            
+        }
+        else{
+            this.notas = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#'];
+            this.freq = { 'E':82.407,'A':110.00,'D':146.83,'G':195.99,'B':246.93,'e':329.63 };
+        }
+
         this.nCordas = ['borda', ...Object.keys(this.freq).reverse()];
+        console.log(this.freq)
         this.modus = 'guitar';
         if(this.modus == 'bass'){
             this.nCordas = ['borda','G','D','A','E'];
         }
         this.constante = 1.059;
 
-       
+        
     }
-
 
     scrollTrigger(){
         const container = document.getElementById('braco');
@@ -268,7 +284,7 @@ export class Violao {
 
         btn.checked = !btn.checked;
 
-        let criterio1 = aux.getById('87.27').classList.contains('off');
+        //let criterio1 = aux.getById('87.27').classList.contains('off');
         let criterio2 = aux.getById('btnVideo').checked
 
 

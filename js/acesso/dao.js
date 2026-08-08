@@ -161,15 +161,14 @@ export class Dao {
     document.getElementById('seq').innerHTML = '';
         
     //por default dados, apresentacao do video
-          const event = new CustomEvent('video-play',  {
-              detail: { secao: 'dados', mus:songName, origin: 'dao' }
-          });
-
-          
-          document.dispatchEvent(event);
-
+        const event = new CustomEvent('video-play',  {
+            detail: { secao: 'dados', mus:songName, origin: 'dao' }
+        });
+        
+        document.dispatchEvent(event);
     
   }
+
 
   removeSlot(slotId) {
     document.getElementById(slotId).remove();
@@ -188,6 +187,10 @@ export class Dao {
 
   clone(nome, id) {
     sessionStorage.setItem(nome, sessionStorage.getItem(id));
+  }
+
+  getData(id){
+    return sessionStorage.getItem(id) ? sessionStorage.getItem(id) : null;
   }
 
   getDataJSON(id) {

@@ -23,7 +23,7 @@ export class Acordes extends Aux{
 
         
             this.dao = new Dao('acordes call');
-             this.violao = new Violao(this.dao);
+             this.violao = new Violao(this.dao,'standard');
              
              this.slotId = 'acordes';
            this.editMode = false;
@@ -128,7 +128,7 @@ export class Acordes extends Aux{
                                     </a>  
 
                                     <div id='flagVideo' class='flex ${(!this.infoNavegador.desktop && !this.infoNavegador.landscape ? 'on' : 'off')}'>
-                                        <label for='btnVideo' class="gap1 flex itemCenter">
+                                        <la el for='btnVideo' class="gap1 flex itemCenter">
                                                 <a>Video</a>
                                                 <label class="switch">
                                                     <input id="btnVideo" target='video' type="checkbox" checked=true/>
@@ -274,7 +274,7 @@ export class Acordes extends Aux{
     renderAll(role) {
       // //console.log('renderizando painel de acordes')
       this.role = role;
-        this.violao.init();
+        //this.violao.init();
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
@@ -336,6 +336,11 @@ export class Acordes extends Aux{
 
                         braco.classList.remove('off');
                         braco.classList.add('on');
+
+                        console.log(this.dao.getData('tune'))
+                        
+                        this.violao.setTune(this.dao.getData('tune') || 'standard');
+                        this.violao.init();
                     }
 
                 }

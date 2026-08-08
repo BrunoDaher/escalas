@@ -287,6 +287,9 @@ export class Arquivos extends Aux{
                 item.addEventListener('click', ()=>{
                     console.log('clicando no btn musica')
                    this.clicaMusica(item);
+
+                        this.violao.setTune(this.dao.getData('tune') || 'standard');
+                        this.violao.init();
                 })
             });
         
@@ -400,7 +403,6 @@ export class Arquivos extends Aux{
         //ler os que iniciam por vg
          let str = this.dao.storageReadByTag("vg_");
          
-        
 
          str = str.sort();
          //criar o arquivo 
