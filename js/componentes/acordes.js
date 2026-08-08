@@ -274,7 +274,7 @@ export class Acordes extends Aux{
     renderAll(role) {
       // //console.log('renderizando painel de acordes')
       this.role = role;
-        //this.violao.init();
+        this.violao.init();
         const painelChords = this.getById('painelChords');
         painelChords.innerHTML = this.renderPainelChords();
 
