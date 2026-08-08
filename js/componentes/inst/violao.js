@@ -178,6 +178,8 @@ export class Violao {
     }
 
     montaBraco() {
+
+        
         aux.getById('braco').innerHTML ='';
 
 

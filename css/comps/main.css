@@ -62,9 +62,6 @@ footer {
   align-items: center;
 padding-bottom: env(safe-area-inset-bottom, 20px);
   
-      
-
-
     text-align: center;
   background-color: var(--fundoE);
   
@@ -74,6 +71,19 @@ padding-bottom: env(safe-area-inset-bottom, 20px);
       
       background: none;
   }  
+
+    @media (min-width: 768px) {
+      position: fixed;
+      top: 1vh;
+      background: none;
+      left: 20vw;
+      
+
+      nav{
+        background: none !important;
+        gap: 3svh;
+      }
+  }
   
 }
 
